@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 const NavigationTopMenu = () => {
     return (
         <>
-            <div className={'navbar fixed-top navbar-dark bg-primary m-0 p-0'}>
+            <div className={'navbar position-sticky navbar-dark bg-primary m-0 p-0'}>
                 <div className={'container'}>
                     <div className={'col-2 m-0 ms-1 p-0 justify-content-center'}>
                         <a className={'navbar-brand'}>LOGO</a>

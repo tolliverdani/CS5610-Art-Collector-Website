@@ -8,9 +8,7 @@ import HomeScreen from "./screens/HomeScreen/HomeScreen";
 function App() {
     return (
         <BrowserRouter>
-            <div className="container">
-                <Route path="/" component={HomeScreen}/>
-            </div>
+            <Route path="/" component={HomeScreen}/>
         </BrowserRouter>
     );
 }
