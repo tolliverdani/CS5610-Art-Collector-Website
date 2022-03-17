@@ -9,7 +9,7 @@ const HomeScreen = () => {
         <>
             <NavigationTopMenu/>
 
-            <div className={'row p-2'}>
+            <div className={'row pt-2'}>
                 <div className={'col-2 m-0 p-2'}>
                     <NavigationSidebar/>
                 </div>
