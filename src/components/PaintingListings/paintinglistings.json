@@ -1,0 +1,34 @@
+[
+  {
+    "key": "pli01",
+    "type": "For Sale",
+    "cost": 200,
+    "denomination": "USD",
+    "quality": "Excellent",
+    "seller": "@nziegler"
+  },
+  {
+    "key": "pli02",
+    "type": "For Sale",
+    "cost": 300,
+    "denomination": "USD",
+    "quality": "Excellent",
+    "seller": "@jziegler"
+  },
+  {
+    "key": "pli03",
+    "type": "For Barter",
+    "cost": 0,
+    "denomination": "",
+    "quality": "Average",
+    "seller": "@dtolliver"
+  },
+  {
+    "key": "pli04",
+    "type": "For Sale",
+    "cost": 50,
+    "denomination": "USD",
+    "quality": "Poor",
+    "seller": "@aclai88"
+  }
+]
