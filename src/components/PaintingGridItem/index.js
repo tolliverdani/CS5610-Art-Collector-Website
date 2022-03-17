@@ -13,9 +13,9 @@ const PaintingGridItem = ( { grid_item = {
     height: 418
 }} ) => {
     return (
-        <div className={"card m-3"}>
+        <div className={"card p-2 m-3"}>
             <p className={"m-0"}><strong>{grid_item.title}</strong></p>
-            <img src={grid_item.image}/>
+            <img className={'img-thumbnail img-responsive border-0'} src={grid_item.image}/>
             <p className={"m-0"}><strong>{grid_item.artistName}</strong>, {grid_item.completitionYear}</p>
 
         </div>

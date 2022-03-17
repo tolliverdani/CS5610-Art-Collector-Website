@@ -17,14 +17,10 @@ const HomeScreen = () => {
                     <NavigationSidebar/>
                 </div>
                 <div className={'col-10 col-lg-8 m-0 p-0'}>
-                    <HomeFeed/>
                     <PaintingGrid/>
-
                 </div>
                 <div className={'col-2 d-none d-lg-block m-0 p-0'}>
-                    <SuggestedArtists/>
                     <PaintingListings/>
-
                 </div>
             </div>
         </>
