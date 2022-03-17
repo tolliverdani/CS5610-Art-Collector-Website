@@ -6,14 +6,12 @@ import PaintingGridItem from "../PaintingGridItem";
 const PaintingGrid = () => {
     return (
         <>
+            {/*TODO should probably keep this grid component independent of the heading?*/}
             <h5><strong>Art Feed</strong></h5>
-            <div className={'Container'}>
-                <div className={'row m-0 p-0'}>
-                    {paintings.map(painting_item =>
-                        <div className={'col m-0 p-0'}>
-                            <PaintingGridItem grid_item={painting_item}/>
-                        </div>)}
-                </div>
+            <div className={'row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-1'}>
+                {paintings.map(painting_item =>
+                    <PaintingGridItem grid_item={painting_item}/>
+                )}
             </div>
         </>
     )
