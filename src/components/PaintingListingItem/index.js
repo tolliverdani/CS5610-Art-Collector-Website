@@ -14,7 +14,7 @@ const PaintingListingItem = ( { listing = {
             <li className={"list-group-item d-flex justify-content-between align-items-center"} key={listing.key}>
                 {/*Container to hold text of listing, so that bid icon can be right justified*/}
                 <div>
-                    <h5 className={"mb-0"}><strong>{listing.type}</strong></h5>
+                    <h6 className={"mb-0"}><strong>{listing.type}</strong></h6>
                     <p className={`mb-0 ${listing.type === 'For Barter' ? 'd-none' :''}`}><strong>Cost: </strong>{listing.cost} {listing.denomination}</p>
                     <p className={"mb-0"}><strong>Quality: </strong>{listing.quality}</p>
                     <p className={"mb-0"}><strong>Seller: </strong>{listing.seller}</p>

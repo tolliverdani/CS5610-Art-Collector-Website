@@ -6,7 +6,7 @@ import PaintingGridItem from "../PaintingGridItem";
 const PaintingGrid = () => {
     return (
         <>
-            <h5><strong>Painting Listings</strong></h5>
+            <h5><strong>Art Feed</strong></h5>
             <div className={'Container'}>
                 <div className={'row m-0 p-0'}>
                     {paintings.map(painting_item =>

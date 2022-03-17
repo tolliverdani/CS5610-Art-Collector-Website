@@ -6,7 +6,7 @@ import listings from "./paintinglistings.json";
 const PaintingListings = () =>  {
     return (
         <>
-            <h5><strong>Painting Listings</strong></h5>
+            <h5><strong>Listings</strong></h5>
             <ul className={"list-group"}>
                 {listings.map(listing_item => <PaintingListingItem listing={listing_item}/>)}
             </ul>

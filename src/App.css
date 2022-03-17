@@ -1,5 +1,5 @@
-.nav-item {
-  border-color: white;
+p {
+  font-size: small;
 }
 
 .bg-highlight {
@@ -9,10 +9,9 @@
   background-color: #1976d2;
 }
 
-.img-small {
-  width: 200px;
-  height: 200px;
-}
+
+
+
 
 .App {
   text-align: center;
