@@ -1,14 +1,14 @@
 import React from "react";
 
 import paintings from "./paintinginfo.json";
-import PaintingGridItem from "../PaintingGridItem";
+import PaintingGridItem from "./PaintingGridItem";
 
 const PaintingGrid = () => {
     return (
         <>
             <h5><strong>Art Feed</strong></h5>
             <div className={'Container'}>
-                <div className={'row m-0 p-0'}>
+                <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4 m-0 p-0'}>
                     {paintings.map(painting_item =>
                         <div className={'col m-0 p-0'}>
                             <PaintingGridItem grid_item={painting_item}/>

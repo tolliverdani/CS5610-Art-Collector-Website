@@ -1,6 +1,6 @@
 import react from "react";
 
-import PaintingListingItem from "../PaintingListingItem";
+import PaintingListingItem from "./PaintingListingItem";
 import listings from "./paintinglistings.json";
 
 const PaintingListings = () =>  {
