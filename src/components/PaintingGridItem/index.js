@@ -13,10 +13,13 @@ const PaintingGridItem = ( { grid_item = {
     height: 418
 }} ) => {
     return (
-        <div className={"col"}>
+        <div className={"col"} key={grid_item.key} >
             <div className={"card p-1 m-3"}>
                 <a href={"/#"}><i className="fas fa-ellipsis-h text-dark float-end me-1"/></a>
-                <img className={'img-thumbnail img-responsive border-0'} src={grid_item.image}/>
+                <img className={'img-thumbnail img-responsive border-0'}
+                     src={grid_item.image}
+                     alt={grid_item.title}
+                />
                 <div className={"card-title m-0"}><strong>{grid_item.title}</strong></div>
                 <p className={"mb-0"}><strong>{grid_item.artistName}</strong><span className={`${grid_item.completitionYear === null ? 'd-none' : ''}`}>, {grid_item.completitionYear}</span></p>
             </div>

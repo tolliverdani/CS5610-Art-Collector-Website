@@ -8,7 +8,7 @@ const PaintingListings = () =>  {
         <>
             <h5><strong>Listings</strong></h5>
             <ul className={"list-group"}>
-                {listings.map(listing_item => <PaintingListingItem listing={listing_item}/>)}
+                {listings.map(listing_item => <PaintingListingItem key={listing_item.id} listing={listing_item}/>)}
             </ul>
         </>
     )

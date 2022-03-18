@@ -2,7 +2,7 @@ import React from "react";
 
 const PaintingListingItem = ({
                                  listing = {
-                                     key: "pli01",
+                                     id: "pli01",
                                      type: "For Sale",
                                      cost: 200,
                                      denomination: "USD",
@@ -13,7 +13,7 @@ const PaintingListingItem = ({
     return (
         <div>
             {/*Container to hold listing item*/}
-            <li className={"list-group-item d-flex justify-content-between align-items-center"} key={listing.key}>
+            <li className={"list-group-item d-flex justify-content-between align-items-center"}>
                 {/*Container to hold text of listing, so that bid icon can be right justified*/}
                 <div>
                     <h6 className={"mb-0"}><strong>{listing.type}</strong></h6>

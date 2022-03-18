@@ -23,7 +23,7 @@ const PaintingGridItem = ({
             />
             <div className={'card-title'}>
                 <p className={"m-0"}><strong>{grid_item.title}</strong></p>
-                <p className={"m-0"}>{grid_item.artistName}, {grid_item.completitionYear}</p>
+                <p className={"mb-0"}>{grid_item.artistName}<span className={`${grid_item.completitionYear === null ? 'd-none' : ''}`}>, {grid_item.completitionYear}</span></p>
             </div>
         </div>
     )

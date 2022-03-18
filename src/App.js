@@ -8,6 +8,7 @@ import HomeScreen from "./screens/HomeScreen/HomeScreen";
 import ArtistProfileScreen from "./screens/ArtistProfileScreen/ArtistProfileScreen";
 import UserProfileScreen from "./screens/UserProfileScreen/UserProfileScreen";
 
+// TODO Can we switch this to the most up-to-date version?
 function App() {
     return (
         <BrowserRouter>
