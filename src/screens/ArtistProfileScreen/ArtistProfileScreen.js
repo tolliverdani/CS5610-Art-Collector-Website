@@ -1,26 +1,32 @@
 import React from "react";
+
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingListings from "../../components/PaintingListings";
 import PaintingGrid from "../../components/PaintingGrid";
+import UserInfo from "../../components/UserProfileSidebar";
+import ArtistProfileSidebar from "../../components/ArtistProfileSidebar";
+import PriceHistory from "../../components/PriceHistory";
+import CurrentOwners from "../../components/CurrentOwners";
 
-const HomeScreen = () => {
+const ArtistProfileScreen = () => {
     return (
         <>
             <NavigationTopMenu/>
 
             <div className={'row pt-2'}>
                 <div className={'col-2 m-0 p-2'}>
-                    <NavigationSidebar/>
+                    <ArtistProfileSidebar/>
                 </div>
                 <div className={'col-10 col-lg-8 m-0 p-2'}>
-                    <PaintingGrid/>
+                    <PriceHistory/>
                 </div>
                 <div className={'col-2 d-none d-lg-block m-0 p-2'}>
+                    <CurrentOwners/>
                     <PaintingListings/>
                 </div>
             </div>
         </>
     );
 };
-export default HomeScreen;
+export default ArtistProfileScreen;
