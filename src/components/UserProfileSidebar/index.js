@@ -19,7 +19,9 @@ const UserInfo = ({
             <div className={"card bg-light border-0 p-2 ms-3 align-text-center"}>
                 <h5 className={"m-0 mb-2"}><strong>{user_data.username}</strong></h5>
                 <img className={'thumb-post img-responsive rounded-circle border-0 align-self-center m-1 p-2'}
-                     src={user_data.image}/>
+                     src={user_data.image}
+                     alt={user_data.username}
+                />
                 <div className={'card-title mt-2'}>
                     <h5 className={'m-0'}><strong>About the Collector</strong></h5>
                     <p className={"m-0"}>{user_data.bio}</p>

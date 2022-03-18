@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 
 import PaintingListingItem from "./PaintingListingItem";
 import listings from "./paintinglistings.json";

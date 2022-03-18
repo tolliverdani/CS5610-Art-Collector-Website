@@ -21,7 +21,9 @@ const ArtistInfo = ({
         <>
             <div className={"card border-0 p-2 ms-3 align-text-center"}>
                 <img className={'thumb-post img-responsive border-0 align-self-center m-1 p-2'}
-                     src={art_data.image}/>
+                     src={art_data.image}
+                     alt={art_data.title}
+                />
                 <div className={'card-title mt-2'}>
                     <h5 className={'m-0'}><strong>Artwork Information</strong></h5>
                     <p className={"m-0"}>{art_data.bio}</p>

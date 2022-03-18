@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 
 import CurrentOwnersItem from "./CurrentOwnersItem";
 import owners from "./currentowners.json";

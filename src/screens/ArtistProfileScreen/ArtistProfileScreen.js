@@ -1,10 +1,7 @@
 import React from "react";
 
 import NavigationTopMenu from "../../components/NavigationTopMenu";
-import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingListings from "../../components/PaintingListings";
-import PaintingGrid from "../../components/PaintingGrid";
-import UserInfo from "../../components/UserProfileSidebar";
 import ArtistProfileSidebar from "../../components/ArtistProfileSidebar";
 import PriceHistory from "../../components/PriceHistory";
 import CurrentOwners from "../../components/CurrentOwners";
