@@ -1,7 +1,7 @@
 import React from "react";
 import ComponentHeader from "../ComponentHeader";
 
-const ArtistInfo = ({
+const ArtInfo = ({
                         art_data = {
                             id: "577282bbedc2cb3880f8abf6",
                             title: "An Homage to IKB 1957",
@@ -20,12 +20,25 @@ const ArtistInfo = ({
                     }) => {
     return (
         <>
-            {ComponentHeader("Artist Information")}
-            <div className={"card bg-light border-0 mt-2 p-2 align-text-center"}>
+            <div className={"card border-0 p-2 ms-3 align-text-center"}>
+                <img className={'thumb-post img-responsive border-0 align-self-center m-1 p-2'}
+                     src={art_data.image}
+                     alt={art_data.title}
+                />
+                <div className={'card-title mt-2'}>
+                    {ComponentHeader("Artwork Information")}
+                    <p className={"m-0"}>{art_data.bio}</p>
+                </div>
+            </div>
+            <div className={"card bg-light border-0 p-2 ms-3 align-text-center"}>
                 <div className={'card-title'}>
                     <div>
+                        <p className={"m-0"}><strong>Title</strong></p>
+                        <p className={"m-0"}>{art_data.title}</p>
                         <p className={"m-0"}><strong>Artist</strong></p>
                         <p className={"m-0"}>{art_data.artistName}</p>
+                        <p className={"m-0"}><strong>Completion Year</strong></p>
+                        <p className={"m-0"}>{art_data.completitionYear}</p>
                         <p className={"m-0"}><strong>Genre</strong></p>
                         <p className={"m-0"}>{art_data.genre}</p>
                         <p className={"m-0"}><strong>Style</strong></p>
@@ -39,4 +52,4 @@ const ArtistInfo = ({
     );
 };
 
-export default ArtistInfo;
+export default ArtInfo;

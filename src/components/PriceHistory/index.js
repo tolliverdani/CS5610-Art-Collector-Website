@@ -1,5 +1,6 @@
 import React from "react";
 import { AxisOptions, Chart } from "react-charts";
+import ComponentHeader from "../ComponentHeader";
 
 const PriceHistory = () => {
 
@@ -106,7 +107,7 @@ const PriceHistory = () => {
     return (
         <>
             <div className={'container m-2 p-4 chart-size'}>
-                <h5>Price History</h5>
+                {ComponentHeader("Price History")}
                 <Chart options={{data,
                     primaryAxis,
                     secondaryAxes}}/>

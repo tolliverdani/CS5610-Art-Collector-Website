@@ -8,12 +8,8 @@ const CurrentOwnersItem = ({
                            }) => {
     return (
         <div>
-            {/*Container to hold listing item*/}
-            <li className={"list-group-item border-0 d-flex justify-content-between align-items-center"} key={owner.key}>
-                {/*Container to hold text of listing, so that bid icon can be right justified*/}
-                <h6 className={"mb-0"}><strong>@{owner.username}</strong></h6>
-                {/*Bid button*/}
-                <button className={`btn btn-primary rounded-pill ${owner.forSale ? '' : 'd-none'}`}>Bid</button>
+            <li className={"list-group-item mb-2 border-0 d-flex justify-content-between align-items-center"}>
+                <a href={"/#"}><img className={'img-thumbnail'} src={'#'}/></a>
             </li>
         </div>
     )

@@ -5,9 +5,9 @@ import PaintingListings from "../../components/PaintingListings";
 import ArtistProfileSidebar from "../../components/ArtistProfileSidebar";
 import PriceHistory from "../../components/PriceHistory";
 import CurrentOwners from "../../components/CurrentOwners";
-import PaintingGrid from "../../components/PaintingGrid";
+import ArtPieceSidebar from "../../components/ArtPieceSidebar";
 
-const ArtistProfileScreen = () => {
+const ArtPieceScreen = () => {
     return (
         <>
             <NavigationTopMenu/>
@@ -15,17 +15,18 @@ const ArtistProfileScreen = () => {
             <div className={"container"}>
                 <div className={'row pt-2'}>
                     <div className={'col-2'}>
-                        <ArtistProfileSidebar/>
+                        <ArtPieceSidebar/>
                     </div>
                     <div className={'col-10 col-lg-8'}>
-                        <PaintingGrid/>
+                        <PriceHistory/>
                     </div>
                     <div className={'col-2 d-none d-lg-block '}>
                         <PaintingListings/>
+                        <CurrentOwners/>
                     </div>
                 </div>
             </div>
         </>
     );
 };
-export default ArtistProfileScreen;
+export default ArtPieceScreen;

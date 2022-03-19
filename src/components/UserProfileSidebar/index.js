@@ -1,4 +1,5 @@
 import React from "react";
+import ComponentHeader from "../ComponentHeader";
 
 const UserInfo = ({
                       user_data = {
@@ -16,6 +17,7 @@ const UserInfo = ({
                   }) => {
     return (
         <>
+            {ComponentHeader("User Information")}
             <div className={"card bg-light border-0 p-2 ms-3 align-text-center"}>
                 <h5 className={"m-0 mb-2"}><strong>{user_data.username}</strong></h5>
                 <img className={'thumb-post img-responsive rounded-circle border-0 align-self-center m-1 p-2'}
