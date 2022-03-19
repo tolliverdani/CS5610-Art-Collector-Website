@@ -17,6 +17,10 @@ p {
   margin-bottom: 1rem;
 }
 
+.chart-size {
+  height: 500px;
+}
+
 
 
 .App {

@@ -16,7 +16,7 @@ const HomeScreen = () => {
                     <div className={'col-10 col-lg-8 p-2'}>
                         <PaintingGrid/>
                     </div>
-                    <div className={'col-2 d-none d-lg-block m-0 p-2'}>
+                    <div className={'col-2 d-none d-lg-block p-2'}>
                         <PaintingListings/>
                     </div>
                 </div>

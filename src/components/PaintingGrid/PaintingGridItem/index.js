@@ -15,7 +15,8 @@ const PaintingGridItem = ({
                               }
                           }) => {
     return (
-        <div className={"col card border-0 p-2 m-3 align-text-center"}>
+        // TODO If we remove m-3, it will show as a 4 grid, like defined in the break points
+        <div className={"col card border-0 p-2 align-text-center"}>
             <a href={"/#"}><i className="fas fa-ellipsis-h text-dark float-end me-1"/></a>
             <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center m-1 p-0'}
                  src={grid_item.image}
