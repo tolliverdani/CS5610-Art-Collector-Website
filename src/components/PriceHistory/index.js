@@ -90,6 +90,7 @@ const PriceHistory = () => {
     const primaryAxis = React.useMemo(
         (): AxisOptions<PricePoint> => ({
             getValue: datum => datum.date,
+            scaleType: "localTime"
         }),
         []
     )
