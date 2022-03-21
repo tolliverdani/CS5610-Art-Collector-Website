@@ -8,6 +8,7 @@ import HomeScreen from "./screens/HomeScreen/HomeScreen";
 import ArtistProfileScreen from "./screens/ArtistProfileScreen/ArtistProfileScreen";
 import UserProfileScreen from "./screens/UserProfileScreen/UserProfileScreen";
 import ArtPieceScreen from "./screens/ArtPieceScreen/ArtPieceScreen";
+import LoginScreen from "./screens/LoginScreen/LoginScreen";
 
 // TODO Can we switch this to the most up-to-date version?
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/art" exact={true} component={ArtPieceScreen}/>
             <Route path="/artist" exact={true} component={ArtistProfileScreen}/>
             <Route path="/user" exact={true} component={UserProfileScreen}/>
+            <Route path="/login" exact={true} component={LoginScreen}/>
         </BrowserRouter>
     );
 }
