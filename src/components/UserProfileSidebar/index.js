@@ -18,7 +18,7 @@ const UserInfo = ({
     return (
         <>
             {ComponentHeader("User Information")}
-            <div className={"card bg-light border-0 p-2 ms-3 align-text-center"}>
+            <div className={"card bg-light border-0 p-2"}>
                 <h5 className={"m-0 mb-2"}><strong>{user_data.username}</strong></h5>
                 <img className={'thumb-post img-responsive rounded-circle border-0 align-self-center m-1 p-2'}
                      src={user_data.image}
@@ -29,15 +29,15 @@ const UserInfo = ({
                     <p className={"m-0"}>{user_data.bio}</p>
                 </div>
             </div>
-            <div className={"card border-0 p-2 ms-3 align-text-center"}>
+            <div className={"card border-0 mt-2 align-text-center"}>
                 <div className={'card-title'}>
                     <div>
-                        <span className={"m-0"}>Location: </span>
-                        <span className={"m-0"}>{user_data.location}</span>
+                        <p className={"mt-1 mb-0"}><strong>Location:</strong></p>
+                        <p className={"m-0"}>{user_data.location}</p>
                     </div>
                     <div>
-                        <span className={"m-0"}>Last login: </span>
-                        <span className={"m-0"}>{user_data.lastLogIn}</span>
+                        <p className={"mt-1 mb-0"}><strong>Last login:</strong></p>
+                        <p className={"m-0"}>{user_data.lastLogIn}</p>
                     </div>
                 </div>
             </div>

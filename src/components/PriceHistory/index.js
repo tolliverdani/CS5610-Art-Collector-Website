@@ -107,7 +107,7 @@ const PriceHistory = () => {
     // TODO tool tip is showing time
     return (
         <>
-            <div className={'container chart-size'}>
+            <div className={'chart-size'}>
                 {ComponentHeader("Price History")}
                 <Chart options={{data,
                     primaryAxis,

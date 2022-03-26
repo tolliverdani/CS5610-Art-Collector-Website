@@ -12,15 +12,16 @@ p {
 .thumb-post {
   object-fit: cover; /* Do not scale the image */
   object-position: center; /* Center the image within the element */
-  height: 200px;
-  width: 200px;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 1/1;
   margin-bottom: 1rem;
 }
 
 .chart-size {
   position: relative;
-  height: 80%;
-  width: auto;
+  height: auto;
+  width: 100%;
   aspect-ratio: 5/3
 }
 
@@ -31,6 +32,32 @@ p {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%)
+}
+
+/*Media queries for dynamic CSS*/
+/*Small*/
+@media (min-width: 576px){
+
+}
+
+/*Medium*/
+@media (min-width: 768px) {
+
+}
+
+/*Large*/
+@media (min-width: 992px){
+
+}
+
+/*Extra Large*/
+@media (min-width: 1200px){
+
+}
+
+/*Extra Extra Large*/
+@media (min-width: 1400px){
+
 }
 
 

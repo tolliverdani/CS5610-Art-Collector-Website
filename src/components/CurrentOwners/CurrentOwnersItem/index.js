@@ -8,10 +8,15 @@ const CurrentOwnersItem = ({
                                    forSale: true                               }
                            }) => {
     return (
-        <div>
-            <li className={"list-group-item mb-2 border-0 d-flex justify-content-between align-items-center"}>
-                <a href={"/#"}><img className={'img-thumbnail'} src={owner.profile_image}/></a>
-            </li>
+        <div className={"col card border-0 p-1"}>
+                <a href={"/#"}>
+                    <img className={'card-img-top rounded-circle'} src={owner.profile_image} alt={owner.username}/>
+                    <div className={"card-body p-1"}>
+                        <p className={"card-text text-center text-black text-decoration-none"}>
+                            {owner.username}
+                        </p>
+                    </div>
+                </a>
         </div>
     )
 

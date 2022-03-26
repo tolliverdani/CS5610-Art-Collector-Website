@@ -16,5 +16,17 @@
     "userId": "tsims7654",
     "profile_image": "https://pbs.twimg.com/profile_images/737708761947611136/FUQxlPNB_400x400.jpg",
     "forSale": false
-  }
+  },
+  {
+    "username": "laneystrange",
+    "userId": "lstrange",
+    "profile_image": "https://pbs.twimg.com/profile_images/737708761947611136/FUQxlPNB_400x400.jpg",
+    "forSale": false
+  },
+  {
+  "username": "allieZ",
+  "userId": "aziegler87",
+  "profile_image": "https://pbs.twimg.com/media/CiMTeSSWwAAQ_iI?format=jpg&name=small",
+  "forSale": true
+}
 ]

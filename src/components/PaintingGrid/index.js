@@ -8,7 +8,7 @@ const PaintingGrid = () => {
     return (
         <>
             {ComponentHeader("Art Feed")}
-            <div className={'justify-content-center row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4 m-0 p-0'}>
+            <div className={'justify-content-center row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
                 {paintings.map(painting_item => <PaintingGridItem key={painting_item.id} grid_item={painting_item} />)}
             </div>
         </>

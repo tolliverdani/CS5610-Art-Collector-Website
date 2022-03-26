@@ -13,7 +13,7 @@ const PaintingListingItem = ({
     return (
         <div>
             {/*Container to hold listing item*/}
-            <li className={"list-group-item mb-2 bg-light border-0 d-flex justify-content-between align-items-center"}>
+            <li className={"list-group-item mb-2 bg-light border-0"}>
                 {/*Container to hold text of listing, so that bid icon can be right justified*/}
                 <div>
                     <p className={`mb-0 ${listing.type === 'For Barter' ? 'd-none' : ''}`}>
@@ -21,9 +21,10 @@ const PaintingListingItem = ({
                     <p className={"mb-0"}><strong>Quality: </strong>{listing.quality}</p>
                     <p className={"mb-0"}><strong>Seller: </strong>{listing.seller}</p>
                 </div>
+                <div className={"d-grid mt-1"}>
                 {/*Bid button*/}
                 <a className="btn btn-primary rounded-pill btn-sm" href="/#">{listing.type === 'For Barter' ? 'Trade' : 'Buy'}</a>
-
+                </div>
             </li>
         </div>
     )
