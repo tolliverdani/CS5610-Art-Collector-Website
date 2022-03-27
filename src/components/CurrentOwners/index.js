@@ -8,7 +8,7 @@ const CurrentOwners = () =>  {
     return (
         <>
             {ComponentHeader("Current Owners")}
-            <div className={"row row-cols-2"}>
+            <div className={"row row-cols-3 p-1"}>
                     {owners.map(owner_list => <CurrentOwnersItem owner={owner_list}/>)}
             </div>
         </>

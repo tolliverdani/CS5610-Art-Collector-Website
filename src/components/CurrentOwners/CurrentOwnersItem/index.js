@@ -8,7 +8,7 @@ const CurrentOwnersItem = ({
                                    forSale: true                               }
                            }) => {
     return (
-        <div className={"col card border-0 p-1"}>
+        <div className={"col card border-0 gy-1"}>
                 <a href={"/#"}>
                     <img className={'card-img-top rounded-circle'} src={owner.profile_image} alt={owner.username}/>
                     <div className={"card-body p-1"}>
