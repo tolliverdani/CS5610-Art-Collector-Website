@@ -2,12 +2,10 @@ import React from "react";
 
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import PaintingListings from "../../components/PaintingListings";
-import ArtistProfileSidebar from "../../components/ArtistProfileSidebar";
 import PriceHistory from "../../components/PriceHistory";
 import CurrentOwners from "../../components/CurrentOwners";
 import ArtPieceSidebar from "../../components/ArtPieceSidebar";
-import NavigationSidebar from "../../components/NavigationSidebar";
-import PaintingGrid from "../../components/PaintingGrid";
+
 
 const ArtPieceScreen = () => {
     return (

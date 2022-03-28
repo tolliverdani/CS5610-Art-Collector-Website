@@ -1,5 +1,4 @@
 import React from "react";
-import ComponentHeader from "../ComponentHeader";
 
 const ArtInfo = ({
                         art_data = {
