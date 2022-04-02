@@ -17,14 +17,52 @@ p {
 .thumb-post {
   object-fit: cover; /* Do not scale the image */
   object-position: center; /* Center the image within the element */
-  height: 200px;
-  width: 200px;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 1/1;
   margin-bottom: 1rem;
 }
 
 .chart-size {
-  height: 500px;
-  width: 95%
+  position: relative;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 5/3
+}
+
+/*https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/*/
+.art_center_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+/*Media queries for dynamic CSS*/
+/*Small*/
+@media (min-width: 576px){
+
+}
+
+/*Medium*/
+@media (min-width: 768px) {
+
+}
+
+/*Large*/
+@media (min-width: 992px){
+
+}
+
+/*Extra Large*/
+@media (min-width: 1200px){
+
+}
+
+/*Extra Extra Large*/
+@media (min-width: 1400px){
+
 }
 
 

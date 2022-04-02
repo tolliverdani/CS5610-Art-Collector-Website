@@ -1,5 +1,4 @@
 import React from "react";
-import ComponentHeader from "../ComponentHeader";
 
 const ArtInfo = ({
                         art_data = {
@@ -20,29 +19,29 @@ const ArtInfo = ({
                     }) => {
     return (
         <>
-            <div className={"card border-0 p-2 ms-3 align-text-center"}>
-                <img className={'thumb-post img-responsive border-0 align-self-center m-1 p-2'}
+            <div className={"card border-0 align-text-center"}>
+                <img className={'thumb-post img-responsive border-0 align-self-center'}
                      src={art_data.image}
                      alt={art_data.title}
                 />
                 <div className={'card-title mt-2'}>
-                    {ComponentHeader("Artwork Information")}
+                    <h5 className={"mb-0"}><strong>Artwork Information</strong></h5>
                     <p className={"m-0"}>{art_data.bio}</p>
                 </div>
             </div>
-            <div className={"card bg-light border-0 p-2 ms-3 align-text-center"}>
-                <div className={'card-title'}>
+            <div className={"card bg-light border-0 align-text-center"}>
+                <div className={'card-body p-2'}>
                     <div>
                         <p className={"m-0"}><strong>Title</strong></p>
-                        <p className={"m-0"}>{art_data.title}</p>
+                        <p className={"mb-2"}>{art_data.title}</p>
                         <p className={"m-0"}><strong>Artist</strong></p>
-                        <p className={"m-0"}>{art_data.artistName}</p>
+                        <p className={"mb-2"}>{art_data.artistName}</p>
                         <p className={"m-0"}><strong>Completion Year</strong></p>
-                        <p className={"m-0"}>{art_data.completitionYear}</p>
+                        <p className={"mb-2"}>{art_data.completitionYear}</p>
                         <p className={"m-0"}><strong>Genre</strong></p>
-                        <p className={"m-0"}>{art_data.genre}</p>
+                        <p className={"mb-2"}>{art_data.genre}</p>
                         <p className={"m-0"}><strong>Style</strong></p>
-                        <p className={"m-0"}>{art_data.styles}</p>
+                        <p className={"mb-2"}>{art_data.styles}</p>
                         <p className={"m-0"}><strong>Media</strong></p>
                         <p className={"m-0"}>{art_data.media}</p>
                     </div>

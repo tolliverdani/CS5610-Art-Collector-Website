@@ -90,6 +90,7 @@ const PriceHistory = () => {
     const primaryAxis = React.useMemo(
         (): AxisOptions<PricePoint> => ({
             getValue: datum => datum.date,
+            scaleType: "localTime"
         }),
         []
     )
@@ -106,7 +107,7 @@ const PriceHistory = () => {
     // TODO tool tip is showing time
     return (
         <>
-            <div className={'container m-2 p-4 chart-size'}>
+            <div className={'chart-size'}>
                 {ComponentHeader("Price History")}
                 <Chart options={{data,
                     primaryAxis,
