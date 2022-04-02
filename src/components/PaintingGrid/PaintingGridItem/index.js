@@ -27,7 +27,7 @@ const PaintingGridItem = ({
                     <Dropdown.Item>Post for Sale</Dropdown.Item>
                     <Dropdown.Item>Post for Barter</Dropdown.Item>
             </DropdownButton>
-            <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center p-0'}
+            <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center p-0 mb-1'}
                  src={grid_item.image}
                  alt={grid_item.title}
             />
