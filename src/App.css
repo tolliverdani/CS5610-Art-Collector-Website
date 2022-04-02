@@ -9,6 +9,11 @@ p {
   background-color: #1976d2;
 }
 
+.wd-profile-image{
+  height: 100px;
+  width: 100px;
+ }
+
 .thumb-post {
   object-fit: cover; /* Do not scale the image */
   object-position: center; /* Center the image within the element */
