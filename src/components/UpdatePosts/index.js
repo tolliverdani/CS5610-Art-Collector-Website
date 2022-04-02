@@ -4,11 +4,10 @@ import updates from "./UpdatePostItem/updates.json"
 import ComponentHeader from "../ComponentHeader";
 
 const UpdatePosts = () => {
-    return(
-        <div className={"list-group mb-2"}>
-            {ComponentHeader ("Artist Updates")}
-            {updates.map(update_post => <UpdatePostItem key={update_post._id} update={update_post} />)}
-        </div>
+    return (
+            <div className={"list-group"}>
+                {updates.map(update_post => <UpdatePostItem key={update_post._id} update={update_post}/>)}
+            </div>
     )
 }
 

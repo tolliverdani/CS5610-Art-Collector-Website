@@ -21,7 +21,7 @@ const PaintingGridItem = ({
         // TODO If we remove m-3, it will show as a 4 grid, like defined in the break points
         <div className={"col card border-0 p-2"}>
             <div className={"position-relative d-flex justify-content-end"}>
-            <DropdownButton className={"position-absolute btn p-0 float-end"} variant={"primary"} size={"sm"} align={"end"}>
+            <DropdownButton className={"position-absolute btn p-0 border-0 float-end"} variant={"light"} size={"sm"} align={"end"}>
                     <Dropdown.Item>Make Private / Public</Dropdown.Item>
                     <Dropdown.Item>Favorite / Unfavorite</Dropdown.Item>
                     <Dropdown.Item>Post for Sale</Dropdown.Item>

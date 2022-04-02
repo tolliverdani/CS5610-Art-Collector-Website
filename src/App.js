@@ -10,7 +10,7 @@ import UserProfileScreen from "./screens/UserProfileScreen/UserProfileScreen";
 import ArtPieceScreen from "./screens/ArtPieceScreen/ArtPieceScreen";
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
 
-// TODO Can we switch this to the most up-to-date version?
+// TODO Can we switch this to the most up-to-date version? > lets do it
 function App() {
     return (
         <BrowserRouter>

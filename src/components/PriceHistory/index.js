@@ -1,5 +1,5 @@
 import React from "react";
-import { AxisOptions, Chart } from "react-charts";
+import {AxisOptions, Chart} from "react-charts";
 import ComponentHeader from "../ComponentHeader";
 
 const PriceHistory = () => {
@@ -83,7 +83,7 @@ const PriceHistory = () => {
                     date: new Date("2021/05/30"),
                     price: 3000
                 }
-                ]
+            ]
         }
     ]
 
@@ -104,14 +104,15 @@ const PriceHistory = () => {
         []
     )
 
-    // TODO tool tip is showing time
     return (
         <>
-            <div className={'chart-size'}>
+            <div className={'chart-size mb-5'}>
                 {ComponentHeader("Price History")}
-                <Chart options={{data,
+                <Chart options={{
+                    data,
                     primaryAxis,
-                    secondaryAxes}}/>
+                    secondaryAxes
+                }}/>
             </div>
         </>
     );
