@@ -1,4 +1,7 @@
 import React from "react";
+import {Dropdown, DropdownButton} from "react-bootstrap";
+
+// Reference for content: https://react-bootstrap.github.io/components/dropdowns/
 
 const PaintingGridItem = ({
                               grid_item = {
@@ -16,12 +19,19 @@ const PaintingGridItem = ({
                           }) => {
     return (
         // TODO If we remove m-3, it will show as a 4 grid, like defined in the break points
-        <div className={"col card border-0 p-2 align-text-center"}>
-            <a href={"/#"}><i className="fas fa-ellipsis-h text-dark float-end me-1"/></a>
-            <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center m-1 p-0'}
+        <div className={"col card border-0 p-2"}>
+            <div className={"position-relative d-flex justify-content-end"}>
+            <DropdownButton className={"position-absolute btn p-0 float-end"} variant={"primary"} size={"sm"} align={"end"}>
+                    <Dropdown.Item>Make Private / Public</Dropdown.Item>
+                    <Dropdown.Item>Favorite / Unfavorite</Dropdown.Item>
+                    <Dropdown.Item>Post for Sale</Dropdown.Item>
+                    <Dropdown.Item>Post for Barter</Dropdown.Item>
+            </DropdownButton>
+            <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center p-0'}
                  src={grid_item.image}
                  alt={grid_item.title}
             />
+            </div>
             <div className={'card-title'}>
                 <p className={"m-0"}><strong>{grid_item.title}</strong></p>
                 <p className={"mb-0"}>{grid_item.artistName}<span className={`${grid_item.completitionYear === null ? 'd-none' : ''}`}>, {grid_item.completitionYear}</span></p>
