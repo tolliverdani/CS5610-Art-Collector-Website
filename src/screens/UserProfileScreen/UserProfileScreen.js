@@ -5,6 +5,7 @@ import PaintingListings from "../../components/PaintingListings";
 import UserProfile from "../../components/UserProfile";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingGrid from "../../components/PaintingGrid";
+import profile from "../../data/profile.json";
 
 const UserProfileScreen = (
 
@@ -18,7 +19,7 @@ const UserProfileScreen = (
                         <NavigationSidebar/>
                     </div>
                     <div className={'col-10 col-lg-7'}>
-                        <UserProfile/>
+                        <UserProfile profile={profile}/>
                         <hr/>
                         <PaintingGrid/>
                     </div>

@@ -4,7 +4,6 @@ import NavigationTopMenu from "../../components/NavigationTopMenu";
 import PaintingListings from "../../components/PaintingListings";
 import PriceHistory from "../../components/PriceHistory";
 import CurrentOwners from "../../components/CurrentOwners";
-import ArtPieceSidebar from "../../components/ArtDetails";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import UpdatePosts from "../../components/UpdatePosts";
 import CreatePost from "../../components/UpdatePosts/CreatePost";

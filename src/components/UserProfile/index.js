@@ -1,15 +1,12 @@
 import React from "react";
-import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
-const UserProfile = () => {
-
-    const profile = useSelector((state) => state.profile);
+const UserProfile = (profile) => {
 
     return (
         <>
             <div className={""}>
-                <Link to={"../edit-profile"}
+                <Link to={"./edit-profile"}
                       className={"btn btn-sm btn-primary rounded-pill float-end mt-2 mb-4"}>Edit Profile</Link>
                 <h5 className={"m-0 p-0"}><strong>{profile.displayName}</strong></h5>
                 <p className={"text-muted m-0 p-0 mb-1"}>@{profile.username}</p>
