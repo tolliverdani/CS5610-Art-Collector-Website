@@ -1,10 +1,17 @@
-import React from "react";
+/* TODO this is just a test with local state...delete useState and eventually refactor */
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from 'react-redux';
+import {findPaintingsByArtist} from "../../actions/artpieces-actions";
 
-import paintings from "./paintinginfo.json";
+// import paintings from "./paintinginfo.json";
 import PaintingGridItem from "./PaintingGridItem";
 import ComponentHeader from "../ComponentHeader";
 
+
 const PaintingGrid = () => {
+    const paintings = useSelector(state => state.paintings);
+    const dispatch = useDispatch();
+    useEffect(() => findPaintingsByArtist(dispatch, "57726d87edc2cb3880b492c2"), [dispatch]);
     return (
         <>
             {ComponentHeader("Art Feed")}

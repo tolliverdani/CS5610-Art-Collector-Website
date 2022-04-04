@@ -8,11 +8,18 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 import ArtistProfile from "../../components/ArtistProfile";
 import CreatePost from "../../components/UpdatePosts/CreatePost";
 
+import paintingsReducer from "../../reducers/paintings-reducer"
+import {Provider} from "react-redux";
+import {combineReducers, createStore} from "redux";
+
+const reducers = combineReducers({paintings: paintingsReducer})
+const store = createStore(reducers);
+
 const ArtistProfileScreen = (
 
 ) => {
     return (
-        <>
+        <Provider store={store}>
             <NavigationTopMenu/>
             <div className={"container"}>
                 <div className={'row pt-2'}>
@@ -32,7 +39,7 @@ const ArtistProfileScreen = (
                     </div>
                 </div>
             </div>
-        </>
+        </Provider>
     );
 };
 export default ArtistProfileScreen;
