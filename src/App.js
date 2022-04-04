@@ -17,7 +17,7 @@ function App() {
         <BrowserRouter>
             <div className="container">
                 <Routes>
-                    <Route index elelment={<HomeScreen/>}/>
+                    <Route index element={<HomeScreen/>}/>
                     <Route path="/">
                         <Route path="home"
                                element={<HomeScreen/>}/>
