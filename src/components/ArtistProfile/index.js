@@ -1,33 +1,26 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ComponentHeader from "../ComponentHeader";
+import {useDispatch, useSelector} from "react-redux";
+import {artistDetails} from "../../actions/artpieces-actions";
 
-const ArtistProfile = ({
-                           profile = {
-                               artistUrl: "takashi-murakami",
-                               artistName: "Takashi Murakami",
-                               artistId: "57726db5edc2cb3880b4e400",
-                               birthday: "1962-02-01",
-                               nationality: "Japanese",
-                               artMovement: "Neo-Pop Art",
-                               image: "https://uploads8.wikiart.org/temp/5a16b05b-934b-4e0d-82f7-dac21a08b8f8.jpg!Portrait.jpg"
-                           }
-                       }) => {
+const ArtistProfile = () => {
+    const artist = useSelector(state => state.artist);
+    const dispatch = useDispatch();
+    useEffect(() => artistDetails(dispatch), [dispatch]);
 
     return (
         <>
             <div className={"row"}>
                 <div className={"col-6"}>
                     <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center p-0 m-0'}
-                         src={profile.image}
-                         alt={profile.artistName}
-                    />
+                         src={artist.image}
+                         alt={artist.OriginalArtistName}/>
                 </div>
                 <div className={"col-6"}>
-                    {ComponentHeader(profile.artistName)}
-                    <p className={"text-muted m-0 p-0 mb-1"}>@{profile.artistUrl}</p>
-                    <p className={"text-muted m-0 p-0 mb-1"}>{profile.birthday}</p>
-                    <p className={"text-muted m-0 p-0 mb-1"}>{profile.nationality}</p>
-                    <p className={"text-muted m-0 p-0 mb-1"}>{profile.artMovement}</p>
+                    {ComponentHeader(artist.OriginalArtistName)}
+                    <p className={"text-muted m-0 p-0 mb-1"}>@{artist.url}</p>
+                    <p className={"text-muted m-0 p-0 mb-1"}>{artist.birthDayAsString}</p>
+                    <p className={"text-muted m-0 p-0 mb-1"}>{artist.gender}</p>
                 </div>
             </div>
         </>

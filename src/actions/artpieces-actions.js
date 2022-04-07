@@ -3,6 +3,7 @@ import * as service from "../services/artpieces-service";
 export const FIND_PAINTINGS_BY_ARTIST = 'FIND_PAINTINGS_BY_ARTIST';
 export const ARTIST_GENERAL_SEARCH = 'ARTIST_GENERAL_SEARCH';
 export const RANDOM_PAINTINGS = "RANDOM_PAINTINGS";
+export const ARTIST_DETAILS = 'ARTIST_DETAILS';
 
 export const findPaintingsByArtist = async (dispatch, artist_id) => {
     const all_paintings_by_artist = await service.findPaintingsByArtist(artist_id);
@@ -25,5 +26,13 @@ export const randomPaintings = async (dispatch) => {
     dispatch({
         type: RANDOM_PAINTINGS,
         random_paintings
+    })
+}
+
+export const artistDetails = async (dispatch, artist) => {
+    const artist_details = await service.artistDetails(artist);
+    dispatch({
+        type: ARTIST_DETAILS,
+        artist_details
     })
 }

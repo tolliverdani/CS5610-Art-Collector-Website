@@ -1,5 +1,4 @@
 import React from "react";
-
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import PaintingListings from "../../components/PaintingListings";
 import PaintingGrid from "../../components/PaintingGrid";
