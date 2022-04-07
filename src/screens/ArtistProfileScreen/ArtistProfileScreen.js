@@ -10,6 +10,7 @@ import CreatePost from "../../components/UpdatePosts/CreatePost";
 import paintingsReducer from "../../reducers/paintings-reducer"
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
+import ArtDetails from "../../components/ArtDetails";
 
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);
@@ -26,7 +27,6 @@ const ArtistProfileScreen = (
                         <NavigationSidebar/>
                     </div>
                     <div className={'col-10 col-lg-7'}>
-                        <ArtistProfile/>
                         <hr/>
                         <CreatePost/>
                         <UpdatePosts/>

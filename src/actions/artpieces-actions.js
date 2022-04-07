@@ -29,8 +29,8 @@ export const randomPaintings = async (dispatch) => {
     })
 }
 
-export const artistDetails = async (dispatch, artist) => {
-    const artist_details = await service.artistDetails(artist);
+export const artistDetails = async (dispatch) => {
+    const artist_details = await service.artistDetails();
     dispatch({
         type: ARTIST_DETAILS,
         artist_details

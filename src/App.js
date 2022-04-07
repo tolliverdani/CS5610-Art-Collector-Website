@@ -25,6 +25,8 @@ function App() {
                                element={<LoginScreen/>}/>
                         <Route path="artist"
                                element={<ArtistProfileScreen/>}/>
+                        <Route path="artist/:search-term"
+                               element={<ArtistProfileScreen/>}/>
                         <Route path="art"
                                element={<ArtPieceScreen/>}/>
                         <Route path="user"

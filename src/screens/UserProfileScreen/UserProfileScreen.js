@@ -12,6 +12,7 @@ const UserProfileScreen = (
 ) => {
     return (
         <>
+
             <NavigationTopMenu/>
             <div className={'container'}>
                 <div className={'row pt-2'}>
