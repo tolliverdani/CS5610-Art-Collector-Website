@@ -10,6 +10,7 @@ import UserProfileScreen from "./screens/UserProfileScreen/UserProfileScreen";
 import ArtPieceScreen from "./screens/ArtPieceScreen/ArtPieceScreen";
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import EditProfileScreen from "./components/UserProfile/EditProfile";
+import SearchScreen from "./screens/SearchScreen/SearchScreen";
 
 // TODO Can we switch this to the most up-to-date version? > lets do it
 function App() {
@@ -21,6 +22,10 @@ function App() {
                     <Route path="/">
                         <Route path="home"
                                element={<HomeScreen/>}/>
+                        <Route path="search"
+                               element={<SearchScreen/>}/>
+                        <Route path="search/:artist_id"
+                               element={<SearchScreen/>}/>
                         <Route path="login"
                                element={<LoginScreen/>}/>
                         <Route path="artist"

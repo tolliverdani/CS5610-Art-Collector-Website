@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_BASE = process.env.REACT_APP_API_BASE;
+const API_BASE = (process.env.REACT_APP_API_BASE || 'http://localhost:4000/api');
 const PAINTINGS_BY_ARTIST_EXT = "/paintings/byArtist"
 const RANDOM_PAINTINGS = "/paintings/random"
 const ARTIST_GENERAL_SEARCH = "/generalSearch/:search_term"

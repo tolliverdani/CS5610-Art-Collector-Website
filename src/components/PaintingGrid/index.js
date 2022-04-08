@@ -1,14 +1,14 @@
 import React, {useEffect} from "react";
 import ComponentHeader from "../ComponentHeader";
 import {useDispatch, useSelector} from 'react-redux';
-import {randomPaintings} from "../../actions/artpieces-actions";
+import {findPaintingsByArtist} from "../../actions/artpieces-actions";
 
 import PaintingGridItem from "./PaintingGridItem";
 
-const PaintingGrid = () => {
+const PaintingGrid = ({id= "57726d85edc2cb3880b48ccd"}) => {
     const paintings = useSelector(state => state.paintings);
     const dispatch = useDispatch();
-    useEffect(() => randomPaintings(dispatch), [dispatch]);
+    useEffect(() => findPaintingsByArtist(dispatch, id), [dispatch]);
 
     return (
         <>
