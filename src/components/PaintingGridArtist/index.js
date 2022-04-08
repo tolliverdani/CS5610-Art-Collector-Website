@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import ComponentHeader from "../ComponentHeader";
 import {useDispatch, useSelector} from 'react-redux';
-import {updatedArtists} from "../../actions/artpieces-actions";
+import {updatedArtists} from "../../_actions/artpieces-actions";
 
 import ArtistGridItem from "./ArtistGridItem";
 

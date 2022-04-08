@@ -37,6 +37,8 @@ function App() {
                                element={<ArtistProfileScreen/>}/>
                         <Route path="art"
                                element={<ArtPieceScreen/>}/>
+                        <Route path="art/:painting_id"
+                               element={<ArtPieceScreen/>}/>
                         <Route path="user"
                                element={<UserProfileScreen/>}>
                             <Route index

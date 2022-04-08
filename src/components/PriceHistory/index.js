@@ -4,6 +4,9 @@ import ComponentHeader from "../ComponentHeader";
 
 const PriceHistory = () => {
 
+    /* TODO: we need to move this data and make sure it's organized
+        in a way that makes sense for the graph */
+
     type PricePoint = {
         date: Date,
         price: number,

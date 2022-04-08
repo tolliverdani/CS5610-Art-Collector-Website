@@ -2,11 +2,10 @@ import React from "react";
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingListings from "../../components/PaintingListings";
-
-import paintingsReducer from "../../reducers/paintings-reducer"
+import paintingsReducer from "../../_reducers/paintings-reducer"
+import PaintingGridRandom from "../../components/PaintingGridRandom";
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
-import PaintingGridRandom from "../../components/PaintingGridRandom";
 
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);

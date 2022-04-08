@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import ComponentHeader from "../ComponentHeader";
 import {useDispatch, useSelector} from "react-redux";
-import {artistDetails} from "../../actions/artpieces-actions";
+import {artistDetails} from "../../_actions/artpieces-actions";
 
 const ArtistProfile = ({id = "jeff-koons"}) => {
     const artist = useSelector(state => state.artist);

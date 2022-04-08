@@ -1,5 +1,6 @@
 import React from "react";
 import {Dropdown, DropdownButton} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 // Reference for content: https://react-bootstrap.github.io/components/dropdowns/
 
@@ -35,7 +36,7 @@ const PaintingGridItem = ({grid_item}) => {
                                 size={"sm"}
                                 align={"end"} title={""}>
                     <Dropdown.Item>Add to Collection</Dropdown.Item>
-                    <Dropdown.Item>More Details</Dropdown.Item>
+                    <Dropdown.Item><Link to={`/api/paintings/paintingDetail/${grid_item.id}`}>More Details</Link></Dropdown.Item>
                 </DropdownButton>
             </div>
         </div>

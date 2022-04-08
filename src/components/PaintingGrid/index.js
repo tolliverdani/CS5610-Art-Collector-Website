@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import ComponentHeader from "../ComponentHeader";
 import {useDispatch, useSelector} from 'react-redux';
-import {findPaintingsByArtist} from "../../actions/artpieces-actions";
+import {findPaintingsByArtist} from "../../_actions/artpieces-actions";
 
 import PaintingGridItem from "./PaintingGridItem";
 

@@ -7,7 +7,7 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 import ArtistProfile from "../../components/ArtistProfile";
 import CreatePost from "../../components/UpdatePosts/CreatePost";
 
-import paintingsReducer from "../../reducers/paintings-reducer"
+import paintingsReducer from "../../_reducers/paintings-reducer"
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import ArtDetails from "../../components/ArtDetails";

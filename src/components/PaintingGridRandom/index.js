@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import ComponentHeader from "../ComponentHeader";
 import {useDispatch, useSelector} from 'react-redux';
-import {randomPaintings} from "../../actions/artpieces-actions";
+import {randomPaintings} from "../../_actions/artpieces-actions";
 
 import PaintingGridItem from "./PaintingGridItem";
 

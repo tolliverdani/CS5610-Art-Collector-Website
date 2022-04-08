@@ -3,7 +3,7 @@ import React from "react";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import PaintingListings from "../../components/PaintingListings";
-import paintingsReducer from "../../reducers/paintings-reducer"
+import paintingsReducer from "../../_reducers/paintings-reducer"
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import ArtistGrid from "../../components/PaintingGridArtist";

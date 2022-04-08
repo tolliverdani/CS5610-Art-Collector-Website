@@ -4,7 +4,7 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingListings from "../../components/PaintingListings";
 import PaintingGrid from "../../components/PaintingGrid";
 
-import paintingsReducer from "../../reducers/paintings-reducer"
+import paintingsReducer from "../../_reducers/paintings-reducer"
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import {useParams} from "react-router-dom";

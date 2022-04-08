@@ -3,8 +3,9 @@ import {
     FIND_PAINTINGS_BY_ARTIST,
     RANDOM_PAINTINGS,
     ARTIST_DETAILS,
-    UPDATED_ARTISTS
-} from "../actions/artpieces-actions";
+    UPDATED_ARTISTS,
+    PAINTING_DETAILS
+} from "../_actions/artpieces-actions";
 
 const paintingsReducer = (state = [], action) => {
     switch (action.type) {
@@ -16,6 +17,8 @@ const paintingsReducer = (state = [], action) => {
             return action.random_paintings;
         case ARTIST_DETAILS:
             return action.artist_details;
+        case PAINTING_DETAILS:
+            return action.painting_details;
         case UPDATED_ARTISTS:
             return action.updated_artists;
         default:
