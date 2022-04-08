@@ -27,6 +27,7 @@ const ArtistProfileScreen = (
                         <NavigationSidebar/>
                     </div>
                     <div className={'col-10 col-lg-7'}>
+                        <ArtistProfile/>
                         <hr/>
                         <CreatePost/>
                         <UpdatePosts/>

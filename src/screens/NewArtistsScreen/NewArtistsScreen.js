@@ -1,12 +1,12 @@
 import React from "react";
-import NavigationTopMenu from "../../components/NavigationTopMenu";
-import NavigationSidebar from "../../components/NavigationSidebar";
-import PaintingListings from "../../components/PaintingListings";
 
+import NavigationSidebar from "../../components/NavigationSidebar";
+import NavigationTopMenu from "../../components/NavigationTopMenu";
+import PaintingListings from "../../components/PaintingListings";
 import paintingsReducer from "../../reducers/paintings-reducer"
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
-import PaintingGridRandom from "../../components/PaintingGridRandom";
+import ArtistGrid from "../../components/PaintingGridArtist";
 
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);
@@ -19,10 +19,10 @@ const Index = () => {
                 <div className={"container"}>
                     <div className={'row pt-2'}>
                         <div className={'col-2'}>
-                            <NavigationSidebar/>
+                            <NavigationSidebar active={"new-artists"}/>
                         </div>
                         <div className={'col-10 col-lg-7'}>
-                            <PaintingGridRandom/>
+                            <ArtistGrid/>
                         </div>
                         <div className={'col-3 d-none d-lg-block'}>
                             <PaintingListings/>

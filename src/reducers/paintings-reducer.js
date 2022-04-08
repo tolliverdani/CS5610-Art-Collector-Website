@@ -2,7 +2,8 @@ import {
     ARTIST_GENERAL_SEARCH,
     FIND_PAINTINGS_BY_ARTIST,
     RANDOM_PAINTINGS,
-    ARTIST_DETAILS
+    ARTIST_DETAILS,
+    UPDATED_ARTISTS
 } from "../actions/artpieces-actions";
 
 const paintingsReducer = (state = [], action) => {
@@ -15,6 +16,8 @@ const paintingsReducer = (state = [], action) => {
             return action.random_paintings;
         case ARTIST_DETAILS:
             return action.artist_details;
+        case UPDATED_ARTISTS:
+            return action.updated_artists;
         default:
             return [];
     }

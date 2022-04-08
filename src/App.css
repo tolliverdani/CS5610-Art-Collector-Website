@@ -30,6 +30,15 @@ p {
   aspect-ratio: 6/2
 }
 
+.btn:hover, .btn:focus, .btn:active {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.text-stroke {
+  -webkit-text-stroke: .5px black;
+}
+
 /*https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/*/
 .art_center_content {
   position: absolute;

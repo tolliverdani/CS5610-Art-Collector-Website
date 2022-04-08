@@ -4,6 +4,7 @@ const PAINTINGS_BY_ARTIST_EXT = "/paintings/byArtist"
 const RANDOM_PAINTINGS = "/paintings/random"
 const ARTIST_GENERAL_SEARCH = "/generalSearch/:search_term"
 const ARTIST_DETAILS = "/artist/:search_term"
+const UPDATED_ARTISTS = "/artists/updated"
 
 export const findPaintingsByArtist = async (artist_id) => {
     const request_url = `${API_BASE}${PAINTINGS_BY_ARTIST_EXT}/${artist_id}`
@@ -39,6 +40,16 @@ export const randomPaintings = async () => {
     const request_url = `${API_BASE}${RANDOM_PAINTINGS}`
     const response = await axios.get(request_url)
     if ( response.status === 200 ) {
+        return response.data;
+    } else {
+        return [];
+    }
+}
+
+export const updatedArtists = async () => {
+    const request_url = `${API_BASE}${UPDATED_ARTISTS}`
+    const response = await axios.get(request_url)
+    if (response.status === 200) {
         return response.data;
     } else {
         return [];
