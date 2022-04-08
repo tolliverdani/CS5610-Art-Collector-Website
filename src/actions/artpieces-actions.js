@@ -16,10 +16,12 @@ export const findPaintingsByArtist = async (dispatch, artist_id) => {
 
 export const artistGeneralSearch = async (dispatch, artist) => {
     const artist_general_search = await service.artistGeneralSearch(artist);
-    dispatch({
-        type: ARTIST_GENERAL_SEARCH,
-        artist_general_search
-    })
+    if ( artist_general_search.length !== 0 ) {
+        dispatch({
+            type: ARTIST_GENERAL_SEARCH,
+            artist_general_search
+        })
+    }
 }
 
 export const randomPaintings = async (dispatch) => {
