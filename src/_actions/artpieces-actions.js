@@ -25,11 +25,12 @@ export const artistGeneralSearch = async (dispatch, artist) => {
     }
 }
 
-export const randomPaintings = async (dispatch) => {
-    const random_paintings = await service.randomPaintings();
+export const paintingDetails = async (dispatch, painting_id) => {
+    const painting_details = await service.paintingDetails(painting_id);
+    console.log("Inside the action", painting_details);
     dispatch({
-        type: RANDOM_PAINTINGS,
-        random_paintings
+        type: PAINTING_DETAILS,
+        painting_details
     })
 }
 
@@ -41,19 +42,18 @@ export const artistDetails = async (dispatch, artist) => {
     })
 }
 
-export const paintingDetails = async (dispatch, painting_id) => {
-    const painting_details = await service.paintingDetails(painting_id);
-    console.log("Inside the action", painting_details);
-    dispatch({
-        type: PAINTING_DETAILS,
-        painting_details
-    })
-}
-
 export const updatedArtists = async (dispatch) => {
     const updated_artists = await service.updatedArtists();
     dispatch({
         type: UPDATED_ARTISTS,
         updated_artists
+    })
+}
+
+export const randomPaintings = async (dispatch) => {
+    const random_paintings = await service.randomPaintings();
+    dispatch({
+        type: RANDOM_PAINTINGS,
+        random_paintings
     })
 }

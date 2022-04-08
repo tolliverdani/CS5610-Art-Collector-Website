@@ -1,20 +1,14 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import ComponentHeader from "../ComponentHeader";
 import {useDispatch, useSelector} from "react-redux";
 import {paintingDetails} from "../../_actions/artpieces-actions";
 
 const ArtDetails = ({id = "57727444edc2cb3880cb7bf6"} ) => {
-    const data = useSelector(state => {
-        // TODO: debugging here... why is state empty?
-        console.log('State: ', state);
-        return state.painting;
-    });
     const dispatch = useDispatch();
 
-    /* TODO: it looks like the action isn't being called */
-    useEffect(() => paintingDetails(dispatch, id), [dispatch]);
-
-    console.log('Data: ', data);
+    /* TODO: Why can't I grab the data like this??? */
+    const data = paintingDetails(dispatch, id);
+    console.log(data);
 
     return (
         <>

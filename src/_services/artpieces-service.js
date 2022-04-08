@@ -3,7 +3,7 @@ const API_BASE = (process.env.REACT_APP_API_BASE || 'http://localhost:4000/api')
 const PAINTINGS_BY_ARTIST_EXT = "/paintings/byArtist"
 const RANDOM_PAINTINGS = "/paintings/random"
 const ARTIST_GENERAL_SEARCH = "/paintings/generalSearch"
-const PAINTING_DETAILS = "/paintings/paintingDetail"
+const PAINTING_DETAILS = "/paintings/paintingDetails"
 const ARTIST_DETAILS = "/artist/:search_term"
 const UPDATED_ARTISTS = "/artists/updated"
 

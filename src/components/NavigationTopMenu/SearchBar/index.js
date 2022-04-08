@@ -5,7 +5,6 @@ import {artistGeneralSearch} from "../../../_actions/artpieces-actions";
 const SearchBar = () => {
     const dispatch = useDispatch()
     const [input_value, update_input] = useState("");
-    
 
     return (
         <>
