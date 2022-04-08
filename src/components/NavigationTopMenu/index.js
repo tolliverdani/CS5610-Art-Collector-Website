@@ -7,7 +7,7 @@ const NavigationTopMenu = () => {
     return (
         <div className={'navbar container-fluid sticky-top navbar-dark bg-primary p-0'}>
             <div className={'col-2 justify-content-center text-center'}>
-                <a className={'navbar-brand'} href={"/#"}>LOGO</a>
+                <a className={'navbar-brand'} href={"/home"}>LOGO</a>
             </div>
 
             <div className={'col-7 col-xl-6'}>
