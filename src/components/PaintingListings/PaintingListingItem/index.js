@@ -35,8 +35,6 @@ const PaintingListingItem = ({
                                        close_button={"Cancel"}
                     />
                 {/*<a className="btn btn-primary rounded-pill btn-sm" href="/#">{listing.type === 'For Barter' ? 'Trade' : 'Buy'}</a>*/}
-
-
                 </div>
             </li>
         </div>

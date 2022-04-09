@@ -1,6 +1,7 @@
 import * as service from "../_services/artpieces-service";
 
 export const FIND_PAINTINGS_BY_ARTIST = 'FIND_PAINTINGS_BY_ARTIST';
+export const GENERAL_SEARCH = 'GENERAL_SEARCH';
 export const ARTIST_GENERAL_SEARCH = 'ARTIST_GENERAL_SEARCH';
 export const RANDOM_PAINTINGS = "RANDOM_PAINTINGS";
 export const ARTIST_DETAILS = 'ARTIST_DETAILS';
@@ -15,13 +16,25 @@ export const findPaintingsByArtist = async (dispatch, artist_id) => {
     })
 }
 
-export const artistGeneralSearch = async (dispatch, artist) => {
-    const artist_general_search = await service.artistGeneralSearch(artist);
-    if ( artist_general_search.length !== 0 ) {
+export const generalSearch = async (dispatch, artist) => {
+    const general_search = await service.generalSearch(artist);
+    if ( general_search.length !== 0 ) {
         dispatch({
-            type: ARTIST_GENERAL_SEARCH,
-            artist_general_search
+            type: GENERAL_SEARCH,
+            general_search: general_search
         })
+    }
+}
+
+export const artistGeneralSearch = async (dispatch, search_term) => {
+    const artist_general_search = await service.artistGeneralSearch(search_term);
+    if ( artist_general_search.length !== 0 ){
+        dispatch(
+            {
+                type: ARTIST_GENERAL_SEARCH,
+                artist_general_search: artist_general_search
+            }
+        )
     }
 }
 

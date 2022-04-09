@@ -25,7 +25,7 @@ function App() {
                                element={<HomeScreen/>}/>
                         <Route path="search"
                                element={<SearchScreen/>}/>
-                        <Route path="search/:artist_id"
+                        <Route path="search/:searchTerm"
                                element={<SearchScreen/>}/>
                         <Route path="login"
                                element={<LoginScreen/>}/>
