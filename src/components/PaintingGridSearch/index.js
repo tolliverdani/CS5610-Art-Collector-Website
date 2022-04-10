@@ -8,7 +8,7 @@ import PaintingGridItem from "./PaintingGridItem";
 const PaintingGridSearch = ({search_term= ""}) => {
     const paintings = useSelector(state => state.paintings);
     const dispatch = useDispatch();
-    useEffect(() => generalSearch(dispatch, search_term), [dispatch]);
+    useEffect(() => generalSearch(dispatch, search_term), [dispatch, search_term]);
 
     return (
         <>

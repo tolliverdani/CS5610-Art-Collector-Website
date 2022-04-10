@@ -33,7 +33,7 @@ function App() {
                                element={<NewArtistsScreen/>}/>
                         <Route path="artist"
                                element={<ArtistProfileScreen/>}/>
-                        <Route path="artist/:search-term"
+                        <Route path="artist/:artist_id"
                                element={<ArtistProfileScreen/>}/>
                         <Route path="art"
                                element={<ArtPieceScreen/>}/>

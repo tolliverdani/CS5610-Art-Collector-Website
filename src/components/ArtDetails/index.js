@@ -8,7 +8,6 @@ const ArtDetails = ({id = "57727444edc2cb3880cb7bf6"} ) => {
 
     /* TODO: Why can't I grab the data like this??? */
     const data = paintingDetails(dispatch, id);
-    console.log(data);
 
     return (
         <>

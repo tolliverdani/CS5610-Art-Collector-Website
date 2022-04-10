@@ -9,7 +9,6 @@ import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import {useParams} from "react-router-dom";
 import PaintingGridSearch from "../../components/PaintingGridSearch";
-import GeneralSearchArtistResultItem from "../../components/GeneralSearchArtistsResults/GeneralSearchArtistResultItem";
 import GeneralSearchArtistsResults from "../../components/GeneralSearchArtistsResults";
 
 const reducers = combineReducers({paintings: paintingsReducer, artists: artistReducer})

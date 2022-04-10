@@ -22,7 +22,7 @@ const paintingsReducer = (state = [], action) => {
         case UPDATED_ARTISTS:
             return action.updated_artists;
         default:
-            return [];
+            return state;
     }
 }
 

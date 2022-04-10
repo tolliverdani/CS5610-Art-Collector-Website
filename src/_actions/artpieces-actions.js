@@ -40,7 +40,6 @@ export const artistGeneralSearch = async (dispatch, search_term) => {
 
 export const paintingDetails = async (dispatch, painting_id) => {
     const painting_details = await service.paintingDetails(painting_id);
-    console.log("Inside the action", painting_details);
     dispatch({
         type: PAINTING_DETAILS,
         painting_details

@@ -5,12 +5,9 @@ import {artistGeneralSearch, generalSearch} from "../../_actions/artpieces-actio
 import ComponentHeader from "../ComponentHeader";
 
 const GeneralSearchArtistsResults = ({search_term = ""}) => {
-
             const artist_results = useSelector(state => state.artists);
             const dispatch = useDispatch();
             useEffect(() => artistGeneralSearch(dispatch, search_term), [dispatch, search_term]);
-            console.log(search_term);
-            console.log(artist_results);
             return (
             <>
                 {ComponentHeader("Artist Results")}
