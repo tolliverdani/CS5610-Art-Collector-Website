@@ -7,6 +7,8 @@ HTML
 - From paintings detail, allow users to click on owner name to see user details
 - Add in how to handle a 404, search result not found
 - Add in pagination for API calls
+- Sort the list of authors on the search result screen?
+- Add the scroll to top functionality
 - Hook up purchase/barter system
     - {
         _id: 'done by db'
