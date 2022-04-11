@@ -2,7 +2,7 @@ import {
     GENERAL_SEARCH,
     FIND_PAINTINGS_BY_ARTIST,
     RANDOM_PAINTINGS,
-    ARTIST_DETAILS,
+    //ARTIST_DETAILS,
     UPDATED_ARTISTS,
     PAINTING_DETAILS
 } from "../_actions/artpieces-actions";

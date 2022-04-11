@@ -1,6 +1,6 @@
 import React from "react";
 import {Dropdown, DropdownButton} from "react-bootstrap";
-import {useDispatch} from "react-redux";
+import {Link} from "react-router-dom";
 
 
 // Reference for content: https://react-bootstrap.github.io/components/dropdowns/
@@ -25,17 +25,24 @@ const ArtistGridItem = ({grid_item}) => {
                 {like && <i className="fas fa-heart text-danger"/>}
                 {!like && <i className="fas fa-heart text-white"/>}
             </i>
-            <div className={'row card-title'}>
-                <div className={"col-10"}>
-                    <p className={"mb-0"}><strong>{grid_item.artistName}</strong></p>
-                    <p className={`${grid_item.originalArtistName === null ? 'd-none' : ''}`}> ({grid_item.originalArtistName})</p>
-                </div>
-                <DropdownButton className={"col-2 btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
+            <div className={'card-title align-items-center'}>
+                <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
                                 size={"sm"}
                                 align={"end"} title={""}>
                     <Dropdown.Item>Add to Collection</Dropdown.Item>
                     <Dropdown.Item>More Details</Dropdown.Item>
                 </DropdownButton>
+                <span className={'card-title'}>
+                    <Link className={`small text-decoration-none text-black`}
+                          to={`/artist/${((grid_item.artistName).toLowerCase()).split(" ").join("-")}/${grid_item.artistId}`}>
+                        <span className={"m-0"}><strong>{grid_item.title}</strong></span>
+                        <span className={`small ${grid_item.completitionYear === null ? 'd-none' : ''}`}>, {grid_item.completitionYear}</span>
+                    </Link>
+                    <Link className={`text-decoration-none text-dark`}
+                          to={`/artist/${((grid_item.artistName).toLowerCase()).split(" ").join("-")}/${grid_item.artistId}`}>
+                        <p>{grid_item.artistName}</p>
+                    </Link>
+                </span>
             </div>
         </div>
     )

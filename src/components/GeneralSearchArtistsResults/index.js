@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import GeneralSearchArtistResultItem from "./GeneralSearchArtistResultItem";
 import {useDispatch, useSelector} from "react-redux";
-import {artistGeneralSearch, generalSearch} from "../../_actions/artpieces-actions";
+import {artistGeneralSearch} from "../../_actions/artpieces-actions";
 import ComponentHeader from "../ComponentHeader";
 
 const GeneralSearchArtistsResults = ({search_term = ""}) => {

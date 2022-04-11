@@ -1,6 +1,6 @@
 import React from "react";
 
-const Login = () => {
+const LoginForm = () => {
     return (
         <>
             <div className={'container m-2 p-4 bg-light shadow'}>
@@ -36,5 +36,5 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginForm;
 

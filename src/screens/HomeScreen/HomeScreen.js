@@ -3,9 +3,9 @@ import NavigationTopMenu from "../../components/NavigationTopMenu";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingListings from "../../components/PaintingListings";
 import paintingsReducer from "../../_reducers/paintings-reducer"
-import PaintingGridRandom from "../../components/PaintingGridRandom";
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
+import PaintingGrid from "../../components/PaintingGrid";
 
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);
@@ -21,7 +21,7 @@ const Index = () => {
                             <NavigationSidebar/>
                         </div>
                         <div className={'col-10 col-lg-7'}>
-                            <PaintingGridRandom/>
+                            <PaintingGrid type={"random"}/>
                         </div>
                         <div className={'col-3 d-none d-lg-block'}>
                             <PaintingListings/>

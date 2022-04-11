@@ -2,6 +2,7 @@ import React from "react";
 
 import SearchBar from "./SearchBar";
 import HamburgerMenu from "./HamburgerMenu";
+import Login from "./Login";
 
 const NavigationTopMenu = () => {
     return (
@@ -15,7 +16,7 @@ const NavigationTopMenu = () => {
             </div>
 
             <div className={'col-2 d-none d-xl-inline'}>
-                <button className={`btn btn-primary bg-highlight rounded-pill me-2`} href="/#">Sign In</button>
+                <button className={`btn btn-primary bg-highlight rounded-pill be-1`} href="/#">Log in</button>
                 <button className={`btn btn-primary bg-highlight rounded-pill`} href="/#">Sign Up</button>
             </div>
 

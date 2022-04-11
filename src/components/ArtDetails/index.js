@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import ComponentHeader from "../ComponentHeader";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {paintingDetails} from "../../_actions/artpieces-actions";
 
 const ArtDetails = ({id = "57727444edc2cb3880cb7bf6"} ) => {

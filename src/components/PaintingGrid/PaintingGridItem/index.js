@@ -1,5 +1,6 @@
 import React from "react";
 import {Dropdown, DropdownButton} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 // Reference for content: https://react-bootstrap.github.io/components/dropdowns/
 
@@ -12,15 +13,8 @@ const PaintingGridItem = ({grid_item}) => {
 
     return (
         // TODO If we remove m-3, it will show as a 4 grid, like defined in the break points
-        <div className={"col card border-0 p-2"}>
-            <div className={"position-relative d-flex justify-content-end"}>
-                <DropdownButton className={"position-absolute btn p-0 border-0 float-end"} variant={"light"} size={"sm"}
-                                align={"end"} title={""}>
-                    <Dropdown.Item>Make Private / Public</Dropdown.Item>
-                    <Dropdown.Item>Favorite / Unfavorite</Dropdown.Item>
-                    <Dropdown.Item>Post for Sale</Dropdown.Item>
-                    <Dropdown.Item>Post for Barter</Dropdown.Item>
-                </DropdownButton>
+        <div className={"col card border-0 p-1"}>
+            <div className={"d-flex"}>
                 <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center p-0 mb-1'}
                      src={grid_item.image}
                      alt={grid_item.title}
@@ -31,23 +25,26 @@ const PaintingGridItem = ({grid_item}) => {
                 {!like && <i className="fas fa-heart text-white"/>}
             </i>
             <div className={'card-title align-items-center'}>
-                <span>
-                    <span className={"mb-0"}>{grid_item.artistName}</span>
-                    <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
-                                    size={"sm"}
-                                    align={"end"} title={""}>
-                        <Dropdown.Item>Artist Page</Dropdown.Item>
-                        <Dropdown.Item>Favorite / Unfavorite</Dropdown.Item>
-                    </DropdownButton>
+                <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
+                                size={"sm"}
+                                align={"end"} title={""}>
+                    <Dropdown.Item>Add to Collection</Dropdown.Item>
+                    <Dropdown.Item>More Details</Dropdown.Item>
+                </DropdownButton>
+                <span className={'card-title'}>
+                    <Link className={`small text-decoration-none text-black`}
+                          to={`/artist/${((grid_item.artistName).toLowerCase()).split(" ").join("-")}/${grid_item.artistId}`}>
+                        <span className={"m-0"}><strong>{grid_item.title}</strong></span>
+                        <span className={`small ${grid_item.completitionYear === null ? 'd-none' : ''}`}>, {grid_item.completitionYear}</span>
+                    </Link>
+                    <Link className={`text-decoration-none text-dark`}
+                          to={`/artist/${((grid_item.artistName).toLowerCase()).split(" ").join("-")}/${grid_item.artistId}`}>
+                        <p>{grid_item.artistName}</p>
+                    </Link>
                 </span>
             </div>
-            <div className={'card-title'}>
-                <p className={"m-0"}><strong>{grid_item.title}</strong></p>
-                <p className={"mb-0"}>{grid_item.artistName}<span
-                    className={`${grid_item.completitionYear === null ? 'd-none' : ''}`}>, {grid_item.completitionYear}</span>
-                </p>
-            </div>
         </div>
+
     )
 }
 

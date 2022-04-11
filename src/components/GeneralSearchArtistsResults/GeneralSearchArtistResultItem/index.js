@@ -1,5 +1,4 @@
 import React from "react";
-import ConfirmationModal from "../../ConfirmationModal";
 import {Link} from "react-router-dom";
 
 const GeneralSearchArtistResultItem = ({artist_info = {"artistId": "1234", "artistName": "Nathanial Ziegler"}}) => {
