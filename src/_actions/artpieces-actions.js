@@ -12,7 +12,7 @@ export const findPaintingsByArtist = async (dispatch, artist_id) => {
     const all_paintings_by_artist = await service.findPaintingsByArtist(artist_id);
     dispatch({
         type: FIND_PAINTINGS_BY_ARTIST,
-        all_paintings_by_artist
+        all_paintings_by_artist: all_paintings_by_artist
     })
 }
 
@@ -50,7 +50,7 @@ export const artistDetails = async (dispatch, artist) => {
     const artist_details = await service.artistDetails(artist);
     dispatch({
         type: ARTIST_DETAILS,
-        artist_details
+        artist_details: artist_details
     })
 }
 

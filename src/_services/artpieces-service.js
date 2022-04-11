@@ -5,7 +5,7 @@ const RANDOM_PAINTINGS = "/paintings/random"
 const ARTIST_GENERAL_SEARCH = "/paintings/generalSearch"
 const PAINTING_GENERAL_SEARCH = "/paintings/artistSearch"
 const PAINTING_DETAILS = "/paintings/paintingDetails"
-const ARTIST_DETAILS = "/artist/:search_term"
+const ARTIST_DETAILS = "/artist"
 const UPDATED_ARTISTS = "/artists/updated"
 
 export const artistGeneralSearch = async(search_terms) => {

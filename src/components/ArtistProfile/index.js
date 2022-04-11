@@ -1,12 +1,11 @@
 import React, {useEffect} from "react";
-import ComponentHeader from "../ComponentHeader";
 import {useDispatch, useSelector} from "react-redux";
 import {artistDetails} from "../../_actions/artpieces-actions";
 
-const ArtistProfile = ({id = "jeff-koons"}) => {
-    const artist = useSelector(state => state.artist);
+const ArtistProfile = ({artist_name = "jeff-koons"}) => {
+    const artist = useSelector(state => state.artists);
     const dispatch = useDispatch();
-    useEffect(() => artistDetails(dispatch), [dispatch]);
+    useEffect( () => artistDetails(dispatch, artist_name), [dispatch, artist_name]);
 
     return (
         <>

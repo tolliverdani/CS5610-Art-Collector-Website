@@ -8,15 +8,17 @@ import ArtistProfile from "../../components/ArtistProfile";
 import CreatePost from "../../components/UpdatePosts/CreatePost";
 
 import paintingsReducer from "../../_reducers/paintings-reducer"
+import artistReducer from "../../_reducers/artist-reducer";
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import {useParams} from "react-router-dom";
+import PaintingGridArtist from "../../components/PaintingGridArtist";
 
-const reducers = combineReducers({paintings: paintingsReducer})
+const reducers = combineReducers({paintings: paintingsReducer, artists: artistReducer})
 const store = createStore(reducers);
 
 const ArtistProfileScreen = () => {
-    const {artist_id} = useParams();
+    const {artist_name, artist_id} = useParams();
     return (
         <Provider store={store}>
             <NavigationTopMenu/>
@@ -26,12 +28,12 @@ const ArtistProfileScreen = () => {
                         <NavigationSidebar/>
                     </div>
                     <div className={'col-10 col-lg-7'}>
-                        <ArtistProfile id = {artist_id}/>
+                        <ArtistProfile artist_name= {artist_name}/>
                         <hr/>
                         <CreatePost/>
                         <UpdatePosts/>
                         <hr/>
-                        <PaintingGrid/>
+                        <PaintingGridArtist id = {artist_id}/>
                     </div>
                     <div className={'col-3 d-none d-lg-block'}>
                         <PaintingListings/>

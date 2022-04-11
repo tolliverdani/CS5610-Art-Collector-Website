@@ -15,8 +15,6 @@ const paintingsReducer = (state = [], action) => {
             return action.general_search;
         case RANDOM_PAINTINGS:
             return action.random_paintings;
-        case ARTIST_DETAILS:
-            return action.artist_details;
         case PAINTING_DETAILS:
             return action.painting_details;
         case UPDATED_ARTISTS:

@@ -1,15 +1,14 @@
 import React, {useEffect} from "react";
 import ComponentHeader from "../ComponentHeader";
 import {useDispatch, useSelector} from 'react-redux';
-import {updatedArtists} from "../../_actions/artpieces-actions";
+import {findPaintingsByArtist} from "../../_actions/artpieces-actions";
 
 import ArtistGridItem from "./ArtistGridItem";
 
 const ArtistGrid = ({id= "57726d85edc2cb3880b48ccd"}) => {
     const paintings = useSelector(state => state.paintings);
     const dispatch = useDispatch();
-    useEffect(() => updatedArtists(dispatch, id), [dispatch]);
-
+    useEffect(() => findPaintingsByArtist(dispatch, id), [dispatch, id]);
     return (
         <>
             {ComponentHeader("Paintings by Artist")}
