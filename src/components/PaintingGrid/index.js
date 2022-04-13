@@ -61,10 +61,14 @@ const SearchResults = (search_term) => {
     return (
         <>
             {ComponentHeader("Search Results")}
-            <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
-                {paintings.map(painting_item => <PaintingGridItem key={painting_item.id}
-                                                                  grid_item={painting_item}/>)}
-            </div>
+            {paintings.length === 0
+                ?
+                (<div className={"d-flex justify-content-center"}><span className={"text-danger"}>No Paintings Found</span></div>)
+                :
+                <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
+                    {paintings.map(painting_item => <PaintingGridItem key={painting_item.id} grid_item={painting_item}/>)}
+                </div>
+            }
         </>
     )
 }

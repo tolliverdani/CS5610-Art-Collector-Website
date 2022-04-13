@@ -11,9 +11,13 @@ const GeneralSearchArtistsResults = ({search_term = ""}) => {
             return (
             <>
                 {ComponentHeader("Artist Results")}
-                <div className={'row list-group'}>
+                { artist_results.length === 0
+                    ?
+                    (<div className={"d-flex justify-content-center"}><span className={"text-danger"}>No Artists Found</span></div>)
+                    :
+                    <div className={'row list-group'}>
                     {artist_results.map(artist => <GeneralSearchArtistResultItem key={artist.artistId} artist_info={artist} />)}
-                </div>
+                </div>}
             </>
     )
 }
