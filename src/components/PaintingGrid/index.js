@@ -69,18 +69,25 @@ const SearchResults = (search_term) => {
     )
 }
 
-const PaintingGrid = ({type}, {id}) => {
-    switch (type) {
+const PaintingGrid = (params) => {
+    console.log(params)
+
+
+    switch (params.type) {
         case "artist":
-            return PaintingsByArtist(id);
+            console.log("artist")
+            return PaintingsByArtist(params.id);
         case "random":
+            console.log("random")
             return RandomPaintings();
         case "updated-artists":
+            console.log("update")
             return UpdatedArtists();
         case "search":
-            return SearchResults(id);
+            console.log("search")
+            return SearchResults(params.id);
         default:
-            return;
+            return [];
     }
 }
 

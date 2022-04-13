@@ -18,6 +18,8 @@ const store = createStore(reducers);
 
 const ArtistProfileScreen = () => {
     const {artist_name, artist_id} = useParams();
+    console.log(artist_name)
+    console.log(artist_id)
     return (
         <Provider store={store}>
             <NavigationTopMenu/>
