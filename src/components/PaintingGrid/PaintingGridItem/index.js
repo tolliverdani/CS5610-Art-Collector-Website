@@ -33,7 +33,7 @@ const PaintingGridItem = ({grid_item}) => {
                 </DropdownButton>
                 <span className={'card-title'}>
                     <Link className={`small text-decoration-none text-black`}
-                          to={`/artist/${((grid_item.artistName).toLowerCase()).split(" ").join("-")}/${grid_item.artistId}`}>
+                          to={`/art/${grid_item.id}`}>
                         <span className={"m-0"}><strong>{grid_item.title}</strong></span>
                         <span className={`small ${grid_item.completitionYear === null ? 'd-none' : ''}`}>, {grid_item.completitionYear}</span>
                     </Link>
