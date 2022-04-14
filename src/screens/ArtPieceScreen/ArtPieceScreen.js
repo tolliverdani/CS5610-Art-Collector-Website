@@ -17,12 +17,8 @@ const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);
 
 const ArtPieceScreen = () => {
-        /* TODO: we should use the painting_id pulled in from the url
-             for all of the sub-components */
-        const painting_id = useParams();
 
-    /* TODO: Per this console.log it looks like the url is picking up the params */
-    console.log(painting_id);
+    const {painting_id} = useParams();
 
         return (
             <Provider store={store}>

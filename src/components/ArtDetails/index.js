@@ -1,13 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ComponentHeader from "../ComponentHeader";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {paintingDetails} from "../../_actions/artpieces-actions";
 
 const ArtDetails = ({id = "57727444edc2cb3880cb7bf6"} ) => {
+    const data = useSelector(state => state.paintings)
     const dispatch = useDispatch();
-
-    /* TODO: Why can't I grab the data like this??? */
-    const data = paintingDetails(dispatch, id);
+    useEffect(() => paintingDetails(dispatch, id), [dispatch, id])
 
     return (
         <>

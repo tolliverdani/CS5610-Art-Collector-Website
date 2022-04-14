@@ -51,8 +51,10 @@ export const artistDetails = async (search_terms) => {
 export const paintingDetails = async (painting_id) => {
     const request_url = `${API_BASE}${PAINTING_DETAILS}/${painting_id}`
     const response = await axios.get(request_url)
+    // The styles, media, and genre all come back as lists, so adding a ", " for visual effect
+    const response_as_string = {...response.data, media: response.data.media.join(", "), genres: response.data.genres.join(", "), styles: response.data.styles.join(", ")}
     if ( response.status === 200 ) {
-        return response.data;
+        return response_as_string;
     } else {
         return [];
     }

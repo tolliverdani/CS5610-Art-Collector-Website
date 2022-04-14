@@ -1,6 +1,6 @@
 import React from "react";
 import UpdatePostItem from "./UpdatePostItem";
-import updates from "./UpdatePostItem/updates.json"
+import updates from "../../data/updates.json"
 
 const UpdatePosts = () => {
     return (
