@@ -8,8 +8,8 @@ export const ARTIST_DETAILS = 'ARTIST_DETAILS';
 export const PAINTING_DETAILS = 'PAINTING_DETAILS';
 export const UPDATED_ARTISTS = 'UPDATED_ARTISTS';
 
-export const findPaintingsByArtist = async (dispatch, artist_id) => {
-    const all_paintings_by_artist = await service.findPaintingsByArtist(artist_id);
+export const findPaintingsByArtist = async (dispatch, artist_id, pagination_token = "") => {
+    const all_paintings_by_artist = await service.findPaintingsByArtist(artist_id, pagination_token);
     dispatch({
         type: FIND_PAINTINGS_BY_ARTIST,
         all_paintings_by_artist: all_paintings_by_artist

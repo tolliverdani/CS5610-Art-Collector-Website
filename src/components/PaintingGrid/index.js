@@ -37,7 +37,6 @@ const UpdatedArtists = () => {
 }
 
 const PaintingsByArtist = (id) => {
-    {/* TODO: for some reason, this one isn't working while the others are...*/}
     const paintings = useSelector(state => state.paintings);
     const dispatch = useDispatch();
     useEffect(() => findPaintingsByArtist(dispatch, id), [dispatch, id]);
@@ -45,9 +44,12 @@ const PaintingsByArtist = (id) => {
     return (
         <>
             {ComponentHeader("Paintings by Artist")}
-            <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
-                {paintings.map(painting_item => <PaintingGridItem key={painting_item.id}
-                                                                  grid_item={painting_item}/>)}
+            <div className={"mb-3 d-flex flex-column justify-content-center"}>
+                <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
+                    {paintings.map(painting_item => <PaintingGridItem key={painting_item.id}
+                                                                      grid_item={painting_item}/>)}
+                </div>
+                <button className={"btn btn-primary rounded-pill"}>Show More</button>
             </div>
         </>
     )
@@ -65,9 +67,12 @@ const SearchResults = (search_term) => {
                 ?
                 (<div className={"d-flex justify-content-center"}><span className={"text-danger"}>No Paintings Found</span></div>)
                 :
-                <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
+                (<div className={"mb-3 d-flex flex-column justify-content-center"}>
+                    <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
                     {paintings.map(painting_item => <PaintingGridItem key={painting_item.id} grid_item={painting_item}/>)}
-                </div>
+                    </div>
+                    <button className={"btn btn-primary rounded-pill"}>Show More</button>
+                </div>)
             }
         </>
     )
@@ -75,7 +80,6 @@ const SearchResults = (search_term) => {
 
 const PaintingGrid = (params) => {
     console.log(params)
-
 
     switch (params.type) {
         case "artist":

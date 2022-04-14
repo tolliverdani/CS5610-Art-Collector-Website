@@ -18,8 +18,12 @@ export const artistGeneralSearch = async(search_terms) => {
     }
 }
 
-export const findPaintingsByArtist = async (artist_id) => {
-    const request_url = `${API_BASE}${PAINTINGS_BY_ARTIST_EXT}/${artist_id}`
+export const findPaintingsByArtist = async (artist_id, pagination_token = "") => {
+    let request_url = `${API_BASE}${PAINTINGS_BY_ARTIST_EXT}/${artist_id}`
+
+    // If an optional pagination token has been added, append it to the url
+    if ( pagination_token !== "" ) request_url = request_url + `/${pagination_token}`
+
     const response = await axios.get(request_url)
     if ( response.status === 200 ) {
         return response.data.data;
