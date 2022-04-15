@@ -6,7 +6,8 @@ import {findPaintingsByArtist, generalSearch, randomPaintings, updatedArtists} f
 import ArtistGridItem from "./ArtistGridItem";
 
 const RandomPaintings = () => {
-    const paintings = useSelector(state => state.paintings);
+    const paintings_data = useSelector(state => state.paintings);
+    const paintings = paintings_data.data
     const dispatch = useDispatch();
     useEffect(() => randomPaintings(dispatch), [dispatch]);
 
@@ -22,7 +23,8 @@ const RandomPaintings = () => {
 }
 
 const UpdatedArtists = () => {
-    const paintings = useSelector(state => state.paintings);
+    const paintings_data = useSelector(state => state.paintings);
+    const paintings = paintings_data.data;
     const dispatch = useDispatch();
     useEffect(() => updatedArtists(dispatch), [dispatch]);
     return (
@@ -37,7 +39,8 @@ const UpdatedArtists = () => {
 }
 
 const PaintingsByArtist = (id) => {
-    const paintings = useSelector(state => state.paintings);
+    const paintings_data = useSelector(state => state.paintings);
+    const paintings = paintings_data.data;
     const dispatch = useDispatch();
     useEffect(() => findPaintingsByArtist(dispatch, id), [dispatch, id]);
 
@@ -49,14 +52,21 @@ const PaintingsByArtist = (id) => {
                     {paintings.map(painting_item => <PaintingGridItem key={painting_item.id}
                                                                       grid_item={painting_item}/>)}
                 </div>
-                <button className={"btn btn-primary rounded-pill"}>Show More</button>
+                <button type="button"
+                        className={`rounded-pill btn-sm btn-primary ${paintings_data.hasMore ? "" : "d-none"}`}
+                        onMouseDown={(e) => e.preventDefault()}
+                        onClick={() => findPaintingsByArtist(dispatch, id, paintings_data.paginationToken)}
+                >
+                    Show More
+                </button>
             </div>
         </>
     )
 }
 
 const SearchResults = (search_term) => {
-    const paintings = useSelector(state => state.paintings);
+    const paintings_data = useSelector(state => state.paintings);
+    const paintings = paintings_data.data;
     const dispatch = useDispatch();
     useEffect(() => generalSearch(dispatch, search_term), [dispatch, search_term]);
 

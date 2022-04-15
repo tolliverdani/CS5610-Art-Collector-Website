@@ -26,7 +26,7 @@ export const findPaintingsByArtist = async (artist_id, pagination_token = "") =>
 
     const response = await axios.get(request_url)
     if ( response.status === 200 ) {
-        return response.data.data;
+        return response.data;
     } else {
         return [];
     }

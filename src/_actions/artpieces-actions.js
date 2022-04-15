@@ -7,13 +7,25 @@ export const RANDOM_PAINTINGS = "RANDOM_PAINTINGS";
 export const ARTIST_DETAILS = 'ARTIST_DETAILS';
 export const PAINTING_DETAILS = 'PAINTING_DETAILS';
 export const UPDATED_ARTISTS = 'UPDATED_ARTISTS';
+export const FIND_MORE_PAINTINGS_BY_ARTIST = 'FIND_MORE_PAINTINGS_BY_ARTIST';
 
 export const findPaintingsByArtist = async (dispatch, artist_id, pagination_token = "") => {
-    const all_paintings_by_artist = await service.findPaintingsByArtist(artist_id, pagination_token);
+    const paintings_by_artist = await service.findPaintingsByArtist(artist_id, pagination_token);
+
+    // if there is no pagination token, we can treat this as a fresh call and replace the state
+    if ( pagination_token === "" ){
     dispatch({
         type: FIND_PAINTINGS_BY_ARTIST,
-        all_paintings_by_artist: all_paintings_by_artist
-    })
+        paintings_by_artist: paintings_by_artist
+    })}
+    // otherwise, the pagination token means we want to append to the state
+    else {
+        dispatch({
+            type: FIND_MORE_PAINTINGS_BY_ARTIST,
+            paintings_by_artist: paintings_by_artist
+        })
+    }
+
 }
 
 export const generalSearch = async (dispatch, artist) => {

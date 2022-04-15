@@ -2,15 +2,20 @@ import {
     GENERAL_SEARCH,
     FIND_PAINTINGS_BY_ARTIST,
     RANDOM_PAINTINGS,
-    //ARTIST_DETAILS,
     UPDATED_ARTISTS,
-    PAINTING_DETAILS
+    PAINTING_DETAILS,
+    FIND_MORE_PAINTINGS_BY_ARTIST
 } from "../_actions/artpieces-actions";
 
-const paintingsReducer = (state = [], action) => {
+// setting this reducer to the standard return format of the wikiart API
+const paintingsReducer = (state = {"data":[], "paginationToken": "", "hasMore": false}, action) => {
     switch (action.type) {
         case FIND_PAINTINGS_BY_ARTIST:
-            return action.all_paintings_by_artist;
+            return action.paintings_by_artist;
+        case FIND_MORE_PAINTINGS_BY_ARTIST:
+            return {...state, data: [...state.data, ...action.paintings_by_artist.data],
+                              paginationToken: action.paintings_by_artist.paginationToken,
+                              hasMore: action.paintings_by_artist.hasMore};
         case GENERAL_SEARCH:
             return action.general_search;
         case RANDOM_PAINTINGS:
