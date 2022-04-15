@@ -81,7 +81,8 @@ const SearchResults = (search_term) => {
                     <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
                     {paintings.map(painting_item => <PaintingGridItem key={painting_item.id} grid_item={painting_item}/>)}
                     </div>
-                    <button className={"btn btn-primary rounded-pill"}>Show More</button>
+                    {/*TODO: this needs to become a component*/}
+                    <button className={`rounded-pill btn-sm btn-primary ${paintings_data.hasMore ? "" : "d-none"}`}>Show More</button>
                 </div>)
             }
         </>
