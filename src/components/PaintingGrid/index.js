@@ -4,6 +4,7 @@ import PaintingGridItem from "./PaintingGridItem";
 import {useDispatch, useSelector} from 'react-redux';
 import {findPaintingsByArtist, generalSearch, randomPaintings, updatedArtists} from "../../_actions/artpieces-actions";
 import ArtistGridItem from "./ArtistGridItem";
+import {Link} from "react-router-dom";
 
 const RandomPaintings = () => {
     const paintings_data = useSelector(state => state.paintings);
@@ -73,15 +74,37 @@ const SearchResults = (search_term) => {
     return (
         <>
             {ComponentHeader("Search Results")}
-            {paintings.length === 0
-                ?
-                (<div className={"d-flex justify-content-center"}><span className={"text-danger"}>No Paintings Found</span></div>)
+            {paintings.length === 0 ?
+                (<div className={"text-center"}>
+                    <h4 className={""}>
+                        Oh no!
+                    </h4>
+                    <i className="fa fa-5x fa-search text-secondary"/>
+                    <h6 className={""}>
+                        We didn't find anything for "{search_term}"
+                    </h6>
+                    <p className={""}>
+                        Please double-check the spelling or try another search term
+                    </p>
+
+                    <Link className={`btn btn-primary small border-0 rounded-pill m-1`}
+                          to={"/home"}>
+                        Popular Art
+                    </Link>
+                    <Link className={`btn btn-primary small border-0 rounded-pill m-1`}
+                          to={"/new-artists"}>
+                        New Artists
+                    </Link>
+                </div>)
                 :
                 (<div className={"mb-3 d-flex flex-column justify-content-center"}>
                     <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
-                    {paintings.map(painting_item => <PaintingGridItem key={painting_item.id} grid_item={painting_item}/>)}
+                        {paintings.map(painting_item => <PaintingGridItem key={painting_item.id}
+                                                                          grid_item={painting_item}/>)}
                     </div>
-                    <button className={`rounded-pill btn-sm btn-primary ${paintings_data.hasMore ? "" : "d-none"}`}>Show More</button>
+                    <button className={`rounded-pill btn-sm btn-primary ${paintings_data.hasMore ? "" : "d-none"}`}>Show
+                        More
+                    </button>
                 </div>)
             }
         </>

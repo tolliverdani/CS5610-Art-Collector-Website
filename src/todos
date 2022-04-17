@@ -4,6 +4,7 @@ HTML
 - From paintings detail, allow users to click on owner name to see user details
 - Add in how to handle a 404, search result not found << try catch!
 - Plumbing for ... menu
+- Search function is broken
 - Hook up purchase/barter system
     - {
         _id: 'done by db'
