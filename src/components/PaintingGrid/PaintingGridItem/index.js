@@ -15,10 +15,11 @@ const PaintingGridItem = ({grid_item}) => {
         // TODO If we remove m-3, it will show as a 4 grid, like defined in the break points
         <div className={"col card border-0 p-1"}>
             <div className={"d-flex"}>
-                <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center p-0 mb-1'}
-                     src={grid_item.image}
-                     alt={grid_item.title}
-                />
+                <Link to={`/art/${grid_item.id}`}>
+                    <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center p-0 mb-1'}
+                         src={grid_item.image}
+                         alt={grid_item.title}/>
+                    </Link>
             </div>
             <i onClick={likeArtist} className={"position-absolute align-self-end p-2"}>
                 {like && <i className="fas fa-heart text-danger"/>}

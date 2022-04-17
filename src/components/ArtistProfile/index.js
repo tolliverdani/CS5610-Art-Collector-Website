@@ -9,18 +9,29 @@ const ArtistProfile = ({artist_name = "jeff-koons"}) => {
 
     return (
         <>
-            <div className={"row"}>
+            {artist.OriginalArtistName === "artist_not_found" ? <div className={"row"}>
                 <div className={"col-6"}>
                     <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center p-0 m-0'}
-                         src={artist.image}
+                         src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                          alt={artist.OriginalArtistName}/>
                 </div>
                 <div className={"col-6"}>
-                    <p className={"text-muted m-0 p-0 mb-1"}>@{artist.url}</p>
-                    <p className={"text-muted m-0 p-0 mb-1"}>{artist.birthDayAsString}</p>
-                    <p className={"text-muted m-0 p-0 mb-1"}>{artist.gender}</p>
+                    <p className={"text-muted m-0 p-0 mb-1"}>Artist Data Not Found</p>
                 </div>
-            </div>
+            </div> :
+                <div className={"row"}>
+                    <div className={"col-6"}>
+                        <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center p-0 m-0'}
+                             src={artist.image}
+                             alt={artist.OriginalArtistName}/>
+                    </div>
+                    <div className={"col-6"}>
+                        <p className={"text-muted m-0 p-0 mb-1"}>@{artist.url}</p>
+                        <p className={"text-muted m-0 p-0 mb-1"}>{artist.birthDayAsString}</p>
+                        <p className={"text-muted m-0 p-0 mb-1"}>{artist.gender}</p>
+                    </div>
+                </div>
+            }
         </>
     );
 }

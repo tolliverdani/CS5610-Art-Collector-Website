@@ -44,12 +44,17 @@ export const generalSearch = async (search_terms) => {
 
 export const artistDetails = async (search_terms) => {
     const request_url = `${API_BASE}${ARTIST_DETAILS}/${search_terms}`
-    const response = await axios.get(request_url)
-    if ( response.status === 200 ) {
-        return response.data;
-    } else {
-        return [];
+    try {
+        const response = await axios.get(request_url)
+        if ( response.status === 200 ) {
+            return response.data;
+        } else {
+            return [];
+        }
+    } catch (e) {
+        return {"OriginalArtistName": "artist_not_found"}
     }
+
 }
 
 export const paintingDetails = async (painting_id) => {

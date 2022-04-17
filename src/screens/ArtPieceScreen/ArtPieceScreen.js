@@ -12,6 +12,7 @@ import {useParams} from "react-router-dom";
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import ArtDetails from "../../components/ArtDetails";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);
@@ -22,6 +23,7 @@ const ArtPieceScreen = () => {
 
         return (
             <Provider store={store}>
+                <ScrollToTop/>
                 <div>
                     <NavigationTopMenu/>
                     <div className={"container"}>

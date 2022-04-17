@@ -34,7 +34,8 @@ const ArtistProfileScreen = () => {
                         <CreatePost/>
                         <UpdatePosts/>
                         <hr/>
-                        <PaintingGrid type={"artist"} id={artist_id}/>
+                        { artist_id === undefined ? "" :
+                        <PaintingGrid type={"artist"} id={artist_id}/>}
                     </div>
                     <div className={'col-3 d-none d-lg-block'}>
                         <PaintingListings/>
