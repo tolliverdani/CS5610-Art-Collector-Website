@@ -8,7 +8,7 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 import UpdatePosts from "../../components/UpdatePosts";
 import CreatePost from "../../components/UpdatePosts/CreatePost";
 import paintingsReducer from "../../_reducers/paintings-reducer"
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import ArtDetails from "../../components/ArtDetails";
@@ -27,7 +27,7 @@ const ArtPieceScreen = () => {
                     <div className={"container"}>
                         <div className={'row pt-2'}>
                             <div className={'col-2'}>
-                                <NavigationSidebar/>
+                                <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                             </div>
                             <div className={'col-10 col-lg-7'}>
                                 <ArtDetails id={painting_id}/>

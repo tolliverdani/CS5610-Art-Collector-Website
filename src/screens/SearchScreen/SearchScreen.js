@@ -6,7 +6,7 @@ import paintingsReducer from "../../_reducers/paintings-reducer"
 import artistReducer from "../../_reducers/artist-reducer";
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import GeneralSearchArtistsResults from "../../components/GeneralSearchArtistsResults";
 import PaintingGrid from "../../components/PaintingGrid";
 
@@ -22,7 +22,7 @@ const SearchScreen = () => {
                 <div className={"container"}>
                     <div className={'row pt-2'}>
                         <div className={'col-2'}>
-                            <NavigationSidebar/>
+                            <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                         </div>
                         <div className={'col-10 col-lg-7'}>
                             {console.log("On Search Screen:")}

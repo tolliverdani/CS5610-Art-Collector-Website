@@ -7,6 +7,7 @@ import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import PaintingGrid from "../../components/PaintingGrid";
 import ScrollToTop from "../../components/NavigationSidebar/ScrollToTop";
+import {useLocation} from "react-router-dom";
 
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);
@@ -19,7 +20,7 @@ const Index = () => {
                 <div className={"container"}>
                     <div className={'row pt-2'}>
                         <div className={'col-2'}>
-                            <NavigationSidebar/>
+                            <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                         </div>
                         <div className={'col-10 col-lg-7'}>
                             <PaintingGrid type={"random"}/>
