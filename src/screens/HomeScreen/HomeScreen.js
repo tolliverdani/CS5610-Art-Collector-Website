@@ -6,7 +6,7 @@ import paintingsReducer from "../../_reducers/paintings-reducer"
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import PaintingGrid from "../../components/PaintingGrid";
-import ScrollToTop from "../../components/ScrollToTop";
+import ScrollToTop from "../../components/NavigationSidebar/ScrollToTop";
 
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);

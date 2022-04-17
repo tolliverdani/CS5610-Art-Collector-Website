@@ -3,7 +3,7 @@ HTML
 - Add edit profile for a regular user
 - From paintings detail, allow users to click on owner name to see user details
 - Add in how to handle a 404, search result not found << try catch!
-- Add in /artist/:artist-name (without the :id) that renders just their details and NO painting grid
+- Plumbing for ... menu
 - Hook up purchase/barter system
     - {
         _id: 'done by db'
@@ -42,6 +42,7 @@ HTML
 - Nate needs to make the profile pictures visible to Danielle
 
 DATABASE/DATA
+- Connect sign up and log in pop ups to the database
 - Add users who are following the artist on the right side
 - Hook up "create tuits" to controller and database
 
@@ -49,17 +50,17 @@ IF TIME PERMITS
 - Add edit profile for artist
 - Add user information to price history
 - Sort the list of authors on the search result screen?
-
-
-- Create menu for "..."
-    - For artists and user my collection, they can favorite, mark as private, mark as for sale, mark as for barter
-    - From for general, add view artists, view art details
-- We need to create a search results page - artists and artwork
+- Add in /artist/:artist-name (without the :id) that renders just their details and NO painting grid
 
 DONE
+- We need to create a search results page - artists and artwork
 - Update home screen to include popular feed
 - Add in pagination for API calls
 - Add the scroll to top functionality
 - From the paintings grid, allow users to click on a painting to see details
 - From the paintings page, allow users to click on the artists name to see their details
 - Refactor the paintings grid to remove duplicate code
+- Set up the login and sign up pop up windows
+- Create menu for "..."
+    - For artists and user my collection, they can favorite, mark as private, mark as for sale, mark as for barter
+    - From for general, add view artists, view art details
