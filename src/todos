@@ -1,14 +1,8 @@
 HTML
 - Modify Listings component to include picture; feature at top of artist page
 - Add edit profile for a regular user
-- Refactor the paintings grid to remove duplicate code
-- From the paintings grid, allow users to click on a painting to see details
-- From the paintings page, allow users to click on the artists name to see their details
 - From paintings detail, allow users to click on owner name to see user details
 - Add in how to handle a 404, search result not found << try catch!
-- Add in pagination for API calls
-- Sort the list of authors on the search result screen?
-- Add the scroll to top functionality
 - Add in /artist/:artist-name (without the :id) that renders just their details and NO painting grid
 - Hook up purchase/barter system
     - {
@@ -51,10 +45,10 @@ DATABASE/DATA
 - Add users who are following the artist on the right side
 - Hook up "create tuits" to controller and database
 
-
 IF TIME PERMITS
 - Add edit profile for artist
 - Add user information to price history
+- Sort the list of authors on the search result screen?
 
 
 - Create menu for "..."
@@ -64,3 +58,8 @@ IF TIME PERMITS
 
 DONE
 - Update home screen to include popular feed
+- Add in pagination for API calls
+- Add the scroll to top functionality
+- From the paintings grid, allow users to click on a painting to see details
+- From the paintings page, allow users to click on the artists name to see their details
+- Refactor the paintings grid to remove duplicate code

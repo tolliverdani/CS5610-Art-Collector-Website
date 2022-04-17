@@ -8,7 +8,6 @@ import HomeScreen from "./screens/HomeScreen/HomeScreen";
 import ArtistProfileScreen from "./screens/ArtistProfileScreen/ArtistProfileScreen";
 import UserProfileScreen from "./screens/UserProfileScreen/UserProfileScreen";
 import ArtPieceScreen from "./screens/ArtPieceScreen/ArtPieceScreen";
-import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import EditProfileScreen from "./components/UserProfile/EditProfile";
 import SearchScreen from "./screens/SearchScreen/SearchScreen";
 import NewArtistsScreen from "./screens/NewArtistsScreen/NewArtistsScreen";
@@ -27,8 +26,6 @@ function App() {
                                element={<SearchScreen/>}/>
                         <Route path="search/:searchTerm"
                                element={<SearchScreen/>}/>
-                        <Route path="login"
-                               element={<LoginScreen/>}/>
                         <Route path="new-artists"
                                element={<NewArtistsScreen/>}/>
                         <Route path="artist"

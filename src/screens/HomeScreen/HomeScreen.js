@@ -20,7 +20,6 @@ const Index = () => {
                     <div className={'row pt-2'}>
                         <div className={'col-2'}>
                             <NavigationSidebar/>
-                            <ScrollToTop/>
                         </div>
                         <div className={'col-10 col-lg-7'}>
                             <PaintingGrid type={"random"}/>

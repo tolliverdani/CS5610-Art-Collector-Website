@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import ScrollToTop from "../ScrollToTop";
 
 const NavigationSidebar =
     ({
@@ -29,6 +30,7 @@ const NavigationSidebar =
                         <span className={`d-none d-lg-inline`}> New Auctions</span>
                     </Link>
                 </ul>
+                <ScrollToTop/>
             </>
         );
     };

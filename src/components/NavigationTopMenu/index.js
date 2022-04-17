@@ -2,7 +2,8 @@ import React from "react";
 
 import SearchBar from "./SearchBar";
 import HamburgerMenu from "./HamburgerMenu";
-import Login from "./Login";
+import SignUpModal from "./SignUpModal";
+import LogInModal from "./LoginModal";
 
 const NavigationTopMenu = () => {
     return (
@@ -16,8 +17,8 @@ const NavigationTopMenu = () => {
             </div>
 
             <div className={'col-2 d-none d-xl-inline'}>
-                <button className={`btn btn-primary bg-highlight rounded-pill be-1`} href="/#">Log in</button>
-                <button className={`btn btn-primary bg-highlight rounded-pill`} href="/#">Sign Up</button>
+                <SignUpModal/>
+                <LogInModal/>
             </div>
 
             <div className={'col-2 col-xl-1'}>
