@@ -1,17 +1,22 @@
 import React, {useState} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
-import {printUser} from "../../../_services/user-service";
+import {useNavigate} from "react-router-dom";
+import * as security from "../../../_services/auth-service";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
 const LogInModal = () => {
     const [set, setShow] = useState(false);
-    const [user, newUser] = useState({email: "", password: ""});
+
+    const [loginUser, setLoginUser] = useState({email: "", password: ""});
+    //const navigate = useNavigate()
+    //const login = () =>
+     //   security.login(loginUser).then(() =>
+        //    navigate('/profile')).catch(e => alert(e));
 
     return (
         <>
-            <Button className="btn btn-secondary rounded-pill border-0 m-1"
-                    onClick={() => setShow(true)}>
+            <Button className="btn btn-secondary rounded-pill border-0 m-1" onClick={() => setShow(true)}>
                 Log in
             </Button>
 
@@ -32,9 +37,9 @@ const LogInModal = () => {
                                 <input
                                     className="form-control rounded-pill bg-light border-0 shadow-none"
                                     type="email" id="InputEmail" placeholder="email@domain.com"
-                                    value={user.email}
+                                    value={loginUser.email}
                                     onChange={(e) =>
-                                        newUser({...user, email: e.target.value})}/>
+                                        setLoginUser({...loginUser, email: e.target.value})}/>
                             </div>
                         </div>
                         <div className="form-group row">
@@ -44,9 +49,9 @@ const LogInModal = () => {
                             <div className="col-sm-10">
                                 <input className="form-control rounded-pill bg-light border-0 shadow-none"
                                        type="password" id="InputPassword" placeholder="Password"
-                                       value={user.password}
+                                       value={loginUser.password}
                                        onChange={(e) =>
-                                           newUser({...user, password: e.target.value})}/>
+                                           setLoginUser({...loginUser, password: e.target.value})}/>
                             </div>
                         </div>
                     </Form>
@@ -55,7 +60,8 @@ const LogInModal = () => {
                 <Modal.Footer className={`border-0`}>
                     <div className={'container text-center'}>
                         <button className={'btn btn-primary bg-primary rounded-pill border-0 mb-2'}
-                                onClick={() => console.log(user)}>Login
+                                onClick={() => console.log(loginUser)}>
+                            Login
                         </button>
                         <div className={'row'}>
                             <a className={'text-center small text-muted'}

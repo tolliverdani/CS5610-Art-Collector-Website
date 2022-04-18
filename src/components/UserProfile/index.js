@@ -1,7 +1,14 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import * as service from "../../_services/auth-service"
 
-const UserProfile = (profile) => {
+const UserProfile = () => {
+    const [profile, setProfile] = useState({});
+    useEffect(async () => {
+        const user = await service.profile();
+        setProfile(user);
+    }, []);
+
 
     return (
         <>
