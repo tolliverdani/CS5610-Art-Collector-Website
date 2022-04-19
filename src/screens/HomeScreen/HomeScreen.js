@@ -8,6 +8,7 @@ import {combineReducers, createStore} from "redux";
 import PaintingGrid from "../../components/PaintingGrid";
 import ScrollToTop from "../../components/NavigationSidebar/ScrollToTop";
 import {useLocation} from "react-router-dom";
+import {useProfile} from "../../_context/profile-context";
 
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);

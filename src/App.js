@@ -11,42 +11,57 @@ import ArtPieceScreen from "./screens/ArtPieceScreen/ArtPieceScreen";
 import EditProfileScreen from "./components/UserProfile/EditProfile";
 import SearchScreen from "./screens/SearchScreen/SearchScreen";
 import NewArtistsScreen from "./screens/NewArtistsScreen/NewArtistsScreen";
+import SecureRoute from "./components/Security/secure-route"
+import {ProfileProvider} from "./_context/profile-context";
 
 // TODO Can we switch this to the most up-to-date version? > lets do it
 function App() {
     return (
-        <BrowserRouter>
-            <div className="container">
-                <Routes>
-                    <Route index element={<HomeScreen/>}/>
-                    <Route path="/">
-                        <Route path="home"
-                               element={<HomeScreen/>}/>
-                        <Route path="search"
-                               element={<SearchScreen/>}/>
-                        <Route path="search/:searchTerm"
-                               element={<SearchScreen/>}/>
-                        <Route path="new-artists"
-                               element={<NewArtistsScreen/>}/>
-                        <Route path="artist"
-                               element={<ArtistProfileScreen/>}/>
-                        <Route path="artist/:artist_name/:artist_id"
-                               element={<ArtistProfileScreen/>}/>
-                        <Route path="art"
-                               element={<ArtPieceScreen/>}/>
-                        <Route path="art/:painting_id"
-                               element={<ArtPieceScreen/>}/>
-                        <Route path="user"
-                               element={<UserProfileScreen/>}>
+        <ProfileProvider>
+            <BrowserRouter>
+                <div className="container">
+                    <Routes>
+                        <Route index element={<HomeScreen/>}/>
+                        <Route path="/">
+                            <Route path="home"
+                                   element={<HomeScreen/>}/>
+                            <Route path="search"
+                                   element={<SearchScreen/>}/>
+                            <Route path="search/:searchTerm"
+                                   element={<SearchScreen/>}/>
+                            <Route path="new-artists"
+                                   element={<NewArtistsScreen/>}/>
+                            <Route path="artist"
+                                   element={<ArtistProfileScreen/>}/>
+                            <Route path="artist/:artist_name/:artist_id"
+                                   element={<ArtistProfileScreen/>}/>
+                            <Route path="art"
+                                   element={<ArtPieceScreen/>}/>
+                            <Route path="art/:painting_id"
+                                   element={<ArtPieceScreen/>}/>
+                            <Route path="user"
+                                   element={
+                                       <SecureRoute>
+                                           <UserProfileScreen/>
+                                       </SecureRoute>
+                                   }/>
                             <Route index
-                                   element={<UserProfileScreen/>}/>
+                                   element={
+                                       <SecureRoute>
+                                           <UserProfileScreen/>
+                                       </SecureRoute>
+                                   }/>
                             <Route path="edit-profile"
-                                   element={<EditProfileScreen/>}/>
+                                   element={
+                                       <SecureRoute>
+                                           <EditProfileScreen/>
+                                       </SecureRoute>
+                                   }/>
                         </Route>
-                    </Route>
-                </Routes>
-            </div>
-        </BrowserRouter>
+                    </Routes>
+                </div>
+            </BrowserRouter>
+        </ProfileProvider>
     );
 }
 

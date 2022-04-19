@@ -1,25 +1,30 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
 import {useNavigate} from "react-router-dom";
-import * as security from "../../../_services/auth-service";
+import {useProfile} from "../../../_context/profile-context";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
 const SignUpModal = () => {
     const [set, setShow] = useState(false);
 
-    const [newUser, setNewUser] = useState({email: "", username: "", password: ""});
+    const emailRef = useRef()
+    const usernameRef = useRef()
+    const passRef = useRef()
     const navigate = useNavigate();
 
-    // TODO does this go in an actions file?
-    const signup = async () => {
+    const {signup} = useProfile()
+
+    const handleSignup = async () => {
         try {
-            const response = await security.signup(newUser)
-            if (response.status === 200) {
-                navigate('/profile')
-            }
+            await signup(
+                emailRef.current.value,
+                usernameRef.current.value,
+                passRef.current.value
+            )
+            navigate('/profile')
         } catch (e) {
-            alert(e);
+            throw(e);
         }
     }
 
@@ -41,12 +46,10 @@ const SignUpModal = () => {
                         <div className="form-group row mb-4">
                             <label htmlFor="InputEmail" className="col-sm-2 col-form-label">Email</label>
                             <div className="col-sm-10">
-                                <input type="email" className="form-control rounded-pill bg-light border-0 shadow-none"
-                                       id="InputEmail"
-                                       placeholder="email@domain.com"
-                                       value={newUser.email}
-                                       onChange={(e) =>
-                                           setNewUser({...newUser, email: e.target.value})}/>
+                                <input className="form-control rounded-pill bg-light border-0 shadow-none"
+                                       ref={emailRef}
+                                       type="email" id="InputEmail"
+                                       placeholder="email@domain.com"/>
                                 <small id="emailHelp" className="form-text text-muted ps-2">
                                     We'll never share your email with anyone else
                                 </small>
@@ -55,12 +58,10 @@ const SignUpModal = () => {
                         <div className="form-group row mb-4">
                             <label htmlFor="InputUsername" className="col-sm-2 col-form-label">Username</label>
                             <div className="col-sm-10">
-                                <input type="text" className="form-control rounded-pill bg-light border-0 shadow-none"
-                                       id="InputUsername"
-                                       placeholder="JohnDoe123"
-                                       value={newUser.username}
-                                       onChange={(e) =>
-                                           setNewUser({...newUser, username: e.target.value})}/>
+                                <input className="form-control rounded-pill bg-light border-0 shadow-none"
+                                       ref={usernameRef}
+                                       type="text" id="InputUsername"
+                                       placeholder="JohnDoe123"/>
                             </div>
                         </div>
 
@@ -70,13 +71,10 @@ const SignUpModal = () => {
                                 Password
                             </label>
                             <div className="col-sm-10">
-                                <input type="password"
-                                       className="form-control rounded-pill bg-light border-0 shadow-none"
-                                       id="InputPassword"
-                                       placeholder="Password"
-                                       value={newUser.password}
-                                       onChange={(e) =>
-                                           setNewUser({...newUser, password: e.target.value})}/>
+                                <input className="form-control rounded-pill bg-light border-0 shadow-none"
+                                       ref={passRef}
+                                       type="password" id="InputPassword"
+                                       placeholder="Password"/>
                             </div>
                         </div>
                     </Form>
@@ -85,11 +83,11 @@ const SignUpModal = () => {
                 <Modal.Footer className={`border-0`}>
                     <div className={'container text-center'}>
                         <button className={'btn btn-primary bg-primary rounded-pill border-0 m-2'}
-                                onClick={() => console.log("sign up button pressed")}>
+                                onClick={handleSignup}>
                             Register
                         </button>
                         <button className={'btn btn-primary bg-danger rounded-pill border-0 m-2'}
-                                onClick={() => console.log(newUser)}>
+                                onClick={() => setShow(false)}>
                             Cancel
                         </button>
                     </div>

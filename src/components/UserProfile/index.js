@@ -1,21 +1,31 @@
 import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
-import * as service from "../../_services/auth-service"
+import {Link, useNavigate} from "react-router-dom";
+import {useProfile} from "../../_context/profile-context";
+import {logout} from "../../_services/auth-service";
 
 const UserProfile = () => {
-    const [profile, setProfile] = useState({});
-    useEffect(async () => {
-        const user = await service.profile();
-        setProfile(user);
-    }, []);
+    const {profile} = useProfile()
+    const navigate = useNavigate()
 
+    const handleLogout = async () => {
+        try {
+            await logout()
+            navigate('/home')
+        } catch (e) {
+            throw(e);
+        }
+    }
 
     return (
         <>
+            <button className={`btn btn-danger`}
+                onClick={handleLogout}>Logout
+            </button>
+
             <div className={""}>
                 <Link to={"./edit-profile"}
                       className={"btn btn-sm btn-primary rounded-pill float-end mt-2 mb-4"}>Edit Profile</Link>
-                <h5 className={"m-0 p-0"}><strong>{profile.displayName}</strong></h5>
+                <h5 className={"m-0 p-0"}><strong>{profile.email}</strong></h5>
                 <p className={"text-muted m-0 p-0 mb-1"}>@{profile.username}</p>
             </div>
 

@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {findPaintingsByArtist, generalSearch, randomPaintings, updatedArtists} from "../../_actions/artpieces-actions";
 import ArtistGridItem from "./ArtistGridItem";
 import {Link} from "react-router-dom";
+import {useProfile} from "../../_context/profile-context";
 
 const RandomPaintings = () => {
     const paintings_data = useSelector(state => state.paintings);
@@ -69,11 +70,13 @@ const SearchResults = (search_term) => {
     const paintings_data = useSelector(state => state.paintings);
     const paintings = paintings_data.data;
     const dispatch = useDispatch();
+
     useEffect(() => generalSearch(dispatch, search_term), [dispatch, search_term]);
 
     return (
         <>
             {ComponentHeader("Search Results")}
+
             {paintings.length === 0 ?
                 (<div className={"text-center"}>
                     <h4 className={""}>

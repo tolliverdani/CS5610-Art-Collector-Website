@@ -6,18 +6,18 @@ const api = axios.create({
     withCredentials: true
 });
 
-export const signup = (user) =>
-    api.post(`${SECURITY_API}/signup`, user)
+export const signup = async (email, username, password) =>
+    api.post(`${SECURITY_API}/signup`,
+        {email, username, password}).then(response => response.data);
+
+export const login = async (email, password) =>
+    api.post(`${SECURITY_API}/login`,
+        {email, password}).then(response => response.data);
+
+export const logout = async () =>
+    api.post(`${SECURITY_API}/logout`)
         .then(response => response.data);
 
-export const login = (user) =>
-    api.post(`${SECURITY_API}/login`, user)
-        .then(response => response.data);
-
-export const logout = (user) =>
-    api.post(`${SECURITY_API}/logout`, user)
-        .then(response => response.data);
-
-export const profile = () =>
+export const profile = async () =>
     api.post(`${SECURITY_API}/profile`)
         .then(response => response.data);

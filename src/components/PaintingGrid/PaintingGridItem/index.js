@@ -1,6 +1,7 @@
 import React from "react";
 import {Dropdown, DropdownButton} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import SecureContent from "../../Security/secure-content";
 
 // Reference for content: https://react-bootstrap.github.io/components/dropdowns/
 
@@ -19,12 +20,14 @@ const PaintingGridItem = ({grid_item}) => {
                     <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center p-0 mb-1'}
                          src={grid_item.image}
                          alt={grid_item.title}/>
-                    </Link>
+                </Link>
             </div>
-            <i onClick={likeArtist} className={"position-absolute align-self-end p-2"}>
-                {like && <i className="fas fa-heart text-danger"/>}
-                {!like && <i className="fas fa-heart text-white"/>}
-            </i>
+            <SecureContent>
+                <i onClick={likeArtist} className={"position-absolute align-self-end p-2"}>
+                    {like && <i className="fas fa-heart text-danger"/>}
+                    {!like && <i className="fas fa-heart text-white"/>}
+                </i>
+            </SecureContent>
             <div className={'card-title align-items-center'}>
                 <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
                                 size={"sm"}
@@ -36,7 +39,8 @@ const PaintingGridItem = ({grid_item}) => {
                     <Link className={`small text-decoration-none text-black`}
                           to={`/art/${grid_item.id}`}>
                         <span className={"m-0"}><strong>{grid_item.title}</strong></span>
-                        <span className={`small ${grid_item.completitionYear === null ? 'd-none' : ''}`}>, {grid_item.completitionYear}</span>
+                        <span
+                            className={`small ${grid_item.completitionYear === null ? 'd-none' : ''}`}>, {grid_item.completitionYear}</span>
                     </Link>
                     <Link className={`text-decoration-none text-dark`}
                           to={`/artist/${((grid_item.artistName).toLowerCase()).split(" ").join("-")}/${grid_item.artistId}`}>
