@@ -12,6 +12,7 @@ import artistReducer from "../../_reducers/artist-reducer";
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import {useLocation, useParams} from "react-router-dom";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 const reducers = combineReducers({paintings: paintingsReducer, artists: artistReducer})
 const store = createStore(reducers);
@@ -22,6 +23,7 @@ const ArtistProfileScreen = () => {
     console.log(artist_id)
     return (
         <Provider store={store}>
+            <ScrollToTop/>
             <NavigationTopMenu/>
             <div className={"container"}>
                 <div className={'row pt-2'}>
