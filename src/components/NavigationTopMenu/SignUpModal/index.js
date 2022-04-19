@@ -9,14 +9,23 @@ const SignUpModal = () => {
     const [set, setShow] = useState(false);
 
     const [newUser, setNewUser] = useState({email: "", username: "", password: ""});
-    //const navigate = useNavigate();
-    //const signup = () =>
-        //security.signup(newUser).then(() =>
-           // navigate('/profile')).catch(e => alert(e));
+    const navigate = useNavigate();
+
+    // TODO does this go in an actions file?
+    const signup = async () => {
+        try {
+            const response = await security.signup(newUser)
+            if (response.status === 200) {
+                navigate('/profile')
+            }
+        } catch (e) {
+            alert(e);
+        }
+    }
 
     return (
         <>
-            <Button className="btn btn-secondary rounded-pill border-0 m-1" onClick={setShow(true)}>
+            <Button className="btn btn-secondary rounded-pill border-0 m-1" onClick={() => setShow(true)}>
                 Sign up
             </Button>
 
@@ -56,7 +65,10 @@ const SignUpModal = () => {
                         </div>
 
                         <div className="form-group row mb-3">
-                            <label htmlFor="InputPassword" className="col-sm-2 col-form-label">Password</label>
+                            <label htmlFor="InputPassword"
+                                   className="col-sm-2 col-form-label">
+                                Password
+                            </label>
                             <div className="col-sm-10">
                                 <input type="password"
                                        className="form-control rounded-pill bg-light border-0 shadow-none"
@@ -73,7 +85,7 @@ const SignUpModal = () => {
                 <Modal.Footer className={`border-0`}>
                     <div className={'container text-center'}>
                         <button className={'btn btn-primary bg-primary rounded-pill border-0 m-2'}
-                        >
+                                onClick={() => console.log("sign up button pressed")}>
                             Register
                         </button>
                         <button className={'btn btn-primary bg-danger rounded-pill border-0 m-2'}
