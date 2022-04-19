@@ -10,7 +10,7 @@ import UnsecuredContent from "../Security/unsecured-content";
 const NavigationTopMenu = () => {
     return (
         <div className={'navbar sticky-top navbar-dark bg-primary p-2 p-0'}>
-            <div className={'col-4 col-lg-2 col-xl-3 text-center'}>
+            <div className={'col-2 col-lg-2 col-xl-3 text-center'}>
                 <a className={'navbar-brand'} href={"/home"}>LOGO</a>
             </div>
 
@@ -19,7 +19,7 @@ const NavigationTopMenu = () => {
             </div>
 
             <UnsecuredContent>
-                <div className={'d-none d-lg-block col-2 col-xl-3 text-center'}>
+                <div className={'col-2 col-xl-3 text-center'}>
                     <SignUpModal/>
                     <LogInModal/>
                 </div>
