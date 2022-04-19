@@ -33,7 +33,7 @@ const UserProfile = () => {
                 <p className={"m-0 p-0 mb-1"}>{profile.bio}</p>
                 <span className={"pe-4"}><i className="fa fa-map-marker"
                                             aria-hidden="true"/> {profile.location}</span>
-                <span className={"pe-4"}> Last login {profile.lastLogIn}</span>
+                <span className={"pe-4"}> Time on website {Date.now() - profile.joined}</span>
             </div>
         </>
     );

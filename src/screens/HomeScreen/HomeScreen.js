@@ -18,18 +18,16 @@ const Index = () => {
         <Provider store={store}>
             <div>
                 <NavigationTopMenu/>
-                <div className={"container"}>
-                    <div className={'row pt-2'}>
-                        <div className={'col-2'}>
+                <div className={"row m-3 p-2"}>
+                        <div className={'col-2 position-sticky'}>
                             <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                         </div>
-                        <div className={'col-10 col-lg-7'}>
+                        <div className={'col-10 col-lg-8'}>
                             <PaintingGrid type={"random"}/>
                         </div>
-                        <div className={'col-3 d-none d-lg-block'}>
+                        <div className={'d-none d-lg-block col-2'}>
                             <PaintingListings/>
                         </div>
-                    </div>
                 </div>
             </div>
         </Provider>

@@ -1,32 +1,37 @@
 import React from "react";
+import {Dropdown} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
+import {logout} from "../../../_services/auth-service";
 
 const HamburgerMenu = () => {
+    const navigate = useNavigate()
+
+    const handleLogout = async () => {
+        try {
+            await logout()
+            navigate('/home')
+        } catch (e) {
+            throw(e);
+        }
+    }
+
     return (
         <>
-            <nav className={`navbar navbar-dark bg-primary`}>
-                <button className={`navbar-toggler`} type={`button`} data-bs-toggle={`collapse`}
-                        data-bs-target={`#navbarColor01`} aria-controls={`navbarColor01`}
-                        aria-expanded={true} aria-label={`Toggle navigation`}>
-                    <span className={`navbar-toggler-icon`}/>
-                </button>
+            <Dropdown>
+                <Dropdown.Toggle className={"btn border-0 text-primary"}
+                                 variant={"transparent"}
+                                 id={"dropdown"}>
+                    {/* TODO: replace with profile picture icon */}
+                    <i className={'fa text-light fa-2x fa-user-circle'}/>
+                </Dropdown.Toggle>
 
-                <div className={`navbar-collapse collapse`} id={`navbarColor01`}>
-                    <ul className={`navbar-nav me-auto`}>
-                        <li className={`nav-item`}>
-                            <a className={`nav-link`} href="/#">Profile</a>
-                        </li>
-                        <li className={`nav-item d-none d-lg-block`}>
-                            <a className={`nav-link`} href="/#">Sign Up</a>
-                        </li>
-                        <li className={`nav-item`}>
-                            <a className={`nav-link`} href="/#">Settings</a>
-                        </li>
-                        <li className={`nav-item`}>
-                            <a className={`nav-link`} href="/#">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+                <Dropdown.Menu>
+                    <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                    <Dropdown.Item href="/edit-profile">Settings</Dropdown.Item>
+                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                    <Dropdown.Item href="/privacy">Privacy</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
         </>
     );
 };

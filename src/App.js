@@ -19,47 +19,45 @@ function App() {
     return (
         <ProfileProvider>
             <BrowserRouter>
-                <div className="container">
-                    <Routes>
-                        <Route index element={<HomeScreen/>}/>
-                        <Route path="/">
-                            <Route path="home"
-                                   element={<HomeScreen/>}/>
-                            <Route path="search"
-                                   element={<SearchScreen/>}/>
-                            <Route path="search/:searchTerm"
-                                   element={<SearchScreen/>}/>
-                            <Route path="new-artists"
-                                   element={<NewArtistsScreen/>}/>
-                            <Route path="artist"
-                                   element={<ArtistProfileScreen/>}/>
-                            <Route path="artist/:artist_name/:artist_id"
-                                   element={<ArtistProfileScreen/>}/>
-                            <Route path="art"
-                                   element={<ArtPieceScreen/>}/>
-                            <Route path="art/:painting_id"
-                                   element={<ArtPieceScreen/>}/>
-                            <Route path="user"
-                                   element={
-                                       <SecureRoute>
-                                           <UserProfileScreen/>
-                                       </SecureRoute>
-                                   }/>
-                            <Route index
-                                   element={
-                                       <SecureRoute>
-                                           <UserProfileScreen/>
-                                       </SecureRoute>
-                                   }/>
-                            <Route path="edit-profile"
-                                   element={
-                                       <SecureRoute>
-                                           <EditProfileScreen/>
-                                       </SecureRoute>
-                                   }/>
-                        </Route>
-                    </Routes>
-                </div>
+                <Routes>
+                    <Route index element={<HomeScreen/>}/>
+                    <Route path="/">
+                        <Route path="home"
+                               element={<HomeScreen/>}/>
+                        <Route path="search"
+                               element={<SearchScreen/>}/>
+                        <Route path="search/:searchTerm"
+                               element={<SearchScreen/>}/>
+                        <Route path="new-artists"
+                               element={<NewArtistsScreen/>}/>
+                        <Route path="artist"
+                               element={<ArtistProfileScreen/>}/>
+                        <Route path="artist/:artist_name/:artist_id"
+                               element={<ArtistProfileScreen/>}/>
+                        <Route path="art"
+                               element={<ArtPieceScreen/>}/>
+                        <Route path="art/:painting_id"
+                               element={<ArtPieceScreen/>}/>
+                        <Route path="profile"
+                               element={
+                                   <SecureRoute>
+                                       <UserProfileScreen/>
+                                   </SecureRoute>
+                               }/>
+                        <Route index
+                               element={
+                                   <SecureRoute>
+                                       <UserProfileScreen/>
+                                   </SecureRoute>
+                               }/>
+                        <Route path="edit-profile"
+                               element={
+                                   <SecureRoute>
+                                       <EditProfileScreen/>
+                                   </SecureRoute>
+                               }/>
+                    </Route>
+                </Routes>
             </BrowserRouter>
         </ProfileProvider>
     );
