@@ -27,6 +27,7 @@ const UserProfile = () => {
                       className={"btn btn-sm btn-primary rounded-pill float-end mt-2 mb-4"}>Edit Profile</Link>
                 <h5 className={"m-0 p-0"}><strong>{profile.email}</strong></h5>
                 <p className={"text-muted m-0 p-0 mb-1"}>@{profile.username}</p>
+                <p className={"text-muted m-0 p-0 mb-1"}>@{profile._id}</p>
             </div>
 
             <div className={"text-muted small mb-1"}>

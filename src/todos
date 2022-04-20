@@ -2,9 +2,7 @@ HTML
 - Modify Listings component to include picture; feature at top of artist page
 - Add edit profile for a regular user
 - From paintings detail, allow users to click on owner name to see user details
-- Add in how to handle a 404, search result not found << try catch!
 - Plumbing for ... menu
-- Search function is broken
 - Hook up purchase/barter system
     - {
         _id: 'done by db'
@@ -54,6 +52,8 @@ IF TIME PERMITS
 - Add in /artist/:artist-name (without the :id) that renders just their details and NO painting grid
 
 DONE
+- Search function is broken
+- Add in how to handle a 404, search result not found << try catch!
 - We need to create a search results page - artists and artwork
 - Update home screen to include popular feed
 - Add in pagination for API calls
