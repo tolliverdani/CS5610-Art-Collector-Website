@@ -7,30 +7,7 @@ const ProfileContext = React.createContext()
 export const ProfileProvider = ({children}) => {
     const [profile, setProfile] = useState()
 
-    const checkLoggedIn = async () => {
-        try {
-            const profile = await service.profile()
-            setProfile(profile)
-            return profile
-        } catch (e) {
-            throw(e)
-        }
-    }
-
-    const signup = async (email, username, password) => {
-        try {
-            const profile = await security.signup(
-                email,
-                username,
-                password
-            )
-            setProfile(profile)
-        } catch (e) {
-            throw(e);
-        }
-    }
-
-    const login = async (email, password) => {
+    const setPaintings = async () => {
         try {
             const profile = await security.login(
                 email,
@@ -51,7 +28,6 @@ export const ProfileProvider = ({children}) => {
     }
 
     const value = {profile, signup, login, logout, checkLoggedIn}
-
     return (
         <ProfileContext.Provider value={value}>
             {children}

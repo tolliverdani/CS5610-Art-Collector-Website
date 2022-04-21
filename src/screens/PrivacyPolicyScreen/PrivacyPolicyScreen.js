@@ -1,19 +1,13 @@
 import React from "react";
+import {useLocation} from "react-router-dom";
+
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingListings from "../../components/PaintingListings";
-import paintingsReducer from "../../_reducers/paintings-reducer"
-import {Provider} from "react-redux";
-import {combineReducers, createStore} from "redux";
-import {useLocation} from "react-router-dom";
 import PrivacyPolicy from "../../components/PrivacyPolicy";
 
-const reducers = combineReducers({paintings: paintingsReducer})
-const store = createStore(reducers);
-
-const Index = () => {
+const PrivacyPolicyScreen = () => {
     return (
-        <Provider store={store}>
             <div>
                 <NavigationTopMenu/>
                 <div className={"row m-3 p-2"}>
@@ -28,7 +22,6 @@ const Index = () => {
                     </div>
                 </div>
             </div>
-        </Provider>
     );
 };
-export default Index;
+export default PrivacyPolicyScreen;

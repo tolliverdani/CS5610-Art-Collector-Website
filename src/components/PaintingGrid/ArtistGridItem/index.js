@@ -1,16 +1,17 @@
 import React from "react";
-import {Dropdown, DropdownButton} from "react-bootstrap";
 import {Link} from "react-router-dom";
-
+import GridItemMenu from "../GridItemMenu";
+import {Dropdown, DropdownButton} from "react-bootstrap";
+import {addToUserCollection} from "../../../_actions/collections-actions";
+import {useProfile} from "../../../_context/profile-context";
+import {useDispatch} from "react-redux";
 
 // Reference for content: https://react-bootstrap.github.io/components/dropdowns/
 
 const ArtistGridItem = ({grid_item}) => {
-    const like = false;
 
-    const likeArtist = () => {
-        return !like;
-    };
+    const {profile} = useProfile()
+    const {dispatch} = useDispatch()
 
     return (
         <div className={"col card border-0 p-1"}>
@@ -21,18 +22,19 @@ const ArtistGridItem = ({grid_item}) => {
                          alt={grid_item.title}/>
                 </Link>
             </div>
-            <i onClick={likeArtist} className={"position-absolute align-self-end p-2"}>
-                {like && <i className="fas fa-heart text-danger"/>}
-                {!like && <i className="fas fa-heart text-white"/>}
-            </i>
 
             <div className={'card-title align-items-center'}>
                 <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
                                 size={"sm"}
                                 align={"end"} title={""}>
-                    <Dropdown.Item>Favorite</Dropdown.Item>
-                    <Dropdown.Item>Add to Collection</Dropdown.Item>
-                    <Dropdown.Item>More Details</Dropdown.Item>
+                    <Dropdown.Item onClick={() => {
+                            alert("Added to favorites")
+                        }}>
+                        Favorite
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                        More Details
+                    </Dropdown.Item>
                 </DropdownButton>
 
                 <span className={'card-title'}>

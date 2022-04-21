@@ -1,38 +1,26 @@
-import React, {useEffect, useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import React, {useEffect} from "react";
+import {Link} from "react-router-dom";
 import {useProfile} from "../../_context/profile-context";
-import {logout} from "../../_services/auth-service";
-import {useDispatch, useSelector} from "react-redux";
-import {findUserCollection} from "../../_actions/collections-actions";
-import ComponentHeader from "../ComponentHeader";
-import EmptyCollection from "../Errors/EmptyCollection";
-import PaintingGridItem from "../PaintingGrid/PaintingGridItem";
 
 // TODO: very much so a work in progress
 
 const UserProfile = () => {
-    const collection = useSelector(state => state.collection)
-    const dispatch = useDispatch();
+
     const {profile} = useProfile();
-
-    const user_id = profile._id;
-
-    useEffect(() => findUserCollection(dispatch, user_id), [user_id]);
 
     return (
         <>
             <div className={"d-flex align-items-center justify-content-between mt-2 border-bottom p-2"}>
                 <div className={'d-flex align-items-center'}>
                     <i className={"m-0 p-0 fa fa-2x fa-user-circle"} aria-hidden="true"/>
-                    <p className={"m-0 p-0 ps-3"}>{ComponentHeader(profile.username)}</p>
+                    <h5 className={"m-0 p-0 ps-3"}><strong>{profile.username}</strong></h5>
                 </div>
-                <btn>
-                    <Link to={"./edit-profile"} className={"btn btn-sm btn-primary rounded-pill float-end mb-2"}>Edit
-                        Profile</Link>
-                </btn>
+                <Link to={"./edit-profile"} className={"btn btn-sm btn-primary rounded-pill float-end mb-2"}>Edit
+                    Profile
+                </Link>
             </div>
 
-            <div className={"text-muted small mb-1 border-bottom p-2"}>
+            <div className={"small mb-1 border-bottom p-2"}>
                 <p className={"p-0 small"}>
                     Account ID: @{profile._id}
                 </p>
@@ -40,35 +28,16 @@ const UserProfile = () => {
                     <i className="fa fa-map-marker pe-2" aria-hidden="true"/>
                     Location: {profile.hasOwnProperty(profile.location) === false ? "Earth" : profile.location}
                 </p>
-                <p className={"p-0"}> Member joined {profile.joined}</p>
-            </div>
-
-            <div className={"border-bottom p-2"}>
-                {ComponentHeader("Bio")}
                 <p className={"p-0"}>
-                    {profile.hasOwnProperty(profile.bio) === false ? "This user has no bio yet." : profile.bio}
+                    Member joined {profile.joined}
+                </p>
+                <p className={"p-0"}>
+                    Bio: {profile.hasOwnProperty(profile.bio) === false ? "This user has no bio yet." : profile.bio}
                 </p>
             </div>
 
             <div className={"border-bottom p-2"}>
-                {ComponentHeader(profile.username + "'s Collection")}
-                {collection.length === 0 ?
-                    (EmptyCollection())
-                    :
-                    // TODO should probably use the grid component somehow
-
-                    (<div className={"mb-3 d-flex flex-column justify-content-center"}>
-                        <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
-                            {collection.map(painting_item => <PaintingGridItem key={painting_item.id}
-                                                                              grid_item={painting_item}/>)}
-                        </div>
-                    </div>)}
-            </div>
-
-            <div className={"border-bottom p-2"}>
-                (
                 <pre>{JSON.stringify(profile, null, 2)}</pre>
-                )
             </div>
         </>
 

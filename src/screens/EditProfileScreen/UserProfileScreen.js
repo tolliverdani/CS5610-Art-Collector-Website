@@ -1,19 +1,23 @@
 import React from "react";
+import {useLocation} from "react-router-dom";
+import {Provider} from "react-redux";
+import {combineReducers, createStore} from "redux";
 
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import PaintingListings from "../../components/PaintingListings";
-import UserProfile from "../../components/UserProfile";
 import NavigationSidebar from "../../components/NavigationSidebar";
-import PaintingGrid from "../../components/PaintingGrid";
 import EditProfile from "../../components/UserProfile/EditProfile";
-import {useLocation} from "react-router-dom";
+import paintingsReducer from "../../_reducers/paintings-reducer"
+
+const reducers = combineReducers({paintings: paintingsReducer})
+const store = createStore(reducers);
 
 const UserProfileScreen = (
 
 ) => {
     return (
-        <>
-            <NavigationTopMenu/>
+        <Provider store={store}>
+        <NavigationTopMenu/>
             <div className={'container'}>
                 <div className={'row pt-2'}>
                     <div className={'col-2'}>
@@ -28,7 +32,7 @@ const UserProfileScreen = (
                     </div>
                 </div>
             </div>
-        </>
+        </Provider>
     );
 };
 export default UserProfileScreen;

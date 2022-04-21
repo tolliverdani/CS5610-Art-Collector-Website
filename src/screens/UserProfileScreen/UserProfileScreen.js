@@ -1,41 +1,55 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {combineReducers, createStore} from "redux";
+import {Provider, useDispatch, useSelector} from "react-redux";
+import {useLocation} from "react-router-dom";
+
+import paintingsReducer from "../../_reducers/paintings-reducer"
 
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import PaintingListings from "../../components/PaintingListings";
 import UserProfile from "../../components/UserProfile";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingGrid from "../../components/PaintingGrid";
-import profile from "../../data/profile.json";
-import {useLocation} from "react-router-dom";
-import collectionsReducer from "../../_reducers/collections-reducer";
-import {combineReducers, createStore} from "redux";
-import {Provider} from "react-redux";
-const reducers = combineReducers({collection:collectionsReducer})
-const store = createStore(reducers);
+import ComponentHeader from "../../components/ComponentHeader";
 
-const UserProfileScreen = (
+import {findUserCollection} from "../../_actions/collections-actions";
+import {useProfile} from "../../_context/profile-context";
+import EmptyCollection from "../../components/Errors/EmptyCollection";
+import PaintingGridItem from "../../components/PaintingGrid/PaintingGridItem";
 
-) => {
+
+const UserProfileScreen = () => {
+
+    const {profile} = useProfile()
+    const paintings = useSelector(state => state.collection);
+    const dispatch = useDispatch();
+
+    const user_id = profile._id
+    useEffect(() => findUserCollection(dispatch, user_id), [user_id]);
+
     return (
         <>
-            <Provider store={store}>
             <NavigationTopMenu/>
             <div className={'container'}>
                 <div className={'row pt-2'}>
                     <div className={'col-2'}>
-                        <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
+                        <NavigationSidebar
+                            active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                     </div>
                     <div className={'col-10 col-lg-7'}>
                         <UserProfile profile={profile}/>
                         <hr/>
-                        <PaintingGrid/>
+                        {ComponentHeader("Collection")}
+                        {paintings.length === 0 ?
+                            EmptyCollection()
+                            :
+                        <PaintingGrid type={("collection")} data={paintings}/>}
                     </div>
                     <div className={'col-3 d-none d-lg-block'}>
                         <PaintingListings/>
                     </div>
                 </div>
             </div>
-            </Provider>
         </>
     );
 };

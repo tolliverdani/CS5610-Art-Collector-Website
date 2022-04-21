@@ -1,18 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import NavigationSidebar from "../../components/NavigationSidebar";
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import PaintingListings from "../../components/PaintingListings";
 import paintingsReducer from "../../_reducers/paintings-reducer"
-import {Provider} from "react-redux";
+import {Provider, useDispatch, useSelector} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import PaintingGrid from "../../components/PaintingGrid";
 import {useLocation} from "react-router-dom";
+import {updatedArtists} from "../../_actions/artpieces-actions";
 
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);
 
 const Index = () => {
+    const paintings_data = useSelector(state => state.paintings);
+    const paintings = paintings_data.data;
+    const dispatch = useDispatch();
+    useEffect(() => updatedArtists(dispatch), [dispatch]);
+
     return (
         <Provider store={store}>
             <div>
@@ -23,7 +29,7 @@ const Index = () => {
                             <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                         </div>
                         <div className={'col-10 col-lg-7'}>
-                            <PaintingGrid type={"updated-artists"}/>
+                            <PaintingGrid type={"updated-artists"} data={paintings}/>
                         </div>
                         <div className={'col-3 d-none d-lg-block'}>
                             <PaintingListings/>
