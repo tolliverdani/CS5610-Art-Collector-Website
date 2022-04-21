@@ -6,6 +6,7 @@ import {findPaintingsByArtist, generalSearch, randomPaintings, updatedArtists} f
 import ArtistGridItem from "./ArtistGridItem";
 import {Link} from "react-router-dom";
 import {useProfile} from "../../_context/profile-context";
+import {findUserCollection} from "../../_actions/collections-actions";
 
 const RandomPaintings = () => {
     const paintings_data = useSelector(state => state.paintings);
@@ -70,8 +71,12 @@ const SearchResults = (search_term) => {
     const paintings_data = useSelector(state => state.paintings);
     const paintings = paintings_data.data;
     const dispatch = useDispatch();
+    const {profile} = useProfile();
 
-    useEffect(() => generalSearch(dispatch, search_term), [dispatch, search_term]);
+    useEffect(() => {
+        generalSearch(dispatch, search_term);
+
+    }, [dispatch, search_term]);
 
     return (
         <>

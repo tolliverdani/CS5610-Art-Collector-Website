@@ -4,13 +4,14 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 
 import paintingsReducer from "../../_reducers/paintings-reducer"
 import artistReducer from "../../_reducers/artist-reducer";
+import collectionsReducer from "../../_reducers/collections-reducer";
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import {useLocation, useParams} from "react-router-dom";
 import GeneralSearchArtistsResults from "../../components/GeneralSearchArtistsResults";
 import PaintingGrid from "../../components/PaintingGrid";
 
-const reducers = combineReducers({paintings: paintingsReducer, artists: artistReducer})
+const reducers = combineReducers({paintings: paintingsReducer, artists: artistReducer, collection: collectionsReducer})
 const store = createStore(reducers);
 
 const SearchScreen = () => {

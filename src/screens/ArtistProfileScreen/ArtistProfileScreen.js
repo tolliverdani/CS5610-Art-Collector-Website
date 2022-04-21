@@ -9,12 +9,13 @@ import CreatePost from "../../components/UpdatePosts/CreatePost";
 
 import paintingsReducer from "../../_reducers/paintings-reducer"
 import artistReducer from "../../_reducers/artist-reducer";
+import collectionsReducer from "../../_reducers/collections-reducer";
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import {useLocation, useParams} from "react-router-dom";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
-const reducers = combineReducers({paintings: paintingsReducer, artists: artistReducer})
+const reducers = combineReducers({paintings: paintingsReducer, artists: artistReducer, collection: collectionsReducer})
 const store = createStore(reducers);
 
 const ArtistProfileScreen = () => {
@@ -36,8 +37,7 @@ const ArtistProfileScreen = () => {
                         <CreatePost/>
                         <UpdatePosts/>
                         <hr/>
-                        { artist_id === undefined ? "" :
-                        <PaintingGrid type={"artist"} id={artist_id}/>}
+                        <PaintingGrid type={"artist"} id={artist_id}/>
                     </div>
                     <div className={'col-3 d-none d-lg-block'}>
                         <PaintingListings/>

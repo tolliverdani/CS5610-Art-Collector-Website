@@ -7,13 +7,18 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingGrid from "../../components/PaintingGrid";
 import profile from "../../data/profile.json";
 import {useLocation} from "react-router-dom";
+import collectionsReducer from "../../_reducers/collections-reducer";
+import {combineReducers, createStore} from "redux";
+import {Provider} from "react-redux";
+const reducers = combineReducers({collection:collectionsReducer})
+const store = createStore(reducers);
 
 const UserProfileScreen = (
 
 ) => {
     return (
         <>
-
+            <Provider store={store}>
             <NavigationTopMenu/>
             <div className={'container'}>
                 <div className={'row pt-2'}>
@@ -30,6 +35,7 @@ const UserProfileScreen = (
                     </div>
                 </div>
             </div>
+            </Provider>
         </>
     );
 };

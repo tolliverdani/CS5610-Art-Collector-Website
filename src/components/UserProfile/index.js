@@ -2,9 +2,16 @@ import React, {useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {useProfile} from "../../_context/profile-context";
 import {logout} from "../../_services/auth-service";
+import {useDispatch, useSelector} from "react-redux";
+import {findUserCollection} from "../../_actions/collections-actions";
+
 
 const UserProfile = () => {
-    const {profile} = useProfile()
+    const collection = useSelector( state => state.collection)
+    const dispatch = useDispatch();
+    const {profile} = useProfile();
+    const user_id = profile._id;
+    useEffect( () => findUserCollection(dispatch, user_id),[user_id]);
     const navigate = useNavigate()
 
     const handleLogout = async () => {
@@ -36,6 +43,9 @@ const UserProfile = () => {
                                             aria-hidden="true"/> {profile.location}</span>
                 <span className={"pe-4"}> Time on website {Date.now() - profile.joined}</span>
             </div>
+            <br/>
+            <h5>User Collection</h5>
+            <pre>{JSON.stringify(collection, null, 2)}</pre>
         </>
     );
 }

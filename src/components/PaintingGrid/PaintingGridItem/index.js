@@ -43,7 +43,7 @@ const PaintingGridItem = ({grid_item}) => {
                             className={`small ${grid_item.completitionYear === null ? 'd-none' : ''}`}>, {grid_item.completitionYear}</span>
                     </Link>
                     <Link className={`text-decoration-none text-dark`}
-                          to={`/artist/${((grid_item.artistName).toLowerCase()).split(" ").join("-")}/${grid_item.artistId}`}>
+                          to={`/artist/${grid_item.artistUrl}/${grid_item.artistId}`}>
                         <p>{grid_item.artistName}</p>
                     </Link>
                 </span>

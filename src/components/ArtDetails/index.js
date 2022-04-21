@@ -24,8 +24,7 @@ const ArtDetails = ({id = "57727444edc2cb3880cb7bf6"} ) => {
                         <div className={'card-body p-2'}>
                             <div>
                                 <p className={"m-0"}><strong>Artist</strong></p>
-                                /*TODO Why can't we use the .split string??*/
-                                <Link className={"text-decoration-none"} to={`/artist/${(data.artistName)}/${data.artistId}`}><p className={"mb-2"}>{data.artistName}</p></Link>
+                                <Link className={"text-decoration-none"} to={`/artist/${data.artistUrl}/${data.artistId}`}><p className={"mb-2"}>{data.artistName}</p></Link>
                                 <p className={"m-0"}><strong>Completion Year</strong></p>
                                 <p className={"mb-2"}>{data.completitionYear}</p>
                                 <p className={"m-0"}><strong>Genres</strong></p>
