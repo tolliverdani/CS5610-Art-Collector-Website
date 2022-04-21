@@ -13,6 +13,7 @@ import SearchScreen from "./screens/SearchScreen/SearchScreen";
 import NewArtistsScreen from "./screens/NewArtistsScreen/NewArtistsScreen";
 import SecureRoute from "./components/Security/secure-route"
 import {ProfileProvider} from "./_context/profile-context";
+import PrivacyPolicyScreen from "./screens/PrivacyPolicyScreen/PrivacyPolicyScreen";
 
 // TODO Can we switch this to the most up-to-date version? > lets do it
 function App() {
@@ -56,6 +57,8 @@ function App() {
                                        <EditProfileScreen/>
                                    </SecureRoute>
                                }/>
+                        <Route path="privacy"
+                               element={<PrivacyPolicyScreen/>}/>
                     </Route>
                 </Routes>
             </BrowserRouter>

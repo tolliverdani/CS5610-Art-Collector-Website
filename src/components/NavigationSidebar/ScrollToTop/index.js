@@ -17,11 +17,12 @@ const ScrollToTop = () => {
         });
     }, []);
 
-    // This function will scroll the window to the top
-    const scrollToTop = () => {
+    const scrollToTop = () =>{
         window.scrollTo({
             top: 0,
-            behavior: 'smooth' // for smoothly scrolling
+            behavior: 'smooth'
+            /* you can also use 'auto' behaviour
+               in place of 'smooth' */
         });
     };
 

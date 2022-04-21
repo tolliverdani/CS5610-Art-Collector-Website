@@ -28,13 +28,16 @@ const PaintingGridItem = ({grid_item}) => {
                     {!like && <i className="fas fa-heart text-white"/>}
                 </i>
             </SecureContent>
+
             <div className={'card-title align-items-center'}>
                 <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
                                 size={"sm"}
                                 align={"end"} title={""}>
+                    <Dropdown.Item>Favorite</Dropdown.Item>
                     <Dropdown.Item>Add to Collection</Dropdown.Item>
-                    <Dropdown.Item>More Details</Dropdown.Item>
+                    <Dropdown.Item href={`/art/${grid_item.id}`}>More Details</Dropdown.Item>
                 </DropdownButton>
+
                 <span className={'card-title'}>
                     <Link className={`small text-decoration-none text-black`}
                           to={`/art/${grid_item.id}`}>

@@ -13,7 +13,6 @@ const ArtistGridItem = ({grid_item}) => {
     };
 
     return (
-        // TODO If we remove m-3, it will show as a 4 grid, like defined in the break points
         <div className={"col card border-0 p-1"}>
             <div className={"d-flex"}>
                 <Link to={`/artist/${grid_item.url}/${grid_item.id}`}>
@@ -26,13 +25,16 @@ const ArtistGridItem = ({grid_item}) => {
                 {like && <i className="fas fa-heart text-danger"/>}
                 {!like && <i className="fas fa-heart text-white"/>}
             </i>
+
             <div className={'card-title align-items-center'}>
                 <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
                                 size={"sm"}
                                 align={"end"} title={""}>
+                    <Dropdown.Item>Favorite</Dropdown.Item>
                     <Dropdown.Item>Add to Collection</Dropdown.Item>
                     <Dropdown.Item>More Details</Dropdown.Item>
                 </DropdownButton>
+
                 <span className={'card-title'}>
                     <Link className={`small text-decoration-none text-black`}
                           to={`/artist/${grid_item.url}/${grid_item.id}`}>

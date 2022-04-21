@@ -20,8 +20,6 @@ const store = createStore(reducers);
 
 const ArtistProfileScreen = () => {
     const {artist_name, artist_id} = useParams();
-    console.log(artist_name)
-    console.log(artist_id)
     return (
         <Provider store={store}>
             <ScrollToTop/>
@@ -30,6 +28,7 @@ const ArtistProfileScreen = () => {
                 <div className={'row pt-2'}>
                     <div className={'col-2'}>
                         <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
+                        <ScrollToTop/>
                     </div>
                     <div className={'col-10 col-lg-7'}>
                         <ArtistProfile artist_name={artist_name}/>

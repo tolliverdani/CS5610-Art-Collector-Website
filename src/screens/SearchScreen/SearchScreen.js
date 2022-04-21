@@ -26,8 +26,6 @@ const SearchScreen = () => {
                             <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                         </div>
                         <div className={'col-10 col-lg-7'}>
-                            {console.log("On Search Screen:")}
-                            {console.log(searchTerm)}
                             <PaintingGrid type={"search"} id={searchTerm}/>
                         </div>
                         <div className={'col-3 d-none d-lg-block'}>
