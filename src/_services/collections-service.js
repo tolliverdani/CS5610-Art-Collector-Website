@@ -20,3 +20,11 @@ export const findUserCollection = async ( user_id ) => {
         return response.data
     }
 }
+
+export const addToUserCollection = async ( user_id, item_to_add ) => {
+    const request_url = `${COLLECTIONS_API}/add/${user_id}`
+    const response = await axios.put(request_url, item_to_add);
+    if ( response.status === 200 ){
+        return response.data
+    }
+}

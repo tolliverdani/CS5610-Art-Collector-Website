@@ -2,10 +2,15 @@ import React from "react";
 import {Dropdown, DropdownButton} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import SecureContent from "../../Security/secure-content";
+import {addToUserCollection} from "../../../_actions/collections-actions";
+import {useProfile} from "../../../_context/profile-context";
+import {useDispatch} from "react-redux";
 
 // Reference for content: https://react-bootstrap.github.io/components/dropdowns/
 
 const PaintingGridItem = ({grid_item}) => {
+    const {profile} = useProfile();
+    const dispatch = useDispatch();
     const like = true;
 
     const likeArtist = () => {
@@ -34,7 +39,25 @@ const PaintingGridItem = ({grid_item}) => {
                                 size={"sm"}
                                 align={"end"} title={""}>
                     <Dropdown.Item>Favorite</Dropdown.Item>
-                    <Dropdown.Item>Add to Collection</Dropdown.Item>
+                    <Dropdown.Item onClick={() => {
+                        // pack up the image, only pulling out what is needed
+                        const item_to_add = {
+                            "id": grid_item.id,
+                            "title": grid_item.title,
+                            "url": grid_item.url,
+                            "artistUrl": grid_item.artistUrl,
+                            "artistName": grid_item.artistName,
+                            "artistId": grid_item.artistId,
+                            "completionYear": grid_item.completionYear,
+                            "image": grid_item.image
+                        }
+
+                        addToUserCollection(dispatch, profile._id, item_to_add)
+
+
+                    }}>
+                        Add to Collection
+                    </Dropdown.Item>
                     <Dropdown.Item href={`/art/${grid_item.id}`}>More Details</Dropdown.Item>
                 </DropdownButton>
 

@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {findUserCollection} from "../../_actions/collections-actions";
 import ComponentHeader from "../ComponentHeader";
 import EmptyCollection from "../Errors/EmptyCollection";
+import PaintingGridItem from "../PaintingGrid/PaintingGridItem";
 
 // TODO: very much so a work in progress
 
@@ -51,10 +52,17 @@ const UserProfile = () => {
 
             <div className={"border-bottom p-2"}>
                 {ComponentHeader(profile.username + "'s Collection")}
-                {collection.contents.length === 0 ?
+                {collection.length === 0 ?
                     (EmptyCollection())
                     :
-                    (<pre>{JSON.stringify(collection, null, 2)}</pre>)}
+                    // TODO should probably use the grid component somehow
+
+                    (<div className={"mb-3 d-flex flex-column justify-content-center"}>
+                        <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
+                            {collection.map(painting_item => <PaintingGridItem key={painting_item.id}
+                                                                              grid_item={painting_item}/>)}
+                        </div>
+                    </div>)}
             </div>
 
             <div className={"border-bottom p-2"}>
