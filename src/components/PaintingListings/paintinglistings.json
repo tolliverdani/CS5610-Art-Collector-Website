@@ -1,31 +1,20 @@
 [
   {
-    "id": "pli01",
-    "type": "For Sale",
+    "_id": "pli01",
     "cost": 200,
     "denomination": "USD",
     "quality": "Excellent",
     "seller": "@nziegler"
   },
   {
-    "id": "pli02",
-    "type": "For Sale",
+    "_id": "pli02",
     "cost": 300,
     "denomination": "USD",
     "quality": "Excellent",
     "seller": "@jziegler"
   },
   {
-    "id": "pli03",
-    "type": "For Barter",
-    "cost": 0,
-    "denomination": "",
-    "quality": "Average",
-    "seller": "@dtolliver"
-  },
-  {
-    "id": "pli04",
-    "type": "For Sale",
+    "_id": "pli04",
     "cost": 50,
     "denomination": "USD",
     "quality": "Poor",

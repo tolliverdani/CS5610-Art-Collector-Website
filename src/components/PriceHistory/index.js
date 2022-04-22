@@ -48,7 +48,7 @@ const PriceHistory = () => {
             ]
         },
         {
-            label: "Bid",
+            label: "Offer",
             data: [
                 {
                     date: new Date("1986/05/11"),

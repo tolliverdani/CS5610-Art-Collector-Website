@@ -1,20 +1,15 @@
 import React from "react";
-import ConfirmationModal from "../../ConfirmationModal";
+import ConfirmationModal from "../ConfirmationModal"
 
 const PaintingListingItem = ({
                                  listing = {
-                                     id: "pli01",
-                                     type: "For Sale",
+                                     _id: "pli01",
                                      cost: 200,
                                      denomination: "USD",
                                      quality: "Excellent",
                                      seller: "@nziegler"
                                  }
                              }) => {
-
-    const button_name = listing.type === 'For Barter' ? 'Trade' : 'Buy';
-    const transaction_type = listing.type === 'For Barter' ? 'Trade' : 'Purchase';
-
     return (
         <div>
             {/*Container to hold listing item*/}
@@ -28,11 +23,8 @@ const PaintingListingItem = ({
                 </div>
                 <div className={"d-grid mt-1"}>
                 {/*Bid button*/}
-                    <ConfirmationModal button_text={button_name}
-                                       modal_heading={`Confirm ${transaction_type}`}
-                                       message={`You have not yet made the ${transaction_type.toLowerCase()}. Once you confirm, the artwork holder will be notified.`}
-                                       accept_button={button_name}
-                                       close_button={"Cancel"}
+                    <ConfirmationModal price={listing.cost}
+                                       id={listing._id}
                     />
                 {/*<a className="btn btn-primary rounded-pill btn-sm" href="/#">{listing.type === 'For Barter' ? 'Trade' : 'Buy'}</a>*/}
                 </div>
