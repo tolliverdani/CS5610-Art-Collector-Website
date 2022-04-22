@@ -2,25 +2,23 @@ import React from "react";
 import ComponentHeader from "../../ComponentHeader";
 import EmptyCollection from "../../Errors/EmptyCollection";
 import PaintingGrid from "../../PaintingGrid";
-import {Link} from "react-router-dom";
 
-const Favorites = (params) => {
+const PaintingsByArtist = (params) => {
 
-    const paintings = params.paintings
+    const artist_id = params.id
+    const paintings = params.data
 
     return (
         <div className={"p-2 border-bottom"}>
             <div className={"pt-2 pb-2 d-flex justify-content-between"}>
-                {ComponentHeader("Favorites")}
-                <Link to={"/"} className={"btn btn-sm btn-transparent rounded-pill"}>
-                    See More
-                </Link>
+                {ComponentHeader("Paintings by Artist")}
             </div>
             {paintings.length === 0 ?
                 EmptyCollection()
                 :
-                <PaintingGrid type={("preview")} data={paintings.slice(0, 4)}/>}
+                <PaintingGrid type={"artist"} data={paintings} id={artist_id}/>}
         </div>
-    );
+    )
 }
-export default Favorites;
+
+export default PaintingsByArtist

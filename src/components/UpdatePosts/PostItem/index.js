@@ -1,6 +1,6 @@
 import React from "react";
 
-const UpdatePostItem = ({
+const PostItem = ({
                             post = {
                                 displayName: "displayName",
                                 username: "Username",
@@ -26,4 +26,4 @@ const UpdatePostItem = ({
     )
 }
 
-export default UpdatePostItem;
+export default PostItem;

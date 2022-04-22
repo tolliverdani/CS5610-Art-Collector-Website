@@ -15,17 +15,28 @@ import {combineReducers, createStore} from "redux";
 import {useLocation, useParams} from "react-router-dom";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import ComponentHeader from "../../components/ComponentHeader";
-import {findPaintingsByArtist} from "../../_actions/artpieces-actions";
+import {artistDetails, findPaintingsByArtist} from "../../_actions/artpieces-actions";
+import {findPaintingComments} from "../../_actions/comments-actions";
+import ArtistStats from "../../components/ArtistProfile/ArtistStats";
+import PaintingsByArtist from "../../components/ArtistProfile/PaintingsByArtist";
 
 const reducers = combineReducers({paintings: paintingsReducer, artists: artistReducer, collection: collectionsReducer})
 const store = createStore(reducers);
 
 const ArtistProfileScreen = () => {
     const {artist_name, artist_id} = useParams();
-    const paintings_data = useSelector(state => state.paintings);
-    const paintings = paintings_data.data;
     const dispatch = useDispatch();
+
+    const artist = useSelector(state => state.artists);
+    useEffect( () => artistDetails(dispatch, artist_name), [dispatch, artist_name]);
+
+    const paintings_data = useSelector(state => state.paintings);
     useEffect(() => findPaintingsByArtist(dispatch, artist_id), [dispatch, artist_id]);
+
+    const posts = useSelector(state => state.comments)
+    useEffect(() => findPaintingComments(dispatch, artist_id), [dispatch, artist_id])
+
+    const paintings = paintings_data.data;
 
     return (
         <Provider store={store}>
@@ -38,16 +49,14 @@ const ArtistProfileScreen = () => {
                         <ScrollToTop/>
                     </div>
                     <div className={'col-10 col-lg-7'}>
-                        <ArtistProfile artist_name={artist_name}/>
-                        <hr/>
-                        <CreatePost/>
-                        <UpdatePosts/>
-                        <hr/>
-                        {ComponentHeader("Paintings by Artist")}
-                        <PaintingGrid type={"artist"} data={paintings} id={artist_id}/>
+                        {ComponentHeader(artist.OriginalArtistName)}
+                        <PaintingListings data={paintings}/>
+                        <UpdatePosts posts={posts}/>
+                        <PaintingsByArtist data={paintings} id={artist_id}/>
                     </div>
                     <div className={'col-3 d-none d-lg-block'}>
-                        <PaintingListings/>
+                        <ArtistProfile artist={artist}/>
+                        <ArtistStats artist={artist}/>
                     </div>
                 </div>
             </div>

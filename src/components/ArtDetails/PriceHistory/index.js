@@ -1,8 +1,8 @@
 import React from "react";
 import {AxisOptions, Chart} from "react-charts";
-import ComponentHeader from "../ComponentHeader";
+import ComponentHeader from "../../ComponentHeader";
 
-const PriceHistory = () => {
+const PriceHistory = (params) => {
 
     /* TODO: we need to move this data and make sure it's organized
         in a way that makes sense for the graph */
@@ -107,17 +107,19 @@ const PriceHistory = () => {
         []
     )
 
+    const art_data = params.data
+
     return (
-        <>
+        <div className={'border-bottom p-2'}>
             <div className={'chart-size mb-5'}>
-                {ComponentHeader("Price History")}
+                {ComponentHeader(art_data.title + " Price History")}
                 <Chart options={{
                     data,
                     primaryAxis,
                     secondaryAxes
                 }}/>
             </div>
-        </>
+        </div>
     );
 };
 

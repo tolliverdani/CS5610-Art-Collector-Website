@@ -2,13 +2,13 @@ import React from "react";
 
 import CurrentOwnersItem from "./CurrentOwnersItem";
 import owners from "./currentowners.json";
-import ComponentHeader from "../ComponentHeader";
+import ComponentHeader from "../../../components/ComponentHeader";
 
-const CurrentOwners = () =>  {
+const Friends = () =>  {
     return (
-        <div className={"p-2 border-bottom"}>
-            {ComponentHeader("Current Owners")}
-            <div className={"row row-cols-3 p-1"}>
+        <div className={"p-2"}>
+            {ComponentHeader("This User Knows")}
+            <div className={"row row-cols-3"}>
                     {owners.map(owner_list =>
                         <CurrentOwnersItem key={owner_list.id} owner={owner_list}/>)}
             </div>
@@ -16,4 +16,4 @@ const CurrentOwners = () =>  {
     )
 }
 
-export default CurrentOwners;
+export default Friends;

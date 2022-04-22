@@ -1,35 +1,34 @@
 import React, {useEffect} from "react";
-import {combineReducers, createStore} from "redux";
-import {Provider, useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
-
-import paintingsReducer from "../../_reducers/paintings-reducer"
 
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import PaintingListings from "../../components/PaintingListings";
 import UserProfile from "../../components/UserProfile";
 import NavigationSidebar from "../../components/NavigationSidebar";
-import PaintingGrid from "../../components/PaintingGrid";
-import ComponentHeader from "../../components/ComponentHeader";
 
 import {findUserCollection} from "../../_actions/collections-actions";
 import {useProfile} from "../../_context/profile-context";
-import EmptyCollection from "../../components/Errors/EmptyCollection";
-import PaintingGridItem from "../../components/PaintingGrid/PaintingGridItem";
-import ProfileStats from "../../components/UserProfile/ProfileStats";
 import Favorites from "../../components/UserProfile/Favorites";
 import Collection from "../../components/UserProfile/Collection";
+import ProfileHeader from "../../components/UserProfile/ProfileHeader";
+import Friends from "./Friends";
+import ComponentHeader from "../../components/ComponentHeader";
+import ProfileStats from "../../components/UserProfile/ProfileStats";
+import ProfileBio from "../../components/UserProfile/ProfileBio";
+import {findAllComments} from "../../_actions/comments-actions";
 
 
 const UserProfileScreen = () => {
 
     const {profile} = useProfile()
-    const paintings = useSelector(state => state.collection);
     const dispatch = useDispatch();
+    const paintings = useSelector(state => state.collection);
+    const comments = useSelector(state =>state.comments);
 
     const user_id = profile._id
-    useEffect(() => findUserCollection(dispatch, user_id), [user_id]);
-
+    //useEffect(() => findUserCollection(dispatch, user_id), [user_id]);
+    useEffect(() => findAllComments)
     return (
         <>
             <NavigationTopMenu/>
@@ -40,12 +39,16 @@ const UserProfileScreen = () => {
                             active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                     </div>
                     <div className={'col-10 col-lg-7'}>
-                        <UserProfile profile={profile}/>
+                        <ProfileHeader profile={profile}/>
+                        <PaintingListings/>
                         <Favorites paintings={paintings}/>
                         <Collection paintings={paintings}/>
                     </div>
                     <div className={'col-3 d-none d-lg-block'}>
-                        <PaintingListings/>
+                        <UserProfile/>
+                        <ProfileStats/>
+                        <ProfileBio/>
+                        <Friends/>
                     </div>
                 </div>
             </div>

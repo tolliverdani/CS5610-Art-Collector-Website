@@ -21,11 +21,13 @@ import PrivacyPolicyScreen from "./screens/PrivacyPolicyScreen/PrivacyPolicyScre
 import paintingsReducer from "./_reducers/paintings-reducer"
 import artistReducer from "./_reducers/artist-reducer";
 import collectionsReducer from "./_reducers/collections-reducer";
+import commentsReducer from "./_reducers/comments-reducer";
 
 const reducers = combineReducers({
     paintings: paintingsReducer,
     artists: artistReducer,
-    collection: collectionsReducer
+    collection: collectionsReducer,
+    comments: commentsReducer
 })
 const store = createStore(reducers);
 

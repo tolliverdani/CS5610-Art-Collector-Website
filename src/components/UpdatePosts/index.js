@@ -1,13 +1,19 @@
 import React from "react";
-import UpdatePostItem from "./UpdatePostItem";
-import updates from "../../data/updates.json"
+import CreatePost from "./CreatePost";
+import PostFeed from "./PostFeed";
+import EmptyPosts from "../Errors/EmptyPosts";
 
-const UpdatePosts = () => {
+const Posts = (params) => {
+
     return (
-            <div className={"list-group"}>
-                {updates.map(update_post => <UpdatePostItem key={update_post._id} update={update_post}/>)}
-            </div>
+        <div className={"p-2 border-bottom"}>
+            <CreatePost/>
+            {params.posts.length === 0 ?
+                EmptyPosts()
+                :
+                <PostFeed posts={params.posts}/>}
+        </div>
     )
 }
 
-export default UpdatePosts;
+export default Posts;

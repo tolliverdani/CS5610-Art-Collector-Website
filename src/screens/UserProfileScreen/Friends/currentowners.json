@@ -1,0 +1,32 @@
+[
+  {
+    "username": "dtolliver",
+    "userId": "dtolliver7654",
+    "profile_image": "https://pbs.twimg.com/media/CiMTeSSWwAAQ_iI?format=jpg&name=small",
+    "forSale": true
+  },
+  {
+    "username": "nziegler",
+    "userId": "nziegler7654",
+    "profile_image": "https://pbs.twimg.com/media/CiMTeSSWwAAQ_iI?format=jpg&name=small",
+    "forSale": false
+  },
+  {
+    "username": "tsims",
+    "userId": "tsims7654",
+    "profile_image": "https://pbs.twimg.com/media/CiMTeSSWwAAQ_iI?format=jpg&name=small",
+    "forSale": false
+  },
+  {
+    "username": "laneystrange",
+    "userId": "lstrange",
+    "profile_image": "https://pbs.twimg.com/media/CiMTeSSWwAAQ_iI?format=jpg&name=small",
+    "forSale": false
+  },
+  {
+    "username": "allieZ",
+    "userId": "aziegler87",
+    "profile_image": "https://pbs.twimg.com/media/CiMTeSSWwAAQ_iI?format=jpg&name=small",
+    "forSale": true
+}
+]
