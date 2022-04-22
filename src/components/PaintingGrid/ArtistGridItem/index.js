@@ -1,17 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import GridItemMenu from "../GridItemMenu";
 import {Dropdown, DropdownButton} from "react-bootstrap";
 import {addToUserCollection} from "../../../_actions/collections-actions";
 import {useProfile} from "../../../_context/profile-context";
 import {useDispatch} from "react-redux";
+import GridMenuItem from "../GridMenuItem";
 
 // Reference for content: https://react-bootstrap.github.io/components/dropdowns/
 
 const ArtistGridItem = ({grid_item}) => {
-
-    const {profile} = useProfile()
-    const {dispatch} = useDispatch()
 
     return (
         <div className={"col card border-0 p-1"}>
@@ -24,18 +21,8 @@ const ArtistGridItem = ({grid_item}) => {
             </div>
 
             <div className={'card-title align-items-center'}>
-                <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
-                                size={"sm"}
-                                align={"end"} title={""}>
-                    <Dropdown.Item onClick={() => {
-                            alert("Added to favorites")
-                        }}>
-                        Favorite
-                    </Dropdown.Item>
-                    <Dropdown.Item>
-                        More Details
-                    </Dropdown.Item>
-                </DropdownButton>
+
+                <GridMenuItem type={"artist"} grid_item={grid_item}/>
 
                 <span className={'card-title'}>
                     <Link className={`small text-decoration-none text-black`}

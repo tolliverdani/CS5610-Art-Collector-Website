@@ -12,7 +12,7 @@ HTML
                             type: ['sale', 'barter'],
                             offer_price: 200,
                             quality: 'grade',
-                            user_handle: 'user_handle'
+                            user_handgle: 'user_handle'
                             }]
         historical_listings: [{userID: "objectId('from_db')",
                             profile_image: 'url',

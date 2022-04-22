@@ -16,6 +16,9 @@ import {findUserCollection} from "../../_actions/collections-actions";
 import {useProfile} from "../../_context/profile-context";
 import EmptyCollection from "../../components/Errors/EmptyCollection";
 import PaintingGridItem from "../../components/PaintingGrid/PaintingGridItem";
+import ProfileStats from "../../components/UserProfile/ProfileStats";
+import Favorites from "../../components/UserProfile/Favorites";
+import Collection from "../../components/UserProfile/Collection";
 
 
 const UserProfileScreen = () => {
@@ -38,12 +41,8 @@ const UserProfileScreen = () => {
                     </div>
                     <div className={'col-10 col-lg-7'}>
                         <UserProfile profile={profile}/>
-                        <hr/>
-                        {ComponentHeader("Collection")}
-                        {paintings.length === 0 ?
-                            EmptyCollection()
-                            :
-                        <PaintingGrid type={("collection")} data={paintings}/>}
+                        <Favorites paintings={paintings}/>
+                        <Collection paintings={paintings}/>
                     </div>
                     <div className={'col-3 d-none d-lg-block'}>
                         <PaintingListings/>

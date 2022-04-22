@@ -1,12 +1,28 @@
 import {Dropdown, DropdownButton} from "react-bootstrap";
-import {addToUserCollection} from "../../../_actions/collections-actions";
 import React from "react";
-import {useDispatch} from "react-redux";
+import {addToUserCollection} from "../../../_actions/collections-actions";
 import {useProfile} from "../../../_context/profile-context";
+import {useDispatch} from "react-redux";
 
-const GridItemMenu = (grid_item) => {
-    const dispatch = useDispatch();
-    const {profile} = useProfile()
+const ArtistGridMenuItem = (grid_item, profile, dispatch) => {
+
+    return (
+        <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
+                        size={"sm"}
+                        align={"end"} title={""}>
+            <Dropdown.Item onClick={() => {
+                alert("Added to favorites")
+            }}>
+                Favorite
+            </Dropdown.Item>
+            <Dropdown.Item>
+                More Details
+            </Dropdown.Item>
+        </DropdownButton>
+    )
+}
+
+const PaintingGridMenuItem = (grid_item, profile, dispatch) => {
 
     return (
         <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
@@ -39,4 +55,19 @@ const GridItemMenu = (grid_item) => {
     )
 }
 
-export default GridItemMenu
+const GridMenuItem = (params) => {
+
+    const {profile} = useProfile()
+    const {dispatch} = useDispatch()
+
+    switch (params.type) {
+        case "artist":
+            return ArtistGridMenuItem(params.grid_item, profile, dispatch);
+        case "painting":
+            return PaintingGridMenuItem(params.grid_item, profile, dispatch);
+        default:
+            return [];
+    }
+}
+
+export default GridMenuItem;

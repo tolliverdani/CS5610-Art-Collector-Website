@@ -5,8 +5,8 @@ import {findPaintingsByArtist} from "../../_actions/artpieces-actions";
 import ArtistGridItem from "./ArtistGridItem";
 
 const ArtGrid = (data) => {
-    console.log("Inside the paintingGrid: " + data)
     return (
+
         <>
             <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
                 {data.map(painting_item =>
@@ -69,6 +69,8 @@ const PaintingGrid = (params) => {
         case "search":
             return SearchResults(params.data);
         case "collection":
+            return ArtGrid(params.data)
+        case "preview":
             return ArtGrid(params.data)
         default:
             return [];
