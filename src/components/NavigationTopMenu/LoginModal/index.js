@@ -50,6 +50,9 @@ const LogInModal = () => {
                                     ref={emailRef}
                                     type="email" id="InputEmail"
                                     placeholder="email@domain.com"
+                                    onKeyPress={(e) => {
+                                        if ( e.key === 'Enter') handleLogin();
+                                    }}
                                     />
                             </div>
                         </div>
@@ -61,7 +64,11 @@ const LogInModal = () => {
                                 <input className="form-control rounded-pill bg-light border-0 shadow-none"
                                        ref={passRef}
                                        type="password" id="InputPassword"
-                                       placeholder="Password"/>
+                                       placeholder="Password"
+                                       onKeyPress={(e) => {
+                                           if ( e.key === 'Enter') handleLogin();
+                                       }}
+                                />
                             </div>
                         </div>
                     </Form>

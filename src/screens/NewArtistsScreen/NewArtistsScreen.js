@@ -32,7 +32,7 @@ const Index = () => {
                             <PaintingGrid type={"updated-artists"} data={paintings}/>
                         </div>
                         <div className={'col-3 d-none d-lg-block'}>
-                            <PaintingListings/>
+                            {/*<PaintingListings/>*/}
                         </div>
                     </div>
                 </div>

@@ -23,6 +23,7 @@ import artistReducer from "./_reducers/artist-reducer";
 import collectionsReducer from "./_reducers/collections-reducer";
 import commentsReducer from "./_reducers/comments-reducer";
 import listingsReducer from "./_reducers/listings-reducer";
+import NewListingScreen from "./screens/NewListingScreen/NewListingScreen";
 
 const reducers = combineReducers({
     paintings: paintingsReducer,
@@ -50,6 +51,8 @@ function App() {
                                    element={<SearchScreen/>}/>
                             <Route path="new-artists"
                                    element={<NewArtistsScreen/>}/>
+                            <Route path="new-listings"
+                                   element={<NewListingScreen/>}/>
                             <Route path="artist"
                                    element={<ArtistProfileScreen/>}/>
                             <Route path="artist/:artist_name/:artist_id"

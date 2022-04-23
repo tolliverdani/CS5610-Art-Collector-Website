@@ -37,10 +37,10 @@ const NavigationSidebar =
                         <i className={`fa fa-solid fa-user-plus ps-lg-2`}/>
                         <span className={`d-none d-lg-inline ps-2`}>New Artists</span>
                     </Link>
-                    <Link to="/new-auctions"
-                          className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1 ${active === 'new-auctions' ? 'active' : ''}`}>
+                    <Link to="/new-listings"
+                          className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1 ${active === 'new-listings' ? 'active' : ''}`}>
                         <i className={`fa fa-solid fa-chart-bar ps-lg-2`}/>
-                        <span className={`d-none d-lg-inline ps-2`}>New Auctions</span>
+                        <span className={`d-none d-lg-inline ps-2`}>New Listings</span>
                     </Link>
 
                     <SecureContent>
@@ -51,6 +51,7 @@ const NavigationSidebar =
                         </Link>
                         {/* TODO: need to fix this link */}
                         <Link to={"/home"}
+                              onClick={handleLogout}
                               className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1`}>
                             <i className="fa fa-arrow-alt-circle-right text-danger ps-lg-2"/>
                             <span className={`d-none d-lg-inline ps-2`}>Logout</span>

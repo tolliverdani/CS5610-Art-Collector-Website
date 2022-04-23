@@ -29,7 +29,7 @@ const UserProfileScreen = () => {
 
 
     const user_id = profile._id
-    useEffect(() => findUserCollection(dispatch, user_id), [user_id]);
+    useEffect(() => findUserCollection(dispatch, user_id), [dispatch, user_id]);
     useEffect(() => findActiveListingsByOwnerId(dispatch, user_id),[dispatch, user_id])
     return (
         <>
