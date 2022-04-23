@@ -18,7 +18,6 @@ const PrivacyPolicyScreen = () => {
                         <PrivacyPolicy/>
                     </div>
                     <div className={'d-none d-lg-block col-2'}>
-                        <PaintingListings/>
                     </div>
                 </div>
             </div>
