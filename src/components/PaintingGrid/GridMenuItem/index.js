@@ -6,7 +6,7 @@ import {useDispatch} from "react-redux";
 import CreateListingModal from "../CreateListingModal";
 import SecureContent from "../../Security/secure-content";
 
-const ArtistGridMenuItem = (grid_item, profile, dispatch) => {
+const ArtistGridMenuItem = () => {
 
     return (
         <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
@@ -30,34 +30,39 @@ const PaintingGridMenuItem = (grid_item, profile, dispatch) => {
         <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
                         size={"sm"}
                         align={"end"} title={""}>
-            <Dropdown.Item>
-                Favorite
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => {
-                // pack up the image, only pulling out what is needed
-                const item_to_add = {
-                    "id": grid_item.id,
-                    "title": grid_item.title,
-                    "url": grid_item.url,
-                    "artistUrl": grid_item.artistUrl,
-                    "artistName": grid_item.artistName,
-                    "artistId": grid_item.artistId,
-                    "completionYear": grid_item.completionYear,
-                    "image": grid_item.image
-                }
-                addToUserCollection(dispatch, profile._id, item_to_add)
-                alert("Added to your collection")
-            }}>
-                Add to Collection
-            </Dropdown.Item>
-            <Dropdown.Item>
-                More Details
-            </Dropdown.Item>
             <SecureContent>
+                <Dropdown.Item>
+                    Favorite
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => {
+                    // pack up the image, only pulling out what is needed
+                    const item_to_add = {
+                        "id": grid_item.id,
+                        "title": grid_item.title,
+                        "url": grid_item.url,
+                        "artistUrl": grid_item.artistUrl,
+                        "artistName": grid_item.artistName,
+                        "artistId": grid_item.artistId,
+                        "completionYear": grid_item.completionYear,
+                        "image": grid_item.image
+                    }
+                    if (true) {
+                        addToUserCollection(dispatch, profile._id, item_to_add)
+                        alert("Added to your collection")
+                    } else {
+                        alert("(not really) removed to your collection")
+                    }
+                }}>
+                    Add to Collection
+                </Dropdown.Item>
                 <Dropdown.Item>
                     <CreateListingModal art_info={grid_item} profile={profile} dispatch={dispatch}/>
                 </Dropdown.Item>
             </SecureContent>
+
+            <Dropdown.Item>
+                More Details
+            </Dropdown.Item>
         </DropdownButton>
     )
 }
