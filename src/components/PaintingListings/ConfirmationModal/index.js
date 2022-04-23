@@ -12,7 +12,7 @@ const ConfirmationModal = ({price, id}) => {
 
     return (
         <>
-            <Button className="nextButton" onClick={handleShow}>
+            <Button className="btn btn-primary rounded-pill" onClick={handleShow}>
                 Make Offer
             </Button>
 
