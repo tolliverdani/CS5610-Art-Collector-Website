@@ -15,6 +15,8 @@ import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import {paintingDetails} from "../../_actions/artpieces-actions";
 import ArtStats from "../../components/ArtDetails/ArtStats";
 import {findPaintingComments} from "../../_actions/comments-actions";
+import {findActiveListingsByPaintingId} from "../../_actions/listings-actions";
+
 
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);
@@ -30,6 +32,10 @@ const ArtPieceScreen = () => {
         const posts = useSelector(state => state.comments)
         useEffect(() => findPaintingComments(dispatch, painting_id), [dispatch, painting_id])
 
+        const listings = useSelector(state => state.listings);
+        console.log(painting_id)
+        useEffect(() => findActiveListingsByPaintingId(dispatch, painting_id), [dispatch, painting_id])
+
         return (
             <Provider store={store}>
                 <div>
@@ -43,7 +49,7 @@ const ArtPieceScreen = () => {
                             </div>
                             <div className={'col-10 col-lg-7'}>
                                 <PriceHistory data={data}/>
-                                <PaintingListings data={data}/>
+                                <PaintingListings data={listings}/>
                                 <UpdatePosts posts={posts}/>
                             </div>
                             <div className={'col-3 d-none d-lg-block'}>

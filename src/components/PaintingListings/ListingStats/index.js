@@ -8,7 +8,7 @@ const ListingStats = ({grid_item}) => {
                 {/* Cost */}
                 <span className={"m-0 p-0"}>
                     <i className="fa fa-dollar-sign small pe-2" aria-hidden="true"/>
-                    {grid_item.hasOwnProperty("cost") === false ? "--" : grid_item.cost}
+                    {grid_item.hasOwnProperty("listing_price") === false ? "--" : grid_item.listing_price}
                 </span>
 
                 {/* Quality */}

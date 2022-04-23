@@ -17,6 +17,7 @@ import ComponentHeader from "../../components/ComponentHeader";
 import ProfileStats from "../../components/UserProfile/ProfileStats";
 import ProfileBio from "../../components/UserProfile/ProfileBio";
 import {findAllComments} from "../../_actions/comments-actions";
+import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
 
 
 const UserProfileScreen = () => {
@@ -25,10 +26,13 @@ const UserProfileScreen = () => {
     const dispatch = useDispatch();
     const paintings = useSelector(state => state.collection);
     const comments = useSelector(state =>state.comments);
+    const listings = useSelector(state => state.listings );
+
 
     const user_id = profile._id
     //useEffect(() => findUserCollection(dispatch, user_id), [user_id]);
-    useEffect(() => findAllComments)
+    // useEffect(() => findAllComments)
+    useEffect(() => findActiveListingsByOwnerId(dispatch, user_id),[dispatch, user_id])
     return (
         <>
             <NavigationTopMenu/>
@@ -40,7 +44,7 @@ const UserProfileScreen = () => {
                     </div>
                     <div className={'col-10 col-lg-7'}>
                         <ProfileHeader profile={profile}/>
-                        <PaintingListings/>
+                        <PaintingListings data={listings}/>
                         <Favorites paintings={paintings}/>
                         <Collection paintings={paintings}/>
                     </div>

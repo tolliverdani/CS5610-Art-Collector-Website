@@ -3,6 +3,8 @@ import React from "react";
 import {addToUserCollection} from "../../../_actions/collections-actions";
 import {useProfile} from "../../../_context/profile-context";
 import {useDispatch} from "react-redux";
+import CreateListingModal from "../CreateListingModal";
+import SecureContent from "../../Security/secure-content";
 
 const ArtistGridMenuItem = (grid_item, profile, dispatch) => {
 
@@ -51,6 +53,11 @@ const PaintingGridMenuItem = (grid_item, profile, dispatch) => {
             <Dropdown.Item>
                 More Details
             </Dropdown.Item>
+            <SecureContent>
+                <Dropdown.Item>
+                    <CreateListingModal art_info={grid_item} profile={profile} dispatch={dispatch}/>
+                </Dropdown.Item>
+            </SecureContent>
         </DropdownButton>
     )
 }

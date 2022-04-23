@@ -4,9 +4,9 @@ import ListingItem from "./ListingItem";
 import listings from "./paintinglistings.json";
 import ComponentHeader from "../ComponentHeader";
 
-const PaintingListings = () =>  {
+const PaintingListings = ({data}) =>  {
 
-    const data = listings
+
         return (
             <div className={"p-2 border-bottom"}>
                 {ComponentHeader("Active Listings")}

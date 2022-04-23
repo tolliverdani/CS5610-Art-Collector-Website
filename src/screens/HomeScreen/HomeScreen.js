@@ -14,6 +14,7 @@ import ComponentHeader from "../../components/ComponentHeader";
 
 const Index = () => {
     const paintings_data = useSelector(state => state.paintings);
+    const listings = useSelector(state => state.listings);
     const paintings = paintings_data.data
     const dispatch = useDispatch();
     useEffect(() => randomPaintings(dispatch), [dispatch]);
@@ -30,7 +31,7 @@ const Index = () => {
                             <PaintingGrid type={"random"} data={paintings}/>
                         </div>
                         <div className={'d-none d-lg-block col-2'}>
-                            <PaintingListings/>
+                            <PaintingListings data={listings}/>
                         </div>
                 </div>
             </div>

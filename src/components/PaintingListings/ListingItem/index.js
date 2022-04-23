@@ -10,22 +10,23 @@ const ListingItem = ({grid_item}) => {
 
         <div className={"col card border-0 p-1"}>
             <div className={"border-0 p-1"}>
-                <Link to={`/art/${grid_item.id}`}>
+                <Link to={`/art/${grid_item.painting_id}`}>
                     <img className={'img-thumbnail thumb-post img-responsive border-0 align-self-center p-0 mb-1'}
-                         src={grid_item.image}
-                         alt={grid_item.title}/>
+                         //TODO Change this
+                         src={grid_item.painting_image}
+                         alt={grid_item.painting_title}/>
                 </Link>
             </div>
 
             <div className={'card-title align-items-center'}>
 
                 <Link className={`text-decoration-none text-black m-0 p-0`}
-                      to={`/art/${grid_item.id}`}>
-                    <span className={"m-0"}><strong>{grid_item.title}</strong> by {grid_item.artistName}</span>
+                      to={`/art/${grid_item.paitning_id}`}>
+                    <span className={"m-0"}><strong>{grid_item.painting_title}</strong> by {grid_item.artist_name}</span>
                 </Link>
                 <ListingStats grid_item={grid_item}/>
                 <div className={"d-grid m-0"}>
-                    <ConfirmationModal price={grid_item.cost}
+                    <ConfirmationModal price={grid_item.listing_price}
                                        id={grid_item._id}/>
                 </div>
             </div>

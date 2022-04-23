@@ -22,12 +22,14 @@ import paintingsReducer from "./_reducers/paintings-reducer"
 import artistReducer from "./_reducers/artist-reducer";
 import collectionsReducer from "./_reducers/collections-reducer";
 import commentsReducer from "./_reducers/comments-reducer";
+import listingsReducer from "./_reducers/listings-reducer";
 
 const reducers = combineReducers({
     paintings: paintingsReducer,
     artists: artistReducer,
     collection: collectionsReducer,
-    comments: commentsReducer
+    comments: commentsReducer,
+    listings: listingsReducer
 })
 const store = createStore(reducers);
 
@@ -52,6 +54,7 @@ function App() {
                                    element={<ArtistProfileScreen/>}/>
                             <Route path="artist/:artist_name/:artist_id"
                                    element={<ArtistProfileScreen/>}/>
+                            //TODO what is this art screen without a painting_id?
                             <Route path="art"
                                    element={<ArtPieceScreen/>}/>
                             <Route path="art/:painting_id"
