@@ -7,8 +7,8 @@ export const FIND_ARTIST_COMMENTS = 'FIND_ARTIST_COMMENTS';
 export const UPDATE_COMMENT = 'UPDATE_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
 
-export const createComment = async (dispatch, tuit) => {
-    const newComment = await service.createComment(tuit);
+export const createComment = async (dispatch, comment) => {
+    const newComment = await service.createComment(comment);
     dispatch({
         type: CREATE_COMMENT,
         newComment
@@ -38,7 +38,6 @@ export const findArtistComments = async (dispatch, artist_id) => {
         comments
     })
 }
-
 
 export const updateComment = async (dispatch, tuit) => {
     const status = await service.updateComment(tuit);

@@ -25,13 +25,11 @@ const UserProfileScreen = () => {
     const {profile} = useProfile()
     const dispatch = useDispatch();
     const paintings = useSelector(state => state.collection);
-    const comments = useSelector(state =>state.comments);
     const listings = useSelector(state => state.listings );
 
 
     const user_id = profile._id
-    //useEffect(() => findUserCollection(dispatch, user_id), [user_id]);
-    // useEffect(() => findAllComments)
+    useEffect(() => findUserCollection(dispatch, user_id), [user_id]);
     useEffect(() => findActiveListingsByOwnerId(dispatch, user_id),[dispatch, user_id])
     return (
         <>
