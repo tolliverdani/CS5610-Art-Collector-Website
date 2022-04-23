@@ -1,6 +1,7 @@
 import * as service from "../_services/offers-service"
 
 export const FIND_ALL_OFFERS_BY_PAINTING_ID = "FIND_ALL_OFFERS_BY_PAINTING_ID"
+export const FIND_PRICE_HISTORY_ALL_OFFERS_BY_PAINTING_ID = "FIND_PRICE_HISTORY_ALL_OFFERS_BY_PAINTING_ID"
 export const FIND_ALL_OFFERS_BY_ARTIST_ID = "FIND_ALL_OFFERS_BY_PAINTING_ID"
 export const FIND_ALL_OFFERS_BY_BIDDER_ID = "FIND_ALL_OFFERS_BY_OWNER_ID"
 export const FIND_ALL_OFFERS_BY_SELLER_ID = "FIND_ALL_OFFERS_BY_OWNER_ID"
@@ -20,6 +21,16 @@ export const findAllOffersByPaintingId = async (dispatch, painting_id) => {
     console.log("Here is what we found: " + offers)
     dispatch ({
         type: FIND_ALL_OFFERS_BY_PAINTING_ID,
+        offers
+    })
+}
+
+export const findPriceHistoryAllOffersByPaintingId = async (dispatch, painting_id) => {
+    console.log("In offers actions. In find price history on painting id: " + painting_id)
+    const offers = await service.findOffersByPaintingId(painting_id);
+    console.log("In offers actions. Here are the returned offers: " + offers)
+    dispatch ({
+        type: "FIND_PRICE_HISTORY_ALL_OFFERS_BY_PAINTING_ID",
         offers
     })
 }
@@ -44,7 +55,6 @@ export const findAllOffersBySellerId = async (dispatch, user_id) => {
 }
 
 export const findAllOffersByBidderId = async (dispatch, user_id) => {
-    console.log("In find active offers by user id")
     const offers = await service.findOffersByBidderId(user_id);
     dispatch ({
         type: FIND_ALL_OFFERS_BY_BIDDER_ID,

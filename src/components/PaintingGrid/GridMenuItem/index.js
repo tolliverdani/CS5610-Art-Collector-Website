@@ -46,6 +46,7 @@ const PaintingGridMenuItem = (grid_item, profile, dispatch) => {
                         "completionYear": grid_item.completionYear,
                         "image": grid_item.image
                     }
+                    // TODO how to handle this?
                     if (true) {
                         addToUserCollection(dispatch, profile._id, item_to_add)
                         alert("Added to your collection")

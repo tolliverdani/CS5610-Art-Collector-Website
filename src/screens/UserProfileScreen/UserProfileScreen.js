@@ -16,6 +16,8 @@ import Friends from "./Friends";
 import ProfileStats from "../../components/UserProfile/ProfileStats";
 import ProfileBio from "../../components/UserProfile/ProfileBio";
 import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
+import Offers from "../../components/Offers";
+import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
 
 const UserProfileScreen = () => {
 
@@ -29,6 +31,9 @@ const UserProfileScreen = () => {
     const listings = useSelector(state => state.listings);
     useEffect(() => findActiveListingsByOwnerId(dispatch, user_id), [dispatch, user_id])
 
+    const offers = useSelector(state => state.offers);
+    useEffect( () => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
+
     return (
         <>
             <NavigationTopMenu/>
@@ -40,7 +45,10 @@ const UserProfileScreen = () => {
                     </div>
                     <div className={'col-10 col-lg-7'}>
                         <ProfileHeader profile={profile}/>
-                        <PaintingListings data={listings}/>
+                        <PaintingListings data={listings}
+                                          profile={profile}
+                        />
+                        <Offers profile={profile} data={offers}/>
                         <Favorites paintings={paintings}/>
                         <Collection paintings={paintings}/>
                     </div>

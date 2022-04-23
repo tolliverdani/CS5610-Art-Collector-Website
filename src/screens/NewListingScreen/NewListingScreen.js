@@ -6,9 +6,11 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {useLocation} from "react-router-dom";
 import {findAllActiveListings} from "../../_actions/listings-actions";
+import {useProfile} from "../../_context/profile-context";
 
 
 const Index = () => {
+    const {profile} = useProfile();
     const listings = useSelector(state => state.listings);
     const dispatch = useDispatch();
     useEffect(() => findAllActiveListings(dispatch),[dispatch])
@@ -21,7 +23,7 @@ const Index = () => {
                     <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                 </div>
                 <div className={'d-none d-lg-block col-10'}>
-                    <PaintingListings data={listings}/>
+                    <PaintingListings data={listings} profile={profile}/>
                 </div>
             </div>
         </div>

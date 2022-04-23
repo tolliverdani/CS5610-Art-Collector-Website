@@ -23,14 +23,17 @@ import artistReducer from "./_reducers/artist-reducer";
 import collectionsReducer from "./_reducers/collections-reducer";
 import commentsReducer from "./_reducers/comments-reducer";
 import listingsReducer from "./_reducers/listings-reducer";
+import offersReducer from "./_reducers/offers-reducer";
 import NewListingScreen from "./screens/NewListingScreen/NewListingScreen";
+
 
 const reducers = combineReducers({
     paintings: paintingsReducer,
     artists: artistReducer,
     collection: collectionsReducer,
     comments: commentsReducer,
-    listings: listingsReducer
+    listings: listingsReducer,
+    offers: offersReducer
 })
 const store = createStore(reducers);
 

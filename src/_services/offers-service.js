@@ -23,7 +23,7 @@ export const findOffersByArtistId = async (artist_id) => {
 }
 
 export const findOffersBySellerId = async (owner_id) => {
-    const request_url = `${API_BASE}/offers/byOwnerId/${owner_id}`
+    const request_url = `${API_BASE}/offers/bySellerId/${owner_id}`
     const response = await axios.get(request_url);
     if ( response.status === 200 ){
         return response.data;

@@ -1,14 +1,35 @@
 import React, {useState} from "react";
 import {Modal, Button} from 'react-bootstrap';
+import {createOffer} from "../../../_actions/offers-actions";
+import {useDispatch} from "react-redux";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
-const ConfirmationModal = ({price, id}) => {
-    const [offer_price, setPrice] = useState(price);
+
+
+const ConfirmationModal = ({listing_item, profile}) => {
+    const [offer_price, setPrice] = useState(listing_item.listing_price);
     const [set, setShow] = useState(false);
+    const dispatch = useDispatch();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const handleCreateOffer = () => {
+        const offer = {
+            "listing_id": listing_item._id,
+            "painting_id": listing_item.painting_id,
+            "painting_name": listing_item.painting_title,
+            "artist_id": listing_item.artist_id,
+            "artist_name": listing_item.artist_name,
+            "seller_id": listing_item.owner_id,
+            "buyer_id": profile._id,
+            "buyer_name": profile.username,
+            "offer_price": offer_price,
+            "active_offer": true
+        }
+        createOffer(dispatch, offer).then(setShow(false));
+    }
 
     return (
         <>
@@ -28,7 +49,7 @@ const ConfirmationModal = ({price, id}) => {
                     </div>
                     <div className={"mb-2"}>
                         The seller has listed this piece for
-                        <strong> ${price}</strong>.
+                        <strong> ${listing_item.listing_price}</strong>.
                         You can offer any amount to counter.
                         Once you confirm, the seller will be notified.
                     </div>
@@ -38,13 +59,13 @@ const ConfirmationModal = ({price, id}) => {
                     <input className={"mt-2 mb-2"}
                            value={offer_price}
                            type="number"
-                           onChange={(e) => setPrice(e.value)}/>
+                           onChange={(e) => setPrice(e.target.value)}/>
                     <p>By clicking confirm, you commit to buy this item from the seller
                         at the offer price should it be accepted.</p>
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="warning" onClick={handleClose}>
+                    <Button variant="warning" onClick={handleCreateOffer}>
                         Make Offer
                     </Button>
                     <Button variant="primary" onClick={handleClose}>

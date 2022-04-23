@@ -4,7 +4,7 @@ import {Link, useParams} from "react-router-dom";
 import GridMenuItem from "../../PaintingGrid/GridMenuItem";
 import ListingStats from "../ListingStats";
 
-const ListingItem = ({grid_item}) => {
+const ListingItem = ({profile, grid_item}) => {
 
     return (
 
@@ -22,11 +22,13 @@ const ListingItem = ({grid_item}) => {
 
                 <Link className={`text-decoration-none text-black m-0 p-0`}
                       to={`/art/${grid_item.paitning_id}`}>
-                    <span className={"m-0"}><strong>{grid_item.painting_title}</strong> by {grid_item.artist_name}</span>
+                    <p className={"m-0"}><strong>{grid_item.painting_title}</strong></p>
+                    <p className={"m-0"}>{grid_item.artist_name}</p>
                 </Link>
                 <ListingStats grid_item={grid_item}/>
                 <div className={"d-grid m-0"}>
-                    <ConfirmationModal price={grid_item.listing_price}
+                    <ConfirmationModal listing_item={grid_item}
+                                       profile={profile}
                                        id={grid_item._id}/>
                 </div>
             </div>

@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {AxisOptions, Chart} from "react-charts";
 import ComponentHeader from "../../ComponentHeader";
+import {findPriceHistoryAllOffersByPaintingId} from "../../../_actions/offers-actions";
+import {useDispatch} from "react-redux";
 
 const PriceHistory = (params) => {
 
@@ -49,44 +51,7 @@ const PriceHistory = (params) => {
         },
         {
             label: "Offer",
-            data: [
-                {
-                    date: new Date("1986/05/11"),
-                    price: 190
-                },
-                {
-                    date: new Date("1987/01/11"),
-                    price: 200
-                },
-                {
-                    date: new Date("1992/07/04"),
-                    price: 500
-                },
-                {
-                    date: new Date("1999/03/19"),
-                    price: 1000
-                },
-                {
-                    date: new Date("2008/06/04"),
-                    price: 700
-                },
-                {
-                    date: new Date("2008/09/04"),
-                    price: 800
-                },
-                {
-                    date: new Date("2013/12/25"),
-                    price: 1100
-                },
-                {
-                    date: new Date("2021/02/14"),
-                    price: 2500
-                },
-                {
-                    date: new Date("2021/05/30"),
-                    price: 3000
-                }
-            ]
+            data: params.data
         }
     ]
 
@@ -94,7 +59,7 @@ const PriceHistory = (params) => {
         (): AxisOptions<PricePoint> => ({
             getValue: datum => datum.date,
             scaleType: "localTime"
-        }),
+        } ),
         []
     )
 
@@ -112,6 +77,9 @@ const PriceHistory = (params) => {
     return (
         <div className={'border-bottom p-2'}>
             <div className={'chart-size mb-5'}>
+                {console.log("here is the data hard coded: " + data[0].data[0].date)}
+                {console.log("here is the data from reducer: " + params.data[0].date)}
+
                 {ComponentHeader(art_data.title + " Price History")}
                 <Chart options={{
                     data,
