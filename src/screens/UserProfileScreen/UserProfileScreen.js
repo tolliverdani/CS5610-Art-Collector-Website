@@ -13,24 +13,22 @@ import Favorites from "../../components/UserProfile/Favorites";
 import Collection from "../../components/UserProfile/Collection";
 import ProfileHeader from "../../components/UserProfile/ProfileHeader";
 import Friends from "./Friends";
-import ComponentHeader from "../../components/ComponentHeader";
 import ProfileStats from "../../components/UserProfile/ProfileStats";
 import ProfileBio from "../../components/UserProfile/ProfileBio";
-import {findAllComments} from "../../_actions/comments-actions";
 import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
-
 
 const UserProfileScreen = () => {
 
     const {profile} = useProfile()
-    const dispatch = useDispatch();
-    const paintings = useSelector(state => state.collection);
-    const listings = useSelector(state => state.listings );
-
-
     const user_id = profile._id
+    const dispatch = useDispatch();
+
+    const paintings = useSelector(state => state.collection);
     useEffect(() => findUserCollection(dispatch, user_id), [dispatch, user_id]);
-    useEffect(() => findActiveListingsByOwnerId(dispatch, user_id),[dispatch, user_id])
+
+    const listings = useSelector(state => state.listings);
+    useEffect(() => findActiveListingsByOwnerId(dispatch, user_id), [dispatch, user_id])
+
     return (
         <>
             <NavigationTopMenu/>
