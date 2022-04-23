@@ -21,7 +21,8 @@ const paintingsReducer = (state = {"data":[], "paginationToken": "", "hasMore": 
         case RANDOM_PAINTINGS:
             return action.random_paintings;
         case PAINTING_DETAILS:
-            return action.painting_details;
+            // TODO spearate?
+            return {...action.painting_details, data: []};
         case UPDATED_ARTISTS:
             return action.updated_artists;
         default:
