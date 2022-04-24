@@ -7,6 +7,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 import {findAllActiveListings} from "../../_actions/listings-actions";
 import {useProfile} from "../../_context/profile-context";
+import PriceHistory from "../../components/ArtDetails/PriceHistory";
+import UpdatePosts from "../../components/UpdatePosts";
 
 
 const Index = () => {
@@ -19,10 +21,13 @@ const Index = () => {
         <div>
             <NavigationTopMenu/>
             <div className={"row m-3 p-2"}>
-                <div className={'col-2 position-sticky'}>
+                <div className={'col-2'}>
                     <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                 </div>
-                <div className={'d-none d-lg-block col-10'}>
+                <div className={'col-10 col-lg-8'}>
+
+                </div>
+                <div className={'d-none d-lg-block col-2'}>
                     <PaintingListings data={listings} profile={profile}/>
                 </div>
             </div>

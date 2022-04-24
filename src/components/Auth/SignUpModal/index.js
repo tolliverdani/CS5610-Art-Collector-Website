@@ -5,7 +5,7 @@ import {useProfile} from "../../../_context/profile-context";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
-const SignUpModal = () => {
+const SignUpModal = ({text}) => {
     const [set, setShow] = useState(false);
 
     const emailRef = useRef()
@@ -31,7 +31,7 @@ const SignUpModal = () => {
     return (
         <>
             <Button className="btn btn-secondary rounded-pill border-0 m-1" onClick={() => setShow(true)}>
-                Sign up
+                {text}
             </Button>
 
             <Modal show={set} onHide={() => setShow(false)}>

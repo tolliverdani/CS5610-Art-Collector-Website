@@ -34,36 +34,35 @@ const ArtPieceScreen = () => {
         useEffect(() => findPaintingComments(dispatch, painting_id), [dispatch, painting_id])
 
         const listings = useSelector(state => state.listings);
+        console.log(painting_id)
         useEffect(() => findActiveListingsByPaintingId(dispatch, painting_id), [dispatch, painting_id])
 
         const offersHistory = useSelector(state => state.offersHistory);
-        useEffect(() => findPriceHistoryAllOffersByPaintingId(dispatch, painting_id),[dispatch, painting_id])
+        useEffect(() => findPriceHistoryAllOffersByPaintingId(dispatch, painting_id), [dispatch, painting_id])
 
         const salesHistory = useSelector(state => state.salesHistory);
         useEffect(() => findSalesPriceHistoryByPaintingId(dispatch, painting_id), [dispatch, painting_id])
 
 
-    return (
+        return (
             <Provider store={store}>
                 <div>
-                    <ScrollToTop/>
                     <NavigationTopMenu/>
-                    <div className={"container"}>
-                        <div className={'row pt-2'}>
-                            <div className={'col-2'}>
-                                <NavigationSidebar
-                                    active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
-                            </div>
-                            <div className={'col-10 col-lg-7'}>
-                                <PriceHistory sales_history={salesHistory} offers_history={offersHistory} painting_details={data}/>
-                                <PaintingListings data={listings}/>
-                                <UpdatePosts posts={posts}/>
-                            </div>
-                            <div className={'col-3 d-none d-lg-block'}>
-                                <ArtDetails data={data}/>
-                                <ArtStats data={data}/>
-                                <CurrentOwners/>
-                            </div>
+                    <div className={"row m-3 p-2"}>
+                        <div className={'col-2'}>
+                            <NavigationSidebar
+                                active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
+                        </div>
+                        <div className={'col-10 col-lg-8'}>
+                            <PriceHistory sales_history={salesHistory} offers_history={offersHistory}
+                                          painting_details={data}/>
+                            <PaintingListings data={listings}/>
+                            <UpdatePosts posts={posts}/>
+                        </div>
+                        <div className={'d-none d-lg-block col-2'}>
+                            <ArtDetails data={data}/>
+                            <ArtStats data={data}/>
+                            <CurrentOwners/>
                         </div>
                     </div>
                 </div>

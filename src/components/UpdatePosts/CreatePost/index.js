@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import ComponentHeader from "../../ComponentHeader";
 import {useDispatch} from "react-redux";
 import {useProfile} from "../../../_context/profile-context";
 import {createComment} from "../../../_actions/comments-actions";
@@ -12,12 +11,11 @@ const CreatePost = () => {
 
     return (
         <>
-            {ComponentHeader("Comments")}
             <form>
                 <div className="d-flex form-group">
                     <textarea className="form-control border-0 bg-light text-muted"
                               rows="2"
-                              placeholder={"What's happening?"}
+                              placeholder={"Leave a comment"}
                               onChange={(event) =>
                                   setNewComment({
                                       ...newComment,

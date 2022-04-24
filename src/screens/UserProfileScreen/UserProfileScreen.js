@@ -33,36 +33,35 @@ const UserProfileScreen = () => {
     useEffect(() => findActiveListingsByOwnerId(dispatch, user_id), [dispatch, user_id])
 
     const offers = useSelector(state => state.offers);
-    useEffect( () => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
+    useEffect(() => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
 
     return (
-        <>
+        <div>
             <NavigationTopMenu/>
-            <div className={'container'}>
-                <div className={'row pt-2'}>
-                    <div className={'col-2'}>
-                        <NavigationSidebar
-                            active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
-                    </div>
-                    <div className={'col-10 col-lg-7'}>
-                        <ProfileHeader profile={profile}/>
-                        <PaintingListings data={listings}
-                                          profile={profile}
-                        />
+            <div className={"row m-3 p-2"}>
+                <div className={'col-2'}>
+                    <NavigationSidebar
+                        active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
+                </div>
+                <div className={'col-10 col-lg-8'}>
+                    <ProfileHeader profile={profile}/>
+                    <PaintingListings data={listings}
+                                      profile={profile}
+                    />
 
-                        <Favorites paintings={paintings}/>
-                        <Collection paintings={paintings}/>
-                    </div>
-                    <div className={'col-3 d-none d-lg-block'}>
-                        <UserProfile/>
-                        <SecureContent>
-                            <Offers profile={profile} data={offers}/>
-                        </SecureContent>
-                        <Connections/>
-                    </div>
+                    <Favorites paintings={paintings}/>
+                    <Collection paintings={paintings}/>
+                </div>
+                <div className={'d-none d-lg-block col-2'}>
+                    <UserProfile/>
+                    <SecureContent>
+                        <Offers profile={profile} data={offers}/>
+                    </SecureContent>
+                    <Connections/>
                 </div>
             </div>
-        </>
-    );
+        </div>
+    )
+        ;
 };
 export default UserProfileScreen;

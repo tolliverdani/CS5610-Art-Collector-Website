@@ -53,14 +53,13 @@ const ArtistProfileScreen = () => {
                         <ScrollToTop/>
                     </div>
                     <div className={'col-10 col-lg-7'}>
-                        {ComponentHeader(artist.OriginalArtistName)}
                         <PaintingListings data={listings}/>
-                        <UpdatePosts posts={posts}/>
                         <PaintingsByArtist data={paintings} id={artist_id}/>
                     </div>
                     <div className={'col-3 d-none d-lg-block'}>
                         <ArtistProfile artist={artist}/>
                         <ArtistStats artist={artist}/>
+                        <UpdatePosts posts={posts}/>
                     </div>
                 </div>
             </div>

@@ -23,17 +23,16 @@ const Index = () => {
         <Provider store={store}>
             <div>
                 <NavigationTopMenu/>
-                <div className={"container"}>
-                    <div className={'row pt-2'}>
-                        <div className={'col-2'}>
-                            <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
-                        </div>
-                        <div className={'col-10 col-lg-7'}>
-                            <PaintingGrid type={"updated-artists"} data={paintings}/>
-                        </div>
-                        <div className={'col-3 d-none d-lg-block'}>
-                            {/*<PaintingListings/>*/}
-                        </div>
+                <div className={"row m-3 p-2"}>
+                    <div className={'col-2'}>
+                        <NavigationSidebar
+                            active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
+                    </div>
+                    <div className={'col-10 col-lg-8'}>
+                        <PaintingGrid type={"updated-artists"} data={paintings}/>
+                    </div>
+                    <div className={'d-none d-lg-block col-2'}>
+                        {/*<PaintingListings/>*/}
                     </div>
                 </div>
             </div>
