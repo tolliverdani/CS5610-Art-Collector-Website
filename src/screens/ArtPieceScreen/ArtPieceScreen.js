@@ -34,7 +34,6 @@ const ArtPieceScreen = () => {
         useEffect(() => findPaintingComments(dispatch, painting_id), [dispatch, painting_id])
 
         const listings = useSelector(state => state.listings);
-        console.log(painting_id)
         useEffect(() => findActiveListingsByPaintingId(dispatch, painting_id), [dispatch, painting_id])
 
         const offersHistory = useSelector(state => state.offersHistory);

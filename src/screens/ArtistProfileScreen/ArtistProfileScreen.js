@@ -19,6 +19,8 @@ import {artistDetails, findPaintingsByArtist} from "../../_actions/artpieces-act
 import {findPaintingComments} from "../../_actions/comments-actions";
 import ArtistStats from "../../components/ArtistProfile/ArtistStats";
 import PaintingsByArtist from "../../components/ArtistProfile/PaintingsByArtist";
+import {findListingsByArtistId, findListingsByOwnerId} from "../../_services/listings-service";
+import {findActiveListingsByArtistId} from "../../_actions/listings-actions";
 
 const reducers = combineReducers({paintings: paintingsReducer, artists: artistReducer, collection: collectionsReducer})
 const store = createStore(reducers);
@@ -32,11 +34,13 @@ const ArtistProfileScreen = () => {
 
     const paintings_data = useSelector(state => state.paintings);
     useEffect(() => findPaintingsByArtist(dispatch, artist_id), [dispatch, artist_id]);
+    const paintings = paintings_data.data;
 
     const posts = useSelector(state => state.comments)
     useEffect(() => findPaintingComments(dispatch, artist_id), [dispatch, artist_id])
 
-    const paintings = paintings_data.data;
+    const listings = useSelector(state => state.listings)
+    useEffect(() => findActiveListingsByArtistId(dispatch, artist_id))
 
     return (
         <Provider store={store}>
@@ -50,7 +54,7 @@ const ArtistProfileScreen = () => {
                     </div>
                     <div className={'col-10 col-lg-7'}>
                         {ComponentHeader(artist.OriginalArtistName)}
-                        <PaintingListings data={paintings}/>
+                        <PaintingListings data={listings}/>
                         <UpdatePosts posts={posts}/>
                         <PaintingsByArtist data={paintings} id={artist_id}/>
                     </div>

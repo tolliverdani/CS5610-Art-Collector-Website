@@ -42,6 +42,16 @@ export const findListingsByOwnerId = async (owner_id) => {
     }
 }
 
+export const findListingsByArtistId = async (artist_id) => {
+    const request_url = `${API_BASE}/listings/byArtistId/${artist_id}`
+    const response = await axios.get(request_url);
+    if ( response.status === 200 ){
+        return response.data;
+    } else {
+        return [];
+    }
+}
+
 export const createListing = async (listing) => {
     // note that the date field is not provided here and will be set on the server for consistency
     const request_url = `${API_BASE}/listings`

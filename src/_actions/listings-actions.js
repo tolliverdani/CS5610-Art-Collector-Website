@@ -2,6 +2,7 @@ import * as service from "../_services/listings-service"
 
 export const FIND_ACTIVE_LISTINGS_BY_PAINTING_ID = "FIND_ACTIVE_LISTINGS_BY_PAINTING_ID"
 export const FIND_ACTIVE_LISTINGS_BY_OWNER_ID = "FIND_ACTIVE_LISTINGS_BY_OWNER_ID"
+export const FIND_ACTIVE_LISTINGS_BY_ARTIST_ID = "FIND_ACTIVE_LISTINGS_BY_ARTIST_ID"
 export const CREATE_LISTING = "CREATE_LISTING"
 export const FIND_ALL_ACTIVE_LISTINGS = "FIND_ALL_ACTIVE_LISTINGS"
 export const FIND_SOLD_PRICE_HISTORY_BY_PAINTING_ID = "FIND_SOLD_PRICE_HISTORY_BY_PAINTING_ID"
@@ -31,6 +32,15 @@ export const findActiveListingsByOwnerId = async (dispatch, owner_id) => {
     const listings = await service.findListingsByOwnerId(owner_id);
     dispatch ({
         type: FIND_ACTIVE_LISTINGS_BY_OWNER_ID,
+        listings
+    })
+}
+
+export const findActiveListingsByArtistId = async (dispatch, artist_id) => {
+    console.log("In find active listings by artist id")
+    const listings = await service.findListingsByArtistId(artist_id);
+    dispatch ({
+        type: FIND_ACTIVE_LISTINGS_BY_ARTIST_ID,
         listings
     })
 }
