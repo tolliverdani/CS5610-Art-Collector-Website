@@ -21,3 +21,9 @@ export const logout = async () =>
 export const profile = async () =>
     api.post(`${SECURITY_API}/profile`)
         .then(response => response.data);
+
+export const update = async (email, username, password, pronouns, location, bio) => {
+    api.put(`${SECURITY_API}/profile`,
+        {email, username, password, pronouns, location, bio})
+        .then(response => response.data)
+}

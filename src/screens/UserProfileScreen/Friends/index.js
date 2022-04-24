@@ -4,10 +4,10 @@ import CurrentOwnersItem from "./CurrentOwnersItem";
 import owners from "./currentowners.json";
 import ComponentHeader from "../../../components/ComponentHeader";
 
-const Friends = () =>  {
+const Connections = () =>  {
     return (
         <div className={"p-2"}>
-            {ComponentHeader("This User Knows")}
+            {ComponentHeader("Connections")}
             <div className={"row row-cols-3"}>
                     {owners.map(owner_list =>
                         <CurrentOwnersItem key={owner_list.id} owner={owner_list}/>)}
@@ -16,4 +16,4 @@ const Friends = () =>  {
     )
 }
 
-export default Friends;
+export default Connections;

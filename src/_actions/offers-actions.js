@@ -14,6 +14,9 @@ export const FIND_INACTIVE_OFFERS_BY_ARTIST_ID = "FIND_INACTIVE_OFFERS_BY_PAINTI
 export const FIND_INACTIVE_OFFERS_BY_BIDDER_ID = "FIND_INACTIVE_OFFERS_BY_OWNER_ID"
 export const FIND_INACTIVE_OFFERS_BY_SELLER_ID = "FIND_INACTIVE_OFFERS_BY_OWNER_ID"
 export const CREATE_OFFER = "CREATE_OFFER"
+export const APPROVE_OFFER = "APPROVE_OFFER"
+export const REJECT_OFFER = "REJECT_OFFER"
+
 
 export const findAllOffersByPaintingId = async (dispatch, painting_id) => {
     console.log("In actions. About to find offers for id: " + painting_id)
@@ -144,5 +147,23 @@ export const createOffer = async (dispatch, offer) => {
     dispatch ({
         type: CREATE_OFFER,
         inserted_offer
+    })
+}
+
+export const approveOffer = async (dispatch, offer) => {
+    console.log("In approve offer")
+    const approved_offer = await service.approveOffer(offer);
+    dispatch ({
+        type: APPROVE_OFFER,
+        approved_offer
+    })
+}
+
+export const rejectOffer = async (dispatch, offer) => {
+    console.log("In reject offer")
+    const rejected_offer = await service.rejectOffer(offer);
+    dispatch ({
+        type: REJECT_OFFER,
+        rejected_offer
     })
 }

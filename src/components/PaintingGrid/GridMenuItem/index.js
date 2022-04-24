@@ -1,6 +1,6 @@
 import {Dropdown, DropdownButton} from "react-bootstrap";
 import React from "react";
-import {addToUserCollection} from "../../../_actions/collections-actions";
+import {addToUserCollection, removeFromUserCollection} from "../../../_actions/collections-actions";
 import {useProfile} from "../../../_context/profile-context";
 import {useDispatch} from "react-redux";
 import CreateListingModal from "../CreateListingModal";
@@ -47,10 +47,10 @@ const PaintingGridMenuItem = (grid_item, profile, dispatch) => {
                         "image": grid_item.image
                     }
                     // TODO how to handle this?
-                    if (true) {
+                    try {
                         addToUserCollection(dispatch, profile._id, item_to_add)
                         alert("Added to your collection")
-                    } else {
+                    } catch {
                         alert("(not really) removed to your collection")
                     }
                 }}>
@@ -124,20 +124,12 @@ const CollectionGridMenuItem = (grid_item, profile, dispatch) => {
                     Favorite
                 </Dropdown.Item>
                 <Dropdown.Item onClick={() => {
-                    // pack up the image, only pulling out what is needed
-                    const item_to_add = {
-                        "id": grid_item.id,
-                        "title": grid_item.title,
-                        "url": grid_item.url,
-                        "artistUrl": grid_item.artistUrl,
-                        "artistName": grid_item.artistName,
-                        "artistId": grid_item.artistId,
-                        "completionYear": grid_item.completionYear,
-                        "image": grid_item.image
+                    try {
+                        removeFromUserCollection(dispatch, profile._id, grid_item._id)
+                        alert("removed from your collection")
+                    } catch {
+                        alert("couldn't remove from your collection")
                     }
-                    // TODO handle this
-                    addToUserCollection(dispatch, profile._id, item_to_add)
-                    alert("removed to your collection")
                 }}>
                     Remove from Collection
                 </Dropdown.Item>

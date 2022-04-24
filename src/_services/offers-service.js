@@ -53,3 +53,27 @@ export const createOffer = async (offer) => {
     }
 
 }
+
+export const approveOffer = async (offer) => {
+    // note that the date field is not provided here and will be set on the server for consistency
+    const request_url = `${API_BASE}/offers/approve`
+    const response = await axios.put(request_url, offer);
+    if ( response.status === 200 ){
+        return response.data;
+    } else {
+        return {};
+    }
+
+}
+
+export const rejectOffer = async (offer) => {
+    // note that the date field is not provided here and will be set on the server for consistency
+    const request_url = `${API_BASE}/offers/reject`
+    const response = await axios.put(request_url, offer);
+    if ( response.status === 200 ){
+        return response.data;
+    } else {
+        return {};
+    }
+
+}

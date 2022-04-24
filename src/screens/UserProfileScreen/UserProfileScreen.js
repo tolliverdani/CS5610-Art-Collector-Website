@@ -12,12 +12,13 @@ import {useProfile} from "../../_context/profile-context";
 import Favorites from "../../components/UserProfile/Favorites";
 import Collection from "../../components/UserProfile/Collection";
 import ProfileHeader from "../../components/UserProfile/ProfileHeader";
-import Friends from "./Friends";
+import Connections from "./Friends";
 import ProfileStats from "../../components/UserProfile/ProfileStats";
 import ProfileBio from "../../components/UserProfile/ProfileBio";
 import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
 import Offers from "../../components/Offers";
 import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
+import SecureContent from "../../components/Security/secure-content";
 
 const UserProfileScreen = () => {
 
@@ -48,15 +49,16 @@ const UserProfileScreen = () => {
                         <PaintingListings data={listings}
                                           profile={profile}
                         />
-                        <Offers profile={profile} data={offers}/>
+
                         <Favorites paintings={paintings}/>
                         <Collection paintings={paintings}/>
                     </div>
                     <div className={'col-3 d-none d-lg-block'}>
                         <UserProfile/>
-                        <ProfileStats/>
-                        <ProfileBio/>
-                        <Friends/>
+                        <SecureContent>
+                            <Offers profile={profile} data={offers}/>
+                        </SecureContent>
+                        <Connections/>
                     </div>
                 </div>
             </div>
