@@ -15,7 +15,7 @@ import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import {paintingDetails} from "../../_actions/artpieces-actions";
 import ArtStats from "../../components/ArtDetails/ArtStats";
 import {findPaintingComments} from "../../_actions/comments-actions";
-import {findActiveListingsByPaintingId} from "../../_actions/listings-actions";
+import {findActiveListingsByPaintingId, findSalesPriceHistoryByPaintingId} from "../../_actions/listings-actions";
 import {findPriceHistoryAllOffersByPaintingId} from "../../_actions/offers-actions";
 
 
@@ -40,6 +40,9 @@ const ArtPieceScreen = () => {
         const offersHistory = useSelector(state => state.offersHistory);
         useEffect(() => findPriceHistoryAllOffersByPaintingId(dispatch, painting_id),[dispatch, painting_id])
 
+        const salesHistory = useSelector(state => state.salesHistory);
+        useEffect(() => findSalesPriceHistoryByPaintingId(dispatch, painting_id), [dispatch, painting_id])
+
 
     return (
             <Provider store={store}>
@@ -53,7 +56,7 @@ const ArtPieceScreen = () => {
                                     active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                             </div>
                             <div className={'col-10 col-lg-7'}>
-                                <PriceHistory offers_history={offersHistory} painting_details={data}/>
+                                <PriceHistory sales_history={salesHistory} offers_history={offersHistory} painting_details={data}/>
                                 <PaintingListings data={listings}/>
                                 <UpdatePosts posts={posts}/>
                             </div>

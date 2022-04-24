@@ -25,6 +25,8 @@ import commentsReducer from "./_reducers/comments-reducer";
 import listingsReducer from "./_reducers/listings-reducer";
 import offersReducer from "./_reducers/offers-reducer";
 import offersHistoryReducer from "./_reducers/offers-history-reducer";
+import salesHistoryReducer from "./_reducers/sales-history-reducer";
+
 import NewListingScreen from "./screens/NewListingScreen/NewListingScreen";
 
 
@@ -35,7 +37,9 @@ const reducers = combineReducers({
     comments: commentsReducer,
     listings: listingsReducer,
     offers: offersReducer,
-    offersHistory: offersHistoryReducer
+    offersHistory: offersHistoryReducer,
+    salesHistory: salesHistoryReducer
+
 })
 const store = createStore(reducers);
 

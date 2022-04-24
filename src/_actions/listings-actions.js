@@ -4,6 +4,7 @@ export const FIND_ACTIVE_LISTINGS_BY_PAINTING_ID = "FIND_ACTIVE_LISTINGS_BY_PAIN
 export const FIND_ACTIVE_LISTINGS_BY_OWNER_ID = "FIND_ACTIVE_LISTINGS_BY_OWNER_ID"
 export const CREATE_LISTING = "CREATE_LISTING"
 export const FIND_ALL_ACTIVE_LISTINGS = "FIND_ALL_ACTIVE_LISTINGS"
+export const FIND_SOLD_PRICE_HISTORY_BY_PAINTING_ID = "FIND_SOLD_PRICE_HISTORY_BY_PAINTING_ID"
 
 export const findAllActiveListings = async (dispatch) => {
     console.log("In actions. About to find all active listings");
@@ -40,5 +41,14 @@ export const createListing = async (dispatch, listing) => {
     dispatch ({
         type: CREATE_LISTING,
         inserted_listing
+    })
+}
+
+export const findSalesPriceHistoryByPaintingId = async (dispatch, painting_id) => {
+    console.log("In actions. In find price history by painting id");
+    const listings = await service.findPriceHistoryByPaintingId(painting_id);
+    dispatch ({
+        type: FIND_SOLD_PRICE_HISTORY_BY_PAINTING_ID,
+        listings
     })
 }
