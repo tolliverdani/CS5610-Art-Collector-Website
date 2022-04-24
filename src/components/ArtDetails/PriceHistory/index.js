@@ -16,7 +16,7 @@ const PriceHistory = (params) => {
 
     type Series = {
         label: string,
-        data: PricePoint
+        data: PricePoint[]
     }
 
     const data: Series[] = [
@@ -77,8 +77,23 @@ const PriceHistory = (params) => {
     return (
         <div className={'border-bottom p-2'}>
             <div className={'chart-size mb-5'}>
-                {console.log("here is the data hard coded: " + data[0].data[0].date)}
-                {console.log("here is the data from reducer: " + params.data[0].date)}
+                {/*{console.log("here is the data hard coded: " + data[0].label)}*/}
+                {/*{console.log("here is the data hard coded: " + data[0].data[0].date)}*/}
+                {/*{console.log("here is the data hard coded: " + data[0].data[0].price)}*/}
+
+                {/*{console.log("here is the data hard coded: " + data[1].label)}*/}
+                {/*{console.log("here is the data hard coded: " + data[1].data.length)}*/}
+
+                {/*{console.log("here is the data hard coded: " + data[1].data[0].date)}*/}
+                {/*{console.log("here is the data hard coded: " + data[1].data[0].price)}*/}
+                {/*{console.log("here is the data hard coded: " + data[1].data[1].date)}*/}
+                {/*{console.log("here is the data hard coded: " + data[1].data[1].price)}*/}
+                {/*{console.log("here is the data hard coded: " + data[1].data[2].date)}*/}
+                {/*{console.log("here is the data hard coded: " + data[1].data[2].price)}*/}
+
+
+
+
 
                 {ComponentHeader(art_data.title + " Price History")}
                 <Chart options={{
