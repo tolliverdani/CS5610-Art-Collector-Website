@@ -3,7 +3,7 @@ import {useLocation} from "react-router-dom";
 
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import NavigationSidebar from "../../components/NavigationSidebar";
-import PaintingListings from "../../components/PaintingListings";
+import PaintingListings from "../../components/Listings";
 import PrivacyPolicy from "../../components/PrivacyPolicy";
 
 const PrivacyPolicyScreen = () => {

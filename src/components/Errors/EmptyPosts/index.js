@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import React from "react";
 import LogInModal from "../../Auth/LoginModal";
-import UnsecuredContent from "../../Security/unsecured-content";
+import UnsecuredContent from "../../../_security/unsecured-content";
 
 const EmptyPosts = () => {
 

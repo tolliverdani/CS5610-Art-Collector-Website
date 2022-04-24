@@ -8,7 +8,7 @@ const ProfileStats = (params) => {
     const data = params.data
 
     return (
-        <div className={"p-2 bg-light border-bottom"}>
+        <div className={"p-2 mb-2 bg-light"}>
             <div className={""}>
                 <div>
                     {ComponentHeader(data.title)}

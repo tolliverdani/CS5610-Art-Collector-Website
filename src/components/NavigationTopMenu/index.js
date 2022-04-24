@@ -4,8 +4,8 @@ import SearchBar from "./SearchBar";
 import HamburgerMenu from "./HamburgerMenu";
 import SignUpModal from "../Auth/SignUpModal";
 import LogInModal from "../Auth/LoginModal";
-import SecureContent from "../Security/secure-content";
-import UnsecuredContent from "../Security/unsecured-content";
+import SecureContent from "../../_security/secure-content";
+import UnsecuredContent from "../../_security/unsecured-content";
 import FULL_LOGO from "../../_images/artbubblelogo2.png"
 
 

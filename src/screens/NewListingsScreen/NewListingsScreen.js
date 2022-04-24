@@ -1,20 +1,18 @@
 import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {useLocation} from "react-router-dom";
+
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import NavigationSidebar from "../../components/NavigationSidebar";
-import PaintingListings from "../../components/PaintingListings";
-import {useDispatch, useSelector} from "react-redux";
-
-import {useLocation} from "react-router-dom";
-import {findAllActiveListings} from "../../_actions/listings-actions";
+import PaintingListings from "../../components/Listings";
 import {useProfile} from "../../_context/profile-context";
-import PriceHistory from "../../components/ArtDetails/PriceHistory";
-import UpdatePosts from "../../components/UpdatePosts";
-
+import {findAllActiveListings} from "../../_actions/listings-actions";
 
 const Index = () => {
     const {profile} = useProfile();
-    const listings = useSelector(state => state.listings);
     const dispatch = useDispatch();
+
+    const listings = useSelector(state => state.listings);
     useEffect(() => findAllActiveListings(dispatch),[dispatch])
 
     return (
@@ -25,10 +23,10 @@ const Index = () => {
                     <NavigationSidebar active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                 </div>
                 <div className={'col-10 col-lg-8'}>
-
+                    <PaintingListings data={listings}
+                                      profile={profile}/>
                 </div>
                 <div className={'d-none d-lg-block col-2'}>
-                    <PaintingListings data={listings} profile={profile}/>
                 </div>
             </div>
         </div>

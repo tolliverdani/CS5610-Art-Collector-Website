@@ -9,15 +9,15 @@ const PaintingsByArtist = (params) => {
     const paintings = params.data
 
     return (
-        <div className={"p-2 border-bottom"}>
-            <div className={"pt-2 pb-2 d-flex justify-content-between"}>
-                {ComponentHeader("Paintings by Artist")}
+        <>
+            {ComponentHeader("Paintings by Artist")}
+            <div className={"p-2 mb-2"}>
+                {paintings.length === 0 ?
+                    EmptyCollection()
+                    :
+                    <PaintingGrid type={"artist"} data={paintings} id={artist_id}/>}
             </div>
-            {paintings.length === 0 ?
-                EmptyCollection()
-                :
-                <PaintingGrid type={"artist"} data={paintings} id={artist_id}/>}
-        </div>
+        </>
     )
 }
 

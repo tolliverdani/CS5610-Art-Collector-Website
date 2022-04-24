@@ -3,7 +3,7 @@ import ConfirmationModal from "../ConfirmationModal"
 import {Link, useParams} from "react-router-dom";
 import GridMenuItem from "../../PaintingGrid/GridMenuItem";
 import ListingStats from "../ListingStats";
-import UnsecuredContent from "../../Security/unsecured-content";
+import UnsecuredContent from "../../../_security/unsecured-content";
 
 const ListingItem = ({profile, grid_item}) => {
 

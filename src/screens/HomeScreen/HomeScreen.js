@@ -1,16 +1,15 @@
 import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {useLocation} from "react-router-dom";
+
+import {randomPaintings} from "../../_actions/artpieces-actions";
+
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import NavigationSidebar from "../../components/NavigationSidebar";
-import PaintingListings from "../../components/PaintingListings";
-import paintingsReducer from "../../_reducers/paintings-reducer"
-import {Provider, useDispatch, useSelector} from "react-redux";
-import {combineReducers, createStore} from "redux";
 import PaintingGrid from "../../components/PaintingGrid";
-import ScrollToTop from "../../components/NavigationSidebar/ScrollToTop";
-import {useLocation} from "react-router-dom";
-import {useProfile} from "../../_context/profile-context";
-import {randomPaintings} from "../../_actions/artpieces-actions";
 import ComponentHeader from "../../components/ComponentHeader";
+import UserGrid from "../../components/UserGrid";
+import users from "../../components/UserGrid/currentowners.json"; // TODO: set up with database
 
 const Index = () => {
     const paintings_data = useSelector(state => state.paintings);
@@ -32,7 +31,7 @@ const Index = () => {
                     <PaintingGrid type={"random"} data={paintings}/>
                 </div>
                 <div className={'d-none d-lg-block col-2'}>
-                    <PaintingListings data={listings}/>
+                    <UserGrid users={users} header={"Discover"}/>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, useNavigate} from "react-router-dom";
-import SecureContent from "../Security/secure-content";
+import SecureContent from "../../_security/secure-content";
 import {logout} from "../../_services/auth-service";
 
 const NavigationSidebar =

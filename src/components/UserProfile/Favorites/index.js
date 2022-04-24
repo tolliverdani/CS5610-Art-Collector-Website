@@ -9,18 +9,16 @@ const Favorites = (params) => {
     const paintings = params.paintings
 
     return (
-        <div className={"p-2 border-bottom"}>
-            <div className={"pt-2 pb-2 d-flex justify-content-between"}>
-                {ComponentHeader("Favorites")}
-                <Link to={"/"} className={"btn btn-sm btn-transparent rounded-pill"}>
-                    See More
-                </Link>
+        <>
+            {ComponentHeader("Favorites")}
+            <div className={"p-2 mb-2"}>
+                {paintings.length === 0 ?
+                    EmptyCollection()
+                    :
+                    <PaintingGrid type={("favorite")} data={paintings.slice(0, 4)}/>
+                }
             </div>
-            {paintings.length === 0 ?
-                EmptyCollection()
-                :
-                <PaintingGrid type={("favorite")} data={paintings.slice(0, 4)}/>}
-        </div>
+        </>
     );
 }
 export default Favorites;

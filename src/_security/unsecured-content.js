@@ -1,7 +1,7 @@
-import {useProfile} from "../../_context/profile-context";
+import {useProfile} from "../_context/profile-context";
 import {useEffect, useState} from "react";
 
-const SecureContent = ({children}) => {
+const UnsecuredContent = ({children}) => {
     const {checkLoggedIn} = useProfile()
     const [currentUser, setCurrentUser] = useState()
 
@@ -19,9 +19,9 @@ const SecureContent = ({children}) => {
     }, [])
 
     if (currentUser) {
-        return children
+        return null
     }
-    return null
+    return children
 }
 
-export default SecureContent
+export default UnsecuredContent

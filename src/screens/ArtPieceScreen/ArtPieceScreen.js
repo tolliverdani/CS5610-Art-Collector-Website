@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 
 import NavigationTopMenu from "../../components/NavigationTopMenu";
-import PaintingListings from "../../components/PaintingListings";
+import PaintingListings from "../../components/Listings";
 import PriceHistory from "../../components/ArtDetails/PriceHistory";
-import CurrentOwners from "../../components/CurrentOwners";
+import UserGrid from "../../components/UserGrid";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import UpdatePosts from "../../components/UpdatePosts";
 import paintingsReducer from "../../_reducers/paintings-reducer"
@@ -17,7 +17,8 @@ import ArtStats from "../../components/ArtDetails/ArtStats";
 import {findPaintingComments} from "../../_actions/comments-actions";
 import {findActiveListingsByPaintingId, findSalesPriceHistoryByPaintingId} from "../../_actions/listings-actions";
 import {findPriceHistoryAllOffersByPaintingId} from "../../_actions/offers-actions";
-
+import ComponentHeader from "../../components/ComponentHeader";
+import users from "../../components/UserGrid/currentowners.json"; // TODO: set up with database
 
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);
@@ -54,15 +55,14 @@ const ArtPieceScreen = () => {
                                 active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                         </div>
                         <div className={'col-10 col-lg-8'}>
-                            <PriceHistory sales_history={salesHistory} offers_history={offersHistory}
-                                          painting_details={data}/>
+                            <PriceHistory sales_history={salesHistory} offers_history={offersHistory}/>
                             <PaintingListings data={listings}/>
                             <UpdatePosts posts={posts}/>
                         </div>
                         <div className={'d-none d-lg-block col-2'}>
                             <ArtDetails data={data}/>
                             <ArtStats data={data}/>
-                            <CurrentOwners/>
+                            <UserGrid users={users} header={"Owners"}/>
                         </div>
                     </div>
                 </div>

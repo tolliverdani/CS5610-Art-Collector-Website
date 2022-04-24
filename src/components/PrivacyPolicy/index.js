@@ -7,7 +7,7 @@ import ComponentHeader from "../ComponentHeader";
 const PrivacyPolicy = () => {
     return (
         <>
-            <h1>Privacy Policy</h1>
+            {ComponentHeader("Privacy Policy")}
 
             <p>This privacy policy will explain how our organization uses the personal data we collect from you when you
                 use our website.</p>

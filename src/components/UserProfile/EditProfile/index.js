@@ -38,10 +38,10 @@ const EditProfileModal = () => {
     }
 
     return (
-        <>
-            <div className="btn btn-primary rounded-pill m-0 p-2"
+        <div className={"mb-2 text-end"}>
+            <div className="btn btn-transparent m-0 p-2"
                  onClick={() => setShow(true)}>
-                Edit Profile
+                <em>Edit Profile</em>
             </div>
 
             <Modal show={set} onHide={() => setShow(false)}>
@@ -135,7 +135,7 @@ const EditProfileModal = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-        </>
+        </div>
     );
 }
 export default EditProfileModal;

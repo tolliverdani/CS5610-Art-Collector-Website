@@ -8,11 +8,10 @@ const ArtistStats = (params) => {
     const artist = params.artist
 
     return (
-        <>
+        <div className={"p-2 mb-2"}>
             {artist.OriginalArtistName === "artist_not_found" ?
                 <ArtistNotFound params={artist}/>
                 :
-
                 <div className={"p-2 bg-light border-bottom"}>
                 <div className={""}>
                     <div>
@@ -28,9 +27,8 @@ const ArtistStats = (params) => {
                     </div>
                 </div>
             </div>
-
             }
-        </>
+        </div>
     );
 }
 export default ArtistStats;

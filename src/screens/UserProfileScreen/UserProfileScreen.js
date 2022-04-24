@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 
 import NavigationTopMenu from "../../components/NavigationTopMenu";
-import PaintingListings from "../../components/PaintingListings";
+import PaintingListings from "../../components/Listings";
 import UserProfile from "../../components/UserProfile";
 import NavigationSidebar from "../../components/NavigationSidebar";
 
@@ -18,7 +18,8 @@ import ProfileBio from "../../components/UserProfile/ProfileBio";
 import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
 import Offers from "../../components/Offers";
 import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
-import SecureContent from "../../components/Security/secure-content";
+import SecureContent from "../../_security/secure-content";
+import EditProfileModal from "../../components/UserProfile/EditProfile";
 
 const UserProfileScreen = () => {
 
@@ -44,7 +45,6 @@ const UserProfileScreen = () => {
                         active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                 </div>
                 <div className={'col-10 col-lg-8'}>
-                    <ProfileHeader profile={profile}/>
                     <PaintingListings data={listings}
                                       profile={profile}
                     />

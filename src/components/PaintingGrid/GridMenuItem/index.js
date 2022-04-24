@@ -4,7 +4,7 @@ import {addToUserCollection, removeFromUserCollection} from "../../../_actions/c
 import {useProfile} from "../../../_context/profile-context";
 import {useDispatch} from "react-redux";
 import CreateListingModal from "../CreateListingModal";
-import SecureContent from "../../Security/secure-content";
+import SecureContent from "../../../_security/secure-content";
 
 const ArtistGridMenuItem = () => {
 
