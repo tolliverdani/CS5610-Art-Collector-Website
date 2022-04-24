@@ -2,6 +2,10 @@ p {
   font-size: small;
 }
 
+.bg-primary {
+  background-color: #1976d2;
+}
+
 .bg-highlight {
   background-color: #1976d2;
 }
