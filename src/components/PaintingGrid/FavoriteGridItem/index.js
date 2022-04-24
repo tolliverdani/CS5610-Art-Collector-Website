@@ -1,10 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {Dropdown, DropdownButton} from "react-bootstrap";
+import {addToUserCollection} from "../../../_actions/collections-actions";
+import {useProfile} from "../../../_context/profile-context";
+import {useDispatch} from "react-redux";
 import GridMenuItem from "../GridMenuItem";
 
 // Reference for content: https://react-bootstrap.github.io/components/dropdowns/
 
-const PaintingGridItem = ({grid_item}) => {
+const FavoriteGridItem = ({grid_item}) => {
 
     return (
         <div className={"col card border-0 p-1"}>
@@ -22,7 +26,7 @@ const PaintingGridItem = ({grid_item}) => {
 
             <div className={'card-title align-items-center'}>
 
-                <GridMenuItem type={"painting"} grid_item={grid_item}/>
+                <GridMenuItem type={"favorite"} grid_item={grid_item}/>
 
                 <span className={'card-title'}>
                     <Link className={`small text-decoration-none text-black`}
@@ -42,4 +46,4 @@ const PaintingGridItem = ({grid_item}) => {
     )
 }
 
-export default PaintingGridItem;
+export default FavoriteGridItem;

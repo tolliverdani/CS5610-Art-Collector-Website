@@ -19,7 +19,7 @@ const Favorites = (params) => {
             {paintings.length === 0 ?
                 EmptyCollection()
                 :
-                <PaintingGrid type={("preview")} data={paintings.slice(0, 4)}/>}
+                <PaintingGrid type={("favorite")} data={paintings.slice(0, 4)}/>}
         </div>
     );
 }
