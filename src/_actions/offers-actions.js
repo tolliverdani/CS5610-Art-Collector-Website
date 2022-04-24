@@ -33,7 +33,7 @@ export const findPriceHistoryAllOffersByPaintingId = async (dispatch, painting_i
     const offers = await service.findOffersByPaintingId(painting_id);
     console.log("In offers actions. Here are the returned offers: " + offers)
     dispatch ({
-        type: "FIND_PRICE_HISTORY_ALL_OFFERS_BY_PAINTING_ID",
+        type: FIND_PRICE_HISTORY_ALL_OFFERS_BY_PAINTING_ID,
         offers
     })
 }

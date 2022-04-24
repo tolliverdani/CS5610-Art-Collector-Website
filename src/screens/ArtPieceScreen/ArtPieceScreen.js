@@ -37,7 +37,7 @@ const ArtPieceScreen = () => {
         console.log(painting_id)
         useEffect(() => findActiveListingsByPaintingId(dispatch, painting_id), [dispatch, painting_id])
 
-        const offers = useSelector(state => state.offers);
+        const offersHistory = useSelector(state => state.offersHistory);
         useEffect(() => findPriceHistoryAllOffersByPaintingId(dispatch, painting_id),[dispatch, painting_id])
 
 
@@ -53,7 +53,7 @@ const ArtPieceScreen = () => {
                                     active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                             </div>
                             <div className={'col-10 col-lg-7'}>
-                                <PriceHistory data={offers}/>
+                                <PriceHistory offers_history={offersHistory} painting_details={data}/>
                                 <PaintingListings data={listings}/>
                                 <UpdatePosts posts={posts}/>
                             </div>

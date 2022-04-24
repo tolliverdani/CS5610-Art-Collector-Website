@@ -4,7 +4,7 @@ import ComponentHeader from "../../ComponentHeader";
 import {findPriceHistoryAllOffersByPaintingId} from "../../../_actions/offers-actions";
 import {useDispatch} from "react-redux";
 
-const PriceHistory = (params) => {
+const PriceHistory = ({offers_history, painting_details}) => {
 
     /* TODO: we need to move this data and make sure it's organized
         in a way that makes sense for the graph */
@@ -51,7 +51,7 @@ const PriceHistory = (params) => {
         },
         {
             label: "Offer",
-            data: params.data
+            data: offers_history
         }
     ]
 
@@ -72,7 +72,6 @@ const PriceHistory = (params) => {
         []
     )
 
-    const art_data = params.data
 
     return (
         <div className={'border-bottom p-2'}>
@@ -95,7 +94,7 @@ const PriceHistory = (params) => {
 
 
 
-                {ComponentHeader(art_data.title + " Price History")}
+                {ComponentHeader(painting_details.title + " Price History")}
                 <Chart options={{
                     data,
                     primaryAxis,
