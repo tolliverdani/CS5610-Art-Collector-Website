@@ -6,7 +6,7 @@ import {
 } from "../_actions/listings-actions";
 
 const listingsReducer = (state = [], action) => {
-    console.log(action.type)
+    //console.log(action.type)
 
     switch ( action.type ){
         case FIND_ACTIVE_LISTINGS_BY_PAINTING_ID:

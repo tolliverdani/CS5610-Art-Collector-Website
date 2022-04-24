@@ -1,100 +1,75 @@
 import React from "react";
-import PaintingGridItem from "./PaintingGridItem";
 import {useDispatch} from 'react-redux';
 import {findPaintingsByArtist} from "../../_actions/artpieces-actions";
+
 import ArtistGridItem from "./ArtistGridItem";
+import PaintingGridItem from "./PaintingGridItem";
 import FavoriteGridItem from "./FavoriteGridItem";
-import Collection from "../UserProfile/Collection";
 import CollectionGridItem from "./CollectionGridItem";
 
-const ArtGrid = (type, data) => {
+const GridData = (type, data) => {
+
     switch (type) {
         case "collection":
-            return (
-                <>
-                    <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
-                        {data.map(painting_item =>
-                            <CollectionGridItem key={painting_item.id} grid_item={painting_item}/>)}
-                    </div>
-                </>
-            )
+            return data.map(painting_item =>
+                <CollectionGridItem key={painting_item.id} grid_item={painting_item}/>)
         case "favorite" :
-            return (
-                <>
-                    <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
-                        {data.map(painting_item =>
-                            <FavoriteGridItem key={painting_item.id} grid_item={painting_item}/>)}
-                    </div>
-                </>
-            )
+            return data.map(painting_item =>
+                <FavoriteGridItem key={painting_item.id} grid_item={painting_item}/>)
+        case "artist":
+            return data.map(painting_item =>
+                <ArtistGridItem key={painting_item.id} type={type} grid_item={painting_item}/>)
         default:
-            return (
-                <>
-                    <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
-                        {data.map(painting_item =>
-                            <PaintingGridItem key={painting_item.id} grid_item={painting_item}/>)}
-                    </div>
-                </>
-            )
+            return data.map(painting_item =>
+                <PaintingGridItem key={painting_item.id} grid_item={painting_item}/>)
     }
 }
 
-const ArtistGrid = (type, data) => {
+const GridItem = (type, data) => {
     return (
-        <>
+        <div className={"p-2 mb-2"}>
             <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
-                {data.map(painting_item =>
-                    <ArtistGridItem key={painting_item.id} type={type} grid_item={painting_item}/>)}
+                {GridData(type, data)}
             </div>
-        </>
-    )
-}
-
-const PaintingsByArtist = (type, data, id) => {
-    const dispatch = useDispatch()
-
-    return (
-        <>
-            {ArtGrid(type, data)}
-            <button type="button"
-                    className={`rounded-pill btn-sm btn-primary ${data.hasMore ? "" : "d-none"}`}
-                    onMouseDown={(e) => e.preventDefault()}
-                    onClick={() => findPaintingsByArtist(dispatch, id, data.paginationToken)}>
-                Show More
-            </button>
-        </>
-    )
-}
-
-const SearchResults = (type, data) => {
-
-    return (
-        <>
-            {ArtGrid(type, data)}
-            <button className={`rounded-pill btn-sm btn-primary ${data.hasMore ? "" : "d-none"}`}>
-                Show More
-            </button>
-            }
-        </>
+        </div>
     )
 }
 
 const PaintingGrid = (params) => {
-    console.log(params)
+
+    const dispatch = useDispatch()
 
     switch (params.type) {
         case "artist":
-            return PaintingsByArtist(params.type, params.data, params.id);
+            return (
+                <>
+                    {GridItem(params.type, params.data)}
+                    <button type="button"
+                            className={`rounded-pill btn-sm btn-primary ${params.data.hasMore ? "" : "d-none"}`}
+                            onMouseDown={(e) => e.preventDefault()}
+                            onClick={() => findPaintingsByArtist(dispatch, params.data._id, params.data.paginationToken)}>
+                        Show More
+                    </button>
+                </>
+            )
         case "random":
-            return ArtGrid(params.type, params.data);
+            return GridItem(params.type, params.data);
         case "updated-artists":
-            return ArtistGrid(params.type, params.data);
+            return GridItem(params.type, params.data);
         case "search":
-            return SearchResults(params.type, params.data);
+            return (
+                <>
+                    {GridItem(params.type, params.data)}
+                    <button className={`rounded-pill btn-sm btn-primary ${params.data.hasMore ? "" : "d-none"}`}>
+                        Show More
+                    </button>
+                    }
+                </>
+            )
         case "collection":
-            return ArtGrid(params.type, params.data)
+            return GridItem(params.type, params.data)
         case "favorite":
-            return ArtGrid(params.type, params.data)
+            return GridItem(params.type, params.data)
         default:
             return [];
     }

@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 
 import NavigationTopMenu from "../../components/NavigationTopMenu";
-import PaintingListings from "../../components/Listings";
+import PaintingListings from "../../components/ListingsGrid";
 import PriceHistory from "../../components/ArtDetails/PriceHistory";
 import UserGrid from "../../components/UserGrid";
 import NavigationSidebar from "../../components/NavigationSidebar";
@@ -35,7 +35,6 @@ const ArtPieceScreen = () => {
         useEffect(() => findPaintingComments(dispatch, painting_id), [dispatch, painting_id])
 
         const listings = useSelector(state => state.listings);
-        console.log(painting_id)
         useEffect(() => findActiveListingsByPaintingId(dispatch, painting_id), [dispatch, painting_id])
 
         const offersHistory = useSelector(state => state.offersHistory);
@@ -43,7 +42,6 @@ const ArtPieceScreen = () => {
 
         const salesHistory = useSelector(state => state.salesHistory);
         useEffect(() => findSalesPriceHistoryByPaintingId(dispatch, painting_id), [dispatch, painting_id])
-
 
         return (
             <Provider store={store}>
@@ -56,13 +54,13 @@ const ArtPieceScreen = () => {
                         </div>
                         <div className={'col-10 col-lg-8'}>
                             <PriceHistory sales_history={salesHistory} offers_history={offersHistory}/>
-                            <PaintingListings data={listings}/>
+                            <PaintingListings type={"painting"} data={listings}/>
                             <UpdatePosts posts={posts}/>
                         </div>
                         <div className={'d-none d-lg-block col-2'}>
                             <ArtDetails data={data}/>
                             <ArtStats data={data}/>
-                            <UserGrid users={users} header={"Owners"}/>
+                            {/*<UserGrid users={users} header={"Owners"}/>*/}
                         </div>
                     </div>
                 </div>

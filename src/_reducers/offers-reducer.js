@@ -14,7 +14,7 @@ import {
 } from "../_actions/offers-actions";
 
 const offersReducer = (state = [{"date": new Date(), "price": 200}], action) => {
-    console.log("We are in the offers reducer. This is the action type: " + action.type)
+    //console.log("We are in the offers reducer. This is the action type: " + action.type)
 
     switch (action.type) {
         case FIND_ALL_OFFERS_BY_PAINTING_ID:

@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 
 import NavigationTopMenu from "../../components/NavigationTopMenu";
-import PaintingListings from "../../components/Listings";
+import PaintingListings from "../../components/ListingsGrid";
 import UserProfile from "../../components/UserProfile";
 import NavigationSidebar from "../../components/NavigationSidebar";
 
@@ -20,6 +20,7 @@ import Offers from "../../components/Offers";
 import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
 import SecureContent from "../../_security/secure-content";
 import EditProfileModal from "../../components/UserProfile/EditProfile";
+import ListingsGrid from "../../components/ListingsGrid";
 
 const UserProfileScreen = () => {
 
@@ -45,10 +46,7 @@ const UserProfileScreen = () => {
                         active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                 </div>
                 <div className={'col-10 col-lg-8'}>
-                    <PaintingListings data={listings}
-                                      profile={profile}
-                    />
-
+                    <ListingsGrid type={"user"} data={listings}/>
                     <Favorites paintings={paintings}/>
                     <Collection paintings={paintings}/>
                 </div>

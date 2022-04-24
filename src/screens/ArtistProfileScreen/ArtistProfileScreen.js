@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import NavigationTopMenu from "../../components/NavigationTopMenu";
-import PaintingListings from "../../components/Listings";
+import PaintingListings from "../../components/ListingsGrid";
 import PaintingGrid from "../../components/PaintingGrid";
 import UpdatePosts from "../../components/UpdatePosts";
 import NavigationSidebar from "../../components/NavigationSidebar";
@@ -21,6 +21,7 @@ import ArtistStats from "../../components/ArtistProfile/ArtistStats";
 import PaintingsByArtist from "../../components/ArtistProfile/PaintingsByArtist";
 import {findListingsByArtistId, findListingsByOwnerId} from "../../_services/listings-service";
 import {findActiveListingsByArtistId} from "../../_actions/listings-actions";
+import ListingsGrid from "../../components/ListingsGrid";
 
 const reducers = combineReducers({paintings: paintingsReducer, artists: artistReducer, collection: collectionsReducer})
 const store = createStore(reducers);
@@ -40,7 +41,7 @@ const ArtistProfileScreen = () => {
     useEffect(() => findPaintingComments(dispatch, artist_id), [dispatch, artist_id])
 
     const listings = useSelector(state => state.listings)
-    useEffect(() => findActiveListingsByArtistId(dispatch, artist_id))
+    useEffect(() => findActiveListingsByArtistId(dispatch, artist_id), [dispatch, artist_id])
 
     return (
         <Provider store={store}>
@@ -53,7 +54,7 @@ const ArtistProfileScreen = () => {
                         <ScrollToTop/>
                     </div>
                     <div className={'col-10 col-lg-8'}>
-                        <PaintingListings data={listings}/>
+                        <ListingsGrid type={"artist"} data={listings}/>
                         <PaintingsByArtist data={paintings} id={artist_id}/>
                     </div>
                     <div className={'col-2 d-none d-lg-block'}>

@@ -14,7 +14,7 @@ const collectionsReducer = (state = [], action) => {
         case ADD_TO_USER_COLLECTION:
             return [action.added_item, ...state];
         case REMOVE_FROM_COLLECTION:
-            console.log("in collectionsReducer")
+            //console.log("in collectionsReducer")
             return action.collection;
         default:
             return state;

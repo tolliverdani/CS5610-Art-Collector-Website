@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 
 import NavigationSidebar from "../../components/NavigationSidebar";
 import NavigationTopMenu from "../../components/NavigationTopMenu";
-import PaintingListings from "../../components/Listings";
+import PaintingListings from "../../components/ListingsGrid";
 import paintingsReducer from "../../_reducers/paintings-reducer"
 import {Provider, useDispatch, useSelector} from "react-redux";
 import {combineReducers, createStore} from "redux";

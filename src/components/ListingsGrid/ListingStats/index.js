@@ -3,7 +3,7 @@ import React from "react";
 const ListingStats = ({grid_item}) => {
 
     return (
-        <div className={"p-2 mb-2"}>
+        <div className={"p-2 m-0 bg-light"}>
             <div className={"d-flex justify-content-between"}>
                 {/* Cost */}
                 <span className={"m-0 p-0"}>

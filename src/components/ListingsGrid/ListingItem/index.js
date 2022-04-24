@@ -5,7 +5,7 @@ import GridMenuItem from "../../PaintingGrid/GridMenuItem";
 import ListingStats from "../ListingStats";
 import UnsecuredContent from "../../../_security/unsecured-content";
 
-const ListingItem = ({profile, grid_item}) => {
+const ListingItem = ({grid_item}) => {
 
     return (
 
