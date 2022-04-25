@@ -5,32 +5,32 @@ import {useDispatch} from "react-redux";
 import {useProfile} from "../../../_context/profile-context";
 import {useNavigate} from "react-router-dom";
 import {update} from "../../../_services/auth-service";
+import {updateUser} from "../../../_services/user-service";
+import {updateProfile} from "../../../_actions/users-actions";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
 const EditProfileModal = () => {
     const [set, setShow] = useState(false);
 
-    const emailRef = useRef()
-    const usernameRef = useRef()
-    const pronounRef = useRef()
-    const locationRef = useRef()
-    const bioRef = useRef()
+
 
     const navigate = useNavigate();
 
     const user = useProfile()
     const profile = user.profile
+    const [email, changeEmail] = useState(profile.email)
+    const [username, changeUsername] = useState(profile.username)
+    const [pronoun, changePronoun] = useState(profile.pronoun)
+    const [location, changeLocation] = useState(profile.location)
+    const [bio, changeBio] = useState(profile.bio)
 
     const handleUpdate = async () => {
         try {
-            await update(
-                emailRef.current.value,
-                usernameRef.current.value,
-                pronounRef.current.value,
-                locationRef.current.value,
-                bioRef.current.value
-            )
+            const updated_user = {...profile, "email": email, "username": username, "pronoun": pronoun, "location": location, "bio": bio}
+            // delete blank password field to that it isn't updated
+            delete updated_user["password"];
+            updateProfile(updated_user);
             navigate('/profile')
         } catch (e) {
             throw(e);
@@ -61,9 +61,9 @@ const EditProfileModal = () => {
                             </label>
                             <div className="col-sm-10">
                                 <input className="form-control rounded-pill bg-light border-0 shadow-none"
-                                       ref={emailRef}
+                                       onChange={(e) => changeEmail(e.target.value)}
                                        type="email" id="InputEmail"
-                                       value={profile.email}/>
+                                       value={email}/>
                             </div>
                         </div>
                         <div className="form-group row mb-4">
@@ -73,9 +73,11 @@ const EditProfileModal = () => {
                             </label>
                             <div className="col-sm-10">
                                 <input className="form-control rounded-pill bg-light border-0 shadow-none"
-                                       ref={usernameRef}
                                        type="text" id="InputUsername"
-                                       value={profile.username}/>
+                                       value={username}
+                                       onChange={(e) => changeUsername(e.target.value)}
+                                />
+
                             </div>
                         </div>
 
@@ -86,9 +88,10 @@ const EditProfileModal = () => {
                             </label>
                             <div className="col-sm-10">
                                 <select className="form-control rounded-pill bg-light border-0 shadow-none"
-                                        ref={pronounRef}
                                         id="InputPronouns"
-                                value={profile.pronoun}>
+                                        value={pronoun}
+                                        onChange={(e) => changePronoun(e.target.value)}
+                                >
                                     <option>He/Him</option>
                                     <option>She/Her</option>
                                     <option>They/Them</option>
@@ -104,9 +107,10 @@ const EditProfileModal = () => {
                             </label>
                             <div className="col-sm-10">
                                 <input className="form-control rounded-pill bg-light border-0 shadow-none"
-                                       ref={locationRef}
                                        type="text" id="InputLocation"
-                                       value={profile.location}/>
+                                       value={location}
+                                       onChange={(e) => changeLocation(e.target.value)}
+                                />
                             </div>
                         </div>
 
@@ -117,9 +121,10 @@ const EditProfileModal = () => {
                             </label>
                             <div className="col-sm-10">
                                 <textarea className="form-control bg-light border-0 shadow-none"
-                                          ref={bioRef}
                                           id="InputBio"
-                                          value={profile.bio}/>
+                                          value={bio}
+                                          onChange={(e) => changeBio(e.target.value)}
+                                />
                             </div>
                         </div>
                     </Form>

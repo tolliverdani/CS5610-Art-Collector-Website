@@ -2,6 +2,13 @@ import axios from "axios";
 const API_BASE = (process.env.REACT_APP_API_BASE || 'http://localhost:4000/api');
 const SECURITY_API = `${API_BASE}/auth`;
 
+export const updateUser = async (user) => {
+    const response = await api.put(`${API_BASE}/users`, user);
+    if ( response.status === 200 ){
+        return response.data;
+    }
+}
+
 export const printUser = async (user) => {
    await console.log(user)
 }
