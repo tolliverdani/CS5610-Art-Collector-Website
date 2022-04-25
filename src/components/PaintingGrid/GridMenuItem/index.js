@@ -5,20 +5,22 @@ import {useProfile} from "../../../_context/profile-context";
 import {useDispatch} from "react-redux";
 import CreateListingModal from "../CreateListingModal";
 import SecureContent from "../../../_security/secure-content";
+import {Link, useNavigate} from "react-router-dom";
 
-const ArtistGridMenuItem = () => {
+const goToUrl = (url) => {
+    const navigate = useNavigate
+    navigate(url)
+
+}
+
+const ArtistGridMenuItem = (grid_item, profile, dispatch) => {
 
     return (
         <DropdownButton className={"btn p-0 border-0 float-end shadow-none"} variant={"transparent"}
                         size={"sm"}
                         align={"end"} title={""}>
-            <Dropdown.Item onClick={() => {
-                alert("Added to favorites")
-            }}>
-                Favorite
-            </Dropdown.Item>
-            <Dropdown.Item>
-                More Details
+            <Dropdown.Item href={`/artist/${grid_item.url}/${grid_item.id}`}>
+                    More Details
             </Dropdown.Item>
         </DropdownButton>
     )
@@ -31,9 +33,6 @@ const PaintingGridMenuItem = (grid_item, profile, dispatch) => {
                         size={"sm"}
                         align={"end"} title={""}>
             <SecureContent>
-                <Dropdown.Item>
-                    Favorite
-                </Dropdown.Item>
                 <Dropdown.Item onClick={() => {
                     // pack up the image, only pulling out what is needed
                     const item_to_add = {
@@ -61,7 +60,7 @@ const PaintingGridMenuItem = (grid_item, profile, dispatch) => {
                 </Dropdown.Item>
             </SecureContent>
 
-            <Dropdown.Item>
+            <Dropdown.Item href={`/art/${grid_item.id}`}>
                 More Details
             </Dropdown.Item>
         </DropdownButton>

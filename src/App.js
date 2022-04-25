@@ -29,8 +29,6 @@ import offersReducer from "./_reducers/offers-reducer";
 import offersHistoryReducer from "./_reducers/offers-history-reducer";
 import salesHistoryReducer from "./_reducers/sales-history-reducer";
 
-
-
 const reducers = combineReducers({
     paintings: paintingsReducer,
     artists: artistReducer,

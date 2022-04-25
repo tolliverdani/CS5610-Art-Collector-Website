@@ -27,11 +27,6 @@ const NavigationSidebar =
                         <i className="fa fa-light fa-fire ps-lg-2"/>
                         <span className={`d-none d-lg-inline ps-2`}>Popular</span>
                     </Link>
-                    <Link to="/new-releases"
-                          className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1 ${active === 'new-releases' ? 'active' : ''}`}>
-                        <i className={`fa fa-regular fa-flag ps-lg-2`}/>
-                        <span className={`d-none d-lg-inline ps-2`}>New Releases</span>
-                    </Link>
                     <Link to="/new-artists"
                           className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1 ${active === 'new-artists' ? 'active' : ''}`}>
                         <i className={`fa fa-solid fa-user-plus ps-lg-2`}/>

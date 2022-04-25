@@ -16,9 +16,9 @@ const GridData = (type, data) => {
         case "favorite" :
             return data.map(painting_item =>
                 <FavoriteGridItem key={painting_item.id} grid_item={painting_item}/>)
-        case "artist":
+        case "artists":
             return data.map(painting_item =>
-                <ArtistGridItem key={painting_item.id} type={type} grid_item={painting_item}/>)
+                <ArtistGridItem key={painting_item.id} grid_item={painting_item}/>)
         default:
             return data.map(painting_item =>
                 <PaintingGridItem key={painting_item.id} grid_item={painting_item}/>)
@@ -43,7 +43,7 @@ const PaintingGrid = (params) => {
         case "artist":
             return (
                 <>
-                    {GridItem(params.type, params.data)}
+                    {GridItem("painting", params.data)}
                     <button type="button"
                             className={`rounded-pill btn-sm btn-primary ${params.data.hasMore ? "" : "d-none"}`}
                             onMouseDown={(e) => e.preventDefault()}
@@ -54,7 +54,7 @@ const PaintingGrid = (params) => {
             )
         case "random":
             return GridItem(params.type, params.data);
-        case "updated-artists":
+        case "artists":
             return GridItem(params.type, params.data);
         case "search":
             return (

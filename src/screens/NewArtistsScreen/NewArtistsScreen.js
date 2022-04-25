@@ -29,7 +29,7 @@ const Index = () => {
                             active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                     </div>
                     <div className={'col-10 col-lg-8'}>
-                        <PaintingGrid type={"updated-artists"} data={paintings}/>
+                        <PaintingGrid type={"artists"} data={paintings}/>
                     </div>
                     <div className={'d-none d-lg-block col-2'}>
                         {/*<PaintingListings/>*/}
