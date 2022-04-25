@@ -9,13 +9,23 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingGrid from "../../components/PaintingGrid";
 import ComponentHeader from "../../components/ComponentHeader";
 import UserGrid from "../../components/UserGrid";
-import users from "../../components/UserGrid/currentowners.json"; // TODO: set up with database
+import users from "../../components/UserGrid/currentowners.json";
+import Offers from "../../components/Offers";
+import SecureContent from "../../_security/secure-content";
+import userProfile from "../../components/UserProfile";
+import {findActiveOffersBySellerId} from "../../_actions/offers-actions"; // TODO: set up with database
 
 const Index = () => {
-    const paintings_data = useSelector(state => state.paintings);
-    const listings = useSelector(state => state.listings);
-    const paintings = paintings_data.data
+
     const dispatch = useDispatch();
+    const profile = userProfile();
+    const user_id = profile._id
+
+    const offers = useSelector(state => state.offers);
+    useEffect(() => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
+
+    const paintings_data = useSelector(state => state.paintings);
+    const paintings = paintings_data.data
     useEffect(() => randomPaintings(dispatch), [dispatch]);
 
     return (
@@ -32,6 +42,9 @@ const Index = () => {
                 </div>
                 <div className={'d-none d-lg-block col-2'}>
                     <UserGrid users={users} header={"Discover"}/>
+                    <SecureContent>
+                        <Offers profile={profile} data={offers}/>
+                    </SecureContent>
                 </div>
             </div>
         </div>
