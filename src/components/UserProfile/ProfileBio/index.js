@@ -4,14 +4,14 @@ import ComponentHeader from "../../ComponentHeader";
 
 // TODO: very much so a work in progress
 
-const ProfileBio = () => {
-
-    const {profile} = useProfile();
+const ProfileBio = ({profile}) => {
 
     return (
         <>
+            {ComponentHeader("User Profile")}
             <div className={"p-2 mb-2"}>
-                {profile.hasOwnProperty(profile.bio) === false ? "This user has no bio yet" : profile.bio}
+                {profile.hasOwnProperty("bio") === false ? "This user has not completed their bio. " +
+                    "However, you can still learn more about them based on what they have in their collection!" : profile.bio}
             </div>
         </>
     );

@@ -17,6 +17,7 @@ import UserGrid from "../../components/UserGrid";
 import Collection from "../../components/UserProfile/Collection";
 import friends from "../../components/UserGrid/currentowners.json"
 import {findUserById} from "../../_actions/users-actions";
+import ProfileBio from "../../components/UserProfile/ProfileBio";
 
 const UserProfileScreen = () => {
 
@@ -49,6 +50,7 @@ const UserProfileScreen = () => {
                     <SecureContent>
                         <ListingsGrid type={"user"} data={listings}/>
                     </SecureContent>
+                    <ProfileBio profile={user_profile}/>
                     <Collection paintings={paintings}/>
                 </div>
                 <div className={'d-none d-lg-block col-2'}>
