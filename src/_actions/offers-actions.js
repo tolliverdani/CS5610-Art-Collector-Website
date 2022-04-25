@@ -163,10 +163,12 @@ export const approveOffer = async (dispatch, offer) => {
 }
 
 export const rejectOffer = async (dispatch, offer) => {
-    ////console.log("In reject offer")
+    console.log("In offer actions. In reject offer")
     const rejected_offer = await service.rejectOffer(offer);
-    dispatch ({
-        type: REJECT_OFFER,
-        rejected_offer
-    })
+    if ( rejected_offer === 200 ) {
+        dispatch({
+            type: REJECT_OFFER,
+            offer
+        })
+    }
 }

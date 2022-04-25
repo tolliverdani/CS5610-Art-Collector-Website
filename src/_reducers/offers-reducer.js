@@ -11,7 +11,7 @@ import {
     FIND_INACTIVE_OFFERS_BY_BIDDER_ID,
     FIND_INACTIVE_OFFERS_BY_PAINTING_ID,
     FIND_INACTIVE_OFFERS_BY_SELLER_ID,
-    APPROVE_OFFER, CREATE_OFFER
+    APPROVE_OFFER, CREATE_OFFER, REJECT_OFFER
 } from "../_actions/offers-actions";
 
 const offersReducer = (state = [], action) => {
@@ -22,6 +22,8 @@ const offersReducer = (state = [], action) => {
             return [...state, action.inserted_offer]
         case APPROVE_OFFER:
             return state.filter(offer => offer.listing_id !== action.listing_id)
+        case REJECT_OFFER:
+            return state.filter(offer => offer._id !== action.offer._id)
         case FIND_ALL_OFFERS_BY_PAINTING_ID:
             return action.offers;
         case FIND_ALL_OFFERS_BY_ARTIST_ID:

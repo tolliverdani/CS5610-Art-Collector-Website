@@ -72,9 +72,9 @@ export const rejectOffer = async (offer) => {
     const request_url = `${API_BASE}/offers/reject`
     const response = await axios.put(request_url, offer);
     if ( response.status === 200 ){
-        return response.data;
+        return 200;
     } else {
-        return {};
+        return 400;
     }
 
 }
