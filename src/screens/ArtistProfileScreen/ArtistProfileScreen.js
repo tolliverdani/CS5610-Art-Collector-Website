@@ -56,11 +56,11 @@ const ArtistProfileScreen = () => {
                     <div className={'col-10 col-lg-8'}>
                         <ListingsGrid type={"artist"} data={listings}/>
                         <PaintingsByArtist data={paintings} id={artist_id}/>
+                        <UpdatePosts posts={posts}/>
                     </div>
                     <div className={'col-2 d-none d-lg-block'}>
                         <ArtistProfile artist={artist}/>
                         <ArtistStats artist={artist}/>
-                        <UpdatePosts posts={posts}/>
                     </div>
                 </div>
             </div>

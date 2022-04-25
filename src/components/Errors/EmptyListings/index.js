@@ -4,7 +4,7 @@ const EmptyListings = () => {
 
     return (
         <div className={""}>
-            <h6>You have no active listings</h6>
+            <h6>No active listings</h6>
         </div>
     )
 }
