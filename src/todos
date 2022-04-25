@@ -1,27 +1,88 @@
+Homepage:
+- To do
+    - Must display generic content for anonymous users. The content must be dynamic based on the latest data. For instance, you might display snippets and links to the most recent post, review, or member who recently joined
+    - Must display specific content for the logged in user. The content must be dynamic based on the most recent data entered by the logged in user. For instance, you might display snippets and links to the most recent post or review created by the logged in user
+
+- Done
+    - Must be mapped to either the root context ("/") or ("/home").
+    - Must be the first page when visiting the website
+    - Must be clear to what the Web site is about and must look polished and finished
+
+Profile:
+- To do
+    - Must be accessible to other users including anonymous users
+    - Must be mapped to "/profile/{profileId}" for displaying someone elses profile
+    - If user is following other users, then those users must be listed in the profile and a link must navigate to that other users profile
+
+- Done
+    - Must allow users to change their personal information. If a user is logged in then they can see their profile including sensitive information such as email and phone
+    - Must hide personal/private information from others visiting the profile. If a user is visiting someone else's profile, then they can't see that other user's sensitive information
+    - Must be mapped to "/profile" for displaying the profile of the currently logged in user
+    - Must group similar/related data into distinguishable groups, e.g., Following, Followers, Review, Favorites, etc.
+    - Must display lists of snippets and links of all data related to a user. For instance, display a list of links to all the favorite movies, list of links of users they are following, etc. For instance:
+    - If the user has commented, or reviewed, or created some content, then there must be a functionality to list a summary of that content and navigate to that content
+    - If the user has bookmarked something, then it should be listed in the profile and a link must navigate to that something
+    - You decide how to present, display, format the information
+    - The profile page may be implemented as several pages
+
+
+Search:
+- To do
+
+- Done
+    - The website should provide users the capability to search content from a remote service and display a summary of the results. Search and results can be in the same page or in separate pages. Maybe the search bar can be in the home page, and the results in a separate page. Or both in a separate search page. The results could be formatted in a list, or a grid, or a table. They can have a short description, and a thumbnail of the result. For instance, if you chose movies as your domain objects, then users must be able to search for movies. Users must be able to see a summary of the search results and navigate to a detail page that shows a detail view of the result. The search and results page must fulfill the following requirements.
+    - Must provide a form to search a remote API, not your own API
+    - Must provide a summarized list of results matching the search criteria. Results must come from the remote API, not your local database
+    - Must provide a link/button to navigate to the details page (see below)
+    - Must be mapped to /search when no search has been executed and no results exist
+    - Must be mapped to /search/{search criteria} or /search?criteria={search criteria} when a search has been executed and according results shown
+    - Can augment the results with related data in your local databases
+    - The search and results page can be implemented as either a single page or separate pages. In that case a separate route can be used such as /results/{search criteria} or /results?criteria={search criteria}
+
+Details:
+- To do
+    - Must provide links to related data/users. For instance, if you are displaying the details of a movie, and below you are displaying a list of reviews for that movie, provide links to the profile pages of folks who wrote the reviews for the movie
+
+- Done
+    - Must retrieve details from the remote API based on some unique identifier provided as a parameter from the search/results page
+    - Must display additional related data from the local database. For instance, if you are displaying the details of a movie, some other folks might have reviewed the movie. All reviews related to the movie must be shown in all or partial form
+    - Must be mapped to /details/{unique identifier} or /details?identifier={unique identifier} where unique identifier uniquely identies the item being displayed (ours are art and artist)
+
+Login:
+- To do
+    - Must allow choosing a role(s) for a user. For instance, when signing up you can provide a checkbox or radio button to select the role or roles. Alternatively provide an admin role and admin page that allows configuring user role(s)
+    - Must disallow access to at least one Web page unless logged in (do modals count?)
+    - Must be mapped to /login if both login and register are implemented in the same page (do modals count?)
+    - Must adapt content based on whether user is logged in or not for at least the Home page and Profile page
+
+- Done
+    - The login and register page allow users to register with the web site and then login later on
+    - Must allow users to register and create a new account
+    - Must allow login in and identifying themselves
+    - Must allow access to all other Web pages even when not logged in
+    - Must force login only when identity is required. For instance, an anonymous user might search for movies and visit the details page for a particular movie without needing to login. But if they attempt to like the movie, or rate it, or comment on it, or write a review, or follow someone, the application must request the user to login. Most of the Web application must be available without login (see me if not)
+    - The login and register page can be implemented as a single page or as two separate pages. In that case the login page must be mapped to /login and the register page must be mapped to /register
+
+
+
+
+
+
+
+
+
+
+
+
+
+--
+
 HTML
 - Modify Listings component to include picture; feature at top of artist page
 - Add edit profile for a regular user
 - From paintings detail, allow users to click on owner name to see user details
 - Plumbing for ... menu
 - Hook up purchase/barter system
-    - {
-        _id: 'done by db'
-        wiki_art_id: 'filled in from api'
-        active_listings: [{userID: "objectId('from_db')",
-                            profile_image: 'url',
-                            type: ['sale', 'barter'],
-                            offer_price: 200,
-                            quality: 'grade',
-                            user_handgle: 'user_handle'
-                            }]
-        historical_listings: [{userID: "objectId('from_db')",
-                            profile_image: 'url',
-                            type: ['sale', 'barter'],
-                            offer_price: 200,
-                            quality: 'grade',
-                            user_handle: 'user_handle'
-                            }]
-        }
 - Upload some dummy data for two paintings that allow us to return a list of two JSON objects, each with a respective label and a data field that is a list of JSON objects
     - [{type: 'sales',
         data: [

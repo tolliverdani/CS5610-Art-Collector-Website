@@ -12,7 +12,7 @@ import {useProfile} from "../../_context/profile-context";
 import Favorites from "../../components/UserProfile/Favorites";
 import Collection from "../../components/UserProfile/Collection";
 import ProfileHeader from "../../components/UserProfile/ProfileHeader";
-import Connections from "./Friends";
+import Connections from "../../components/UserGrid/Friends";
 import ProfileStats from "../../components/UserProfile/ProfileStats";
 import ProfileBio from "../../components/UserProfile/ProfileBio";
 import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
@@ -38,7 +38,7 @@ const UserProfileScreen = () => {
     useEffect(() => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
 
     return (
-        <div>
+        <div className={"container"}>
             <NavigationTopMenu/>
             <div className={"row m-3 p-2"}>
                 <div className={'col-2'}>
