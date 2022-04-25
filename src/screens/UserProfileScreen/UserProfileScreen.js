@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 
 import NavigationTopMenu from "../../components/NavigationTopMenu";
-import PaintingListings from "../../components/ListingsGrid";
 import UserProfile from "../../components/UserProfile";
 import NavigationSidebar from "../../components/NavigationSidebar";
 
@@ -11,16 +10,13 @@ import {findUserCollection} from "../../_actions/collections-actions";
 import {useProfile} from "../../_context/profile-context";
 import Favorites from "../../components/UserProfile/Favorites";
 import Collection from "../../components/UserProfile/Collection";
-import ProfileHeader from "../../components/UserProfile/ProfileHeader";
-import Connections from "./Friends";
-import ProfileStats from "../../components/UserProfile/ProfileStats";
-import ProfileBio from "../../components/UserProfile/ProfileBio";
 import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
 import Offers from "../../components/Offers";
 import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
 import SecureContent from "../../_security/secure-content";
-import EditProfileModal from "../../components/UserProfile/EditProfile";
 import ListingsGrid from "../../components/ListingsGrid";
+import UserGrid from "../../components/UserGrid";
+import friends from "../../components/UserGrid/currentowners.json"
 
 const UserProfileScreen = () => {
 
@@ -38,7 +34,7 @@ const UserProfileScreen = () => {
     useEffect(() => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
 
     return (
-        <div>
+        <div className={"container"}>
             <NavigationTopMenu/>
             <div className={"row m-3 p-2"}>
                 <div className={'col-2'}>
@@ -55,7 +51,7 @@ const UserProfileScreen = () => {
                     <SecureContent>
                         <Offers profile={profile} data={offers}/>
                     </SecureContent>
-                    <Connections/>
+                    <UserGrid users={friends} header={"Connections"}/>
                 </div>
             </div>
         </div>

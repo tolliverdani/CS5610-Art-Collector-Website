@@ -23,7 +23,7 @@ const SearchScreen = () => {
     useEffect(() => artistGeneralSearch(dispatch, searchTerm), [dispatch, searchTerm]);
 
     return (
-        <>
+        <div className={"container"}>
             <NavigationTopMenu/>
             <div className={'row m-3 p-2'}>
                 <div className={'col-2'}>
@@ -41,7 +41,7 @@ const SearchScreen = () => {
                     <ArtistSearchGrid artists={artists}/>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 export default SearchScreen;

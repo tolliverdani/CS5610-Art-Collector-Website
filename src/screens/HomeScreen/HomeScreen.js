@@ -19,7 +19,7 @@ const Index = () => {
     useEffect(() => randomPaintings(dispatch), [dispatch]);
 
     return (
-        <div>
+        <div className={"container"}>
             <NavigationTopMenu/>
             <div className={"row m-3 p-2"}>
                 <div className={'col-2'}>
