@@ -46,8 +46,9 @@ export const findActiveListingsByArtistId = async (dispatch, artist_id) => {
 }
 
 export const createListing = async (dispatch, listing) => {
-    //console.log("In create listing")
+    console.log("In listings actions. In create listing")
     const inserted_listing = await service.createListing(listing);
+    console.log(inserted_listing);
     dispatch ({
         type: CREATE_LISTING,
         inserted_listing
