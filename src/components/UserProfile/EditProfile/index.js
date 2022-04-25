@@ -6,6 +6,7 @@ import {useProfile} from "../../../_context/profile-context";
 import {useNavigate} from "react-router-dom";
 import {update} from "../../../_services/auth-service";
 import {updateUser} from "../../../_services/user-service";
+import {updateProfile} from "../../../_actions/users-actions";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
@@ -29,7 +30,7 @@ const EditProfileModal = () => {
             const updated_user = {...profile, "email": email, "username": username, "pronoun": pronoun, "location": location, "bio": bio}
             // delete blank password field to that it isn't updated
             delete updated_user["password"];
-            updateUser(updated_user);
+            updateProfile(updated_user);
             navigate('/profile')
         } catch (e) {
             throw(e);
