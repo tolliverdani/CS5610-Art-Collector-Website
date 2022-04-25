@@ -59,6 +59,7 @@ export const approveOffer = async (offer) => {
     const request_url = `${API_BASE}/offers/approve`
     const response = await axios.put(request_url, offer);
     if ( response.status === 200 ){
+        // this should be just a {transaction_id: string}
         return response.data;
     } else {
         return {};

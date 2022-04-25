@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Modal, Button} from 'react-bootstrap';
-import {createOffer} from "../../../_actions/offers-actions";
+import {approveOffer, createOffer} from "../../../_actions/offers-actions";
 import {useDispatch} from "react-redux";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
@@ -12,9 +12,9 @@ const OfferModal = ({offer}) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    //const handleAcceptOffer = () => {
-    //acceptOffer(dispatch, offer).then(setShow(false));
-    //}
+    const handleAcceptOffer = () => {
+        approveOffer(dispatch, offer).then(setShow(false));
+    }
 
     return (
         <>
