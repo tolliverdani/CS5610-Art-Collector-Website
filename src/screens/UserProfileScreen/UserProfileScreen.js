@@ -2,20 +2,20 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 
+import {useProfile} from "../../_context/profile-context";
+import {findUserCollection} from "../../_actions/collections-actions";
+import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
+import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
+import SecureContent from "../../_security/secure-content";
+
+import Offers from "../../components/Offers";
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import UserProfile from "../../components/UserProfile";
 import NavigationSidebar from "../../components/NavigationSidebar";
-
-import {findUserCollection} from "../../_actions/collections-actions";
-import {useProfile} from "../../_context/profile-context";
-import Favorites from "../../components/UserProfile/Favorites";
-import Collection from "../../components/UserProfile/Collection";
-import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
-import Offers from "../../components/Offers";
-import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
-import SecureContent from "../../_security/secure-content";
 import ListingsGrid from "../../components/ListingsGrid";
 import UserGrid from "../../components/UserGrid";
+import Favorites from "../../components/UserProfile/Favorites";
+import Collection from "../../components/UserProfile/Collection";
 import friends from "../../components/UserGrid/currentowners.json"
 
 const UserProfileScreen = () => {
@@ -49,7 +49,7 @@ const UserProfileScreen = () => {
                 <div className={'d-none d-lg-block col-2'}>
                     <UserProfile/>
                     <SecureContent>
-                        <Offers profile={profile} data={offers}/>
+                        <Offers data={offers}/>
                     </SecureContent>
                     <UserGrid users={friends} header={"Connections"}/>
                 </div>

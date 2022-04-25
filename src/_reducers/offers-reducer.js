@@ -15,7 +15,7 @@ import {
 } from "../_actions/offers-actions";
 
 const offersReducer = (state = [], action) => {
-    //console.log("We are in the offers reducer. This is the action type: " + action.type)
+    console.log("We are in the offers reducer. This is the action type: " + action.type)
 
     switch (action.type) {
         case CREATE_OFFER:

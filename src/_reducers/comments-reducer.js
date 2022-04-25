@@ -16,8 +16,7 @@ const commentsReducer = (state = [], action) => {
         case FIND_PAINTING_COMMENTS:
             return action.comments;
         case DELETE_COMMENT:
-            return state.filter(comment =>
-                comment._id !== action.comment._id);
+            return state.filter(comment => comment._id !== action.comment._id);
         case CREATE_COMMENT:
             return [action.newComments, ...state];
         case UPDATE_COMMENT:

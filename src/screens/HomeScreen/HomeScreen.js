@@ -2,31 +2,36 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 
+import {useProfile} from "../../_context/profile-context";
 import {randomPaintings} from "../../_actions/artpieces-actions";
+import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
+import SecureContent from "../../_security/secure-content";
 
+import Offers from "../../components/Offers";
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingGrid from "../../components/PaintingGrid";
 import ComponentHeader from "../../components/ComponentHeader";
 import UserGrid from "../../components/UserGrid";
 import users from "../../components/UserGrid/currentowners.json";
-import Offers from "../../components/Offers";
-import SecureContent from "../../_security/secure-content";
-import userProfile from "../../components/UserProfile";
-import {findActiveOffersBySellerId} from "../../_actions/offers-actions"; // TODO: set up with database
 
-const Index = () => {
+const HomeScreen = () => {
+
+    const {profile} = useProfile()
+    let user_id = null
+    if (profile) {
+        user_id = profile._id
+    }
 
     const dispatch = useDispatch();
-    const profile = userProfile();
-    const user_id = profile._id
-
-    const offers = useSelector(state => state.offers);
-    useEffect(() => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
 
     const paintings_data = useSelector(state => state.paintings);
-    const paintings = paintings_data.data
+    const offers = useSelector(state => state.offers);
+
     useEffect(() => randomPaintings(dispatch), [dispatch]);
+    useEffect(() => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
+
+    const paintings = paintings_data.data
 
     return (
         <div className={"container"}>
@@ -41,13 +46,13 @@ const Index = () => {
                     <PaintingGrid type={"random"} data={paintings}/>
                 </div>
                 <div className={'d-none d-lg-block col-2'}>
-                    <UserGrid users={users} header={"Discover"}/>
                     <SecureContent>
-                        <Offers profile={profile} data={offers}/>
+                        <Offers data={offers}/>
                     </SecureContent>
+                    <UserGrid users={users} header={"Discover"}/>
                 </div>
             </div>
         </div>
     );
 };
-export default Index;
+export default HomeScreen;

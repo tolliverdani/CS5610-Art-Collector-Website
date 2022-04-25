@@ -65,9 +65,6 @@ function App() {
                                    element={<ArtistProfileScreen/>}/>
                             <Route path="artist/:artist_name/:artist_id"
                                    element={<ArtistProfileScreen/>}/>
-                            //TODO what is this art screen without a painting_id?
-                            <Route path="art"
-                                   element={<ArtPieceScreen/>}/>
                             <Route path="art/:painting_id"
                                    element={<ArtPieceScreen/>}/>
                             <Route path="profile"

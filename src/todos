@@ -1,11 +1,9 @@
-Homepage:
-- To do
-    - Must display specific content for the logged in user. The content must be dynamic based on the most recent data entered by the logged in user. For instance, you might display snippets and links to the most recent post or review created by the logged in user
-
+Homepage (DONE):
 - Done
     - Must be mapped to either the root context ("/") or ("/home").
     - Must be the first page when visiting the website
     - Must display generic content for anonymous users. The content must be dynamic based on the latest data. For instance, you might display snippets and links to the most recent post, review, or member who recently joined
+    - Must display specific content for the logged in user. The content must be dynamic based on the most recent data entered by the logged in user. For instance, you might display snippets and links to the most recent post or review created by the logged in user
     - Must be clear to what the Web site is about and must look polished and finished
 
 Profile:
@@ -26,9 +24,7 @@ Profile:
     - The profile page may be implemented as several pages
 
 
-Search:
-- To do
-
+Search (DONE):
 - Done
     - The website should provide users the capability to search content from a remote service and display a summary of the results. Search and results can be in the same page or in separate pages. Maybe the search bar can be in the home page, and the results in a separate page. Or both in a separate search page. The results could be formatted in a list, or a grid, or a table. They can have a short description, and a thumbnail of the result. For instance, if you chose movies as your domain objects, then users must be able to search for movies. Users must be able to see a summary of the search results and navigate to a detail page that shows a detail view of the result. The search and results page must fulfill the following requirements.
     - Must provide a form to search a remote API, not your own API
@@ -39,13 +35,11 @@ Search:
     - Can augment the results with related data in your local databases
     - The search and results page can be implemented as either a single page or separate pages. In that case a separate route can be used such as /results/{search criteria} or /results?criteria={search criteria}
 
-Details:
-- To do
-    - Must provide links to related data/users. For instance, if you are displaying the details of a movie, and below you are displaying a list of reviews for that movie, provide links to the profile pages of folks who wrote the reviews for the movie
-
+Details (DONE):
 - Done
     - Must retrieve details from the remote API based on some unique identifier provided as a parameter from the search/results page
     - Must display additional related data from the local database. For instance, if you are displaying the details of a movie, some other folks might have reviewed the movie. All reviews related to the movie must be shown in all or partial form
+    - Must provide links to related data/users. For instance, if you are displaying the details of a movie, and below you are displaying a list of reviews for that movie, provide links to the profile pages of folks who wrote the reviews for the movie
     - Must be mapped to /details/{unique identifier} or /details?identifier={unique identifier} where unique identifier uniquely identies the item being displayed (ours are art and artist)
 
 Login:

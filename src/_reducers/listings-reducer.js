@@ -12,7 +12,6 @@ const listingsReducer = (state = [], action) => {
 
     switch ( action.type ){
         case CREATE_LISTING:
-            console.log("In the listings reducer. In create listing")
             return [...state, action.inserted_listing];
         case APPROVE_OFFER:
             return state.filter(listing => listing._id !== action.listing_id);
