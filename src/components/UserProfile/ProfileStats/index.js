@@ -9,6 +9,8 @@ const ProfileStats = () => {
     const {profile} = useProfile();
     const joined = new Date(profile.joined);
 
+    console.log(profile);
+
     return (
         <>
             <div className={"p-2 bg-light"}>
@@ -16,13 +18,13 @@ const ProfileStats = () => {
                     {/* Pronouns */}
                     <div className={"p-0"}>
                         <i className="fa fa-genderless pe-2" aria-hidden="true"/>
-                        {profile.hasOwnProperty(profile.pronouns) === false ? "Not specified" : profile.location}
+                        {profile.hasOwnProperty("pronoun") === false ? "Not specified" : profile.pronoun}
                     </div>
 
                     {/* Location */}
                     <div className={"p-0"}>
                         <i className="fa fa-map-marker pe-2" aria-hidden="true"/>
-                        {profile.hasOwnProperty(profile.location) === false ? "Earth" : profile.location}
+                        {profile.hasOwnProperty("location") === false ? "Earth" : profile.location}
                     </div>
 
                     {/* Joined Date */}
@@ -32,10 +34,10 @@ const ProfileStats = () => {
                     </div>
 
                     {/* Rating */}
-                    <div className={"p-0"}>
-                        <i className="fa fa-star pe-2" aria-hidden="true"/>
-                        {profile.hasOwnProperty(profile.rating) === false ? "N/A" : profile.rating}
-                    </div>
+                    {/*<div className={"p-0"}>*/}
+                    {/*    <i className="fa fa-star pe-2" aria-hidden="true"/>*/}
+                    {/*    {profile.hasOwnProperty("rating") === false ? "N/A" : profile.rating}*/}
+                    {/*</div>*/}
                 </div>
             </div>
             <SecureContent>
