@@ -4,12 +4,10 @@ import ComponentHeader from "../../ComponentHeader";
 import EditProfileModal from "../EditProfile";
 import SecureContent from "../../../_security/secure-content";
 
-const ProfileStats = () => {
+const ProfileStats = ({profile}) => {
 
-    const {profile} = useProfile();
     const joined = new Date(profile.joined);
-
-    console.log(profile);
+    console.log("but why.... " + profile)
 
     return (
         <>

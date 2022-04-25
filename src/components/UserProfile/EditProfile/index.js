@@ -13,8 +13,6 @@ import {updateProfile} from "../../../_actions/users-actions";
 const EditProfileModal = () => {
     const [set, setShow] = useState(false);
 
-
-
     const navigate = useNavigate();
 
     const user = useProfile()
@@ -30,7 +28,11 @@ const EditProfileModal = () => {
             const updated_user = {...profile, "email": email, "username": username, "pronoun": pronoun, "location": location, "bio": bio}
             // delete blank password field to that it isn't updated
             delete updated_user["password"];
-            updateProfile(updated_user);
+            updateProfile(updated_user).then(() =>
+            {
+                alert("You have updated your profile")
+                setShow(false)
+            })
             navigate('/profile')
         } catch (e) {
             throw(e);

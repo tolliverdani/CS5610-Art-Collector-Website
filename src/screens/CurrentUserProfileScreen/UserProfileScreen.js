@@ -16,26 +16,23 @@ import ListingsGrid from "../../components/ListingsGrid";
 import UserGrid from "../../components/UserGrid";
 import Collection from "../../components/UserProfile/Collection";
 import friends from "../../components/UserGrid/currentowners.json"
-import {findUserById} from "../../_actions/users-actions";
 
-const UserProfileScreen = () => {
+const CurrentUserProfileScreen = () => {
 
-    const {profileId} = useParams()
+    const {profile} = useProfile()
+    const profile_id = profile._id
     const dispatch = useDispatch();
 
-    console.log("this is the params: " + profileId)
-
-    const profile = useSelector(state => state.user)
-    useEffect(() => findUserById(dispatch, profileId), [dispatch, profileId]);
+    console.log("this is the params: " + profile_id)
 
     const paintings = useSelector(state => state.collection);
-    useEffect(() => findUserCollection(dispatch, profileId), [dispatch, profileId]);
+    useEffect(() => findUserCollection(dispatch, profile_id), [dispatch, profile_id]);
 
     const listings = useSelector(state => state.listings);
-    useEffect(() => findActiveListingsByOwnerId(dispatch, profileId), [dispatch, profileId])
+    useEffect(() => findActiveListingsByOwnerId(dispatch, profile_id), [dispatch, profile_id])
 
     const offers = useSelector(state => state.offers);
-    useEffect(() => findActiveOffersBySellerId(dispatch, profileId), [dispatch, profileId])
+    useEffect(() => findActiveOffersBySellerId(dispatch, profile_id), [dispatch, profile_id])
 
     return (
         <div className={"container"}>
@@ -61,4 +58,4 @@ const UserProfileScreen = () => {
     )
         ;
 };
-export default UserProfileScreen;
+export default CurrentUserProfileScreen;

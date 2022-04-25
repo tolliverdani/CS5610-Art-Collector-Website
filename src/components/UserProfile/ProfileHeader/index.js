@@ -3,9 +3,7 @@ import {useProfile} from "../../../_context/profile-context";
 import SecureContent from "../../../_security/secure-content";
 import EditProfileModal from "../EditProfile";
 
-const ProfileHeader = () => {
-
-    const {profile} = useProfile()
+const ProfileHeader = ({profile}) => {
 
     return (
         <>

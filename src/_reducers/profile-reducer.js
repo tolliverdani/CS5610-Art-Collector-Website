@@ -1,9 +1,9 @@
-import profile from "../data/profile.json";
+import {FIND_USER_BY_ID} from "../_actions/users-actions";
 
-const profileReducer = (state = profile, action) => {
+const profileReducer = (state = {}, action) => {
     switch (action.type) {
-        case "update-profile":
-            return action.profileData;
+        case FIND_USER_BY_ID:
+            return action.user;
         default:
             return state;
     }

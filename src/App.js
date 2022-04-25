@@ -28,6 +28,8 @@ import listingsReducer from "./_reducers/listings-reducer";
 import offersReducer from "./_reducers/offers-reducer";
 import offersHistoryReducer from "./_reducers/offers-history-reducer";
 import salesHistoryReducer from "./_reducers/sales-history-reducer";
+import profileReducer from "./_reducers/profile-reducer";
+import CurrentUserProfileScreen from "./screens/CurrentUserProfileScreen/UserProfileScreen";
 
 const reducers = combineReducers({
     paintings: paintingsReducer,
@@ -35,6 +37,7 @@ const reducers = combineReducers({
     collection: collectionsReducer,
     comments: commentsReducer,
     listings: listingsReducer,
+    profile: profileReducer,
     offers: offersReducer,
     offersHistory: offersHistoryReducer,
     salesHistory: salesHistoryReducer
@@ -67,10 +70,14 @@ function App() {
                                    element={<ArtistProfileScreen/>}/>
                             <Route path="art/:painting_id"
                                    element={<ArtPieceScreen/>}/>
+                            <Route path="profile/:profileId"
+                                   element={
+                                       <UserProfileScreen/>
+                                   }/>
                             <Route path="profile"
                                    element={
                                        <SecureRoute>
-                                           <UserProfileScreen/>
+                                           <CurrentUserProfileScreen/>
                                        </SecureRoute>
                                    }/>
                             <Route index

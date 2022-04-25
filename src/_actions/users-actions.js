@@ -1,6 +1,14 @@
 import * as service from "../_services/user-service"
-import {useProfile} from "../_context/profile-context";
 
+export const FIND_USER_BY_ID = "FIND_USER_BY_ID"
+
+export const findUserById = async (user_id, dispatch) => {
+    const user = await service.findUserById(user_id)
+    dispatch ({
+        type: FIND_USER_BY_ID,
+        user
+    })
+}
 
 export const updateProfile = async (profile) => {
     const updated_profile = await service.updateUser(profile);

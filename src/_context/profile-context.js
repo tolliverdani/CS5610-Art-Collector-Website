@@ -1,6 +1,5 @@
 import React, {useContext, useState} from "react";
 import * as security from "../_services/auth-service";
-import * as service from "../_services/auth-service";
 
 const ProfileContext = React.createContext()
 
@@ -9,7 +8,7 @@ export const ProfileProvider = ({children}) => {
 
     const checkLoggedIn = async () => {
         try {
-            const profile = await service.profile()
+            const profile = await security.profile()
             setProfile(profile)
             return profile
         } catch (e) {
