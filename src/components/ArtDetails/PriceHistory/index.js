@@ -1,9 +1,13 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {AxisOptions, Chart} from "react-charts";
 import ComponentHeader from "../../ComponentHeader";
+import EmptyChart from "../../Errors/EmptyChart";
 
 const PriceHistory = ({sales_history, offers_history}) => {
 
+    if (sales_history.length === 0) {
+        console.log("no sales")
+    }
     /* TODO: we need to move this data and make sure it's organized
         in a way that makes sense for the graph */
 
@@ -15,18 +19,35 @@ const PriceHistory = ({sales_history, offers_history}) => {
         }]
     }
 
+    const noData:
+        Series[] = [
+        {
+            label: "Sale",
+            data: [{
+                date: new Date(),
+                price: 0,
+            }]
+        },
+        {
+            label: "Offer",
+            data: [{
+                date: new Date(),
+                price: 0,
+            }]
+        }
+    ]
+
     const data:
-        Series[] =
-        [
-            {
-                label: "Sale",
-                data: sales_history
-            },
-            {
-                label: "Offer",
-                data: offers_history
-            }
-        ]
+        Series[] = [
+        {
+            label: "Sale",
+            data: sales_history
+        },
+        {
+            label: "Offer",
+            data: offers_history
+        }
+    ]
 
     const primaryAxis = React.useMemo(
         (): AxisOptions<PricePoint> => ({
@@ -51,13 +72,18 @@ const PriceHistory = ({sales_history, offers_history}) => {
         <>
             {ComponentHeader(" Price History")}
             <div className={'p-2 mb-2'}>
-                <div className={'chart-size m-2'}>
-                    <Chart options={{
-                        data,
-                        primaryAxis,
-                        secondaryAxes,
-                    }}/>
-                </div>
+                {sales_history.length === 0 ?
+                    <EmptyChart/>
+                    :
+                    <div className={'chart-size m-2'}>
+
+                        <Chart options={{
+                            data,
+                            primaryAxis,
+                            secondaryAxes,
+                        }}/>
+                    </div>
+                }
             </div>
         </>
     );
