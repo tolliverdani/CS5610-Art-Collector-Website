@@ -2,8 +2,11 @@ import * as service from "../_services/user-service"
 
 export const FIND_USER_BY_ID = "FIND_USER_BY_ID"
 
-export const findUserById = async (user_id, dispatch) => {
+export const findUserById = async (dispatch, user_id) => {
+    console.log("We are in user actions. We are in the findUserById. Here is the userId: " + user_id)
+
     const user = await service.findUserById(user_id)
+    console.log("We are in user actions. We are in the findUserById. Here is the user: " + JSON.stringify(user,undefined,4))
     dispatch ({
         type: FIND_USER_BY_ID,
         user

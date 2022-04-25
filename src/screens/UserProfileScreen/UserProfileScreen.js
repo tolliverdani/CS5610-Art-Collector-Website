@@ -25,7 +25,7 @@ const UserProfileScreen = () => {
 
     console.log("this is the params: " + profileId)
 
-    const profile = useSelector(state => state.user)
+    const user_profile = useSelector(state => state.profile)
     useEffect(() => findUserById(dispatch, profileId), [dispatch, profileId]);
 
     const paintings = useSelector(state => state.collection);
@@ -46,11 +46,14 @@ const UserProfileScreen = () => {
                         active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                 </div>
                 <div className={'col-10 col-lg-8'}>
-                    <ListingsGrid type={"user"} data={listings}/>
+                    <SecureContent>
+                        <ListingsGrid type={"user"} data={listings}/>
+                    </SecureContent>
                     <Collection paintings={paintings}/>
                 </div>
                 <div className={'d-none d-lg-block col-2'}>
-                    <UserProfile profile={profile}/>
+                    {console.log("About to pass this to the user profile component: " + user_profile)}
+                    <UserProfile profile={user_profile}/>
                     <SecureContent>
                         <Offers data={offers}/>
                     </SecureContent>

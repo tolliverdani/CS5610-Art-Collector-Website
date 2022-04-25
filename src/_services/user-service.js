@@ -15,7 +15,7 @@ export const updateUser = async (user) => {
 }
 
 export const findUserById = async (user_id) => {
-    const request_url = `${API_BASE}/profile/${user_id}`
+    const request_url = `${API_BASE}/users/${user_id}`
     const response = await axios.get(request_url)
     if (response.status === 200 ) {
         return response.data

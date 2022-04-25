@@ -2,7 +2,7 @@ import React from "react";
 import ProfileStats from "./ProfileStats";
 import ProfileHeader from "./ProfileHeader";
 
-const UserProfile = (profile) => {
+const UserProfile = ({profile}) => {
 
     console.log("inside the userProfile " + profile)
     return (
