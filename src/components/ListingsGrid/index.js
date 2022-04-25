@@ -4,6 +4,7 @@ import ComponentHeader from "../ComponentHeader";
 import UserListingItem from "./UserListingItem";
 import ArtistListingItem from "./ArtistListingItem";
 import PaintingListingItem from "./PaintingListingItem";
+import EmptyListings from "../Errors/EmptyListings";
 
 const ListingData = (type, data) => {
 
@@ -30,9 +31,12 @@ const ListingsGrid = (params) => {
         <>
             {ComponentHeader("Active Listings")}
             <div className={"p-2 mb-2"}>
-                <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
-                    {ListingData(params.type, params.data)}
-                </div>
+                {params.data.length === 0 ?
+                    <EmptyListings/>
+                    : <div className={'row row-cols-auto row-cols-sm-2 row-cols-md-3 row-cols-xl-4'}>
+                        {ListingData(params.type, params.data)}
+                    </div>
+                }
             </div>
         </>
     )

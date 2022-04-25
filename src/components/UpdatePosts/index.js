@@ -8,9 +8,9 @@ import ComponentHeader from "../ComponentHeader";
 const Posts = (params) => {
 
     return (
-        <>
+        <div className={"mb-2"}>
             {ComponentHeader("Comments")}
-            <div className={"p-2 border-bottom"}>
+            <div className={"p-2"}>
                 {params.posts.length === 0 ?
                     EmptyPosts()
                     :
@@ -20,7 +20,7 @@ const Posts = (params) => {
                     <CreatePost/>
                 </SecureContent>
             </div>
-        </>
+        </div>
     )
 }
 

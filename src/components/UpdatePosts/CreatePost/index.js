@@ -10,9 +10,9 @@ const CreatePost = () => {
     const [newComment, setNewComment] = useState({post: ""});
 
     return (
-        <>
+        <div>
             <form>
-                <div className="d-flex form-group">
+                <div className="form-group">
                     <textarea className="form-control border-0 bg-light text-muted"
                               rows="2"
                               placeholder={"Leave a comment"}
@@ -22,15 +22,15 @@ const CreatePost = () => {
                                       user_id: profile._id,
                                       username: profile.username,
                                       post: event.target.value})}/>
-                    <div className={'mt-2 m-0 p-0'}>
-                        <button className={"ms-4 rounded-pill btn-sm btn-primary float-end"}
+                    <div className={'mt-2 p-0'}>
+                        <button className={"btn-sm btn-primary rounded-pill float-end"}
                                 onClick={() => createComment(dispatch, newComment)}>
                             Post
                         </button>
                     </div>
                 </div>
             </form>
-        </>
+        </div>
     );
 }
 export default CreatePost;

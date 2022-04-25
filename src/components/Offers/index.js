@@ -2,6 +2,7 @@ import React from "react";
 
 import OffersItem from "./OffersItem";
 import ComponentHeader from "../ComponentHeader";
+import EmptyOffers from "../Errors/EmptyOffers";
 
 const Offers = ({data}) => {
 
@@ -10,7 +11,7 @@ const Offers = ({data}) => {
             {ComponentHeader("Active Offers")}
             <div className={"p-2 mb-2"}>
                 {data.length === 0 ?
-                    <div>No active offers</div>
+                    <EmptyOffers/>
                     :
                     <div className={'col'}>
                         {data.map(offer_item =>

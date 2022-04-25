@@ -43,7 +43,6 @@ const UserProfileScreen = () => {
                 </div>
                 <div className={'col-10 col-lg-8'}>
                     <ListingsGrid type={"user"} data={listings}/>
-                    <Favorites paintings={paintings}/>
                     <Collection paintings={paintings}/>
                 </div>
                 <div className={'d-none d-lg-block col-2'}>
