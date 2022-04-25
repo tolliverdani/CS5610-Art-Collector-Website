@@ -153,9 +153,12 @@ export const createOffer = async (dispatch, offer) => {
 export const approveOffer = async (dispatch, offer) => {
     ////console.log("In approve offer")
     const approved_offer = await service.approveOffer(offer);
+    console.log(approved_offer);
+    console.log(approved_offer.listingId);
+
     dispatch ({
         type: APPROVE_OFFER,
-        approved_offer
+        listing_id: approved_offer.listingId
     })
 }
 

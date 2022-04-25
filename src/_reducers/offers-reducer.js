@@ -11,12 +11,15 @@ import {
     FIND_INACTIVE_OFFERS_BY_BIDDER_ID,
     FIND_INACTIVE_OFFERS_BY_PAINTING_ID,
     FIND_INACTIVE_OFFERS_BY_SELLER_ID,
+    APPROVE_OFFER
 } from "../_actions/offers-actions";
 
-const offersReducer = (state = [{"date": new Date(), "price": 200}], action) => {
+const offersReducer = (state = [], action) => {
     //console.log("We are in the offers reducer. This is the action type: " + action.type)
 
     switch (action.type) {
+        case APPROVE_OFFER:
+            return state.filter(offer => offer.listing_id !== action.listing_id)
         case FIND_ALL_OFFERS_BY_PAINTING_ID:
             return action.offers;
         case FIND_ALL_OFFERS_BY_ARTIST_ID:

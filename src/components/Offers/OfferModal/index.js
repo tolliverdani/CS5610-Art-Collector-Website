@@ -43,7 +43,9 @@ const OfferModal = ({offer}) => {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="warning">
+                    <Button variant="warning"
+                            onClick={handleAcceptOffer}
+                    >
                         Approve
                     </Button>
                     <Button variant="primary" onClick={handleClose}>
