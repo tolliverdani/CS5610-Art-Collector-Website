@@ -17,6 +17,7 @@ import SearchScreen from "./screens/SearchScreen/SearchScreen";
 import NewArtistsScreen from "./screens/NewArtistsScreen/NewArtistsScreen";
 import PrivacyPolicyScreen from "./screens/PrivacyPolicyScreen/PrivacyPolicyScreen";
 import NewListingScreen from "./screens/NewListingsScreen/NewListingsScreen";
+import CurrentUserProfileScreen from "./screens/CurrentUserProfileScreen/UserProfileScreen";
 
 import SecureRoute from "./_security/secure-route"
 
@@ -29,7 +30,7 @@ import offersReducer from "./_reducers/offers-reducer";
 import offersHistoryReducer from "./_reducers/offers-history-reducer";
 import salesHistoryReducer from "./_reducers/sales-history-reducer";
 import profileReducer from "./_reducers/profile-reducer";
-import CurrentUserProfileScreen from "./screens/CurrentUserProfileScreen/UserProfileScreen";
+import usersReducer from "./_reducers/users-reducer";
 
 const reducers = combineReducers({
     paintings: paintingsReducer,
@@ -39,6 +40,7 @@ const reducers = combineReducers({
     listings: listingsReducer,
     profile: profileReducer,
     offers: offersReducer,
+    users: usersReducer,
     offersHistory: offersHistoryReducer,
     salesHistory: salesHistoryReducer
 

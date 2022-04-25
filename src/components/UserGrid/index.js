@@ -3,13 +3,13 @@ import React from "react";
 import UserGridItem from "./UserGridItem";
 import ComponentHeader from "../ComponentHeader";
 
-const UserGrid = ({users, header}) => {
+const UserGrid = (params) => {
     return (
         <>
-            {ComponentHeader(header)}
+            {ComponentHeader(params.header)}
             <div className={"p-2"}>
                 <div className={"row row-cols-3 p-1"}>
-                    {users.map(user =>
+                    {params.users.map(user =>
                         <UserGridItem key={user._id} user={user}/>)}
                 </div>
             </div>

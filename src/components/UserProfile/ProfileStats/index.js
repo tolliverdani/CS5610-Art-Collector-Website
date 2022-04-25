@@ -7,11 +7,10 @@ import SecureContent from "../../../_security/secure-content";
 const ProfileStats = ({profile}) => {
 
     const joined = new Date(profile.joined);
-    console.log("but why.... " + profile)
 
     return (
         <>
-            <div className={"p-2 bg-light"}>
+            <div className={"p-2 mb-2 bg-light"}>
                 <div className={"p-2"}>
                     {/* Pronouns */}
                     <div className={"p-0"}>
@@ -30,12 +29,6 @@ const ProfileStats = ({profile}) => {
                         <i className="fa fa-calendar-day pe-2" aria-hidden="true"/>
                         Joined {joined.toLocaleString('default', {month: 'long'}) + " " + joined.getFullYear()}
                     </div>
-
-                    {/* Rating */}
-                    {/*<div className={"p-0"}>*/}
-                    {/*    <i className="fa fa-star pe-2" aria-hidden="true"/>*/}
-                    {/*    {profile.hasOwnProperty("rating") === false ? "N/A" : profile.rating}*/}
-                    {/*</div>*/}
                 </div>
             </div>
             <SecureContent>

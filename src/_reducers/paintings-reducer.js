@@ -9,6 +9,7 @@ import {
 
 // setting this reducer to the standard return format of the wikiart API
 const paintingsReducer = (state = {"data":[], "paginationToken": "", "hasMore": false}, action) => {
+
     switch (action.type) {
         case FIND_PAINTINGS_BY_ARTIST:
             return action.paintings_by_artist;

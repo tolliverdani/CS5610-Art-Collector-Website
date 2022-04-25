@@ -4,7 +4,6 @@ import ProfileHeader from "./ProfileHeader";
 
 const UserProfile = ({profile}) => {
 
-    console.log("inside the userProfile " + profile)
     return (
         <>
             <ProfileHeader profile={profile}/>

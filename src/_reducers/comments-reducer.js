@@ -8,6 +8,7 @@ import {
 } from "../_actions/comments-actions";
 
 const commentsReducer = (state = [], action) => {
+
     switch (action.type) {
         case FIND_ALL_COMMENTS:
             return action.comments;

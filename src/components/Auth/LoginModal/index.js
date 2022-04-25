@@ -27,7 +27,8 @@ const LogInModal = ({text}) => {
 
     return (
         <>
-            <Button className="btn btn-secondary rounded-pill border-0 m-1" onClick={() => setShow(true)}>
+            <Button className="btn btn-secondary rounded-pill border-0 m-1 d-none d-xxl-inline"
+                    onClick={() => setShow(true)}>
                 {text}
             </Button>
 

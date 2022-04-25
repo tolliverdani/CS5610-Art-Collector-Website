@@ -4,7 +4,7 @@ const UserGridItem = ({user}) => {
 
     return (
         <div className={"border-0 gy-1"}>
-            <a href={"/#"}>
+            <a href={`/profile/${user._id}`}>
                 <img className={'card-img-top rounded-circle'} src={user.profile_image} alt={user.username}/>
             </a>
         </div>

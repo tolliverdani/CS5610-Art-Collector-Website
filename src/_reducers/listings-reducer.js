@@ -8,7 +8,7 @@ import {
 import {APPROVE_OFFER} from "../_actions/offers-actions";
 
 const listingsReducer = (state = [], action) => {
-    console.log("In listing reducer. This is the action type: " + action.type)
+    // console.log("In listing reducer. This is the action type: " + action.type)
 
     switch ( action.type ){
         case CREATE_LISTING:

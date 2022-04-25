@@ -13,7 +13,7 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingGrid from "../../components/PaintingGrid";
 import ComponentHeader from "../../components/ComponentHeader";
 import UserGrid from "../../components/UserGrid";
-import users from "../../components/UserGrid/currentowners.json";
+import {findAllUsers} from "../../_actions/users-actions";
 
 const HomeScreen = () => {
 
@@ -27,9 +27,11 @@ const HomeScreen = () => {
 
     const paintings_data = useSelector(state => state.paintings);
     const offers = useSelector(state => state.offers);
+    const users = useSelector(state => state.users)
 
     useEffect(() => randomPaintings(dispatch), [dispatch]);
     useEffect(() => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
+    useEffect(() => findAllUsers(dispatch), [dispatch]);
 
     const paintings = paintings_data.data
 

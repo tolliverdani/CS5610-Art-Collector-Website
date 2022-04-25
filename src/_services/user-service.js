@@ -14,6 +14,16 @@ export const updateUser = async (user) => {
     }
 }
 
+export const findAllUsers = async () => {
+    const request_url = `${API_BASE}/users`
+    const response = await axios.get(request_url)
+    if (response.status === 200 ) {
+        return response.data
+    } else {
+        return []
+    }
+}
+
 export const findUserById = async (user_id) => {
     const request_url = `${API_BASE}/users/${user_id}`
     const response = await axios.get(request_url)
