@@ -6,11 +6,9 @@ Homepage (DONE):
     - Must display specific content for the logged in user. The content must be dynamic based on the most recent data entered by the logged in user. For instance, you might display snippets and links to the most recent post or review created by the logged in user
     - Must be clear to what the Web site is about and must look polished and finished
 
-Profile:
-- To do
-    - If user is following other users, then those users must be listed in the profile and a link must navigate to that other users profile
-
+Profile (DONE):
 - Done
+    - If user is following other users, then those users must be listed in the profile and a link must navigate to that other users profile
     - Must be accessible to other users including anonymous users
     - Must be mapped to "/profile/{profileId}" for displaying someone elses profile- Must allow users to change their personal information. If a user is logged in then they can see their profile including sensitive information such as email and phone
     - Must hide personal/private information from others visiting the profile. If a user is visiting someone else's profile, then they can't see that other user's sensitive information
