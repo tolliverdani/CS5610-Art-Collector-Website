@@ -4,7 +4,7 @@ import {useLocation} from "react-router-dom";
 
 import {useProfile} from "../../_context/profile-context";
 import {randomPaintings} from "../../_actions/artpieces-actions";
-import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
+import {findActiveOffersBySellerId, findAllOffers} from "../../_actions/offers-actions";
 import SecureContent from "../../_security/secure-content";
 
 import Offers from "../../components/Offers";
@@ -14,7 +14,7 @@ import PaintingGrid from "../../components/PaintingGrid";
 import ComponentHeader from "../../components/ComponentHeader";
 import UserGrid from "../../components/UserGrid";
 import {findAllUsers} from "../../_actions/users-actions";
-import {findAllActiveListings} from "../../_actions/listings-actions";
+import {findAllActiveListings, findAllListings} from "../../_actions/listings-actions";
 import ListingsGrid from "../../components/ListingsGrid";
 import AdminLists from "../../components/AdminLists";
 
@@ -33,10 +33,9 @@ const AdminScreen = () => {
     const users = useSelector(state => state.users)
     const listings = useSelector(sate => sate.listings);
 
-    useEffect(() => randomPaintings(dispatch), [dispatch]);
-    useEffect(() => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
+    useEffect(() => findAllOffers(dispatch), [dispatch])
     useEffect(() => findAllUsers(dispatch), [dispatch]);
-    useEffect(() => findAllActiveListings(dispatch), [dispatch])
+    useEffect(() => findAllListings(dispatch), [dispatch])
 
     const paintings = paintings_data.data
 
@@ -52,10 +51,10 @@ const AdminScreen = () => {
                     <AdminLists data={users} header={"Users"} type={"users"}/>
                 </div>
                 <div className={'col-3'}>
-                    <Offers data={offers}/>
+                    <AdminLists data={offers} header={"Offers"} type={"offers"}/>
                 </div>
                 <div className={'col-3'}>
-                    <ListingsGrid type={"painting"} data={listings}/>
+                    <AdminLists data={listings} header={"Listings "} type={"listings"}/>
                 </div>
             </div>
         </div>

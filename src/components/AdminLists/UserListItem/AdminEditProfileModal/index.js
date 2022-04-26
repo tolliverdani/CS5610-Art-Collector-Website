@@ -45,10 +45,8 @@ const AdminEditProfileModal = ({user}) => {
 
     return (
         <div className={"mb-2 text-end"}>
-            <div className="btn btn-transparent m-0 p-0"
-                 onClick={() => setShow(true)}>
-                <button type="button" className={"btn btn-warning btn-small"}>Edit</button>
-            </div>
+            <div onClick={() => setShow(true)} className={"badge bg-warning"}>Edit</div>
+
 
             <Modal show={set} onHide={() => setShow(false)}>
                 <Modal.Header closeButton>
@@ -169,6 +167,9 @@ const AdminEditProfileModal = ({user}) => {
 
                 <Modal.Footer>
                     {/* TODO: need to fix this */}
+                    <Button variant="danger" onClick={handleUpdate}>
+                        Delete User
+                    </Button>
                     <Button variant="warning" onClick={handleUpdate}>
                         Update
                     </Button>

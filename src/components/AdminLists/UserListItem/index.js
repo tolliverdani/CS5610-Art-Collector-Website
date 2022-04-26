@@ -11,7 +11,9 @@ const UserListItem = ({user}) => {
                 <AdminEditProfileModal user={user}/>
             </div>
             <div className={"card-body p-1"}>
-                {user.email}
+                <p className={"m-0"}><strong>Username: </strong>{user.username}</p>
+                <p className={"m-0"}><strong>Email: </strong>{user.email}</p>
+                <p className={"m-0"}><strong>Date Joined: </strong>{new Date(user.joined).toLocaleDateString()}</p>
             </div>
 
         </div>

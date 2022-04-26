@@ -16,6 +16,7 @@ export const FIND_INACTIVE_OFFERS_BY_SELLER_ID = "FIND_INACTIVE_OFFERS_BY_OWNER_
 export const CREATE_OFFER = "CREATE_OFFER"
 export const APPROVE_OFFER = "APPROVE_OFFER"
 export const REJECT_OFFER = "REJECT_OFFER"
+export const FIND_ALL_OFFERS = "FIND_ALL_OFFERS"
 
 
 export const findAllOffersByPaintingId = async (dispatch, painting_id) => {
@@ -171,4 +172,12 @@ export const rejectOffer = async (dispatch, offer) => {
             offer
         })
     }
+}
+
+export const findAllOffers = async (dispatch) => {
+    const offers = await service.findAllOffers();
+    dispatch({
+        type: FIND_ALL_OFFERS,
+        offers
+    })
 }

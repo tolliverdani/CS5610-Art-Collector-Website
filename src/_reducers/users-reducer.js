@@ -7,9 +7,18 @@ const usersReducer = (state = [], action) => {
         case FIND_ALL_USERS:
             return action.users;
         case ADMIN_UPDATE_PROFILE:
-            console.log("In user reducer. In update profile. " + action.user._id)
+            console.log("In user reducer. In update profile. " + action.user._id + action.user.username)
             const unsorted = state.map(user => user._id === action.user._id ? action.user : user)
-            const sorted = unsorted.sort((a,b) =>  a.username-b.username)
+            const sorted = unsorted.sort((a,b) => {
+                if ( a.username > b.username ) {
+                    return 1;
+                } else if ( a.username < b.username ) {
+                    return -1;
+                }
+
+                return 0;
+
+            })
             return sorted
         default:
             return state
