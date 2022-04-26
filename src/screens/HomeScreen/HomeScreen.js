@@ -51,7 +51,7 @@ const HomeScreen = () => {
                     <SecureContent>
                         <Offers data={offers}/>
                     </SecureContent>
-                    <UserGrid users={users} header={"Discover"}/>
+                    <UserGrid users={users} header={"Discover Users"}/>
                 </div>
             </div>
         </div>

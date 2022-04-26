@@ -35,9 +35,9 @@ const ConfirmationModal = ({listing_item}) => {
 
     return (
         <>
-            <Button className="btn btn-primary rounded-pill" onClick={handleShow}>
+            <div onClick={handleShow}>
                 Make Offer
-            </Button>
+            </div>
 
             <Modal show={set} onHide={handleClose}>
 

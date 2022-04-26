@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation, useParams} from "react-router-dom";
 
-import {useProfile} from "../../_context/profile-context";
 import {findUserCollection} from "../../_actions/collections-actions";
 import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
 import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
@@ -58,7 +57,6 @@ const UserProfileScreen = () => {
                     <SecureContent>
                         <Offers data={offers}/>
                     </SecureContent>
-                    <UserGrid users={users} header={"Connections"}/>
                 </div>
             </div>
         </div>

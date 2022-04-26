@@ -19,10 +19,10 @@ const ArtistListingItem = ({profile, grid_item}) => {
                 </Link>
             </div>
 
-            <div className={'card-title p-0 m-0 bg-light align-items-center'}>
+            <div className={'card-title p-0 m-0 align-items-center'}>
                 <Link className={`text-decoration-none text-black m-0 p-0`}
                       to={`/art/${grid_item.painting_id}`}>
-                    <p className={"m-0"}><strong>{grid_item.painting_title}</strong></p>
+                    <p className={"mt-2 mb-2"}><strong>{grid_item.painting_title}</strong></p>
                 </Link>
                 <SecureContent>
                     <div className={"d-grid p-0 m-0"}>

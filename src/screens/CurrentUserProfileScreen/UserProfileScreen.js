@@ -15,7 +15,7 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 import ListingsGrid from "../../components/ListingsGrid";
 import UserGrid from "../../components/UserGrid";
 import Collection from "../../components/UserProfile/Collection";
-import friends from "../../components/UserGrid/currentowners.json"
+import {findAllUsers} from "../../_actions/users-actions";
 
 const CurrentUserProfileScreen = () => {
 
@@ -34,6 +34,9 @@ const CurrentUserProfileScreen = () => {
     const offers = useSelector(state => state.offers);
     useEffect(() => findActiveOffersBySellerId(dispatch, profile_id), [dispatch, profile_id])
 
+    const users = useSelector(state => state.users);
+    useEffect(() => findAllUsers(dispatch), [dispatch])
+
     return (
         <div className={"container"}>
             <NavigationTopMenu/>
@@ -51,7 +54,6 @@ const CurrentUserProfileScreen = () => {
                     <SecureContent>
                         <Offers data={offers}/>
                     </SecureContent>
-                    <UserGrid users={friends} header={"Connections"}/>
                 </div>
             </div>
         </div>

@@ -3,11 +3,12 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import HamburgerMenu from "./HamburgerMenu";
 import SignUpModal from "../Auth/SignUpModal";
-import LogInModal from "../Auth/LoginModal";
 import SecureContent from "../../_security/secure-content";
 import UnsecuredContent from "../../_security/unsecured-content";
 import FULL_LOGO from "../../_images/artbubblelogo2.png"
 import SMALL_LOGO from "../../_images/artbubblelogo.png"
+import LoginModalButton from "../Auth/LoginModalButton";
+import SignUpModalButton from "../Auth/SignUpModalButton";
 
 const NavigationTopMenu = () => {
     return (
@@ -33,8 +34,8 @@ const NavigationTopMenu = () => {
 
             <UnsecuredContent>
                 <div className={'col-2'}>
-                    <SignUpModal text={"Sign Up"}/>
-                    <LogInModal text={"Log In"}/>
+                    <SignUpModalButton text={"Sign Up"}/>
+                    <LoginModalButton text={"Log In"}/>
                 </div>
             </UnsecuredContent>
 

@@ -30,9 +30,10 @@ const SignUpModal = ({text}) => {
 
     return (
         <>
-            <span className="border-0 m-1" onClick={() => setShow(true)}>
+            <button className="btn btn-secondary rounded-pill border-0 m-1 d-none d-xxl-inline"
+                    onClick={() => setShow(true)}>
                 {text}
-            </span>
+            </button>
 
             <Modal show={set} onHide={() => setShow(false)}>
                 <Modal.Header closeButton className={`border-0`}>

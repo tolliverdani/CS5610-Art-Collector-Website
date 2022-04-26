@@ -7,12 +7,13 @@ import {useDispatch} from "react-redux";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
-const CreateListingModal = ({art_info, profile}) => {
+const CreateListingModal = ({art_info}) => {
     const [set, setShow] = useState(false);
 
     const qualityRef = useRef()
     const priceRef = useRef()
-    const dispatch = useDispatch();
+    const profile = useProfile()
+    const dispatch = useDispatch()
 
 
     const handleCreateListing = () => {

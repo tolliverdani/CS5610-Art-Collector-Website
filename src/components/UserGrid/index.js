@@ -8,7 +8,7 @@ const UserGrid = (params) => {
         <>
             {ComponentHeader(params.header)}
             <div className={"p-2"}>
-                <div className={"row row-cols-3 p-1"}>
+                <div className={"col p-1"}>
                     {params.users.map(user =>
                         <UserGridItem key={user._id} user={user}/>)}
                 </div>
