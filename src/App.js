@@ -31,6 +31,7 @@ import offersHistoryReducer from "./_reducers/offers-history-reducer";
 import salesHistoryReducer from "./_reducers/sales-history-reducer";
 import profileReducer from "./_reducers/profile-reducer";
 import usersReducer from "./_reducers/users-reducer";
+import AdminScreen from "./screens/AdminScreen/AdminScreen";
 
 const reducers = combineReducers({
     paintings: paintingsReducer,
@@ -56,6 +57,8 @@ function App() {
                     <Routes>
                         <Route index element={<HomeScreen/>}/>
                         <Route path="/">
+                            <Route path="admin"
+                                   element={<AdminScreen/>}/>
                             <Route path="home"
                                    element={<HomeScreen/>}/>
                             <Route path="search"

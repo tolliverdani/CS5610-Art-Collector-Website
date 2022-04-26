@@ -2,6 +2,7 @@ import * as service from "../_services/user-service"
 
 export const FIND_USER_BY_ID = "FIND_USER_BY_ID"
 export const FIND_ALL_USERS = "FIND_ALL_USERS"
+export const ADMIN_UPDATE_PROFILE = "ADMIN_UPDATE_PROFILE"
 
 export const findUserById = async (dispatch, user_id) => {
     // console.log("We are in user actions. We are in the findUserById. Here is the userId: " + user_id)
@@ -14,9 +15,19 @@ export const findUserById = async (dispatch, user_id) => {
     })
 }
 
-export const updateProfile = async (profile) => {
-    const updated_profile = await service.updateUser(profile);
+export const updateProfile = async (user) => {
+    const updated_profile = await service.updateUser(user);
     // console.log("here is the updated profile that we should push to the context" + JSON.stringify(profile, undefined, 4))
+
+
+}
+
+export const adminUpdateProfile = async (dispatch, user) => {
+    const updated_profile = await service.updateUser(user);
+    dispatch ({
+        type: ADMIN_UPDATE_PROFILE,
+        user
+    })
 }
 
 export const findAllUsers = async (dispatch) => {
