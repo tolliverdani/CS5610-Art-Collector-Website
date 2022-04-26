@@ -2,7 +2,6 @@ import React from "react";
 import ConfirmationModal from "../ConfirmationModal"
 import {Link} from "react-router-dom";
 import ListingStats from "../ListingStats";
-import UnsecuredContent from "../../../_security/unsecured-content";
 import SecureContent from "../../../_security/secure-content";
 
 const ArtistListingItem = ({profile, grid_item}) => {

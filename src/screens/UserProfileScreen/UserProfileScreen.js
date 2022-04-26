@@ -46,9 +46,7 @@ const UserProfileScreen = () => {
                         active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                 </div>
                 <div className={'col-10 col-lg-8'}>
-                    <SecureContent>
-                        <ListingsGrid type={"user"} data={listings}/>
-                    </SecureContent>
+                    <ListingsGrid type={"user"} data={listings}/>
                     <ProfileBio profile={user_profile}/>
                     <Collection paintings={paintings}/>
                 </div>

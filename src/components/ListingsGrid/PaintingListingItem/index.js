@@ -5,8 +5,9 @@ import ListingStats from "../ListingStats";
 import SecureContent from "../../../_security/secure-content";
 import ListingGridMenuItem from "../ListingGridMenuItem";
 
-const PaintingListingItem = ({profile, grid_item}) => {
+const PaintingListingItem = ({grid_item}) => {
 
+    console.log(JSON.stringify(grid_item,undefined,4))
     return (
 
         <div className={"col card border-0 p-1"}>
@@ -20,7 +21,7 @@ const PaintingListingItem = ({profile, grid_item}) => {
             </div>
             <div className={'card-title align-items-center'}>
                 <ListingGridMenuItem grid_item={grid_item}/>
-                <span className={'card-title'}>
+                <div className={'card-title'}>
                     <Link className={`text-decoration-none text-black m-0 p-0`}
                       to={`/art/${grid_item.painting_id}`}>
                     <span className={"m-0"}><strong>{grid_item.painting_title},</strong></span>
@@ -29,7 +30,7 @@ const PaintingListingItem = ({profile, grid_item}) => {
                               to={`/artist/${grid_item.artistUrl}/${grid_item.artistId}`}>
                         <p>{grid_item.artist_name}</p>
                     </Link>
-                </span>
+                </div>
             </div>
         </div>
     )

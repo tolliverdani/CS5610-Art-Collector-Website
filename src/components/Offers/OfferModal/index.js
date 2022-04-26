@@ -22,9 +22,9 @@ const OfferModal = ({offer}) => {
 
     return (
         <>
-            <div className="btn btn-danger rounded-pill m-0 p-2"
+            <div className="btn btn-danger rounded-pill p-1 m-0"
                  onClick={handleShow}>
-                <div><h4 className={`m-0`}><strong>${offer.offer_price}</strong></h4>
+                <div><h5 className={`m-0`}><strong>${offer.offer_price}</strong></h5>
                     <p className={"m-0"}>{offer.painting_name}</p>
                 </div>
             </div>
