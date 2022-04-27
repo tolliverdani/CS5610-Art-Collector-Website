@@ -21,12 +21,15 @@ const AdminEditProfileModal = ({user}) => {
     const [password, changePassword] = useState("")
     const [bio, changeBio] = useState(user.bio)
     const [rating, changeRating] = useState(user.rating)
+    const [admin, changeAdmin] = useState(user.is_admin)
+
+
 
     const handleUpdate = async () => {
         try {
             const updated_user = {...user, "email": email, "username": username,
-                                           "pronoun": pronoun, "location": location,
-                                           "bio": bio, "rating": rating, "password": password}
+                "pronoun": pronoun, "location": location,
+                "bio": bio, "rating": rating, "password": password}
 
             // if password field is blank we assume that did not change it and don't want to update it
             if ( password === "") {
@@ -81,7 +84,6 @@ const AdminEditProfileModal = ({user}) => {
                                        value={username}
                                        onChange={(e) => changeUsername(e.target.value)}
                                 />
-
                             </div>
                         </div>
 
@@ -97,11 +99,68 @@ const AdminEditProfileModal = ({user}) => {
                                        onChange={(e) => changePassword(e.target.value)}
                                 />
                                 <label htmlFor="InputPassword" className=" ms-2 mb-0 form-label text-secondary">Don't want to update the password? Leave this blank.</label>
-
-
                             </div>
                         </div>
 
+                        {/*<div className="form-group row mb-4">*/}
+                        {/*    <label htmlFor="InputAdmin"*/}
+                        {/*           className="col-sm-2 col-form-label">*/}
+                        {/*        Username*/}
+                        {/*    </label>*/}
+                        {/*    <div className="form-check col-sm-10">*/}
+                        {/*        <input className="form-check-input rounded-pill bg-light border-0 shadow-none"*/}
+                        {/*               type="radio"*/}
+                        {/*               id="InputAdmin"*/}
+                        {/*               value={admin}*/}
+                        {/*               onChange={(e) => changeAdmin(e.target.value)}*/}
+                        {/*        >*/}
+                        {/*        <label className={"form-check-label"} for={"admin_true"} value={true}>Yes</label>*/}
+                        {/*        <option value={false}>No</option>*/}
+                        {/*        </input>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
+
+                        {user.is_admin ?
+                            <div className="form-group row mb-4">
+                                <label htmlFor="admin"
+                                       className="col-sm-2 col-form-label">
+                                    Admin
+                                </label>
+                                <div className="col-sm-10">
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="radio" value="true" id="flexCheckDefault" checked
+                                               name={"admin"}/>
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">Yes
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="radio" value="false" id="flexCheckChecked"
+                                               name={"admin"}/>
+                                        <label className="form-check-label" htmlFor="flexCheckChecked">No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            :
+                            <div className="form-group row mb-4">
+                                <label htmlFor="admin"
+                                       className="col-sm-2 col-form-label">
+                                    Admin
+                                </label>
+                                <div className="col-sm-10">
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="radio" value="true" id="flexCheckDefault" name={"admin"}  />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">Yes
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="radio" value="false" id="flexCheckChecked" checked name={"admin"}/>
+                                        <label className="form-check-label" htmlFor="flexCheckChecked">No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        }
                         <div className="form-group row mb-3">
                             <label htmlFor="InputPronouns"
                                    className="col-sm-2 col-form-label">

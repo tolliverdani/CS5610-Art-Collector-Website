@@ -2,7 +2,7 @@ import {useProfile} from "../_context/profile-context";
 import {useEffect, useState} from "react";
 
 const ThisUserContent = ({children, id}) => {
-    const profile = useProfile()
+    const {profile} = useProfile()
     const [thisUser, setThisUser] = useState(false);
 
 

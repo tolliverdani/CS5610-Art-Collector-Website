@@ -55,7 +55,17 @@ Login:
     - The login and register page can be implemented as a single page or as two separate pages. In that case the login page must be mapped to /login and the register page must be mapped to /register
 
 
-
+LAST SPRINT
+    - Finish admin pages: hook up admin radio buttons, hook up onChange for listings and offers, hook up delete [user, offer, listing], secureRoute using admin, add in is Artists
+    - Implement a way to remove an active listing?
+    - Check that New Artists and Popular pages aren't using the same reducers
+    - Clean up server API's
+    - Remove unused imports
+    - Remove the MANY MANY MANY console logs
+    - Render all pages and look for console errors
+    - See if we can figure out how to update the context from a child component >> either yes, make a makeshift reducer, or ignore
+    - Artists can claim a page, which assigns them the is_artists
+    - UML
 
 
 
