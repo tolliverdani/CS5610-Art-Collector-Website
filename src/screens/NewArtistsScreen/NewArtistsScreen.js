@@ -9,18 +9,20 @@ import {combineReducers, createStore} from "redux";
 import PaintingGrid from "../../components/PaintingGrid";
 import {useLocation} from "react-router-dom";
 import {updatedArtists} from "../../_actions/artpieces-actions";
+import artistReducer from "../../_reducers/artist-reducer";
 
-const reducers = combineReducers({paintings: paintingsReducer})
-const store = createStore(reducers);
+
 
 const Index = () => {
-    const paintings_data = useSelector(state => state.paintings);
-    const paintings = paintings_data.data;
+    const artist_data = useSelector(state => state.artists);
+    console.log(artist_data)
+    const artists = artist_data.data;
+
     const dispatch = useDispatch();
     useEffect(() => updatedArtists(dispatch), [dispatch]);
 
     return (
-        <Provider store={store}>
+
             <div className={"container"}>
                 <NavigationTopMenu/>
                 <div className={"row m-3 p-2"}>
@@ -29,14 +31,15 @@ const Index = () => {
                             active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                     </div>
                     <div className={'col-10 col-lg-8'}>
-                        <PaintingGrid type={"artists"} data={paintings}/>
+                        {console.log(artists)}
+                        <PaintingGrid type={"artists"} data={artists}/>
                     </div>
                     <div className={'d-none d-lg-block col-2'}>
                         {/*<PaintingListings/>*/}
                     </div>
                 </div>
             </div>
-        </Provider>
+
     );
 };
 export default Index;

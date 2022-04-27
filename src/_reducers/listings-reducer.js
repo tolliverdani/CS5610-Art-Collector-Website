@@ -14,6 +14,7 @@ const listingsReducer = (state = [], action) => {
         case DELETE_LISTING:
             return state.filter(listing => listing._id !== action.listing_id);
         case UPDATE_LISTING:
+            console.log("We are in the updated listing reducer")
             return state.map(listing => listing._id === action.listing._id ? action.listing : listing)
         case CREATE_LISTING:
             return [...state, action.inserted_listing];

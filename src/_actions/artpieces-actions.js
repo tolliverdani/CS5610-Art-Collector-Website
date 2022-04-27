@@ -67,6 +67,7 @@ export const artistDetails = async (dispatch, artist) => {
 }
 
 export const updatedArtists = async (dispatch) => {
+    console.log("In artpieces actions. In Updated Artists")
     const updated_artists = await service.updatedArtists();
     dispatch({
         type: UPDATED_ARTISTS,
