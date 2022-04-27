@@ -17,7 +17,7 @@ const GridData = (type, data) => {
             return data.map(painting_item =>
                 <FavoriteGridItem key={painting_item.id} grid_item={painting_item}/>)
         case "artists":
-            return data.map(painting_item =>
+            return data.data.map(painting_item =>
                 <ArtistGridItem key={painting_item.id} grid_item={painting_item}/>)
         default:
             return data.map(painting_item =>
