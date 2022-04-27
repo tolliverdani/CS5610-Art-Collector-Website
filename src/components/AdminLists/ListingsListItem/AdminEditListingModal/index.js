@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 
 import {adminUpdateProfile, updateProfile} from "../../../../_actions/users-actions";
 import {useDispatch} from "react-redux";
-import {updateListing} from "../../../../_actions/listings-actions";
+import {deleteListing, updateListing} from "../../../../_actions/listings-actions";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
@@ -27,21 +27,28 @@ const AdminEditListingModal = ({listing}) => {
     const handleUpdate = async () => {
         try {
             const updated_listing = {...listing, "listing_price": listing_price, "active_listing": active_listing,
-                                           "sold": accepted, "date_removed": date_removed,
-                                           "sale_price": sale_price, "quality": quality, "buyer_id": buyer_id
+                "sold": accepted, "date_removed": date_removed,
+                "sale_price": sale_price, "quality": quality, "buyer_id": buyer_id
             }
 
-            console.log("This is the original listing: " + JSON.stringify(listing, undefined, 4))
-
-            console.log("In handle update. About to send this to the update listing " + JSON.stringify(updated_listing, undefined, 4))
-
-            // TODO THIS
             updateListing(dispatch,updated_listing).then(() =>
             {
                 alert("You have updated this listing.")
                 setShow(false)
             })
         } catch (e) {
+            throw(e);
+        }
+    }
+
+    const handleDelete = async () => {
+        try {
+            deleteListing(dispatch, listing._id).then(() =>{
+                alert("You have deleted this listing.")
+                setShow(false)
+            })
+
+        } catch (e){
             throw(e);
         }
     }
@@ -58,20 +65,20 @@ const AdminEditListingModal = ({listing}) => {
                 <Modal.Body>
                     <Form className={`container`}>
 
-                    <div className={"mb-3 text-danger text-center"}>
-                        <strong>As admin, you can edit certain parts of an listing using the form below.</strong>
-                    </div>
+                        <div className={"mb-3 text-danger text-center"}>
+                            <strong>As admin, you can edit certain parts of an listing using the form below.</strong>
+                        </div>
                         <div className={"card mb-2 p-2 text-center"}>
                             <div className={"text-center"}>
-                    <h6><strong>Uneditable Fields</strong></h6>
+                                <h6><strong>Uneditable Fields</strong></h6>
                             </div>
                             <p className={"m-0"}><strong>Listing Id: </strong>{listing._id}</p>
-                        <p className={"m-0"}><strong>Painting Id: </strong>{listing.painting_id}</p>
-                        <p className={"m-0"}><strong>Painting Title: </strong>{listing.painting_title}</p>
-                        <p className={"m-0"}><strong>Artist Id: </strong>{listing.artist_id}</p>
-                        <p className={"m-0"}><strong>Artist Name: </strong>{listing.artist_name}</p>
-                        <p className={"m-0"}><strong>Owner Id: </strong>{listing.owner_name}</p><p className={"m-0"}><strong>Owner Id: </strong>{listing.owner_id}</p>
-                        <p className={"m-0"}><strong>Date Created: </strong>{new Date(listing.date_created).toLocaleDateString()}</p>
+                            <p className={"m-0"}><strong>Painting Id: </strong>{listing.painting_id}</p>
+                            <p className={"m-0"}><strong>Painting Title: </strong>{listing.painting_title}</p>
+                            <p className={"m-0"}><strong>Artist Id: </strong>{listing.artist_id}</p>
+                            <p className={"m-0"}><strong>Artist Name: </strong>{listing.artist_name}</p>
+                            <p className={"m-0"}><strong>Owner Id: </strong>{listing.owner_name}</p><p className={"m-0"}><strong>Owner Id: </strong>{listing.owner_id}</p>
+                            <p className={"m-0"}><strong>Date Created: </strong>{new Date(listing.date_created).toLocaleDateString()}</p>
                         </div>
                         <div className="form-group row mb-4">
                             <label htmlFor="PriceInput"
@@ -182,15 +189,12 @@ const AdminEditListingModal = ({listing}) => {
                             </div>
                         </div>
 
-
-
-
                     </Form>
                 </Modal.Body>
 
                 <Modal.Footer>
                     {/* TODO: need to fix this */}
-                    <Button variant="danger" onClick={handleUpdate}>
+                    <Button variant="danger" onClick={handleDelete}>
                         Delete Listing
                     </Button>
                     <Button variant="warning" onClick={handleUpdate}>

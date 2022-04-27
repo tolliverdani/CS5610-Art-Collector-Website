@@ -3,7 +3,7 @@ import {
     FIND_ACTIVE_LISTINGS_BY_ARTIST_ID,
     FIND_ACTIVE_LISTINGS_BY_PAINTING_ID,
     FIND_ALL_ACTIVE_LISTINGS,
-    CREATE_LISTING, FIND_ALL_LISTINGS, UPDATE_LISTING
+    CREATE_LISTING, FIND_ALL_LISTINGS, UPDATE_LISTING, DELETE_LISTING
 } from "../_actions/listings-actions";
 import {APPROVE_OFFER} from "../_actions/offers-actions";
 
@@ -11,8 +11,10 @@ const listingsReducer = (state = [], action) => {
     // console.log("In listing reducer. This is the action type: " + action.type)
 
     switch ( action.type ){
+        case DELETE_LISTING:
+            return state.filter(listing => listing._id !== action.listing_id);
         case UPDATE_LISTING:
-            return state.map(listing => listing._id === action.updated_listing._id ? action.updated_listing : listing)
+            return state.map(listing => listing._id === action.listing._id ? action.listing : listing)
         case CREATE_LISTING:
             return [...state, action.inserted_listing];
         case APPROVE_OFFER:
