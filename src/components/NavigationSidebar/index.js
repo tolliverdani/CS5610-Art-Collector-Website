@@ -5,6 +5,7 @@ import {logout} from "../../_services/auth-service";
 import UnsecuredContent from "../../_security/unsecured-content";
 import LogInModal from "../Auth/LoginModal";
 import SignUpModal from "../Auth/SignUpModal";
+import SecureAdminContent from "../../_security/secure-admin-content";
 
 const NavigationSidebar =
     ({
@@ -57,6 +58,15 @@ const NavigationSidebar =
                             <i className="fa fa-grip-horizontal ps-lg-2"/>
                             <span className={`d-none d-lg-inline ps-2`}>My Collection</span>
                         </Link>
+                    </SecureContent>
+                        <SecureAdminContent>
+                            <Link to="/admin"
+                                  className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1`}>
+                                <i className="fa fa-toolbox ps-lg-2"/>
+                                <span className={`d-none d-lg-inline ps-2`}>Admin Page</span>
+                            </Link>
+                        </SecureAdminContent>
+                        <SecureContent>
                         <Link to={"/home"}
                               onClick={handleLogout}
                               className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1`}>

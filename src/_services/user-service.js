@@ -7,6 +7,12 @@ const api = axios.create({
     withCredentials: true
 });
 
+export const deleteUser = async (user_id) => {
+    console.log("In user service. In delete user")
+    const response = await axios.delete(`${API_BASE}/users/${user_id}`);
+    return response.status
+}
+
 export const updateUser = async (user) => {
     const response = await api.put(`${API_BASE}/users`, user);
     if ( response.status === 200 ){

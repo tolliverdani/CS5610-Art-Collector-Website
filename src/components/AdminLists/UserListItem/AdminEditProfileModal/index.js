@@ -3,15 +3,15 @@ import {Modal, Button, Form} from 'react-bootstrap';
 import {useProfile} from "../../../../_context/profile-context";
 import {useNavigate} from "react-router-dom";
 
-import {adminUpdateProfile, updateProfile} from "../../../../_actions/users-actions";
+import {adminDeleteUser, adminUpdateProfile, updateProfile} from "../../../../_actions/users-actions";
 import {useDispatch} from "react-redux";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
 const AdminEditProfileModal = ({user}) => {
+    // const {profile} = useProfile();
     const [set, setShow] = useState(false);
 
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const [email, changeEmail] = useState(user.email)
@@ -24,12 +24,29 @@ const AdminEditProfileModal = ({user}) => {
     const [admin, changeAdmin] = useState(user.is_admin)
 
 
+    const handleDelete = async () => {
+        // if ( user.id === profile._id ){
+        //     alert("You cannot delete yourself. Have another admin user do that.")
+        //     setShow(false)
+        // } else {
+            try {
+                adminDeleteUser(dispatch, user._id).then(() => {
+                    alert("You have deleted this user")
+                    setShow(false)
+                })
+            } catch (e) {
+                alert("Failed to delete this user")
+                setShow(false)
+            }
+        }
+    // }
+
 
     const handleUpdate = async () => {
         try {
             const updated_user = {...user, "email": email, "username": username,
                 "pronoun": pronoun, "location": location,
-                "bio": bio, "rating": rating, "password": password}
+                "bio": bio, "rating": rating, "password": password, "is_admin": admin}
 
             // if password field is blank we assume that did not change it and don't want to update it
             if ( password === "") {
@@ -60,6 +77,17 @@ const AdminEditProfileModal = ({user}) => {
                     <div className={"mb-3 text-danger text-center"}>
                         <strong>As admin, you can edit a user's profile using the form below.</strong>
                     </div>
+
+                    <div className={"card mb-2 p-2 text-center"}>
+                        <div className={"text-center"}>
+                            <h6><strong>Uneditable Fields</strong></h6>
+                        </div>
+                        <p className={"m-0"}><strong>User Id: </strong>{user._id}</p>
+                        <p className={"m-0"}><strong>Date Joined: </strong>{new Date(user.joined).toLocaleDateString()}</p>
+                        <p className={"m-0"}><strong>Collection Id:</strong>{user.collection_id}</p>
+
+                    </div>
+
                     <Form className={`container`}>
                         <div className="form-group row mb-4">
                             <label htmlFor="InputEmail"
@@ -102,65 +130,24 @@ const AdminEditProfileModal = ({user}) => {
                             </div>
                         </div>
 
-                        {/*<div className="form-group row mb-4">*/}
-                        {/*    <label htmlFor="InputAdmin"*/}
-                        {/*           className="col-sm-2 col-form-label">*/}
-                        {/*        Username*/}
-                        {/*    </label>*/}
-                        {/*    <div className="form-check col-sm-10">*/}
-                        {/*        <input className="form-check-input rounded-pill bg-light border-0 shadow-none"*/}
-                        {/*               type="radio"*/}
-                        {/*               id="InputAdmin"*/}
-                        {/*               value={admin}*/}
-                        {/*               onChange={(e) => changeAdmin(e.target.value)}*/}
-                        {/*        >*/}
-                        {/*        <label className={"form-check-label"} for={"admin_true"} value={true}>Yes</label>*/}
-                        {/*        <option value={false}>No</option>*/}
-                        {/*        </input>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
+                        <div className="form-group row mb-3">
+                            <label htmlFor="InputAdminStatus"
+                                   className="col-sm-2 col-form-label">
+                                Admin?
+                            </label>
+                            <div className="col-sm-10">
+                                <select className="form-control rounded-pill bg-light border-0 shadow-none"
+                                        id="InputAdminStatus"
+                                        value={admin}
+                                        onChange={(e) => changeAdmin(e.target.value)}
+                                >
+                                    <option value={true}>Yes</option>
+                                    <option value={false}>No</option>
+                                </select>
+                            </div>
+                        </div>
 
-                        {user.is_admin ?
-                            <div className="form-group row mb-4">
-                                <label htmlFor="admin"
-                                       className="col-sm-2 col-form-label">
-                                    Admin
-                                </label>
-                                <div className="col-sm-10">
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" value="true" id="flexCheckDefault" checked
-                                               name={"admin"}/>
-                                        <label className="form-check-label" htmlFor="flexCheckDefault">Yes
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" value="false" id="flexCheckChecked"
-                                               name={"admin"}/>
-                                        <label className="form-check-label" htmlFor="flexCheckChecked">No
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            :
-                            <div className="form-group row mb-4">
-                                <label htmlFor="admin"
-                                       className="col-sm-2 col-form-label">
-                                    Admin
-                                </label>
-                                <div className="col-sm-10">
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" value="true" id="flexCheckDefault" name={"admin"}  />
-                                        <label className="form-check-label" htmlFor="flexCheckDefault">Yes
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" value="false" id="flexCheckChecked" checked name={"admin"}/>
-                                        <label className="form-check-label" htmlFor="flexCheckChecked">No
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        }
+
                         <div className="form-group row mb-3">
                             <label htmlFor="InputPronouns"
                                    className="col-sm-2 col-form-label">
@@ -226,7 +213,7 @@ const AdminEditProfileModal = ({user}) => {
 
                 <Modal.Footer>
                     {/* TODO: need to fix this */}
-                    <Button variant="danger" onClick={handleUpdate}>
+                    <Button variant="danger" onClick={handleDelete}>
                         Delete User
                     </Button>
                     <Button variant="warning" onClick={handleUpdate}>

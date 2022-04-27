@@ -22,7 +22,7 @@ const AdminEditOfferModal = ({offer}) => {
     const handleUpdate = async () => {
         try {
             const updated_offer = {...offer, "offer_price": offer_price, "active_offer": active_offer,
-                                           "accepted": accepted, "date_removed": date_removed}
+                "accepted": accepted, "date_removed": date_removed}
 
             // TODO THIS
             adminUpdateProfile(dispatch,updated_offer).then(() =>
@@ -47,22 +47,22 @@ const AdminEditOfferModal = ({offer}) => {
                 <Modal.Body>
                     <Form className={`container`}>
 
-                    <div className={"mb-3 text-danger text-center"}>
-                        <strong>As admin, you can edit certain parts of an offer using the form below.</strong>
-                    </div>
+                        <div className={"mb-3 text-danger text-center"}>
+                            <strong>As admin, you can edit certain parts of an offer using the form below.</strong>
+                        </div>
                         <div className={"card mb-2 p-2 text-center"}>
                             <div className={"text-center"}>
-                    <h6><strong>Uneditable Fields</strong></h6>
+                                <h6><strong>Uneditable Fields</strong></h6>
                             </div>
-                        <p className={"m-0"}><strong>Listing Id: </strong>{offer.listing_id}</p>
-                        <p className={"m-0"}><strong>Painting Id: </strong>{offer.painting_id}</p>
-                        <p className={"m-0"}><strong>Painting Name: </strong>{offer.painting_name}</p>
-                        <p className={"m-0"}><strong>Artist Id: </strong>{offer.artist_id}</p>
-                        <p className={"m-0"}><strong>Artist Name: </strong>{offer.artist_name}</p>
-                        <p className={"m-0"}><strong>Seller Id: </strong>{offer.seller_id}</p>
-                        <p className={"m-0"}><strong>Buyer Id: </strong>{offer.buyer_id}</p>
-                        <p className={"m-0"}><strong>Buyer Name: </strong>{offer.buyer_name}</p>
-                        <p className={"m-0"}><strong>Date Created: </strong>{new Date(offer.date_created).toLocaleDateString()}</p>
+                            <p className={"m-0"}><strong>Listing Id: </strong>{offer.listing_id}</p>
+                            <p className={"m-0"}><strong>Painting Id: </strong>{offer.painting_id}</p>
+                            <p className={"m-0"}><strong>Painting Name: </strong>{offer.painting_name}</p>
+                            <p className={"m-0"}><strong>Artist Id: </strong>{offer.artist_id}</p>
+                            <p className={"m-0"}><strong>Artist Name: </strong>{offer.artist_name}</p>
+                            <p className={"m-0"}><strong>Seller Id: </strong>{offer.seller_id}</p>
+                            <p className={"m-0"}><strong>Buyer Id: </strong>{offer.buyer_id}</p>
+                            <p className={"m-0"}><strong>Buyer Name: </strong>{offer.buyer_name}</p>
+                            <p className={"m-0"}><strong>Date Created: </strong>{new Date(offer.date_created).toLocaleDateString()}</p>
                         </div>
                         <div className="form-group row mb-4">
                             <label htmlFor="PriceInput"
