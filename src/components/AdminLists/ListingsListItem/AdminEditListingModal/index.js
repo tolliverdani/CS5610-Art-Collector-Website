@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 
 import {adminUpdateProfile, updateProfile} from "../../../../_actions/users-actions";
 import {useDispatch} from "react-redux";
+import {updateListing} from "../../../../_actions/listings-actions";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
@@ -26,12 +27,18 @@ const AdminEditListingModal = ({listing}) => {
     const handleUpdate = async () => {
         try {
             const updated_listing = {...listing, "listing_price": listing_price, "active_listing": active_listing,
-                                           "accepted": accepted, "date_removed": date_removed}
+                                           "sold": accepted, "date_removed": date_removed,
+                                           "sale_price": sale_price, "quality": quality, "buyer_id": buyer_id
+            }
+
+            console.log("This is the original listing: " + JSON.stringify(listing, undefined, 4))
+
+            console.log("In handle update. About to send this to the update listing " + JSON.stringify(updated_listing, undefined, 4))
 
             // TODO THIS
-            adminUpdateProfile(dispatch,updated_listing).then(() =>
+            updateListing(dispatch,updated_listing).then(() =>
             {
-                alert("You have updated this user's profile")
+                alert("You have updated this listing.")
                 setShow(false)
             })
         } catch (e) {
@@ -58,6 +65,7 @@ const AdminEditListingModal = ({listing}) => {
                             <div className={"text-center"}>
                     <h6><strong>Uneditable Fields</strong></h6>
                             </div>
+                            <p className={"m-0"}><strong>Listing Id: </strong>{listing._id}</p>
                         <p className={"m-0"}><strong>Painting Id: </strong>{listing.painting_id}</p>
                         <p className={"m-0"}><strong>Painting Title: </strong>{listing.painting_title}</p>
                         <p className={"m-0"}><strong>Artist Id: </strong>{listing.artist_id}</p>

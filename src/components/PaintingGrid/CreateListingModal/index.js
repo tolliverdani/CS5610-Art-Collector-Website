@@ -12,7 +12,7 @@ const CreateListingModal = ({art_info}) => {
 
     const qualityRef = useRef()
     const priceRef = useRef()
-    const profile = useProfile()
+    const {profile} = useProfile()
     const dispatch = useDispatch()
 
 
@@ -29,7 +29,7 @@ const CreateListingModal = ({art_info}) => {
             "owner_name": profile.username,
             "quality": qualityRef.current.value,
             "listing_price": priceRef.current.value,
-            "active_listing": true
+            "active_listing": true,
         }
 
         console.log(listing)

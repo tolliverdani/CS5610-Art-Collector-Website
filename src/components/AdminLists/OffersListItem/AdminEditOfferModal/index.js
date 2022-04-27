@@ -54,6 +54,7 @@ const AdminEditOfferModal = ({offer}) => {
                             <div className={"text-center"}>
                                 <h6><strong>Uneditable Fields</strong></h6>
                             </div>
+                            <p className={"m-0"}><strong>Offer Id: </strong>{offer._id}</p>
                             <p className={"m-0"}><strong>Listing Id: </strong>{offer.listing_id}</p>
                             <p className={"m-0"}><strong>Painting Id: </strong>{offer.painting_id}</p>
                             <p className={"m-0"}><strong>Painting Name: </strong>{offer.painting_name}</p>

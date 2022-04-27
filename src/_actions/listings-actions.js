@@ -7,6 +7,15 @@ export const CREATE_LISTING = "CREATE_LISTING"
 export const FIND_ALL_ACTIVE_LISTINGS = "FIND_ALL_ACTIVE_LISTINGS"
 export const FIND_SOLD_PRICE_HISTORY_BY_PAINTING_ID = "FIND_SOLD_PRICE_HISTORY_BY_PAINTING_ID"
 export const FIND_ALL_LISTINGS = "FIND_ALL_LISTINGS"
+export const UPDATE_LISTING = "UPDATE_LISTING"
+
+export const updateListing = async (dispatch, listing) => {
+    const updated_listing = await service.updateListing(listing);
+    dispatch({
+        type: UPDATE_LISTING,
+        updated_listing
+    })
+}
 
 export const findAllListings = async (dispatch) => {
 

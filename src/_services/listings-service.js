@@ -2,6 +2,15 @@ import axios from "axios";
 
 const API_BASE = (process.env.REACT_APP_API_BASE || 'http://localhost:4000/api');
 
+export const updateListing = async (listing) => {
+    const request_url = `${API_BASE}/listings`
+    const response = await axios.put(request_url, listing)
+    if ( response.status === 200) {
+        return response.data
+    }
+
+}
+
 export const findAllListings = async () => {
     const request_url = `${API_BASE}/listings`
     const response = await axios.get(request_url);
