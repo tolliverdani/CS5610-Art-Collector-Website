@@ -9,7 +9,7 @@ import {useDispatch} from "react-redux";
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
 const AdminEditProfileModal = ({user}) => {
-    // const {profile} = useProfile();
+    const {profile} = useProfile();
     const [set, setShow] = useState(false);
 
     const dispatch = useDispatch();
@@ -25,10 +25,10 @@ const AdminEditProfileModal = ({user}) => {
 
 
     const handleDelete = async () => {
-        // if ( user.id === profile._id ){
-        //     alert("You cannot delete yourself. Have another admin user do that.")
-        //     setShow(false)
-        // } else {
+        if ( user._id === profile._id ){
+            alert("You cannot delete yourself. Have another admin user do that.")
+            setShow(false)
+        } else {
             try {
                 adminDeleteUser(dispatch, user._id).then(() => {
                     alert("You have deleted this user")
@@ -39,7 +39,7 @@ const AdminEditProfileModal = ({user}) => {
                 setShow(false)
             }
         }
-    // }
+    }
 
 
     const handleUpdate = async () => {
