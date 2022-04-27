@@ -47,14 +47,18 @@ const AdminScreen = () => {
                     <NavigationSidebar
                         active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
                 </div>
-                <div className={'col-3'}>
-                    <AdminLists data={users} header={"Users"} type={"users"}/>
-                </div>
-                <div className={'col-3'}>
-                    <AdminLists data={offers} header={"Offers"} type={"offers"}/>
-                </div>
-                <div className={'col-3'}>
-                    <AdminLists data={listings} header={"Listings "} type={"listings"}/>
+                <div className={'col-10'}>
+                    <div className={"row"}>
+                        <div className={'col-lg-4'}>
+                            <AdminLists data={users} header={"Users"} type={"users"}/>
+                        </div>
+                        <div className={'col-lg-4'}>
+                            <AdminLists data={offers} header={"Offers"} type={"offers"}/>
+                        </div>
+                        <div className={'col-lg-4'}>
+                            <AdminLists data={listings} header={"Listings "} type={"listings"}/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
