@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 
 import {adminUpdateProfile, updateProfile} from "../../../../_actions/users-actions";
 import {useDispatch} from "react-redux";
+import {deleteOffer, updateOffer} from "../../../../_actions/offers-actions";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
@@ -18,6 +19,16 @@ const AdminEditOfferModal = ({offer}) => {
     const [accepted, changeAccepted] = useState(offer.accepted)
     const [date_removed, changeDateRemoved] = useState(offer.date_removed)
 
+    const handleDelete = async () => {
+        try {
+            deleteOffer(dispatch, offer._id).then(() => {
+                alert("You have deleted this offer")
+                setShow(false)
+            })
+        } catch (e) {
+            setShow(false)
+        }
+    }
 
     const handleUpdate = async () => {
         try {
@@ -25,13 +36,13 @@ const AdminEditOfferModal = ({offer}) => {
                 "accepted": accepted, "date_removed": date_removed}
 
             // TODO THIS
-            adminUpdateProfile(dispatch,updated_offer).then(() =>
+            updateOffer(dispatch,updated_offer).then(() =>
             {
-                alert("You have updated this user's profile")
+                alert("You have updated this offer")
                 setShow(false)
             })
         } catch (e) {
-            throw(e);
+            setShow(false)
         }
     }
 
@@ -135,7 +146,7 @@ const AdminEditOfferModal = ({offer}) => {
 
                 <Modal.Footer>
                     {/* TODO: need to fix this */}
-                    <Button variant="danger" onClick={handleUpdate}>
+                    <Button variant="danger" onClick={handleDelete}>
                         Delete Offer
                     </Button>
                     <Button variant="warning" onClick={handleUpdate}>

@@ -59,7 +59,7 @@ const AdminEditProfileModal = ({user}) => {
                 setShow(false)
             })
         } catch (e) {
-            throw(e);
+            setShow(false)
         }
     }
 

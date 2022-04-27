@@ -49,7 +49,7 @@ const AdminEditListingModal = ({listing}) => {
             })
 
         } catch (e){
-            throw(e);
+            setShow(false)
         }
     }
 

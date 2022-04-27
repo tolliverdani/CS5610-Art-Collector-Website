@@ -11,13 +11,17 @@ import {
     FIND_INACTIVE_OFFERS_BY_BIDDER_ID,
     FIND_INACTIVE_OFFERS_BY_PAINTING_ID,
     FIND_INACTIVE_OFFERS_BY_SELLER_ID,
-    APPROVE_OFFER, CREATE_OFFER, REJECT_OFFER, FIND_ALL_OFFERS
+    APPROVE_OFFER, CREATE_OFFER, REJECT_OFFER, FIND_ALL_OFFERS, UPDATE_OFFER, DELETE_OFFER
 } from "../_actions/offers-actions";
 
 const offersReducer = (state = [], action) => {
     // console.log("We are in the offers reducer. This is the action type: " + action.type)
 
     switch (action.type) {
+        case DELETE_OFFER:
+            return state.filter(offer => offer._id !== action.offer_id)
+        case UPDATE_OFFER:
+            return state.map(offer => offer._id === action.updated_offer._id ? action.updated_offer : offer)
         case CREATE_OFFER:
             return [...state, action.inserted_offer]
         case APPROVE_OFFER:

@@ -17,6 +17,37 @@ export const CREATE_OFFER = "CREATE_OFFER"
 export const APPROVE_OFFER = "APPROVE_OFFER"
 export const REJECT_OFFER = "REJECT_OFFER"
 export const FIND_ALL_OFFERS = "FIND_ALL_OFFERS"
+export const UPDATE_OFFER = "UPDATE_OFFER"
+export const DELETE_OFFER = "DELETE_OFFER"
+
+export const deleteOffer = async (dispatch, offer_id) => {
+    try{
+        const status = await service.deleteOffer(offer_id);
+        if ( status === 200 ){
+            dispatch({
+                type:DELETE_OFFER,
+                offer_id
+            })
+        }
+    } catch (e) {
+        console.log("Unable to delete the offer");
+    }
+}
+
+export const updateOffer = async (dispatch, updated_offer) => {
+    try {
+        const status = await service.updateOffer(updated_offer);
+        console.log(status)
+        if (status === 200) {
+            dispatch({
+                type: UPDATE_OFFER,
+                updated_offer
+            })
+        }
+    } catch (e) {
+        alert("Unable to update the offer")
+    }
+}
 
 
 export const findAllOffersByPaintingId = async (dispatch, painting_id) => {

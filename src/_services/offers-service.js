@@ -2,6 +2,14 @@ import axios from "axios";
 
 const API_BASE = (process.env.REACT_APP_API_BASE || 'http://localhost:4000/api');
 
+export const deleteOffer = async (offer_id) => {
+    const request_url = `${API_BASE}/offers/${offer_id}`
+    const response = await axios.delete(request_url);
+    if ( response.status === 200 ){
+        return 200
+    }
+}
+
 export const findAllOffers = async () => {
     const request_url = `${API_BASE}/offers`
     const response = await axios.get(request_url);
@@ -86,5 +94,14 @@ export const rejectOffer = async (offer) => {
     } else {
         return 400;
     }
+}
 
+export const updateOffer = async (offer) => {
+    const request_url = `${API_BASE}/offers`
+    const response = await axios.put(request_url, offer);
+    if ( response.status === 200 ){
+        return 200;
+    } else {
+        return 400;
+    }
 }
