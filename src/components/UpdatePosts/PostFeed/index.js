@@ -1,7 +1,7 @@
 import React from "react";
 import PostItem from "../PostItem";
 
-const PostFeed = (posts) => {
+const PostFeed = ({posts}) => {
 
     return (
         <div className={"p-2 border-bottom"}>

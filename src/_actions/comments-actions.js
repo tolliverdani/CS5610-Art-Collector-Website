@@ -9,6 +9,7 @@ export const DELETE_COMMENT = 'DELETE_COMMENT';
 
 export const createComment = async (dispatch, comment) => {
     const newComment = await service.createComment(comment);
+    console.log(JSON.stringify(newComment, undefined, 4))
     dispatch({
         type: CREATE_COMMENT,
         newComment

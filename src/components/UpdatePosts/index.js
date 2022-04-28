@@ -4,21 +4,29 @@ import PostFeed from "./PostFeed";
 import EmptyPosts from "../Errors/EmptyPosts";
 import SecureContent from "../../_security/secure-content";
 import ComponentHeader from "../ComponentHeader";
+import SecureArtistContent from "../../_security/secure-artist-content";
 
-const Posts = (params) => {
+const Posts = ({painting_data, posts, is_artist}) => {
+    console.log("Post feed: " + JSON.stringify(posts))
 
     return (
         <div className={"mb-2"}>
             {ComponentHeader("Comments")}
             <div className={"p-2"}>
-                {params.posts.length === 0 ?
+                {posts.length === 0 ?
                     EmptyPosts()
                     :
-                    <PostFeed posts={params.posts}/>
+                    <PostFeed posts={posts}/>
                 }
-                <SecureContent>
-                    <CreatePost/>
-                </SecureContent>
+                {is_artist ?
+                    <SecureArtistContent>
+                        <CreatePost is_artist={is_artist} painting_data={painting_data}/>
+                    </SecureArtistContent>
+                    :
+                    <SecureContent>
+                        <CreatePost is_artist={is_artist} painting_data={painting_data}/>
+                    </SecureContent>
+                }
             </div>
         </div>
     )

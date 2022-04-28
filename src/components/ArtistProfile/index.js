@@ -16,7 +16,7 @@ const ArtistProfile = (params) => {
         <>
             <SecureArtistContent>
                 <button className={"btn btn-primary rounded-pill"}
-                onClick={updateProfile(dispatch, {...profile, artist_id: artist._id}).then(update())}>
+                onClick={updateProfile(dispatch, {...profile, artist_id: artist._id}).then(console.log("This is where you want to update the profile"))}>
                     Claim Page
                 </button>
             </SecureArtistContent>

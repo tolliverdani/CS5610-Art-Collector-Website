@@ -18,6 +18,7 @@ import {findPriceHistoryAllOffersByPaintingId} from "../../_actions/offers-actio
 import {findAllUsers} from "../../_actions/users-actions";
 import UserGrid from "../../components/UserGrid"; // TODO: set up with database
 
+// TODO delete this?
 const reducers = combineReducers({paintings: paintingsReducer})
 const store = createStore(reducers);
 
@@ -56,7 +57,7 @@ const ArtPieceScreen = () => {
                         <div className={'col-10 col-lg-8'}>
                             <PriceHistory sales_history={salesHistory} offers_history={offersHistory}/>
                             <PaintingListings type={"painting"} data={listings}/>
-                            <UpdatePosts posts={posts}/>
+                            <UpdatePosts painting_data={data} posts={posts} is_artist={false}/>
                         </div>
                         <div className={'d-none d-lg-block col-2'}>
                             <ArtDetails data={data}/>

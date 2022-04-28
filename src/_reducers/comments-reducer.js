@@ -8,18 +8,21 @@ import {
 } from "../_actions/comments-actions";
 
 const commentsReducer = (state = [], action) => {
-
+    {console.log(action.type)}
     switch (action.type) {
         case FIND_ALL_COMMENTS:
+            console.log("in find all comments")
             return action.comments;
         case FIND_ARTIST_COMMENTS:
             return action.comments;
         case FIND_PAINTING_COMMENTS:
+            console.log("in find painting comments")
             return action.comments;
         case DELETE_COMMENT:
             return state.filter(comment => comment._id !== action.comment._id);
         case CREATE_COMMENT:
-            return [action.newComments, ...state];
+            console.log("in create comment")
+            return [...state, action.newComment];
         case UPDATE_COMMENT:
             return state.map(comment => comment._id === action.comment._id ? action.comment : comment);
         default:

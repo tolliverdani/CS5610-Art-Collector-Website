@@ -11,6 +11,8 @@ import ArtistStats from "../../components/ArtistProfile/ArtistStats";
 import PaintingsByArtist from "../../components/ArtistProfile/PaintingsByArtist";
 import {findActiveListingsByArtistId} from "../../_actions/listings-actions";
 import ListingsGrid from "../../components/ListingsGrid";
+import {findArtistComments} from "../../_actions/comments-actions";
+import UpdatePosts from "../../components/UpdatePosts";
 
 const ArtistProfileScreen = () => {
     const {artist_name, artist_id} = useParams();
@@ -23,8 +25,8 @@ const ArtistProfileScreen = () => {
     useEffect(() => findPaintingsByArtist(dispatch, artist_id), [dispatch, artist_id]);
     const paintings = paintings_data.data;
 
-    /*const posts = useSelector(state => state.comments)
-    useEffect(() => findPaintingComments(dispatch, artist_id), [dispatch, artist_id])*/
+    const posts = useSelector(state => state.comments)
+    useEffect(() => findArtistComments(dispatch, artist_id), [dispatch, artist_id])
 
     const listings = useSelector(state => state.listings)
     useEffect(() => findActiveListingsByArtistId(dispatch, artist_id), [dispatch, artist_id])
@@ -42,7 +44,7 @@ const ArtistProfileScreen = () => {
                     <div className={'col-10 col-lg-8'}>
                         <ListingsGrid type={"artist"} data={listings}/>
                         <PaintingsByArtist data={paintings} id={artist_id}/>
-                        {/*<UpdatePosts posts={posts}/>*/}
+                        <UpdatePosts posts={posts} is_artist={true}/>
                     </div>
                     <div className={'col-2 d-none d-lg-block'}>
                         <ArtistProfile artist={artist}/>

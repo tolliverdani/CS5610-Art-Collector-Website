@@ -14,7 +14,7 @@ export const findAllComments = async () => {
 }
 
 export const findPaintingComments = async (painting_id) => {
-    const request_url = `${COMMENTS_API}/${painting_id}`
+    const request_url = `${COMMENTS_API}/painting/${painting_id}`
     const response = await axios.get(request_url);
     if (response.status === 200) {
         return response.data
@@ -22,7 +22,7 @@ export const findPaintingComments = async (painting_id) => {
 }
 
 export const findArtistComments = async (artist_id) => {
-    const request_url = `${COMMENTS_API}/${artist_id}`
+    const request_url = `${COMMENTS_API}/artist/${artist_id}`
     const response = await axios.get(request_url);
     if (response.status === 200) {
         return response.data
