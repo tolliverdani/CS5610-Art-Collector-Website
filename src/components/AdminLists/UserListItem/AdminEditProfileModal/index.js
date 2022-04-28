@@ -150,6 +150,23 @@ const AdminEditProfileModal = ({user}) => {
                             </div>
                         </div>
 
+                        <div className="form-group row mb-3">
+                            <label htmlFor="InputArtistStatus"
+                                   className="col-sm-2 col-form-label">
+                                Artist?
+                            </label>
+                            <div className="col-sm-10">
+                                <select className="form-control rounded-pill bg-light border-0 shadow-none"
+                                        id="InputArtistStatus"
+                                        value={artist}
+                                        onChange={(e) => changeArtist(e.target.value)}
+                                >
+                                    <option value={true}>Yes</option>
+                                    <option value={false}>No</option>
+                                </select>
+                            </div>
+                        </div>
+
 
                         <div className="form-group row mb-3">
                             <label htmlFor="InputPronouns"
