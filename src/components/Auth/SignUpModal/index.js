@@ -11,6 +11,7 @@ const SignUpModal = ({text}) => {
     const emailRef = useRef()
     const usernameRef = useRef()
     const passRef = useRef()
+
     const navigate = useNavigate();
 
     const {signup} = useProfile()
@@ -20,7 +21,7 @@ const SignUpModal = ({text}) => {
             await signup(
                 emailRef.current.value,
                 usernameRef.current.value,
-                passRef.current.value
+                passRef.current.value,
             )
             navigate('/profile')
         } catch (e) {

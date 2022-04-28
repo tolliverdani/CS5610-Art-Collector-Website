@@ -10,6 +10,7 @@ const LogInModal = ({text}) => {
 
     const emailRef = useRef()
     const passRef = useRef()
+
     const navigate = useNavigate();
     const {login} = useProfile()
 

@@ -29,9 +29,6 @@ export const findUserById = async (dispatch, user_id) => {
 
 export const updateProfile = async (user) => {
     const updated_profile = await service.updateUser(user);
-    // console.log("here is the updated profile that we should push to the context" + JSON.stringify(profile, undefined, 4))
-
-
 }
 
 export const adminUpdateProfile = async (dispatch, user) => {

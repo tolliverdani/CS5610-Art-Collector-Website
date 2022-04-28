@@ -45,7 +45,6 @@ const reducers = combineReducers({
     users: usersReducer,
     offersHistory: offersHistoryReducer,
     salesHistory: salesHistoryReducer
-
 })
 const store = createStore(reducers);
 

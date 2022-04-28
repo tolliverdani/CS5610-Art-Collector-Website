@@ -1,15 +1,10 @@
 import React from "react";
 import ComponentHeader from "../../ComponentHeader";
-import {Link} from "react-router-dom";
 import ArtistNotFound from "../../Errors/ArtistNotFound";
-import EmptyPosts from "../../Errors/EmptyPosts";
-import PostFeed from "../../UpdatePosts/PostFeed";
 
 const ArtistStats = (params) => {
 
     const artist = params.artist
-
-    console.log(JSON.stringify(artist, undefined, 4))
 
     return (
         <div className={"p-2 mb-2"}>

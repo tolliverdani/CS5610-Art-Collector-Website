@@ -21,11 +21,13 @@ const EditProfileModal = () => {
     const [username, changeUsername] = useState(profile.username)
     const [pronoun, changePronoun] = useState(profile.pronoun)
     const [location, changeLocation] = useState(profile.location)
+    const [artist, changeArtist] = useState(profile.is_artist)
     const [bio, changeBio] = useState(profile.bio)
 
     const handleUpdate = async () => {
         try {
-            const updated_user = {...profile, "email": email, "username": username, "pronoun": pronoun, "location": location, "bio": bio}
+            const updated_user = {...profile, "email": email, "username": username, "pronoun": pronoun,
+                "location": location, "is_artist": artist, "bio": bio}
             // delete blank password field to that it isn't updated
             delete updated_user["password"];
             updateProfile(updated_user).then(() =>
@@ -77,9 +79,7 @@ const EditProfileModal = () => {
                                 <input className="form-control rounded-pill bg-light border-0 shadow-none"
                                        type="text" id="InputUsername"
                                        value={username}
-                                       onChange={(e) => changeUsername(e.target.value)}
-                                />
-
+                                       onChange={(e) => changeUsername(e.target.value)}/>
                             </div>
                         </div>
 
@@ -92,8 +92,7 @@ const EditProfileModal = () => {
                                 <select className="form-control rounded-pill bg-light border-0 shadow-none"
                                         id="InputPronouns"
                                         value={pronoun}
-                                        onChange={(e) => changePronoun(e.target.value)}
-                                >
+                                        onChange={(e) => changePronoun(e.target.value)}>
                                     <option>He/Him</option>
                                     <option>She/Her</option>
                                     <option>They/Them</option>
@@ -111,8 +110,23 @@ const EditProfileModal = () => {
                                 <input className="form-control rounded-pill bg-light border-0 shadow-none"
                                        type="text" id="InputLocation"
                                        value={location}
-                                       onChange={(e) => changeLocation(e.target.value)}
-                                />
+                                       onChange={(e) => changeLocation(e.target.value)}/>
+                            </div>
+                        </div>
+
+                        <div className="form-group row mb-3">
+                            <label htmlFor="InputArtistStatus"
+                                   className="col-sm-2 col-form-label">
+                                Artist?
+                            </label>
+                            <div className="col-sm-10">
+                                <select className="form-control rounded-pill bg-light border-0 shadow-none"
+                                        id="InputArtistStatus"
+                                        value={artist}
+                                        onChange={(e) => changeArtist(e.target.value)}>
+                                    <option value={true}>Yes</option>
+                                    <option value={false}>No</option>
+                                </select>
                             </div>
                         </div>
 
@@ -125,8 +139,7 @@ const EditProfileModal = () => {
                                 <textarea className="form-control bg-light border-0 shadow-none"
                                           id="InputBio"
                                           value={bio}
-                                          onChange={(e) => changeBio(e.target.value)}
-                                />
+                                          onChange={(e) => changeBio(e.target.value)}/>
                             </div>
                         </div>
                     </Form>

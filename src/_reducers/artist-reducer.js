@@ -3,7 +3,7 @@ import {
     ARTIST_DETAILS, UPDATED_ARTISTS
 } from "../_actions/artpieces-actions";
 
-const artistReducer = (state = [], action) => {
+const artistReducer = (state = {"data":[]}, action) => {
 
     switch (action.type) {
         case ARTIST_GENERAL_SEARCH:

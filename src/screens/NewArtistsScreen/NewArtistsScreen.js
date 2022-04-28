@@ -14,6 +14,8 @@ const NewArtistsScreen = () => {
     const artist_data = useSelector(state => state.artists);
     useEffect(() => updatedArtists(dispatch), [dispatch]);
 
+    const artists = artist_data.data
+
     return (
 
             <div className={"container"}>
@@ -25,7 +27,7 @@ const NewArtistsScreen = () => {
                     </div>
                     <div className={'col-10 col-lg-8'}>
                         {ComponentHeader("New Artists")}
-                        <PaintingGrid type={"artists"} data={artist_data}/>
+                        <PaintingGrid type={"artists"} data={artists}/>
                     </div>
                     <div className={'d-none d-lg-block col-2'}>
                         {/*<PaintingListings/>*/}

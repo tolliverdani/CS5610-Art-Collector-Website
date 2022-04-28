@@ -21,6 +21,7 @@ const AdminEditProfileModal = ({user}) => {
     const [password, changePassword] = useState("")
     const [bio, changeBio] = useState(user.bio)
     const [rating, changeRating] = useState(user.rating)
+    const [artist, changeArtist] = useState(user.is_artist)
     const [admin, changeAdmin] = useState(user.is_admin)
 
 
@@ -45,7 +46,7 @@ const AdminEditProfileModal = ({user}) => {
     const handleUpdate = async () => {
         try {
             const updated_user = {...user, "email": email, "username": username,
-                "pronoun": pronoun, "location": location,
+                "pronoun": pronoun, "location": location, "is_artist": artist,
                 "bio": bio, "rating": rating, "password": password, "is_admin": admin}
 
             // if password field is blank we assume that did not change it and don't want to update it
@@ -126,7 +127,9 @@ const AdminEditProfileModal = ({user}) => {
                                        value={password}
                                        onChange={(e) => changePassword(e.target.value)}
                                 />
-                                <label htmlFor="InputPassword" className=" ms-2 mb-0 form-label text-secondary">Don't want to update the password? Leave this blank.</label>
+                                <label htmlFor="InputPassword" className=" ms-2 mb-0 form-label text-secondary">
+                                    Don't want to update the password? Leave this blank.
+                                </label>
                             </div>
                         </div>
 
