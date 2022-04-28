@@ -7,7 +7,7 @@ const PostFeed = ({posts}) => {
         <div className={"p-2 border-bottom"}>
             <div className={"list-group"}>
                 {posts.map(update_post =>
-                    <PostItem key={update_post._id} update={update_post}/>)}
+                    <PostItem key={update_post._id} post={update_post}/>)}
             </div>
         </div>
     )

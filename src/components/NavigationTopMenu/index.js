@@ -33,14 +33,14 @@ const NavigationTopMenu = () => {
             </div>
 
             <UnsecuredContent>
-                <div className={'col-2'}>
+                <div className={'d-none d-lg-block col-lg-2 '}>
                     <SignUpModalButton text={"Sign Up"}/>
                     <LoginModalButton text={"Log In"}/>
                 </div>
             </UnsecuredContent>
 
             <SecureContent>
-                <div className={'col-2 text-end'}>
+                <div className={'d-none d-lg-block col-lg-2 text-end'}>
                     <HamburgerMenu/>
                 </div>
             </SecureContent>

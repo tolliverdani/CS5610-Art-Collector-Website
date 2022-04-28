@@ -40,16 +40,23 @@ export const findArtistComments = async (dispatch, artist_id) => {
     })
 }
 
-export const updateComment = async (dispatch, tuit) => {
-    const status = await service.updateComment(tuit);
+export const updateComment = async (dispatch, comment_id) => {
+    const status = await service.updateComment(comment_id);
     if (status === "OK") {
-        dispatch({type: UPDATE_COMMENT, tuit});
+        dispatch({
+            type: UPDATE_COMMENT,
+            comment_id
+        });
     }
 }
 
-export const deleteComment = async (dispatch, tuit) => {
-    const response = await service.deleteComment(tuit);
+export const deleteComment = async (dispatch, comment_id) => {
+    console.log("in delete comment in actions")
+    const response = await service.deleteComment(comment_id);
     if (response === "OK") {
-        dispatch({type: DELETE_COMMENT, tuit})
+        dispatch({
+            type: DELETE_COMMENT,
+            comment_id
+        })
     }
 }

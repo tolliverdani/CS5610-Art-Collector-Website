@@ -29,12 +29,13 @@ export const findArtistComments = async (artist_id) => {
     }
 }
 
-export const deleteComment = async (comment) => {
-    const response = await axios.delete(`${COMMENTS_API}/${comment._id}`);
+export const deleteComment = async (comment_id) => {
+    console.log("in delete comment in services")
+    const response = await axios.delete(`${COMMENTS_API}/${comment_id}`);
     return response.data;
 }
 
-export const updateComment = async (comment) => {
-    const response = await axios.put(`${COMMENTS_API}/${comment._id}`, comment);
+export const updateComment = async (comment_id) => {
+    const response = await axios.put(`${COMMENTS_API}/${comment_id}`, comment);
     return response.data;
 }
