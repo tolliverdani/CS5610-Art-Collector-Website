@@ -3,6 +3,7 @@ import * as service from "../_services/user-service"
 export const FIND_USER_BY_ID = "FIND_USER_BY_ID"
 export const FIND_ALL_USERS = "FIND_ALL_USERS"
 export const ADMIN_UPDATE_PROFILE = "ADMIN_UPDATE_PROFILE"
+export const UPDATE_PROFILE = "UPDATE_PROFILE"
 export const ADMIN_DELETE_USER = "ADMIN_DELETE_USER"
 
 export const adminDeleteUser = async (dispatch, user_id) => {
@@ -27,10 +28,14 @@ export const findUserById = async (dispatch, user_id) => {
     })
 }
 
-export const updateProfile = async (user) => {
+export const updateProfile = async (dispatch, user) => {
+    console.log("inside updateProfile")
     const updated_profile = await service.updateUser(user);
+    dispatch ({
+        type: UPDATE_PROFILE,
+        updated_profile
+    })
 }
-
 export const adminUpdateProfile = async (dispatch, user) => {
     const updated_profile = await service.updateUser(user);
     dispatch ({

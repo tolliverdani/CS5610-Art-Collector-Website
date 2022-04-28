@@ -10,7 +10,6 @@ export const ProfileProvider = ({children}) => {
     const checkLoggedIn = async () => {
         try {
             const profile = await security.profile()
-            console.log(JSON.stringify(profile, undefined, 4))
             setProfile(profile)
             return profile
         } catch (e) {
@@ -18,7 +17,7 @@ export const ProfileProvider = ({children}) => {
         }
     }
 
-    /*const update = async () => {
+    const updateProfile = async () => {
         console.log("in the update function in profile-context")
         if (profile && profile.hasOwnProperty("_id")) {
             console.log(profile._id)
@@ -29,7 +28,7 @@ export const ProfileProvider = ({children}) => {
                 throw(e)
             }
         }
-    }*/
+    }
 
     const signup = async (email, username, password) => {
         console.log("inside signup in the profile context")
@@ -66,7 +65,7 @@ export const ProfileProvider = ({children}) => {
         }
     }
 
-    const value = {profile, signup, login, logout, checkLoggedIn}
+    const value = {profile, signup, login, logout, checkLoggedIn, updateProfile}
 
     return (
         <ProfileContext.Provider value={value}>

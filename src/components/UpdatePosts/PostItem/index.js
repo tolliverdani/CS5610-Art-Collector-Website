@@ -20,15 +20,20 @@ const PostItem = ({post}) => {
             <div className={`d-flex justify-content-between small p-0 m-0`}>
                 <div>
                 <span className={'small'}>
-                        <span><strong>{post.username}</strong></span>
-                        <span
-                            className={'small text-muted'}>
-                            - {date.getMonth()}/{date.getDate()}/{date.getFullYear()}
-                        </span>
+                    <span>
+                        <i className={"fa fa-user-circle pe-1 p-0 m-0"}/>
                     </span>
+                    <span>
+                        <strong> {post.username}</strong>
+                    </span>
+                    <span
+                        className={'small text-muted'}>
+                        - {date.toLocaleString()}
+                    </span>
+                </span>
                     <p>{post.comment}</p>
                 </div>
-                <i className={"fa fa-times"} onClick={handleDeleteComment}/>
+                <i className={"fa fa-remove"} onClick={handleDeleteComment}/>
             </div>
         </div>
     )

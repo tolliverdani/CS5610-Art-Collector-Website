@@ -31,8 +31,10 @@ const SignUpModal = ({text}) => {
 
     return (
         <>
-            <span className="border-0 m-1" onClick={() => setShow(true)}>
-                {text}
+            <span className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1`}
+                  onClick={() => setShow(true)}>
+                <i className={"fa fa-solid fa-arrow-alt-circle-right ps-lg-2"}/>
+                <span className={`d-none d-lg-inline ps-2`}>{text}</span>
             </span>
 
             <Modal show={set} onHide={() => setShow(false)}>

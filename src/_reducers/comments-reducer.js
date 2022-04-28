@@ -8,12 +8,12 @@ import {
 } from "../_actions/comments-actions";
 
 const commentsReducer = (state = [], action) => {
-    {console.log(action.type)}
     switch (action.type) {
         case FIND_ALL_COMMENTS:
             console.log("in find all comments")
             return action.comments;
         case FIND_ARTIST_COMMENTS:
+            console.log("in find artist comments")
             return action.comments;
         case FIND_PAINTING_COMMENTS:
             console.log("in find painting comments")

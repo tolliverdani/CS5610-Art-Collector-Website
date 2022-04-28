@@ -42,14 +42,8 @@ const NavigationSidebar =
                         <span className={`d-none d-lg-inline ps-2`}>New Listings</span>
                     </Link>
                     <UnsecuredContent>
-                        <span className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1`}>
-                            <i className={"fa fa-solid fa-arrow-alt-circle-right ps-lg-2"}/>
-                            <span className={`d-none d-lg-inline ps-2`}><SignUpModal text={"Sign Up"}/></span>
-                        </span>
-                        <span className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1`}>
-                            <i className={"fa fa-solid fa-user-circle ps-lg-2"}/>
-                            <span className={`d-none d-lg-inline ps-2`}><LogInModal text={"Log In"}/></span>
-                        </span>
+                        <SignUpModal text={"Sign Up"}/>
+                        <LogInModal text={"Log In"}/>
                     </UnsecuredContent>
 
                     <SecureContent>

@@ -28,8 +28,10 @@ const LogInModal = ({text}) => {
 
     return (
         <>
-            <span className="border-0 m-1" onClick={() => setShow(true)}>
-                {text}
+            <span className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1`}
+                  onClick={() => setShow(true)}>
+                <i className={"fa fa-solid fa-user-circle ps-lg-2"}/>
+                <span className={`d-none d-lg-inline ps-2`}>{text}</span>
             </span>
 
             <Modal show={set} onHide={() => setShow(false)}>
@@ -52,9 +54,9 @@ const LogInModal = ({text}) => {
                                     type="email" id="InputEmail"
                                     placeholder="email@domain.com"
                                     onKeyPress={(e) => {
-                                        if ( e.key === 'Enter') handleLogin();
+                                        if (e.key === 'Enter') handleLogin();
                                     }}
-                                    />
+                                />
                             </div>
                         </div>
                         <div className="form-group row">
@@ -67,7 +69,7 @@ const LogInModal = ({text}) => {
                                        type="password" id="InputPassword"
                                        placeholder="Password"
                                        onKeyPress={(e) => {
-                                           if ( e.key === 'Enter') handleLogin();
+                                           if (e.key === 'Enter') handleLogin();
                                        }}
                                 />
                             </div>

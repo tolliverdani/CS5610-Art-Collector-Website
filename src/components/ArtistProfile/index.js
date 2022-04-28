@@ -7,16 +7,25 @@ import {useDispatch} from "react-redux";
 
 const ArtistProfile = (params) => {
 
-    const {profile, update} = useProfile()
+    const {profile} = useProfile()
     const dispatch = useDispatch()
 
     const artist = params.artist
 
+    const handleClaimArtist = async () => {
+        try {
+            const updated_profile = await updateProfile(dispatch, {...profile, artist_id: artist._id})
+            //.then(updateProfile)
+            console.log(JSON.stringify(profile, undefined,4))
+        } catch (e) {
+            console.log("unable to claim page")
+        }
+    }
     return (
         <>
             <SecureArtistContent>
                 <button className={"btn btn-primary rounded-pill"}
-                onClick={updateProfile(dispatch, {...profile, artist_id: artist._id}).then(console.log("This is where you want to update the profile"))}>
+                        onClick={handleClaimArtist}>
                     Claim Page
                 </button>
             </SecureArtistContent>
