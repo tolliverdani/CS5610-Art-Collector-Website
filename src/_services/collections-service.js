@@ -15,9 +15,11 @@ export const updateCollection = async (collection) => {
 }
 
 export const findUserCollection = async (user_id) => {
+    console.log("inside findUserCollection in collections service with this id: " + user_id)
     const request_url = `${COLLECTIONS_API}/${user_id}`
     const response = await axios.get(request_url);
     if (response.status === 200) {
+        console.log(response.data)
         return response.data
     }
 }

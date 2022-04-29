@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
 import {useNavigate} from "react-router-dom";
-import {login} from "../../../_services/auth-service";
+import {login} from "../../../_actions/profile-actions"
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 

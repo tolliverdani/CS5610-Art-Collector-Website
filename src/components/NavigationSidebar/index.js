@@ -1,22 +1,24 @@
 import React from "react";
 import {Link, useNavigate} from "react-router-dom";
 import SecureContent from "../../_security/secure-content";
-import {logout} from "../../_services/auth-service";
 import UnsecuredContent from "../../_security/unsecured-content";
 import LogInModal from "../Auth/LoginModal";
 import SignUpModal from "../Auth/SignUpModal";
 import SecureAdminContent from "../../_security/secure-admin-content";
+import {logout} from "../../_actions/profile-actions";
+import {useDispatch} from "react-redux";
 
 const NavigationSidebar =
     ({
          active = 'home'
      }) => {
 
+        const dispatch = useDispatch()
         const navigate = useNavigate()
 
         const handleLogout = async () => {
             try {
-                await logout()
+                await logout(dispatch)
                 navigate('/home')
             } catch (e) {
                 throw(e);
@@ -53,14 +55,14 @@ const NavigationSidebar =
                             <span className={`d-none d-lg-inline ps-2`}>My Collection</span>
                         </Link>
                     </SecureContent>
-                        <SecureAdminContent>
-                            <Link to="/admin"
-                                  className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1`}>
-                                <i className="fa fa-toolbox ps-lg-2"/>
-                                <span className={`d-none d-lg-inline ps-2`}>Admin Page</span>
-                            </Link>
-                        </SecureAdminContent>
-                        <SecureContent>
+                    <SecureAdminContent>
+                        <Link to="/admin"
+                              className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1`}>
+                            <i className="fa fa-toolbox ps-lg-2"/>
+                            <span className={`d-none d-lg-inline ps-2`}>Admin Page</span>
+                        </Link>
+                    </SecureAdminContent>
+                    <SecureContent>
                         <Link to={"/home"}
                               onClick={handleLogout}
                               className={`list-group-item list-group-item-action text-center text-lg-start border-0 p-1`}>

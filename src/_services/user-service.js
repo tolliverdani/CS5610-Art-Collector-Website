@@ -20,6 +20,7 @@ export const updateUser = async (user) => {
     }
 }
 
+
 export const findAllUsers = async () => {
     const request_url = `${API_BASE}/users`
     const response = await axios.get(request_url)

@@ -22,8 +22,7 @@ export const profile = async () =>
     api.post(`${SECURITY_API}/profile`)
         .then(response => response.data);
 
-export const update = async (email, username, password, pronouns, location, bio) => {
-    api.put(`${SECURITY_API}/profile`,
-        {email, username, password, pronouns, location, bio})
+export const update = async (user) => {
+    api.put(`${SECURITY_API}/profile`, user)
         .then(response => response.data)
 }

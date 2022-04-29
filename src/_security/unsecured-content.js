@@ -1,14 +1,19 @@
 import {useEffect, useState} from "react";
-import {profile} from "../_services/auth-service";
+import {useDispatch} from "react-redux";
+import {checkLoggedIn} from "../_actions/profile-actions"
 
-const UnsecuredContent = ({children}) => {
+const SecureContent = ({children}) => {
+
+    const dispatch = useDispatch()
     const [currentUser, setCurrentUser] = useState()
 
     const check = async () => {
         try {
-            const user = await profile()
+            const user = await checkLoggedIn(dispatch)
             setCurrentUser(user)
+            console.log("user is logged in")
         } catch (e) {
+            console.log("user is NOT logged in")
         }
     }
 
@@ -23,4 +28,4 @@ const UnsecuredContent = ({children}) => {
     return children
 }
 
-export default UnsecuredContent
+export default SecureContent

@@ -13,23 +13,21 @@ import UserProfile from "../../components/UserProfile";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import ListingsGrid from "../../components/ListingsGrid";
 import Collection from "../../components/UserProfile/Collection";
-import {findUserById} from "../../_actions/users-actions";
+import {getProfile} from "../../_actions/profile-actions";
 
 const CurrentUserProfileScreen = () => {
 
     const dispatch = useDispatch();
 
     const profile = useSelector(state => state.profile)
-    useEffect(findUserById(dispatch, profile._id), [dispatch, profile._id])
-
     const paintings = useSelector(state => state.collection);
-    useEffect(() => findUserCollection(dispatch, profile._id), [dispatch, profile._id]);
-
     const listings = useSelector(state => state.listings);
-    useEffect(() => findActiveListingsByOwnerId(dispatch, profile._id), [dispatch, profile._id])
-
     const offers = useSelector(state => state.offers);
+
+    useEffect(() => findUserCollection(dispatch, profile._id), [dispatch, profile._id]);
+    useEffect(() => findActiveListingsByOwnerId(dispatch, profile._id), [dispatch, profile._id])
     useEffect(() => findActiveOffersBySellerId(dispatch, profile._id), [dispatch, profile._id])
+    useEffect(() => getProfile(dispatch), [dispatch])
 
     return (
         <div className={"container"}>
