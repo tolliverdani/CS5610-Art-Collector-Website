@@ -13,23 +13,25 @@ import {findActiveListingsByArtistId} from "../../_actions/listings-actions";
 import ListingsGrid from "../../components/ListingsGrid";
 import {findArtistComments} from "../../_actions/comments-actions";
 import UpdatePosts from "../../components/UpdatePosts";
+import {findUserById} from "../../_actions/users-actions";
 
 const ArtistProfileScreen = () => {
     const {artist_name, artist_id} = useParams();
     const dispatch = useDispatch();
 
     const artist = useSelector(state => state.artists);
-    useEffect(() => artistDetails(dispatch, artist_name), [dispatch, artist_name]);
-
     const paintings_data = useSelector(state => state.paintings);
-    useEffect(() => findPaintingsByArtist(dispatch, artist_id), [dispatch, artist_id]);
-    const paintings = paintings_data.data;
-
     const posts = useSelector(state => state.comments)
-    useEffect(() => findArtistComments(dispatch, artist_id), [dispatch, artist_id])
-
     const listings = useSelector(state => state.listings)
+    const profile = useSelector(state => state.profile)
+
+    useEffect(() => findArtistComments(dispatch, artist_id), [dispatch, artist_id])
+    useEffect(() => findPaintingsByArtist(dispatch, artist_id), [dispatch, artist_id]);
+    useEffect(() => artistDetails(dispatch, artist_name), [dispatch, artist_name]);
     useEffect(() => findActiveListingsByArtistId(dispatch, artist_id), [dispatch, artist_id])
+    useEffect(() => findUserById(dispatch, profile._id), [dispatch, profile._id])
+
+    const paintings = paintings_data.data;
 
     return (
         <>
@@ -47,7 +49,7 @@ const ArtistProfileScreen = () => {
                         <UpdatePosts posts={posts} is_artist={true}/>
                     </div>
                     <div className={'col-2 d-none d-lg-block'}>
-                        <ArtistProfile artist={artist}/>
+                        <ArtistProfile profile={profile} artist={artist}/>
                         <ArtistStats artist={artist}/>
                     </div>
                 </div>

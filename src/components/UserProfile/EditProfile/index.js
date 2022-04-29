@@ -1,22 +1,18 @@
 import React, {useRef, useState} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
-import {createOffer} from "../../../_actions/offers-actions";
-import {useDispatch} from "react-redux";
-import {useProfile} from "../../../_context/profile-context";
 import {useNavigate} from "react-router-dom";
-import {update} from "../../../_services/auth-service";
-import {updateUser} from "../../../_services/user-service";
 import {updateProfile} from "../../../_actions/users-actions";
+import {useDispatch, useSelector} from "react-redux";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
 const EditProfileModal = () => {
     const [set, setShow] = useState(false);
 
-    const navigate = useNavigate();
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
-    const user = useProfile()
-    const profile = user.profile
+    const profile = useSelector(state => state.profile)
     const [email, changeEmail] = useState(profile.email)
     const [username, changeUsername] = useState(profile.username)
     const [pronoun, changePronoun] = useState(profile.pronoun)
@@ -26,18 +22,26 @@ const EditProfileModal = () => {
 
     const handleUpdate = async () => {
         try {
-            const updated_user = {...profile, "email": email, "username": username, "pronoun": pronoun,
-                "location": location, "is_artist": artist, "bio": bio}
+            const updated_user = {
+                ...profile,
+                "email": email,
+                "username": username,
+                "pronoun": pronoun,
+                "location": location,
+                "is_artist": artist,
+                "bio": bio
+            }
             // delete blank password field to that it isn't updated
             delete updated_user["password"];
-            updateProfile(updated_user).then(() =>
-            {
+
+            updateProfile(dispatch, updated_user).then(() => {
                 alert("You have updated your profile")
                 setShow(false)
             })
             navigate('/profile')
+
         } catch (e) {
-            throw(e);
+            alert("Ut oh! Unable to update this profile")
         }
     }
 

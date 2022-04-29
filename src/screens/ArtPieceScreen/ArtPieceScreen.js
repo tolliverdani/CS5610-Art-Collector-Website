@@ -5,18 +5,14 @@ import PaintingListings from "../../components/ListingsGrid";
 import PriceHistory from "../../components/ArtDetails/PriceHistory";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import UpdatePosts from "../../components/UpdatePosts";
-import paintingsReducer from "../../_reducers/paintings-reducer"
 import {useLocation, useParams} from "react-router-dom";
-import {Provider, useDispatch, useSelector} from "react-redux";
-import {combineReducers, createStore} from "redux";
+import {useDispatch, useSelector} from "react-redux";
 import ArtDetails from "../../components/ArtDetails";
 import {paintingDetails} from "../../_actions/artpieces-actions";
 import ArtStats from "../../components/ArtDetails/ArtStats";
 import {findPaintingComments} from "../../_actions/comments-actions";
 import {findActiveListingsByPaintingId, findSalesPriceHistoryByPaintingId} from "../../_actions/listings-actions";
 import {findPriceHistoryAllOffersByPaintingId} from "../../_actions/offers-actions";
-import {findAllUsers} from "../../_actions/users-actions";
-import UserGrid from "../../components/UserGrid"; // TODO: set up with database
 
 // TODO delete this?
 
@@ -41,29 +37,26 @@ const ArtPieceScreen = () => {
         const salesHistory = useSelector(state => state.salesHistory);
         useEffect(() => findSalesPriceHistoryByPaintingId(dispatch, painting_id), [dispatch, painting_id])
 
-        const users = useSelector(state => state.users);
-        useEffect(() => findAllUsers(dispatch), [dispatch])
-
         return (
 
-                <div className={"container"}>
-                    <NavigationTopMenu/>
-                    <div className={"row m-3 p-2"}>
-                        <div className={'col-2'}>
-                            <NavigationSidebar
-                                active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
-                        </div>
-                        <div className={'col-10 col-lg-8'}>
-                            <PriceHistory sales_history={salesHistory} offers_history={offersHistory}/>
-                            <PaintingListings type={"painting"} data={listings}/>
-                            <UpdatePosts painting_data={data} posts={posts} is_artist={false}/>
-                        </div>
-                        <div className={'d-none d-lg-block col-2'}>
-                            <ArtDetails data={data}/>
-                            <ArtStats data={data}/>
-                        </div>
+            <div className={"container"}>
+                <NavigationTopMenu/>
+                <div className={"row m-3 p-2"}>
+                    <div className={'col-2'}>
+                        <NavigationSidebar
+                            active={useLocation().pathname.substring(window.location.pathname.lastIndexOf('/') + 1)}/>
+                    </div>
+                    <div className={'col-10 col-lg-8'}>
+                        <PriceHistory sales_history={salesHistory} offers_history={offersHistory}/>
+                        <PaintingListings type={"painting"} data={listings}/>
+                        <UpdatePosts painting_data={data} posts={posts} is_artist={false}/>
+                    </div>
+                    <div className={'d-none d-lg-block col-2'}>
+                        <ArtDetails data={data}/>
+                        <ArtStats data={data}/>
                     </div>
                 </div>
+            </div>
 
         );
     }

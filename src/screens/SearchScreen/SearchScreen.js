@@ -8,19 +8,21 @@ import ArtistSearchGrid from "../../components/ArtistSearchGrid";
 import PaintingGrid from "../../components/PaintingGrid";
 import EmptySearch from "../../components/Errors/EmptySearch";
 import ComponentHeader from "../../components/ComponentHeader";
+import {findUserById} from "../../_actions/users-actions";
 
 const SearchScreen = () => {
     const {searchTerm} = useParams();
     const dispatch = useDispatch();
 
     const paintings_data = useSelector(state => state.paintings);
-    useEffect(() => {
-        generalSearch(dispatch, searchTerm);
-    }, [dispatch, searchTerm]);
-    const paintings = paintings_data.data;
-
     const artists = useSelector(state => state.artists);
+    const profile = useSelector(state => state.profile)
+
+    useEffect(() => {generalSearch(dispatch, searchTerm);}, [dispatch, searchTerm]);
     useEffect(() => artistGeneralSearch(dispatch, searchTerm), [dispatch, searchTerm]);
+    useEffect(() => findUserById(dispatch), [dispatch])
+
+    const paintings = paintings_data.data;
 
     return (
         <div className={"container"}>

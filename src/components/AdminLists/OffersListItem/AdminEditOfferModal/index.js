@@ -1,9 +1,6 @@
 import React, {useRef, useState} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
-import {useProfile} from "../../../../_context/profile-context";
-import {useNavigate} from "react-router-dom";
 
-import {adminUpdateProfile, updateProfile} from "../../../../_actions/users-actions";
 import {useDispatch} from "react-redux";
 import {deleteOffer, updateOffer} from "../../../../_actions/offers-actions";
 
@@ -32,15 +29,20 @@ const AdminEditOfferModal = ({offer}) => {
 
     const handleUpdate = async () => {
         try {
-            const updated_offer = {...offer, "offer_price": offer_price, "active_offer": active_offer,
-                "accepted": accepted, "date_removed": date_removed}
+            const updated_offer = {
+                ...offer,
+                "offer_price": offer_price,
+                "active_offer": active_offer,
+                "accepted": accepted,
+                "date_removed": date_removed
+            }
 
             // TODO THIS
-            updateOffer(dispatch,updated_offer).then(() =>
-            {
-                alert("You have updated this offer")
-                setShow(false)
-            })
+            updateOffer(dispatch, updated_offer).then(
+                () => {
+                    alert("You have updated this offer")
+                    setShow(false)
+                })
         } catch (e) {
             setShow(false)
         }
@@ -74,7 +76,8 @@ const AdminEditOfferModal = ({offer}) => {
                             <p className={"m-0"}><strong>Seller Id: </strong>{offer.seller_id}</p>
                             <p className={"m-0"}><strong>Buyer Id: </strong>{offer.buyer_id}</p>
                             <p className={"m-0"}><strong>Buyer Name: </strong>{offer.buyer_name}</p>
-                            <p className={"m-0"}><strong>Date Created: </strong>{new Date(offer.date_created).toLocaleDateString()}</p>
+                            <p className={"m-0"}><strong>Date
+                                Created: </strong>{new Date(offer.date_created).toLocaleDateString()}</p>
                         </div>
                         <div className="form-group row mb-4">
                             <label htmlFor="PriceInput"
@@ -137,8 +140,6 @@ const AdminEditOfferModal = ({offer}) => {
                                 />
                             </div>
                         </div>
-
-
 
 
                     </Form>

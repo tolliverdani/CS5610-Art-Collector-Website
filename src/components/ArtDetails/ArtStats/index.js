@@ -1,11 +1,8 @@
 import React from "react";
-import {useProfile} from "../../../_context/profile-context";
 import {Link} from "react-router-dom";
 import ComponentHeader from "../../ComponentHeader";
 
-const ProfileStats = (params) => {
-
-    const data = params.data
+const ProfileStats = ({data}) => {
 
     return (
         <div className={"p-2 mb-2 bg-light"}>
@@ -38,7 +35,6 @@ const ProfileStats = (params) => {
                 </div>
             </div>
         </div>
-    )
-        ;
+    );
 }
 export default ProfileStats;

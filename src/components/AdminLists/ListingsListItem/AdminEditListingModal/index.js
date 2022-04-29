@@ -1,9 +1,5 @@
-import React, {useRef, useState} from "react";
+import React, {useState} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
-import {useProfile} from "../../../../_context/profile-context";
-import {useNavigate} from "react-router-dom";
-
-import {adminUpdateProfile, updateProfile} from "../../../../_actions/users-actions";
 import {useDispatch} from "react-redux";
 import {deleteListing, updateListing} from "../../../../_actions/listings-actions";
 
@@ -26,9 +22,14 @@ const AdminEditListingModal = ({listing}) => {
 
     const handleUpdate = async () => {
         try {
-            const updated_listing = {...listing, "listing_price": listing_price, "active_listing": active_listing,
-                "sold": accepted, "date_removed": date_removed,
-                "sale_price": sale_price, "quality": quality, "buyer_id": buyer_id
+            const updated_listing = {...listing,
+                "listing_price": listing_price,
+                "active_listing": active_listing,
+                "sold": accepted,
+                "date_removed": date_removed,
+                "sale_price": sale_price,
+                "quality": quality,
+                "buyer_id": buyer_id
             }
 
             updateListing(dispatch,updated_listing).then(() =>

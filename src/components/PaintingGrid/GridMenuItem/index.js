@@ -1,8 +1,7 @@
 import {Dropdown, DropdownButton} from "react-bootstrap";
 import React from "react";
 import {addToUserCollection, removeFromUserCollection} from "../../../_actions/collections-actions";
-import {useProfile} from "../../../_context/profile-context";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import CreateListingModal from "../CreateListingModal";
 import SecureContent from "../../../_security/secure-content";
 import {useNavigate} from "react-router-dom";
@@ -47,9 +46,9 @@ const PaintingGridMenuItem = (grid_item, profile, dispatch) => {
                     // TODO how to handle this?
                     try {
                         addToUserCollection(dispatch, profile._id, item_to_add)
-                        alert("Added to your collection")
+                        alert("Item added to your collection")
                     } catch {
-                        alert("(not really) removed to your collection")
+                        alert("Ut oh! Couldn't add this item to your collection")
                     }
                 }}>
                     Add to Collection
@@ -76,9 +75,9 @@ const CollectionGridMenuItem = (grid_item, profile, dispatch) => {
                 <Dropdown.Item onClick={() => {
                     try {
                         removeFromUserCollection(dispatch, profile._id, grid_item._id)
-                        alert("removed from your collection")
+                        alert("Item removed from your collection")
                     } catch {
-                        alert("couldn't remove from your collection")
+                        alert("Ut oh! Couldn't remove this item from your collection")
                     }
                 }}>
                     Remove from Collection
@@ -97,7 +96,7 @@ const CollectionGridMenuItem = (grid_item, profile, dispatch) => {
 
 const GridMenuItem = (params) => {
 
-    const {profile} = useProfile()
+    const profile = useSelector(state => state.profile)
     const {dispatch} = useDispatch()
 
     switch (params.type) {

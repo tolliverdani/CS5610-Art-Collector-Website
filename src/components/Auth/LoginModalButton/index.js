@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
 import {useNavigate} from "react-router-dom";
-import {useProfile} from "../../../_context/profile-context";
+import {login} from "../../../_services/auth-service";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
@@ -12,9 +12,9 @@ const LogInModal = ({text}) => {
     const passRef = useRef()
 
     const navigate = useNavigate();
-    const {login} = useProfile()
 
     const handleLogin = async () => {
+        console.log("in handleLogin")
         try {
             await login(
                 emailRef.current.value,
@@ -79,7 +79,8 @@ const LogInModal = ({text}) => {
                 <Modal.Footer className={`border-0`}>
                     <div className={'container text-center'}>
                         <button className={'btn btn-primary bg-primary rounded-pill border-0 mb-2'}
-                                onClick={handleLogin}>
+                                onClick={() => handleLogin}>
+                            {console.log("clicked the login button")}
                             Login
                         </button>
                         <div className={'row'}>

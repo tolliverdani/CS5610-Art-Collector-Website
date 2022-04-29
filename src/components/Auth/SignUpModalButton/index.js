@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
-import {Modal, Button, Form} from 'react-bootstrap';
+import {Modal, Form} from 'react-bootstrap';
 import {useNavigate} from "react-router-dom";
-import {useProfile} from "../../../_context/profile-context";
+import {signup} from "../../../_services/auth-service";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
@@ -14,10 +14,10 @@ const SignUpModal = ({text}) => {
 
     const navigate = useNavigate();
 
-    const {signup} = useProfile()
 
     const handleSignup = async () => {
         try {
+            console.log("in handleSignup")
             await signup(
                 emailRef.current.value,
                 usernameRef.current.value,

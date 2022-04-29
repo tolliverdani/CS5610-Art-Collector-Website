@@ -1,9 +1,7 @@
 import React, {useRef, useState} from "react";
-import {Modal, Button, Form} from 'react-bootstrap';
-import {useNavigate} from "react-router-dom";
-import {useProfile} from "../../../_context/profile-context";
+import {Modal, Form} from 'react-bootstrap';
 import {createListing} from "../../../_actions/listings-actions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
@@ -12,7 +10,7 @@ const CreateListingModal = ({art_info}) => {
 
     const qualityRef = useRef()
     const priceRef = useRef()
-    const {profile} = useProfile()
+    const profile = useSelector(state => state.profile)
     const dispatch = useDispatch()
 
 

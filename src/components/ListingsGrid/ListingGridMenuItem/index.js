@@ -2,13 +2,12 @@ import {Dropdown, DropdownButton} from "react-bootstrap";
 import SecureContent from "../../../_security/secure-content";
 import React from "react";
 import ConfirmationModal from "../ConfirmationModal";
-import {useProfile} from "../../../_context/profile-context";
 import {updateListing} from "../../../_actions/listings-actions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const ListingGridMenuItem = ({grid_item}) => {
 
-    const {profile} = useProfile();
+    const profile = useSelector(state => state.profile)
     const dispatch = useDispatch();
 
     const handleClick = () => {

@@ -5,6 +5,7 @@ import {
     FIND_ALL_ACTIVE_LISTINGS,
     CREATE_LISTING, FIND_ALL_LISTINGS, UPDATE_LISTING, DELETE_LISTING
 } from "../_actions/listings-actions";
+
 import {APPROVE_OFFER} from "../_actions/offers-actions";
 
 const listingsReducer = (state = [], action) => {

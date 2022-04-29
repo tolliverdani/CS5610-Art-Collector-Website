@@ -1,18 +1,16 @@
 import React, {useState} from "react";
 import {Modal, Button} from 'react-bootstrap';
 import {createOffer} from "../../../_actions/offers-actions";
-import {useDispatch} from "react-redux";
-import {useProfile} from "../../../_context/profile-context";
+import {useDispatch, useSelector} from "react-redux";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
-
-
 const ConfirmationModal = ({listing_item}) => {
+    const dispatch = useDispatch();
+    const profile = useSelector(state => state.profile)
+
     const [offer_price, setPrice] = useState(listing_item.listing_price);
     const [set, setShow] = useState(false);
-    const dispatch = useDispatch();
-    const {profile} = useProfile();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

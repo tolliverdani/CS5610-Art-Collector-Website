@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
 
-import {useProfile} from "../../_context/profile-context";
 import {randomPaintings} from "../../_actions/artpieces-actions";
 import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
 import SecureContent from "../../_security/secure-content";
@@ -13,25 +12,21 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 import PaintingGrid from "../../components/PaintingGrid";
 import ComponentHeader from "../../components/ComponentHeader";
 import UserGrid from "../../components/UserGrid";
-import {findAllUsers} from "../../_actions/users-actions";
+import {findAllUsers, findUserById} from "../../_actions/users-actions";
 
 const HomeScreen = () => {
-
-    const {profile} = useProfile()
-    let user_id = null
-    if (profile) {
-        user_id = profile._id
-    }
 
     const dispatch = useDispatch();
 
     const paintings_data = useSelector(state => state.paintings);
     const offers = useSelector(state => state.offers);
     const users = useSelector(state => state.users)
+    const profile = useSelector(state => state.profile)
 
     useEffect(() => randomPaintings(dispatch), [dispatch]);
-    useEffect(() => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
     useEffect(() => findAllUsers(dispatch), [dispatch]);
+    useEffect(() => findUserById(dispatch, profile._id), [dispatch, profile._id])
+    //useEffect(() => findActiveOffersBySellerId(dispatch, profile._id), [dispatch, profile._id])
 
     const paintings = paintings_data.data
 

@@ -4,7 +4,6 @@ import './vendors/fontawesome/css/all.min.css';
 import './App.css';
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {ProfileProvider} from "./_context/profile-context";
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 
@@ -48,10 +47,8 @@ const reducers = combineReducers({
 })
 const store = createStore(reducers);
 
-// TODO Can we switch this to the most up-to-date version? > lets do it
 function App() {
     return (
-        <ProfileProvider>
             <Provider store={store}>
                 <BrowserRouter>
                     <Routes>
@@ -106,7 +103,6 @@ function App() {
                     </Routes>
                 </BrowserRouter>
             </Provider>
-        </ProfileProvider>
     );
 }
 

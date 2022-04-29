@@ -1,15 +1,14 @@
-import {useProfile} from "../_context/profile-context";
 import {useEffect, useState} from "react";
 import {Navigate} from "react-router-dom";
+import {profile} from "../_services/auth-service";
 
 const SecureArtistRoute = ({children}) => {
-    const {checkLoggedIn} = useProfile()
     const [currentUser, setCurrentUser] = useState()
     const [waiting, setWaiting] = useState(true)
 
     const check = async () => {
         try {
-            const user = await checkLoggedIn()
+            const user = await profile()
             if (user.hasOwnProperty("is_artist") && (user.is_artist === true)) {
                 setCurrentUser(user)
             setWaiting(false)}

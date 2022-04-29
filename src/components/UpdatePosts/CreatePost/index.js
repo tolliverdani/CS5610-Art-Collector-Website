@@ -1,12 +1,11 @@
 import React, {useState} from "react"
-import {useDispatch} from "react-redux";
-import {useProfile} from "../../../_context/profile-context";
+import {useDispatch, useSelector} from "react-redux";
 import {createComment} from "../../../_actions/comments-actions";
 
 const CreatePost = ({is_artist, painting_data}) => {
-
-    const {profile} = useProfile();
     const dispatch = useDispatch();
+    const profile = useSelector(state => state.profile);
+
     const [newComment, setNewComment] = useState({post: ""});
 
     const handleCreateComment = () => {
@@ -31,8 +30,6 @@ const CreatePost = ({is_artist, painting_data}) => {
                 comment: newComment
             }
         }
-        console.log("About to create a comment: ")
-        console.log(JSON.stringify(comment_to_add, undefined, 4))
         createComment(dispatch, comment_to_add)
     }
 

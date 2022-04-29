@@ -11,7 +11,7 @@ const PostItem = ({post}) => {
         try {
             deleteComment(dispatch, post._id)
         } catch (e) {
-            console.log("wasnt able to delete the comment")
+            alert("Uh oh! We weren't able to delete the comment")
         }
     }
 
@@ -21,19 +21,26 @@ const PostItem = ({post}) => {
                 <div>
                 <span className={'small'}>
                     <span>
-                        <i className={"fa fa-user-circle pe-1 p-0 m-0"}/>
+                        <i className={"fa fa-user-circle fa-2x pe-1 p-0 m-0"}/>
                     </span>
                     <span>
-                        <strong> {post.username}</strong>
+                        <strong> {post.username} </strong>
                     </span>
+                    {!post.is_artist ?
+                        <span>
+                            <i className={"fa fa-paint-brush text-secondary"}/>
+                        </span>
+                        :
+                        <></>
+                    }
                     <span
                         className={'small text-muted'}>
-                        - {date.toLocaleString()}
+                         - {date.toLocaleString()}
                     </span>
                 </span>
                     <p>{post.comment}</p>
                 </div>
-                <i className={"fa fa-remove"} onClick={handleDeleteComment}/>
+                <i className={"fa fa-times text-muted"} onClick={handleDeleteComment}/>
             </div>
         </div>
     )

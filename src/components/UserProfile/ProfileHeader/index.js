@@ -1,7 +1,4 @@
 import React from "react";
-import {useProfile} from "../../../_context/profile-context";
-import SecureContent from "../../../_security/secure-content";
-import EditProfileModal from "../EditProfile";
 
 const ProfileHeader = ({profile}) => {
 

@@ -1,8 +1,7 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
-import {useProfile} from "../../_context/profile-context";
 import {findUserCollection} from "../../_actions/collections-actions";
 import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
 import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
@@ -13,29 +12,24 @@ import NavigationTopMenu from "../../components/NavigationTopMenu";
 import UserProfile from "../../components/UserProfile";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import ListingsGrid from "../../components/ListingsGrid";
-import UserGrid from "../../components/UserGrid";
 import Collection from "../../components/UserProfile/Collection";
-import {findAllUsers} from "../../_actions/users-actions";
+import {findUserById} from "../../_actions/users-actions";
 
 const CurrentUserProfileScreen = () => {
 
-    const {profile} = useProfile()
-    const profile_id = profile._id
     const dispatch = useDispatch();
 
-    console.log("this is the params: " + profile_id)
+    const profile = useSelector(state => state.profile)
+    useEffect(findUserById(dispatch, profile._id), [dispatch, profile._id])
 
     const paintings = useSelector(state => state.collection);
-    useEffect(() => findUserCollection(dispatch, profile_id), [dispatch, profile_id]);
+    useEffect(() => findUserCollection(dispatch, profile._id), [dispatch, profile._id]);
 
     const listings = useSelector(state => state.listings);
-    useEffect(() => findActiveListingsByOwnerId(dispatch, profile_id), [dispatch, profile_id])
+    useEffect(() => findActiveListingsByOwnerId(dispatch, profile._id), [dispatch, profile._id])
 
     const offers = useSelector(state => state.offers);
-    useEffect(() => findActiveOffersBySellerId(dispatch, profile_id), [dispatch, profile_id])
-
-    const users = useSelector(state => state.users);
-    useEffect(() => findAllUsers(dispatch), [dispatch])
+    useEffect(() => findActiveOffersBySellerId(dispatch, profile._id), [dispatch, profile._id])
 
     return (
         <div className={"container"}>

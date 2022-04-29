@@ -1,9 +1,5 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Dropdown, DropdownButton} from "react-bootstrap";
-import {addToUserCollection} from "../../../_actions/collections-actions";
-import {useProfile} from "../../../_context/profile-context";
-import {useDispatch} from "react-redux";
 import GridMenuItem from "../GridMenuItem";
 
 // Reference for content: https://react-bootstrap.github.io/components/dropdowns/

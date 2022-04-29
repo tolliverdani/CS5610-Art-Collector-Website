@@ -18,10 +18,8 @@ export const adminDeleteUser = async (dispatch, user_id) => {
 }
 
 export const findUserById = async (dispatch, user_id) => {
-    // console.log("We are in user actions. We are in the findUserById. Here is the userId: " + user_id)
-
+    console.log("In user actions. In findUserById");
     const user = await service.findUserById(user_id)
-    // console.log("We are in user actions. We are in the findUserById. Here is the user: " + JSON.stringify(user,undefined,4))
     dispatch ({
         type: FIND_USER_BY_ID,
         user
@@ -30,6 +28,7 @@ export const findUserById = async (dispatch, user_id) => {
 
 export const updateProfile = async (dispatch, user) => {
     console.log("inside updateProfile")
+    delete user.password
     const updated_profile = await service.updateUser(user);
     dispatch ({
         type: UPDATE_PROFILE,
@@ -40,7 +39,7 @@ export const adminUpdateProfile = async (dispatch, user) => {
     const updated_profile = await service.updateUser(user);
     dispatch ({
         type: ADMIN_UPDATE_PROFILE,
-        user
+        updated_profile
     })
 }
 

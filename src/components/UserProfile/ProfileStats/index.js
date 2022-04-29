@@ -1,6 +1,4 @@
 import React from "react";
-import {useProfile} from "../../../_context/profile-context";
-import ComponentHeader from "../../ComponentHeader";
 import EditProfileModal from "../EditProfile";
 import SecureContent from "../../../_security/secure-content";
 
