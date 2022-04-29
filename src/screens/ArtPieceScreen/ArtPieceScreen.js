@@ -19,8 +19,7 @@ import {findAllUsers} from "../../_actions/users-actions";
 import UserGrid from "../../components/UserGrid"; // TODO: set up with database
 
 // TODO delete this?
-const reducers = combineReducers({paintings: paintingsReducer})
-const store = createStore(reducers);
+
 
 const ArtPieceScreen = () => {
 
@@ -46,7 +45,7 @@ const ArtPieceScreen = () => {
         useEffect(() => findAllUsers(dispatch), [dispatch])
 
         return (
-            <Provider store={store}>
+
                 <div className={"container"}>
                     <NavigationTopMenu/>
                     <div className={"row m-3 p-2"}>
@@ -65,7 +64,7 @@ const ArtPieceScreen = () => {
                         </div>
                     </div>
                 </div>
-            </Provider>
+
         );
     }
 ;
