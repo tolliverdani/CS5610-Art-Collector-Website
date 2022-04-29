@@ -12,21 +12,22 @@ const Posts = ({painting_data, posts, is_artist}) => {
     return (
         <div className={"mb-2"}>
             {ComponentHeader("Comments")}
+            {is_artist ?
+                <SecureArtistContent>
+                    <CreatePost is_artist={is_artist} painting_data={painting_data}/>
+                </SecureArtistContent>
+                :
+                <SecureContent>
+                    <CreatePost is_artist={is_artist} painting_data={painting_data}/>
+                </SecureContent>
+            }
             <div className={"p-2"}>
                 {posts.length === 0 ?
                     EmptyPosts()
                     :
                     <PostFeed posts={posts}/>
                 }
-                {is_artist ?
-                    <SecureArtistContent>
-                        <CreatePost is_artist={is_artist} painting_data={painting_data}/>
-                    </SecureArtistContent>
-                    :
-                    <SecureContent>
-                        <CreatePost is_artist={is_artist} painting_data={painting_data}/>
-                    </SecureContent>
-                }
+
             </div>
         </div>
     )

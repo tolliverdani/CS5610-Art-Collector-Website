@@ -22,7 +22,7 @@ const commentsReducer = (state = [], action) => {
             return state.filter(comment => comment._id !== action.comment._id);
         case CREATE_COMMENT:
             console.log("in create comment")
-            return [...state, action.newComment];
+            return [action.newComment, ...state];
         case UPDATE_COMMENT:
             return state.map(comment => comment._id === action.comment._id ? action.comment : comment);
         default:
