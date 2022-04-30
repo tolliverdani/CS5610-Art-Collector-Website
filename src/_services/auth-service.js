@@ -9,8 +9,10 @@ const api = axios.create({
 
 export const signup = async (email, username, password) => {
     try {
+        console.log("inside signup")
         const request_url = `${SECURITY_API}/signup`
         const response = await api.post(request_url, {email, username, password})
+        console.log(response.status)
         if (response.status === 200) {
             return response.data;
         } else {
@@ -25,6 +27,7 @@ export const login = async (email, password) => {
     try {
         const request_url = `${SECURITY_API}/login`
         const response = await api.post(request_url, {email, password})
+        console.log(response.status)
         if (response.status === 200) {
             return response.data;
         } else {
@@ -39,6 +42,7 @@ export const logout = async () => {
     try {
         const request_url = `${SECURITY_API}/logout`
         const response = await api.post(request_url)
+        console.log(response.status)
         if (response.status === 200) {
             return response.data;
         } else {
@@ -53,6 +57,7 @@ export const profile = async () => {
     try {
         const request_url = `${SECURITY_API}/profile`
         const response = await api.post(request_url)
+        console.log(response.status)
         if (response.status === 200) {
             return response.data;
         } else {
@@ -67,6 +72,7 @@ export const update = async (user) => {
     try {
         const request_url = `${SECURITY_API}/profile`
         const response = await api.put(request_url, user)
+        console.log(response.status)
         if (response.status === 200) {
             return response.data;
         } else {

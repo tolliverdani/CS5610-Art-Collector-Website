@@ -50,7 +50,10 @@ const SignUpModal = ({text}) => {
                                 <input className="form-control rounded-pill bg-light border-0 shadow-none"
                                        ref={emailRef}
                                        type="email" id="InputEmail"
-                                       placeholder="email@domain.com"/>
+                                       placeholder="email@domain.com"
+                                       onKeyPress={(e) => {
+                                           if ( e.key === 'Enter') handleSignup();
+                                       }}/>
                                 <small id="emailHelp" className="form-text text-muted ps-2">
                                     We'll never share your email with anyone else
                                 </small>
@@ -62,7 +65,10 @@ const SignUpModal = ({text}) => {
                                 <input className="form-control rounded-pill bg-light border-0 shadow-none"
                                        ref={usernameRef}
                                        type="text" id="InputUsername"
-                                       placeholder="JohnDoe123"/>
+                                       placeholder="JohnDoe123"
+                                       onKeyPress={(e) => {
+                                           if ( e.key === 'Enter') handleSignup();
+                                       }}/>
                             </div>
                         </div>
 
@@ -75,7 +81,10 @@ const SignUpModal = ({text}) => {
                                 <input className="form-control rounded-pill bg-light border-0 shadow-none"
                                        ref={passRef}
                                        type="password" id="InputPassword"
-                                       placeholder="Password"/>
+                                       placeholder="Password"
+                                       onKeyPress={(e) => {
+                                           if ( e.key === 'Enter') handleSignup();
+                                       }}/>
                             </div>
                         </div>
                     </Form>
