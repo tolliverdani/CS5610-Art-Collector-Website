@@ -16,7 +16,7 @@ export const updateCollection = async (dispatch, collection) => {
 }
 
 export const findUserCollection = async (dispatch, user_id) => {
-    console.log("trying this id: " + user_id)
+    //console.log("trying this id: " + user_id)
     const collection = await services.findUserCollection(user_id);
     dispatch({
         type: FIND_USER_COLLECTION,

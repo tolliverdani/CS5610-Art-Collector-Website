@@ -15,7 +15,7 @@ import ListingsListItem from "./ListingsListItem";
 
 const DataToDisplay = (type, data) => {
 
-    console.log(data)
+    //console.log(data)
 
     switch (type) {
         case "listings":

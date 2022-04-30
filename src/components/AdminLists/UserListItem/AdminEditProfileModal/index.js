@@ -64,7 +64,7 @@ const AdminEditProfileModal = ({user}) => {
                 delete updated_user["password"];
             }
 
-            console.log("In handle update. About to send this user: " + JSON.stringify(updated_user, undefined, 4))
+            //console.log("In handle update. About to send this user: " + JSON.stringify(updated_user, undefined, 4))
 
             adminUpdateProfile(dispatch, updated_user).then(() => {
                 alert("You have updated this user's profile")

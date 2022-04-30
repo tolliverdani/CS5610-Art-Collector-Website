@@ -8,7 +8,7 @@ import EmptyListings from "../Errors/EmptyListings";
 
 const ListingData = (type, data) => {
 
-    console.log(data)
+    //console.log(data)
 
     switch (type) {
         case "artist":

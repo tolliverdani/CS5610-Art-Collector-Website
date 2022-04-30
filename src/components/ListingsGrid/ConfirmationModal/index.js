@@ -31,7 +31,7 @@ const ConfirmationModal = ({listing_item}) => {
         try {
             createOffer(dispatch, offer).then(setShow(false));
         } catch (e) {
-            console.log(e)
+            //console.log(e)
         }
     }
 

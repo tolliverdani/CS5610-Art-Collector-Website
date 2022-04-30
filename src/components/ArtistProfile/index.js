@@ -15,7 +15,7 @@ const ArtistProfile = (profile, artist) => {
                     artist_id: artist._id
                 }
             )
-            console.log(JSON.stringify(updated_profile, undefined,4))
+            //console.log(JSON.stringify(updated_profile, undefined,4))
         } catch (e) {
             alert("Ut oh! We were unable to claim this page")
         }

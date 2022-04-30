@@ -9,7 +9,7 @@ export const DELETE_COMMENT = 'DELETE_COMMENT';
 
 export const createComment = async (dispatch, comment) => {
     const newComment = await service.createComment(comment);
-    console.log(JSON.stringify(newComment, undefined, 4))
+    //console.log(JSON.stringify(newComment, undefined, 4))
     dispatch({
         type: CREATE_COMMENT,
         newComment
@@ -51,7 +51,7 @@ export const updateComment = async (dispatch, comment_id) => {
 }
 
 export const deleteComment = async (dispatch, comment_id) => {
-    console.log("in delete comment in actions")
+    //console.log("in delete comment in actions")
     const response = await service.deleteComment(comment_id);
     if (response === "OK") {
         dispatch({

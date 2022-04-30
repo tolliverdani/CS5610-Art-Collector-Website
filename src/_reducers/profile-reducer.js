@@ -30,8 +30,8 @@ const profileReducer = (state =
         case CHECK_LOGGED_IN:
             return action.profile
         case UPDATE_PROFILE:
-            console.log("In the profile reducer. In Update Profile. This is the profile: ")
-            console.log(action.profile)
+            //console.log("In the profile reducer. In Update Profile. This is the profile: ")
+            //console.log(action.profile)
             return action.user
         default:
             return state;

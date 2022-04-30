@@ -11,9 +11,9 @@ const SecureContent = ({children}) => {
         try {
             const user = await checkLoggedIn(dispatch)
             setCurrentUser(user)
-            console.log("user is logged in")
+            //console.log("user is logged in")
         } catch (e) {
-            console.log("user is NOT logged in")
+            //console.log("user is NOT logged in")
         }
     }
 

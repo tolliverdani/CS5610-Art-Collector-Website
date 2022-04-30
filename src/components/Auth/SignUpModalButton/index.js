@@ -17,7 +17,7 @@ const SignUpModal = ({text}) => {
 
     const handleSignup = async () => {
         try {
-            console.log("in handleSignup")
+            //console.log("in handleSignup")
             await signup(
                 emailRef.current.value,
                 usernameRef.current.value,

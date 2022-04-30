@@ -34,7 +34,7 @@ const EditProfileModal = ({profile}) => {
             }
             // delete blank password field to that it isn't updated
             delete updated_user["password"];
-            console.log("Tryin to handle the update. This is the user being passed to updateProfile: " + JSON.stringify(updated_user,undefined,4))
+            //console.log("Tryin to handle the update. This is the user being passed to updateProfile: " + JSON.stringify(updated_user,undefined,4))
 
             updateProfile(dispatch, updated_user).then(() => {
                 alert("You have updated your profile")

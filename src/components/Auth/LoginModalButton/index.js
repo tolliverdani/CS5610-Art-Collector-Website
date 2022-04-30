@@ -14,7 +14,7 @@ const LogInModal = ({text}) => {
     const navigate = useNavigate();
 
     const handleLogin = async () => {
-        console.log("in handleLogin")
+        //console.log("in handleLogin")
         try {
             await login(
                 emailRef.current.value,
@@ -80,7 +80,7 @@ const LogInModal = ({text}) => {
                     <div className={'container text-center'}>
                         <button className={'btn btn-primary bg-primary rounded-pill border-0 mb-2'}
                                 onClick={() => handleLogin}>
-                            {console.log("clicked the login button")}
+                            
                             Login
                         </button>
                         <div className={'row'}>

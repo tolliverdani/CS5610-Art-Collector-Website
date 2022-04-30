@@ -7,7 +7,7 @@ import ComponentHeader from "../ComponentHeader";
 import SecureArtistContent from "../../_security/secure-artist-content";
 
 const Posts = ({painting_data, posts, is_artist}) => {
-    console.log("Post feed: " + JSON.stringify(posts))
+    //console.log("Post feed: " + JSON.stringify(posts))
 
     return (
         <div className={"mb-2"}>

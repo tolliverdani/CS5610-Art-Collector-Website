@@ -1,7 +1,7 @@
 import {ADMIN_DELETE_USER, ADMIN_UPDATE_PROFILE, FIND_ALL_USERS} from "../_actions/users-actions";
 
 const usersReducer = (state = [], action) => {
-    // console.log("In users reducer. This is the action type: " + action.type)
+    // //console.log("In users reducer. This is the action type: " + action.type)
 
     switch (action.type) {
         case ADMIN_DELETE_USER:
@@ -17,8 +17,8 @@ const usersReducer = (state = [], action) => {
                 return 0;
             })
         case ADMIN_UPDATE_PROFILE:
-            console.log("In the users reducers. In the admin update profile. This is the returned user: " + JSON.stringify(action.user._id))
-            console.log("In user reducer. In update profile. " + action.user._id + action.user.username)
+            //console.log("In the users reducers. In the admin update profile. This is the returned user: " + JSON.stringify(action.user._id))
+            //console.log("In user reducer. In update profile. " + action.user._id + action.user.username)
             const unsorted = state.map(user => user._id === action.user._id ? action.user : user)
             return unsorted.sort((a, b) => {
                 if (a.username > b.username) {

@@ -15,7 +15,7 @@ const ListingGridMenuItem = ({grid_item}) => {
         try {
             deleteActiveListing(dispatch, updated_listing)
         } catch (e) {
-            console.log(e)
+            //console.log(e)
         }
     }
 
