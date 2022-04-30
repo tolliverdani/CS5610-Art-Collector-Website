@@ -37,11 +37,14 @@ export const updateProfile = async (dispatch, user) => {
     })
 }
 export const adminUpdateProfile = async (dispatch, user) => {
-    const updated_profile = await service.updateUser(user);
-    dispatch ({
-        type: ADMIN_UPDATE_PROFILE,
-        updated_profile
-    })
+    const response = await service.updateUser(user);
+    if ( response === "OK" ) {
+        console.log("In Admin Update Profile. Passing this user to the reducer: " + JSON.stringify(user, undefined, 4))
+        dispatch({
+            type: ADMIN_UPDATE_PROFILE,
+            user
+        })
+    }
 }
 
 export const findAllUsers = async (dispatch) => {

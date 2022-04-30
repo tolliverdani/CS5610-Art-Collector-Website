@@ -2,25 +2,27 @@ import React, {useRef, useState} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
 
 import {adminDeleteUser, adminUpdateProfile} from "../../../../_actions/users-actions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
-const AdminEditProfileModal = ({profile}, {user}) => {
+const AdminEditProfileModal = ({user}) => {
     const [set, setShow] = useState(false);
+    const profile = useSelector(state => state.profile)
+
 
     const dispatch = useDispatch();
 
-    const [email, changeEmail] = useState(user.email)
-    const [username, changeUsername] = useState(user.username)
-    const [pronoun, changePronoun] = useState(user.pronoun)
-    const [location, changeLocation] = useState(user.location)
+    const [email, changeEmail] = useState(user.email || "")
+    const [username, changeUsername] = useState(user.username || "")
+    const [pronoun, changePronoun] = useState(user.pronoun || "")
+    const [location, changeLocation] = useState(user.location || "")
     const [password, changePassword] = useState("")
-    const [bio, changeBio] = useState(user.bio)
-    const [rating, changeRating] = useState(user.rating)
-    const [artist, changeArtist] = useState(user.is_artist)
-    const [artist_id, changeArtistId] = useState(user.artist_id)
-    const [admin, changeAdmin] = useState(user.is_admin)
+    const [bio, changeBio] = useState(user.bio || "")
+    const [rating, changeRating] = useState(user.rating || 0)
+    const [artist, changeArtist] = useState(user.is_artist || false)
+    const [artist_id, changeArtistId] = useState(user.artist_id || "")
+    const [admin, changeAdmin] = useState(user.is_admin || false)
 
 
     const handleDelete = async () => {
@@ -61,6 +63,8 @@ const AdminEditProfileModal = ({profile}, {user}) => {
             if (password === "") {
                 delete updated_user["password"];
             }
+
+            console.log("In handle update. About to send this user: " + JSON.stringify(updated_user, undefined, 4))
 
             adminUpdateProfile(dispatch, updated_user).then(() => {
                 alert("You have updated this user's profile")

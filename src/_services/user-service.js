@@ -16,6 +16,7 @@ export const deleteUser = async (user_id) => {
 export const updateUser = async (user) => {
     const response = await api.put(`${API_BASE}/users`, user);
     if ( response.status === 200 ){
+        console.log("In the update user of user services. Here is the response: " + response.data)
         return response.data;
     }
 }

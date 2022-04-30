@@ -14,7 +14,7 @@ const AdminEditOfferModal = ({offer}) => {
     const [offer_price, changeOfferPrice] = useState(offer.offer_price)
     const [active_offer, changeActiveOffer] = useState(offer.active_offer)
     const [accepted, changeAccepted] = useState(offer.accepted)
-    const [date_removed, changeDateRemoved] = useState(offer.date_removed)
+    const [date_removed, changeDateRemoved] = useState(offer.date_removed || "")
 
     const handleDelete = async () => {
         try {

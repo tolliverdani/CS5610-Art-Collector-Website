@@ -10,17 +10,16 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 import {findAllUsers, findUserById} from "../../_actions/users-actions";
 import {findAllListings} from "../../_actions/listings-actions";
 import AdminLists from "../../components/AdminLists";
+import {getProfile} from "../../_actions/profile-actions";
 
 const AdminScreen = () => {
 
     const dispatch = useDispatch();
 
-    const profile = useSelector(state => state.profile)
     const offers = useSelector(state => state.offers);
     const users = useSelector(state => state.users)
     const listings = useSelector(state => state.listings);
 
-    useEffect(() => findUserById(dispatch, profile._id), [dispatch, profile._id])
     useEffect(() => findAllOffers(dispatch), [dispatch])
     useEffect(() => findAllUsers(dispatch), [dispatch]);
     useEffect(() => findAllListings(dispatch), [dispatch])

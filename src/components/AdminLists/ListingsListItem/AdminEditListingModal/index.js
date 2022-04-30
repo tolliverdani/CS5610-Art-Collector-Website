@@ -13,10 +13,10 @@ const AdminEditListingModal = ({listing}) => {
     const [listing_price, changeListingPrice] = useState(listing.listing_price)
     const [active_listing, changeActiveListing] = useState(listing.active_listing)
     const [accepted, changeAccepted] = useState(listing.sold)
-    const [date_removed, changeDateRemoved] = useState(listing.date_removed)
-    const [sale_price, changeSalePrice] = useState(listing.sale_price)
+    const [date_removed, changeDateRemoved] = useState(listing.date_removed || "")
+    const [sale_price, changeSalePrice] = useState(listing.sale_price || 0)
     const [quality, changeQuality] = useState(listing.quality)
-    const [buyer_id, changeBuyerId] = useState(listing.buyer_id)
+    const [buyer_id, changeBuyerId] = useState(listing.buyer_id || "")
 
     // TODO check what happens when you pick something without a field
 
