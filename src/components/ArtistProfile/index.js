@@ -1,21 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import SecureArtistContent from "../../_security/secure-artist-content";
 import {updateProfile} from "../../_actions/users-actions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {getProfile} from "../../_actions/profile-actions";
 
-const ArtistProfile = (profile, artist) => {
-
+const ArtistProfile = ({artist_id}) => {
     const dispatch = useDispatch()
+
+    const profile = useSelector( state => state.profile )
+    useEffect( () => getProfile(dispatch),[dispatch])
+
 
     const handleClaimArtist = async () => {
         try {
-            const updated_profile = await updateProfile(
-                dispatch, {...profile,
-                    artist_id: artist._id
-                }
-            )
-            //console.log(JSON.stringify(updated_profile, undefined,4))
+
+            const updated_profile = {...profile, artist_id: artist_id}
+            console.log("About to call updateProfile")
+            const response = await updateProfile(dispatch, updated_profile)
+            console.log(JSON.stringify(updated_profile, undefined,4))
         } catch (e) {
             alert("Ut oh! We were unable to claim this page")
         }
@@ -28,13 +31,7 @@ const ArtistProfile = (profile, artist) => {
                     Claim Page
                 </button>
             </SecureArtistContent>
-            <div className={"p-2 mb-2"}>
-                <div className={"border-0 m-0"}>
-                    <img className={'thumb-post img-responsive border-0'}
-                         src={artist.image}
-                         alt={artist.OriginalArtistName}/>
-                </div>
-            </div>
+
         </>
     )
 }

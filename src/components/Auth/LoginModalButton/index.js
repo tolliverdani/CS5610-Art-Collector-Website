@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
 import {useNavigate} from "react-router-dom";
-import {login} from "../../../_actions/profile-actions"
+import {login} from "../../../_services/auth-service"
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
@@ -80,7 +80,7 @@ const LogInModal = ({text}) => {
                     <div className={'container text-center'}>
                         <button className={'btn btn-primary bg-primary rounded-pill border-0 mb-2'}
                                 onClick={() => handleLogin}>
-                            
+
                             Login
                         </button>
                         <div className={'row'}>

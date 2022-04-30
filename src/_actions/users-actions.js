@@ -27,9 +27,9 @@ export const findUserById = async (dispatch, user_id) => {
 }
 
 export const updateProfile = async (dispatch, user) => {
-    //console.log("Inside updateProfile. This is the user that is going to be dispatched: " + JSON.stringify(user,undefined,4))
+    console.log("Inside updateProfile. This is the user that is going to be dispatched: " + JSON.stringify(user,undefined,4))
     const updated_profile = await service.updateUser(user);
-    //console.log("Inside updateProfile. This is the user that was returned: " + JSON.stringify(updated_profile,undefined,4))
+    console.log("Inside updateProfile. This is the user that was returned: " + JSON.stringify(updated_profile,undefined,4))
 
     dispatch ({
         type: UPDATE_PROFILE,

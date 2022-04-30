@@ -14,6 +14,7 @@ import ListingsGrid from "../../components/ListingsGrid";
 import {findArtistComments} from "../../_actions/comments-actions";
 import UpdatePosts from "../../components/UpdatePosts";
 import {findUserById} from "../../_actions/users-actions";
+import {getProfile} from "../../_actions/profile-actions";
 
 const ArtistProfileScreen = () => {
     const {artist_name, artist_id} = useParams();
@@ -29,7 +30,7 @@ const ArtistProfileScreen = () => {
     useEffect(() => findPaintingsByArtist(dispatch, artist_id), [dispatch, artist_id]);
     useEffect(() => artistDetails(dispatch, artist_name), [dispatch, artist_name]);
     useEffect(() => findActiveListingsByArtistId(dispatch, artist_id), [dispatch, artist_id])
-    useEffect(() => findUserById(dispatch, profile._id), [dispatch, profile._id])
+    useEffect(() => getProfile(dispatch), [dispatch])
 
     const paintings = paintings_data.data;
 
@@ -49,7 +50,7 @@ const ArtistProfileScreen = () => {
                         <UpdatePosts posts={posts} is_artist={true}/>
                     </div>
                     <div className={'col-2 d-none d-lg-block'}>
-                        <ArtistProfile profile={profile} artist={artist}/>
+                        <ArtistProfile artist_id={artist_id}/>
                         <ArtistStats artist={artist}/>
                     </div>
                 </div>
