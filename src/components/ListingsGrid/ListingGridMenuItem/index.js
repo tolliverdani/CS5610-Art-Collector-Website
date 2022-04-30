@@ -2,7 +2,7 @@ import {Dropdown, DropdownButton} from "react-bootstrap";
 import SecureContent from "../../../_security/secure-content";
 import React from "react";
 import ConfirmationModal from "../ConfirmationModal";
-import {updateListing} from "../../../_actions/listings-actions";
+import {deleteActiveListing, updateListing} from "../../../_actions/listings-actions";
 import {useDispatch, useSelector} from "react-redux";
 
 const ListingGridMenuItem = ({grid_item}) => {
@@ -10,9 +10,13 @@ const ListingGridMenuItem = ({grid_item}) => {
     const profile = useSelector(state => state.profile)
     const dispatch = useDispatch();
 
-    const handleClick = () => {
+    const handleClick = async () => {
         const updated_listing = {...grid_item, active_listing: false, sold: false, date_removed: new Date()}
-        updateListing(dispatch, updated_listing)
+        try {
+            deleteActiveListing(dispatch, updated_listing)
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     return (

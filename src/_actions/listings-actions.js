@@ -9,6 +9,17 @@ export const FIND_SOLD_PRICE_HISTORY_BY_PAINTING_ID = "FIND_SOLD_PRICE_HISTORY_B
 export const FIND_ALL_LISTINGS = "FIND_ALL_LISTINGS"
 export const UPDATE_LISTING = "UPDATE_LISTING"
 export const DELETE_LISTING = "DELETE_LISTING"
+export const DELETE_ACTIVE_LISTING = "DELETE_ACTIVE_LISTING"
+
+export const deleteActiveListing = async (dispatch, listing) => {
+    const status = await service.updateListing(listing);
+    console.log("Here is the listing to be deleted: ")
+    console.log(JSON.stringify(listing, undefined, 4))
+    dispatch({
+        type: DELETE_ACTIVE_LISTING,
+        listing
+    })
+}
 
 export const deleteListing = async (dispatch, listing_id ) => {
     const status = await service.deleteListing(listing_id);

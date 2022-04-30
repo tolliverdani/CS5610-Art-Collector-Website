@@ -15,7 +15,7 @@ const ConfirmationModal = ({listing_item}) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleCreateOffer = () => {
+    const handleCreateOffer = async () => {
         const offer = {
             "listing_id": listing_item._id,
             "painting_id": listing_item.painting_id,
@@ -28,7 +28,11 @@ const ConfirmationModal = ({listing_item}) => {
             "offer_price": offer_price,
             "active_offer": true
         }
-        createOffer(dispatch, offer).then(setShow(false));
+        try {
+            createOffer(dispatch, offer).then(setShow(false));
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     return (
