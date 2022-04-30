@@ -72,7 +72,7 @@ const PriceHistory = ({sales_history, offers_history}) => {
         <>
             {ComponentHeader(" Price History")}
             <div className={'p-2 mb-2'}>
-                {sales_history.length === 0 ?
+                {sales_history.length === 0 && offers_history.length === 0 ?
                     <EmptyChart/>
                     :
                     <div className={'chart-size m-2'}>
