@@ -66,7 +66,7 @@ const CollectionGridMenuItem = (grid_item, profile, user, dispatch) => {
                         size={"sm"}
                         align={"end"} title={""}>
             <SecureContent>
-                {profile && user && profile._id === user._id ?
+                {profile && profile._id === user._id ?
                     <>
                         <Dropdown.Item onClick={() => {
                             try {
@@ -76,6 +76,8 @@ const CollectionGridMenuItem = (grid_item, profile, user, dispatch) => {
                                 alert("Ut oh! Couldn't remove this item from your collection")
                             }
                         }}>
+                            <div>User Id: {user._id}</div>
+                            <div>Profile Id: {profile._id}</div>
                             Remove from Collection
                         </Dropdown.Item>
                         <Dropdown.Item>
