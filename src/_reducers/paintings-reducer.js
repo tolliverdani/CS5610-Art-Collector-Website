@@ -31,8 +31,6 @@ const paintingsReducer = (state =
         case PAINTING_DETAILS:
             // TODO spearate?
             return {...action.painting_details, data: []};
-        case UPDATED_ARTISTS:
-            return action.updated_artists;
         default:
             return state;
     }

@@ -11,7 +11,7 @@ import ComponentHeader from "../../components/ComponentHeader";
 const NewArtistsScreen = () => {
     const dispatch = useDispatch();
 
-    const artist_data = useSelector(state => state.artists);
+    const artist_data = useSelector(state => state.newArtists);
     useEffect(() => updatedArtists(dispatch), [dispatch]);
 
     const artists = artist_data.data
