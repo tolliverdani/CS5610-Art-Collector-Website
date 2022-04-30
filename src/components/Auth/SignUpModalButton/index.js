@@ -14,7 +14,6 @@ const SignUpModal = ({text}) => {
 
     const navigate = useNavigate();
 
-
     const handleSignup = async () => {
         try {
             await signup(

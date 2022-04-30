@@ -27,7 +27,7 @@ const UserProfileScreen = () => {
     const offers = useSelector(state => state.offers);
 
     let local_user_id = null;
-    if ( user ) {
+    if (user) {
         local_user_id = profileId;
     }
 

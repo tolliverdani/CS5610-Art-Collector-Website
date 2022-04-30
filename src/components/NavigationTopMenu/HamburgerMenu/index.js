@@ -1,14 +1,17 @@
 import React from "react";
 import {Dropdown} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
-import {logout} from "../../../_services/auth-service";
+import {logout} from "../../../_actions/profile-actions";
+import {useDispatch} from "react-redux";
 
 const HamburgerMenu = () => {
+
+    const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const handleLogout = async () => {
         try {
-            await logout()
+            await logout(dispatch)
             navigate('/home')
         } catch (e) {
             alert("Ut oh! We were unable to log out of this account")
@@ -27,7 +30,6 @@ const HamburgerMenu = () => {
 
                 <Dropdown.Menu>
                     <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                    <Dropdown.Item href="/edit-profile">Settings</Dropdown.Item>
                     <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                     <Dropdown.Item href="/privacy">Privacy</Dropdown.Item>
                 </Dropdown.Menu>

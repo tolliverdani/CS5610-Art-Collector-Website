@@ -2,7 +2,6 @@ import React from "react";
 
 import SearchBar from "./SearchBar";
 import HamburgerMenu from "./HamburgerMenu";
-import SignUpModal from "../Auth/SignUpModal";
 import SecureContent from "../../_security/secure-content";
 import UnsecuredContent from "../../_security/unsecured-content";
 import FULL_LOGO from "../../_images/artbubblelogo2.png"

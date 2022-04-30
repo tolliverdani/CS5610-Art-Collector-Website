@@ -8,10 +8,7 @@ import SecureAdminContent from "../../_security/secure-admin-content";
 import {logout} from "../../_actions/profile-actions";
 import {useDispatch} from "react-redux";
 
-const NavigationSidebar =
-    ({
-         active = 'home'
-     }) => {
+const NavigationSidebar = ({active = 'home'}) => {
 
         const dispatch = useDispatch()
         const navigate = useNavigate()
