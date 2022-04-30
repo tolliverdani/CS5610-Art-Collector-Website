@@ -1,6 +1,5 @@
 import React, {useContext, useState} from "react";
 import * as security from "../_services/auth-service";
-import * as service from "../_services/auth-service";
 
 const ProfileContext = React.createContext()
 

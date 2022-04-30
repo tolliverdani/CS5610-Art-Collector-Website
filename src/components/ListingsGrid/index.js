@@ -8,8 +8,6 @@ import EmptyListings from "../Errors/EmptyListings";
 
 const ListingData = (type, data) => {
 
-    //console.log(data)
-
     switch (type) {
         case "artist":
             return data.map(listing_item =>

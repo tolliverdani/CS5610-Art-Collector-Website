@@ -38,7 +38,8 @@ const AdminEditListingModal = ({listing}) => {
                 setShow(false)
             })
         } catch (e) {
-            throw(e);
+            alert("Ut oh! We were unable to update this listing");
+            setShow(false)
         }
     }
 
@@ -50,6 +51,7 @@ const AdminEditListingModal = ({listing}) => {
             })
 
         } catch (e){
+            alert("Ut oh! We were unable to delete this listing");
             setShow(false)
         }
     }

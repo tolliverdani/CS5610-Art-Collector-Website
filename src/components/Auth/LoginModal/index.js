@@ -21,7 +21,7 @@ const LogInModal = ({text}) => {
             )
             navigate('/profile')
         } catch (e) {
-            throw(e)
+            alert("Ut oh! Those credentials did not match any user account")
         }
     }
 

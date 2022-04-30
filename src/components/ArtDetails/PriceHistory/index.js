@@ -5,12 +5,6 @@ import EmptyChart from "../../Errors/EmptyChart";
 
 const PriceHistory = ({sales_history, offers_history}) => {
 
-    if (sales_history.length === 0) {
-        //console.log("no sales")
-    }
-    /* TODO: we need to move this data and make sure it's organized
-        in a way that makes sense for the graph */
-
     type Series = {
         label: string,
         data: [{

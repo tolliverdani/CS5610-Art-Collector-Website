@@ -36,7 +36,7 @@ const AdminEditProfileModal = ({user}) => {
                     setShow(false)
                 })
             } catch (e) {
-                alert("Failed to delete this user")
+                alert("Ut oh! We were unable to delete this user")
                 setShow(false)
             }
         }
@@ -64,13 +64,12 @@ const AdminEditProfileModal = ({user}) => {
                 delete updated_user["password"];
             }
 
-            //console.log("In handle update. About to send this user: " + JSON.stringify(updated_user, undefined, 4))
-
             adminUpdateProfile(dispatch, updated_user).then(() => {
                 alert("You have updated this user's profile")
                 setShow(false)
             })
         } catch (e) {
+            alert("Ut oh! We were unable to update this user's profile");
             setShow(false)
         }
     }

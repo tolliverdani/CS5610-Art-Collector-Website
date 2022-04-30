@@ -21,7 +21,7 @@ const NavigationSidebar =
                 await logout(dispatch)
                 navigate('/home')
             } catch (e) {
-                throw(e);
+                alert("Ut oh! We were unable to log out of this account")
             }
         }
 

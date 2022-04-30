@@ -15,8 +15,6 @@ import ListingsListItem from "./ListingsListItem";
 
 const DataToDisplay = (type, data) => {
 
-    //console.log(data)
-
     switch (type) {
         case "listings":
             return data.map(listing_item =>

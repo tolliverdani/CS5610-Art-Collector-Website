@@ -11,7 +11,7 @@ const HamburgerMenu = () => {
             await logout()
             navigate('/home')
         } catch (e) {
-            throw(e);
+            alert("Ut oh! We were unable to log out of this account")
         }
     }
 

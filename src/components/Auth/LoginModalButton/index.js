@@ -14,7 +14,6 @@ const LogInModal = ({text}) => {
     const navigate = useNavigate();
 
     const handleLogin = async () => {
-        //console.log("in handleLogin")
         try {
             await login(
                 emailRef.current.value,
@@ -22,7 +21,7 @@ const LogInModal = ({text}) => {
             )
             navigate('/profile')
         } catch (e) {
-            throw(e)
+            alert("Ut oh! Those credentials did not match any user account")
         }
     }
 

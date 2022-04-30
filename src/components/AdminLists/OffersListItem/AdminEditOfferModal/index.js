@@ -23,6 +23,7 @@ const AdminEditOfferModal = ({offer}) => {
                 setShow(false)
             })
         } catch (e) {
+            alert("Ut oh! We were unable to delete this offer");
             setShow(false)
         }
     }
@@ -44,6 +45,7 @@ const AdminEditOfferModal = ({offer}) => {
                     setShow(false)
                 })
         } catch (e) {
+            alert("Ut oh! We were unable to update this offer");
             setShow(false)
         }
     }

@@ -5,16 +5,14 @@ import {useLocation, useParams} from "react-router-dom";
 import {findUserCollection} from "../../_actions/collections-actions";
 import {findActiveListingsByOwnerId} from "../../_actions/listings-actions";
 import {findActiveOffersBySellerId} from "../../_actions/offers-actions";
-import SecureContent from "../../_security/secure-content";
 
 import Offers from "../../components/Offers";
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import UserProfile from "../../components/UserProfile";
 import NavigationSidebar from "../../components/NavigationSidebar";
 import ListingsGrid from "../../components/ListingsGrid";
-import UserGrid from "../../components/UserGrid";
 import Collection from "../../components/UserProfile/Collection";
-import {findAllUsers, findUserById} from "../../_actions/users-actions";
+import {findUserById} from "../../_actions/users-actions";
 import ProfileBio from "../../components/UserProfile/ProfileBio";
 import SecureProfileContent from "../../_security/secure-profile-content";
 

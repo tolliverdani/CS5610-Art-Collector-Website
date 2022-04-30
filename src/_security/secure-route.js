@@ -12,16 +12,11 @@ const SecureRoute = ({children}) => {
 
     const check = async () => {
         try {
-            //console.log("In the try of secure route. ABout to call get Profile.")
             const user = await checkLoggedIn(dispatch)
-            //console.log("In the then of secure route. This is the returned user: " + JSON.stringify(user, undefined, 4))
-
             setCurrentUser(user)
             setWaiting(false)
 
         } catch (e) {
-            //console.log("In the catch of secure route. This is the error: " + e)
-
             setWaiting(false)
         }
     }

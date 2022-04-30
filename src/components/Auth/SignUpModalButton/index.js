@@ -17,7 +17,6 @@ const SignUpModal = ({text}) => {
 
     const handleSignup = async () => {
         try {
-            //console.log("in handleSignup")
             await signup(
                 emailRef.current.value,
                 usernameRef.current.value,
@@ -25,7 +24,7 @@ const SignUpModal = ({text}) => {
             )
             navigate('/profile')
         } catch (e) {
-            throw(e);
+            alert("Ut oh! We were unable to crete an account with those credentials")
         }
     }
 

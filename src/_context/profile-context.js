@@ -18,9 +18,7 @@ export const ProfileProvider = ({children}) => {
     }
 
     const updateProfile = async () => {
-        //console.log("in the update function in profile-context")
         if (profile && profile.hasOwnProperty("_id")) {
-            //console.log(profile._id)
             try {
                 const user = await service.findUserById(profile._id)
                 setProfile(user)
@@ -31,8 +29,6 @@ export const ProfileProvider = ({children}) => {
     }
 
     const signup = async (email, username, password) => {
-        //console.log("inside signup in the profile context")
-        //console.log("this is the password: " + password)
         try {
             const profile = await security.signup(
                 email,

@@ -1,7 +1,6 @@
 import {FIND_PRICE_HISTORY_ALL_OFFERS_BY_PAINTING_ID} from "../_actions/offers-actions";
 
 const offersHistoryReducer = (state = [{"date": new Date(), "price": 200}], action) => {
-    ////console.log("We are in the offersHistory reducer. This is the action type: " + action.type)
 
     switch (action.type) {
         case FIND_PRICE_HISTORY_ALL_OFFERS_BY_PAINTING_ID:

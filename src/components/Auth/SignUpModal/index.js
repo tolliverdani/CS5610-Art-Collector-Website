@@ -24,7 +24,7 @@ const SignUpModal = ({text}) => {
             )
             navigate('/profile')
         } catch (e) {
-            throw(e);
+            alert("Ut oh! We were unable to crete an account with those credentials")
         }
     }
 

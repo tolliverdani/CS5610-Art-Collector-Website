@@ -14,6 +14,7 @@ import NavigationSidebar from "../../components/NavigationSidebar";
 import ListingsGrid from "../../components/ListingsGrid";
 import Collection from "../../components/UserProfile/Collection";
 import {getProfile} from "../../_actions/profile-actions";
+import {findUserById} from "../../_actions/users-actions";
 
 const CurrentUserProfileScreen = () => {
 
@@ -24,6 +25,7 @@ const CurrentUserProfileScreen = () => {
     const listings = useSelector(state => state.listings);
     const offers = useSelector(state => state.offers);
 
+    useEffect(() => findUserById(dispatch, profile._id), [dispatch, profile._id])
     useEffect(() => findUserCollection(dispatch, profile._id), [dispatch, profile._id]);
     useEffect(() => findActiveListingsByOwnerId(dispatch, profile._id), [dispatch, profile._id])
     useEffect(() => findActiveOffersBySellerId(dispatch, profile._id), [dispatch, profile._id])

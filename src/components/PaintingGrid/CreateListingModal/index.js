@@ -15,7 +15,6 @@ const CreateListingModal = ({art_info}) => {
 
 
     const handleCreateListing = () => {
-        //console.log(profile)
 
         const listing = {
             "painting_id": art_info.id,
@@ -29,8 +28,6 @@ const CreateListingModal = ({art_info}) => {
             "listing_price": priceRef.current.value,
             "active_listing": true,
         }
-
-        //console.log(listing)
 
         createListing(dispatch, listing)
         setShow(false);

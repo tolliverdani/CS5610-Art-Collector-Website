@@ -11,7 +11,7 @@ const PostItem = ({post}) => {
         try {
             deleteComment(dispatch, post._id)
         } catch (e) {
-            alert("Uh oh! We weren't able to delete the comment")
+            alert("Uh oh! We weren't able to delete this comment")
         }
     }
 
