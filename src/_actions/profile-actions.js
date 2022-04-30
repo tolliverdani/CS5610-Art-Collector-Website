@@ -9,11 +9,19 @@ export const CHECK_LOGGED_IN = "CHECK_LOGGED_IN"
 
 export const getProfile = async (dispatch) => {
     const profile = await service.profile();
-    dispatch({
-        type: GET_PROFILE,
-        profile
-    })
-    return profile
+    try {
+        dispatch({
+            type: GET_PROFILE,
+            profile
+        })
+        return profile
+    } catch (e) {
+        dispatch({
+            type: GET_PROFILE,
+            profile: null
+        })
+        return null
+    }
 }
 
 export const checkLoggedIn = async (dispatch) => {
@@ -25,45 +33,57 @@ export const checkLoggedIn = async (dispatch) => {
         })
         return profile
     } catch (e) {
-        dispatch({
-            type: CHECK_LOGGED_IN,
-            profile: null
-        })
-        return null
+
     }
 }
 
 export const update = async (dispatch, user) => {
-    const profile = await service.update(user);
-    if (profile === "OK") {
-        dispatch({
-            type: UPDATE_PROFILE,
-            profile
-        })
+    try {
+        const profile = await service.update(user);
+        if (profile === "OK") {
+            dispatch({
+                type: UPDATE_PROFILE,
+                profile
+            })
+        }
+    } catch (e) {
+
     }
 }
 
 
 export const login = async (dispatch, email, password) => {
-    const profile = await service.login(email, password);
-    dispatch({
-        type: LOG_IN,
-        profile
-    })
+    try {
+        const profile = await service.login(email, password);
+        dispatch({
+            type: LOG_IN,
+            profile
+        })
+    } catch (e) {
+
+    }
 }
 
 export const signup = async (dispatch, email, username, password) => {
-    const profile = await service.signup(email, username, password);
-    dispatch({
-        type: SIGN_UP,
-        profile
-    })
+    try {
+        const profile = await service.signup(email, username, password);
+        dispatch({
+            type: SIGN_UP,
+            profile
+        })
+    } catch (e) {
+
+    }
 }
 
 export const logout = async (dispatch) => {
-    const profile = await service.logout();
-    dispatch({
-        type: LOGOUT,
-        profile
-    })
+    try {
+        const profile = await service.logout();
+        dispatch({
+            type: LOGOUT,
+            profile
+        })
+    } catch (e) {
+
+    }
 }

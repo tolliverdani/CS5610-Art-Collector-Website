@@ -12,84 +12,124 @@ export const DELETE_LISTING = "DELETE_LISTING"
 export const DELETE_ACTIVE_LISTING = "DELETE_ACTIVE_LISTING"
 
 export const deleteActiveListing = async (dispatch, listing) => {
-    const status = await service.updateListing(listing);
-    dispatch({
-        type: DELETE_ACTIVE_LISTING,
-        listing
-    })
+    try {
+        const status = await service.updateListing(listing);
+
+        dispatch({
+            type: DELETE_ACTIVE_LISTING,
+            listing
+        })
+    } catch (e) {
+
+    }
 }
 
-export const deleteListing = async (dispatch, listing_id ) => {
-    const status = await service.deleteListing(listing_id);
-    if ( status === 'OK' ) {
-        dispatch({
-            type: DELETE_LISTING,
-            listing_id
-        })
+export const deleteListing = async (dispatch, listing_id) => {
+    try {
+        const status = await service.deleteListing(listing_id);
+        if (status === 'OK') {
+            dispatch({
+                type: DELETE_LISTING,
+                listing_id
+            })
+        }
+    } catch (e) {
+
     }
 }
 
 export const updateListing = async (dispatch, listing) => {
-    const status = await service.updateListing(listing);
-    dispatch({
-        type: UPDATE_LISTING,
-        listing
-    })
+    try {
+        const status = await service.updateListing(listing);
+        dispatch({
+            type: UPDATE_LISTING,
+            listing
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findAllListings = async (dispatch) => {
+    try {
+        const listings = await service.findAllListings();
+        dispatch({
+            type: FIND_ALL_LISTINGS,
+            listings
+        })
+    } catch (e) {
 
-    const listings = await service.findAllListings();
-    dispatch({
-        type: FIND_ALL_LISTINGS,
-        listings
-    })
+    }
 }
 
 export const findAllActiveListings = async (dispatch) => {
-    const listings = await service.findAllActiveListings();
-    dispatch({
-        type: FIND_ALL_ACTIVE_LISTINGS,
-        listings
-    })
+    try {
+        const listings = await service.findAllActiveListings();
+        dispatch({
+            type: FIND_ALL_ACTIVE_LISTINGS,
+            listings
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findActiveListingsByPaintingId = async (dispatch, painting_id) => {
-    const listings = await service.findListingsByPaintingId(painting_id);
-    dispatch ({
-        type: FIND_ACTIVE_LISTINGS_BY_PAINTING_ID,
-        listings
-    })
+    try {
+        const listings = await service.findListingsByPaintingId(painting_id);
+        dispatch({
+            type: FIND_ACTIVE_LISTINGS_BY_PAINTING_ID,
+            listings
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findActiveListingsByOwnerId = async (dispatch, owner_id) => {
-    const listings = await service.findListingsByOwnerId(owner_id);
-    dispatch ({
-        type: FIND_ACTIVE_LISTINGS_BY_OWNER_ID,
-        listings
-    })
+    try {
+        const listings = await service.findListingsByOwnerId(owner_id);
+        dispatch({
+            type: FIND_ACTIVE_LISTINGS_BY_OWNER_ID,
+            listings
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findActiveListingsByArtistId = async (dispatch, artist_id) => {
-    const listings = await service.findListingsByArtistId(artist_id);
-    dispatch ({
-        type: FIND_ACTIVE_LISTINGS_BY_ARTIST_ID,
-        listings
-    })
+    try {
+        const listings = await service.findListingsByArtistId(artist_id);
+        dispatch({
+            type: FIND_ACTIVE_LISTINGS_BY_ARTIST_ID,
+            listings
+        })
+    } catch (e) {
+
+    }
 }
 
 export const createListing = async (dispatch, listing) => {
-    const inserted_listing = await service.createListing(listing);
-    dispatch ({
-        type: CREATE_LISTING,
-        inserted_listing
-    })
+    try {
+        const inserted_listing = await service.createListing(listing);
+        dispatch({
+            type: CREATE_LISTING,
+            inserted_listing
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findSalesPriceHistoryByPaintingId = async (dispatch, painting_id) => {
-    const listings = await service.findPriceHistoryByPaintingId(painting_id);
-    dispatch ({
-        type: FIND_SOLD_PRICE_HISTORY_BY_PAINTING_ID,
-        listings
-    })
+    try {
+        const listings = await service.findPriceHistoryByPaintingId(painting_id);
+        dispatch({
+            type: FIND_SOLD_PRICE_HISTORY_BY_PAINTING_ID,
+            listings
+        })
+    } catch (e) {
+
+    }
 }

@@ -21,11 +21,11 @@ export const UPDATE_OFFER = "UPDATE_OFFER"
 export const DELETE_OFFER = "DELETE_OFFER"
 
 export const deleteOffer = async (dispatch, offer_id) => {
-    try{
+    try {
         const status = await service.deleteOffer(offer_id);
-        if ( status === 200 ){
+        if (status === 200) {
             dispatch({
-                type:DELETE_OFFER,
+                type: DELETE_OFFER,
                 offer_id
             })
         }
@@ -50,139 +50,208 @@ export const updateOffer = async (dispatch, updated_offer) => {
 
 
 export const findAllOffersByPaintingId = async (dispatch, painting_id) => {
-    const offers = await service.findOffersByPaintingId(painting_id);
-    dispatch ({
-        type: FIND_ALL_OFFERS_BY_PAINTING_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersByPaintingId(painting_id);
+        dispatch({
+            type: FIND_ALL_OFFERS_BY_PAINTING_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
+
 export const findPriceHistoryAllOffersByPaintingId = async (dispatch, painting_id) => {
-    const offers = await service.findOffersByPaintingId(painting_id);
-    dispatch ({
-        type: FIND_PRICE_HISTORY_ALL_OFFERS_BY_PAINTING_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersByPaintingId(painting_id);
+        dispatch({
+            type: FIND_PRICE_HISTORY_ALL_OFFERS_BY_PAINTING_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findAllOffersByArtistId = async (dispatch, artist_id) => {
-    const offers = await service.findOffersByArtistId(artist_id);
-    dispatch ({
-        type: FIND_ALL_OFFERS_BY_PAINTING_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersByArtistId(artist_id);
+        dispatch({
+            type: FIND_ALL_OFFERS_BY_PAINTING_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findAllOffersBySellerId = async (dispatch, user_id) => {
-    const offers = await service.findOffersBySellerId(user_id);
-    dispatch ({
-        type: FIND_ALL_OFFERS_BY_SELLER_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersBySellerId(user_id);
+        dispatch({
+            type: FIND_ALL_OFFERS_BY_SELLER_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findAllOffersByBidderId = async (dispatch, user_id) => {
-    const offers = await service.findOffersByBidderId(user_id);
-    dispatch ({
-        type: FIND_ALL_OFFERS_BY_BIDDER_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersByBidderId(user_id);
+        dispatch({
+            type: FIND_ALL_OFFERS_BY_BIDDER_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findActiveOffersByPaintingId = async (dispatch, painting_id) => {
-    const offers = await service.findOffersByPaintingId(painting_id);
-    dispatch ({
-        type: FIND_ACTIVE_OFFERS_BY_PAINTING_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersByPaintingId(painting_id);
+        dispatch({
+            type: FIND_ACTIVE_OFFERS_BY_PAINTING_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findActiveOffersByArtistId = async (dispatch, artist_id) => {
-    const offers = await service.findOffersByArtistId(artist_id);
-    dispatch ({
-        type: FIND_ACTIVE_OFFERS_BY_PAINTING_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersByArtistId(artist_id);
+        dispatch({
+            type: FIND_ACTIVE_OFFERS_BY_PAINTING_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findActiveOffersBySellerId = async (dispatch, user_id) => {
-    const offers = await service.findOffersBySellerId(user_id);
-    dispatch ({
-        type: FIND_ACTIVE_OFFERS_BY_SELLER_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersBySellerId(user_id);
+        dispatch({
+            type: FIND_ACTIVE_OFFERS_BY_SELLER_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findActiveOffersByBidderId = async (dispatch, user_id) => {
-    const offers = await service.findOffersByBidderId(user_id);
-    dispatch ({
-        type: FIND_ACTIVE_OFFERS_BY_BIDDER_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersByBidderId(user_id);
+        dispatch({
+            type: FIND_ACTIVE_OFFERS_BY_BIDDER_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findInactiveOffersByPaintingId = async (dispatch, painting_id) => {
-    const offers = await service.findOffersByPaintingId(painting_id);
-    dispatch ({
-        type: FIND_INACTIVE_OFFERS_BY_PAINTING_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersByPaintingId(painting_id);
+        dispatch({
+            type: FIND_INACTIVE_OFFERS_BY_PAINTING_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findInactiveOffersByArtistId = async (dispatch, artist_id) => {
-    const offers = await service.findOffersByArtistId(artist_id);
-    dispatch ({
-        type: FIND_INACTIVE_OFFERS_BY_PAINTING_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersByArtistId(artist_id);
+        dispatch({
+            type: FIND_INACTIVE_OFFERS_BY_PAINTING_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findInactiveOffersBySellerId = async (dispatch, user_id) => {
-    const offers = await service.findOffersBySellerId(user_id);
-    dispatch ({
-        type: FIND_INACTIVE_OFFERS_BY_SELLER_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersBySellerId(user_id);
+        dispatch({
+            type: FIND_INACTIVE_OFFERS_BY_SELLER_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const findInactiveOffersByBidderId = async (dispatch, user_id) => {
-    const offers = await service.findOffersByBidderId(user_id);
-    dispatch ({
-        type: FIND_INACTIVE_OFFERS_BY_BIDDER_ID,
-        offers
-    })
+    try {
+        const offers = await service.findOffersByBidderId(user_id);
+        dispatch({
+            type: FIND_INACTIVE_OFFERS_BY_BIDDER_ID,
+            offers
+        })
+    } catch (e) {
+
+    }
 }
 
 export const createOffer = async (dispatch, offer) => {
-    const inserted_offer = await service.createOffer(offer);
-    dispatch ({
-        type: CREATE_OFFER,
-        inserted_offer
-    })
+    try {
+        const inserted_offer = await service.createOffer(offer);
+        dispatch({
+            type: CREATE_OFFER,
+            inserted_offer
+        })
+    } catch (e) {
+        alert("We were unable to create this offer")
+    }
 }
 
 export const approveOffer = async (dispatch, offer) => {
-    const approved_offer = await service.approveOffer(offer);
-    dispatch ({
-        type: APPROVE_OFFER,
-        listing_id: approved_offer.listingId
-    })
+    try {
+        const approved_offer = await service.approveOffer(offer);
+        dispatch({
+            type: APPROVE_OFFER,
+            listing_id: approved_offer.listingId
+        })
+    } catch (e) {
+        alert("We were unable to approve this offer")
+    }
 }
 
 export const rejectOffer = async (dispatch, offer) => {
-    const rejected_offer = await service.rejectOffer(offer);
-    if ( rejected_offer === 200 ) {
-        dispatch({
-            type: REJECT_OFFER,
-            offer
-        })
+    try {
+        const rejected_offer = await service.rejectOffer(offer);
+        if (rejected_offer === 200) {
+            dispatch({
+                type: REJECT_OFFER,
+                offer
+            })
+        }
+    } catch (e) {
+        alert("We were unable to reject this offer")
     }
 }
 
 export const findAllOffers = async (dispatch) => {
-    const offers = await service.findAllOffers();
-    dispatch({
-        type: FIND_ALL_OFFERS,
-        offers
-    })
+    try {
+        const offers = await service.findAllOffers();
+        dispatch({
+            type: FIND_ALL_OFFERS,
+            offers
+        })
+    } catch (e) {
+
+    }
 }

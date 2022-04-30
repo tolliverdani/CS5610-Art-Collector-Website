@@ -13,7 +13,6 @@ const CreateListingModal = ({art_info}) => {
     const profile = useSelector(state => state.profile)
     const dispatch = useDispatch()
 
-
     const handleCreateListing = () => {
 
         const listing = {
@@ -28,10 +27,8 @@ const CreateListingModal = ({art_info}) => {
             "listing_price": priceRef.current.value,
             "active_listing": true,
         }
-
         createListing(dispatch, listing)
         setShow(false);
-
     }
 
     return (

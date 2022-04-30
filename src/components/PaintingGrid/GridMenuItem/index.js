@@ -41,7 +41,7 @@ const PaintingGridMenuItem = (grid_item, profile, dispatch) => {
                     try {
                         addToUserCollection(dispatch, profile._id, item_to_add)
                         alert("Item added to your collection")
-                    } catch {
+                    } catch (e) {
                         alert("Ut oh! Couldn't add this item to your collection")
                     }
                 }}>
@@ -72,7 +72,7 @@ const CollectionGridMenuItem = (grid_item, profile, user, dispatch) => {
                             try {
                                 removeFromUserCollection(dispatch, profile._id, grid_item._id)
                                 alert("Item removed from your collection")
-                            } catch {
+                            } catch (e) {
                                 alert("Ut oh! Couldn't remove this item from your collection")
                             }
                         }}>
@@ -98,7 +98,7 @@ const CollectionGridMenuItem = (grid_item, profile, user, dispatch) => {
                         try {
                             addToUserCollection(dispatch, profile._id, item_to_add)
                             alert("Item added to your collection")
-                        } catch {
+                        } catch (e) {
                             alert("Ut oh! Couldn't add this item to your collection")
                         }
                     }}>

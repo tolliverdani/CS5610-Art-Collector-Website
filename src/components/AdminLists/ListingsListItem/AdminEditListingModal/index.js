@@ -50,7 +50,7 @@ const AdminEditListingModal = ({listing}) => {
                 setShow(false)
             })
 
-        } catch (e){
+        } catch (e) {
             alert("Ut oh! We were unable to delete this listing");
             setShow(false)
         }
