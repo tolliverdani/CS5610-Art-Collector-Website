@@ -14,24 +14,39 @@ export const getProfile = async (dispatch) => {
         type: GET_PROFILE,
         profile
     })
+    console.log("In the profile actions. In getProfile. About to return this profile: " + JSON.stringify(profile, undefined, 4))
+    return profile
 }
 
 export const checkLoggedIn = async (dispatch) => {
-    console.log("inside checkLoggedIn in profile-actions")
-    const profile = await service.profile()
-    dispatch({
-        type: CHECK_LOGGED_IN,
-        profile
-    })
+    try {
+        console.log("inside checkLoggedIn in profile-actions")
+        const profile = await service.profile()
+        dispatch({
+            type: CHECK_LOGGED_IN,
+            profile
+        })
+        return profile
+    } catch (e)
+    {
+        dispatch({
+            type: CHECK_LOGGED_IN,
+            profile: null
+        })
+        return null
+        }
 }
 
 export const update = async (dispatch, user) => {
     console.log("inside update in profile-actions")
+    console.log("This is the user: " + user)
     const profile = await service.update(user);
-    dispatch({
-        type: UPDATE_PROFILE,
-        profile
-    })
+    if ( profile === "OK") {
+        dispatch({
+            type: UPDATE_PROFILE,
+            profile
+        })
+    }
 }
 
 

@@ -30,7 +30,7 @@ const ProfileStats = ({profile}) => {
                 </div>
             </div>
             <SecureContent>
-                <EditProfileModal/>
+                <EditProfileModal profile={profile}/>
             </SecureContent>
         </>
     );

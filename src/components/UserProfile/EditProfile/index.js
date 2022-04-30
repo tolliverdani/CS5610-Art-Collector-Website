@@ -6,13 +6,14 @@ import {useDispatch, useSelector} from "react-redux";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
-const EditProfileModal = () => {
+const EditProfileModal = ({profile}) => {
     const [set, setShow] = useState(false);
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const profile = useSelector(state => state.profile)
+
+
     const [email, changeEmail] = useState(profile.email)
     const [username, changeUsername] = useState(profile.username)
     const [pronoun, changePronoun] = useState(profile.pronoun)
@@ -33,6 +34,7 @@ const EditProfileModal = () => {
             }
             // delete blank password field to that it isn't updated
             delete updated_user["password"];
+            console.log("Tryin to handle the update. This is the user being passed to updateProfile: " + JSON.stringify(updated_user,undefined,4))
 
             updateProfile(dispatch, updated_user).then(() => {
                 alert("You have updated your profile")

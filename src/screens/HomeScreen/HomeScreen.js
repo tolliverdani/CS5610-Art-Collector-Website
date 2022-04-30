@@ -24,9 +24,14 @@ const HomeScreen = () => {
     const users = useSelector(state => state.users)
     const profile = useSelector(state => state.profile)
 
+    let user_id = null;
+    if (profile){
+        user_id = profile._id;
+    }
+
     useEffect(() => randomPaintings(dispatch), [dispatch]);
     useEffect(() => findAllUsers(dispatch), [dispatch]);
-    useEffect(() => findActiveOffersBySellerId(dispatch, profile._id), [dispatch, profile._id])
+    useEffect(() => findActiveOffersBySellerId(dispatch, user_id), [dispatch, user_id])
 
     const paintings = paintings_data.data
 
