@@ -19,6 +19,7 @@ export const logout = async () =>
         .then(response => response.data);
 
 export const profile = async () =>
+
     api.post(`${SECURITY_API}/profile`)
         .then(response => response.data);
 

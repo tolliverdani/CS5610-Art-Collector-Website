@@ -1,6 +1,7 @@
 import React from "react";
 import EditProfileModal from "../EditProfile";
 import SecureContent from "../../../_security/secure-content";
+import SecureProfileContent from "../../../_security/secure-profile-content";
 
 const ProfileStats = ({profile}) => {
 
@@ -29,9 +30,9 @@ const ProfileStats = ({profile}) => {
                     </div>
                 </div>
             </div>
-            <SecureContent>
+            <SecureProfileContent profileId={profile._id}>
                 <EditProfileModal profile={profile}/>
-            </SecureContent>
+            </SecureProfileContent>
         </>
     );
 }

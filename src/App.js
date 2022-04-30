@@ -33,6 +33,7 @@ import usersReducer from "./_reducers/users-reducer";
 import AdminScreen from "./screens/AdminScreen/AdminScreen";
 import SecureAdminRoute from "./_security/secure-admin-route";
 import newArtistsReducer from "./_reducers/new-artists-reducer";
+import singleUserReducer from "./_reducers/single-user-reducer";
 
 
 const reducers = combineReducers({
@@ -46,7 +47,8 @@ const reducers = combineReducers({
     users: usersReducer,
     offersHistory: offersHistoryReducer,
     salesHistory: salesHistoryReducer,
-    newArtists: newArtistsReducer
+    newArtists: newArtistsReducer,
+    singleUser: singleUserReducer
 })
 const store = createStore(reducers);
 
