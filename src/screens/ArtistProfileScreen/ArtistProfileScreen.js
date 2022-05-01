@@ -17,6 +17,8 @@ import {getProfile} from "../../_actions/profile-actions";
 import CreatePostLogic from "../../components/UpdatePosts/CreatePostLogic";
 import CreatePostArtist from "../../components/UpdatePosts/CreatePostArtist";
 import SecureClaimedArtistContent from "../../_security/secure-claimed-artist-content";
+import SecureContent from "../../_security/secure-content";
+import SecureArtistContent from "../../_security/secure-artist-content";
 
 const ArtistProfileScreen = () => {
     const {artist_name, artist_id} = useParams();
@@ -26,12 +28,13 @@ const ArtistProfileScreen = () => {
     const paintings_data = useSelector(state => state.paintings);
     const posts = useSelector(state => state.comments)
     const listings = useSelector(state => state.listings)
+    const profile = useSelector(state => state.profile)
 
     useEffect(() => findArtistComments(dispatch, artist_id), [dispatch, artist_id])
     useEffect(() => findPaintingsByArtist(dispatch, artist_id), [dispatch, artist_id]);
     useEffect(() => artistDetails(dispatch, artist_name), [dispatch, artist_name]);
     useEffect(() => findActiveListingsByArtistId(dispatch, artist_id), [dispatch, artist_id])
-    // useEffect(() => getProfile(dispatch), [dispatch])
+    useEffect(() => getProfile(dispatch), [dispatch])
 
     const paintings = paintings_data.data;
 
@@ -49,12 +52,11 @@ const ArtistProfileScreen = () => {
                         <ListingsGrid type={"artist"} data={listings}/>
                         <PaintingsByArtist data={paintings} id={artist_id}/>
                         <UpdatePosts posts={posts}/>
-                        {/*<SecureClaimedArtistContent artist_id={artist_id}>*/}
+                        <SecureArtistContent artist_id={artist_id}>
                             <CreatePostArtist artist_id={artist_id}/>
-                        {/*</SecureClaimedArtistContent>*/}
+                        </SecureArtistContent>
                     </div>
                     <div className={'col-2 d-none d-lg-block'}>
-                        <ArtistProfile artist_id={artist_id}/>
                         <ArtistStats artist={artist}/>
                     </div>
                 </div>
