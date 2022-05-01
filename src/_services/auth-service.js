@@ -17,7 +17,7 @@ export const signup = async (email, username, password) => {
             return [];
         }
     } catch (e) {
-
+        alert("We were unable to register this user, please try again.")
     }
 }
 
