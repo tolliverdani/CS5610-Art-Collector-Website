@@ -4,6 +4,20 @@ import ArtistNotFound from "../../Errors/ArtistNotFound";
 
 const ArtistStats = (params) => {
 
+    const render_bio = () => {
+        let rendered_bio = ''
+        if ( artist.biography !== undefined ) {
+            console.log(artist.biography)
+            rendered_bio = artist.biography
+        }
+        rendered_bio = rendered_bio.replace("[url", "<a")
+        rendered_bio = rendered_bio.replace("[/url]", "</a>")
+        rendered_bio = rendered_bio.replace("[i]", "<i>")
+        rendered_bio = rendered_bio.replace("[/i]", "</i>")
+        rendered_bio = rendered_bio.replace("]", ">")
+        return rendered_bio
+    }
+
     const artist = params.artist
 
     return (

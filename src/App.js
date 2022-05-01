@@ -34,11 +34,13 @@ import AdminScreen from "./screens/AdminScreen/AdminScreen";
 import SecureAdminRoute from "./_security/secure-admin-route";
 import newArtistsReducer from "./_reducers/new-artists-reducer";
 import singleUserReducer from "./_reducers/single-user-reducer";
+import artistSearchReducer from "./_reducers/artist-search-reducer";
 
 
 const reducers = combineReducers({
     paintings: paintingsReducer,
     artists: artistReducer,
+    artistSearch: artistSearchReducer,
     collection: collectionsReducer,
     comments: commentsReducer,
     listings: listingsReducer,

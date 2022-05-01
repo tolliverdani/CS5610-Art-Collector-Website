@@ -15,12 +15,11 @@ const SearchScreen = () => {
     const dispatch = useDispatch();
 
     const paintings_data = useSelector(state => state.paintings);
-    const artists = useSelector(state => state.artists);
-    const profile = useSelector(state => state.profile)
+    const artists = useSelector(state => state.artistSearch);
 
     useEffect(() => {generalSearch(dispatch, searchTerm);}, [dispatch, searchTerm]);
     useEffect(() => artistGeneralSearch(dispatch, searchTerm), [dispatch, searchTerm]);
-    useEffect(() => findUserById(dispatch), [dispatch])
+    // useEffect(() => findUserById(dispatch), [dispatch])
 
     const paintings = paintings_data.data;
 
@@ -40,6 +39,7 @@ const SearchScreen = () => {
                         <PaintingGrid type={"search"} data={paintings}/>}
                 </div>
                 <div className={'d-none d-lg-block col-2'}>
+                    {/*TODO look at the reducer*/}
                     <ArtistSearchGrid artists={artists}/>
                 </div>
             </div>

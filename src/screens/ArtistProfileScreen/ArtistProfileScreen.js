@@ -18,6 +18,7 @@ import {getProfile} from "../../_actions/profile-actions";
 
 const ArtistProfileScreen = () => {
     const {artist_name, artist_id} = useParams();
+    console.log("In the artist profile screen with name " + artist_name + " and id " + artist_id)
     const dispatch = useDispatch();
 
     const artist = useSelector(state => state.artists);

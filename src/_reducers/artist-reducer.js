@@ -6,8 +6,6 @@ import {
 const artistReducer = (state = {"data":[]}, action) => {
 
     switch (action.type) {
-        case ARTIST_GENERAL_SEARCH:
-            return action.artist_general_search;
         case ARTIST_DETAILS:
             return action.artist_details;
         case UPDATED_ARTISTS:

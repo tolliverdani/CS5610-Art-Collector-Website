@@ -11,6 +11,11 @@ const ArtistProfile = ({artist_id}) => {
     const profile = useSelector(state => state.profile)
     useEffect(() => getProfile(dispatch), [dispatch])
 
+    let profile_artist_id = null;
+    if ( profile ){
+        profile_artist_id = profile.artist_id;
+    }
+
 
     const handleClaimArtist = async () => {
         try {
@@ -22,11 +27,8 @@ const ArtistProfile = ({artist_id}) => {
     }
     return (
         <>
-            <div>{JSON.stringify(profile,undefined, 4)}</div>
-            <div>{artist_id}, </div>
-            <div>{profile.artist_id}</div>
             <SecureArtistContent>
-                {artist_id === profile.artist_id ?
+                {artist_id === profile_artist_id ?
                     <div>You claimed this artist</div>
                     :
                     <button className={"btn btn-primary rounded-pill"}
