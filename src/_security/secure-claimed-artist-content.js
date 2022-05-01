@@ -17,6 +17,8 @@ const SecureClaimedArtistContent = ({children, artist_id}) => {
 
     // check when it loads
     useEffect(() => {
+        console.log("In secure-claimed-artist-content")
+
         check()
     }, [])
 

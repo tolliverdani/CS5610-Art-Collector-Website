@@ -7,6 +7,8 @@ const SecureArtistRoute = ({children}) => {
     const [waiting, setWaiting] = useState(true)
 
     const check = async () => {
+        console.log("In secure-artist-route")
+
         try {
             const user = await profile()
             if (user.hasOwnProperty("is_artist") && (user.is_artist === true)) {

@@ -25,7 +25,7 @@ const SecureProfileContent = ({children, profile_id}) => {
     // check when it loads
     useEffect(() => {
         check()
-    }, [profileId])
+    }, [])
 
     if (currentUser) {
         return children

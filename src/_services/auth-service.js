@@ -44,6 +44,7 @@ export const logout = async () => {
 }
 
 export const profile = async () => {
+    console.log("asking for profile" + console.trace())
     try {
         const request_url = `${SECURITY_API}/profile`
         const response = await api.post(request_url)

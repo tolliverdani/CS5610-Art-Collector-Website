@@ -20,6 +20,8 @@ const SecureClaimedArtistButton = ({children, artist_id, users}) => {
         }
     }
     const check = () => {
+        console.log("In secure-claimed-artist-button")
+
         if ( artist_claimed ){
             setCurrentUser(false)
         }

@@ -18,10 +18,10 @@ const Posts = ({posts}) => {
                     :
                     <>
                         <PostFeed posts={posts}/>
-                        <UnsecuredContent>
+                        {/*<UnsecuredContent>*/}
                             <h6 className={"mt-2"}>Sign in to comment</h6>
                             <LogInModal text={"Sign In"}/>
-                        </UnsecuredContent>
+                        {/*</UnsecuredContent>*/}
                     </>
                 }
             </div>

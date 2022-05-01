@@ -31,7 +31,7 @@ const ArtistProfileScreen = () => {
     useEffect(() => findPaintingsByArtist(dispatch, artist_id), [dispatch, artist_id]);
     useEffect(() => artistDetails(dispatch, artist_name), [dispatch, artist_name]);
     useEffect(() => findActiveListingsByArtistId(dispatch, artist_id), [dispatch, artist_id])
-    useEffect(() => getProfile(dispatch), [dispatch])
+    // useEffect(() => getProfile(dispatch), [dispatch])
 
     const paintings = paintings_data.data;
 
@@ -49,9 +49,9 @@ const ArtistProfileScreen = () => {
                         <ListingsGrid type={"artist"} data={listings}/>
                         <PaintingsByArtist data={paintings} id={artist_id}/>
                         <UpdatePosts posts={posts}/>
-                        <SecureClaimedArtistContent artist_id={artist_id}>
+                        {/*<SecureClaimedArtistContent artist_id={artist_id}>*/}
                             <CreatePostArtist artist_id={artist_id}/>
-                        </SecureClaimedArtistContent>
+                        {/*</SecureClaimedArtistContent>*/}
                     </div>
                     <div className={'col-2 d-none d-lg-block'}>
                         <ArtistProfile artist_id={artist_id}/>

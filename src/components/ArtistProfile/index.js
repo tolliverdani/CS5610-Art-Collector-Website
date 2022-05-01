@@ -10,10 +10,10 @@ const ArtistProfile = ({artist_id}) => {
     const dispatch = useDispatch()
 
     const profile = useSelector(state => state.profile)
-    useEffect(() => getProfile(dispatch), [dispatch])
+    useEffect(() => getProfile(dispatch), [dispatch, profile])
 
     const users = useSelector(state => state.users)
-    useEffect( () => findAllUsers(dispatch), [dispatch])
+    useEffect( () => findAllUsers(dispatch), [dispatch, users])
 
     let profile_artist_id = null;
     if ( profile ){
@@ -36,18 +36,18 @@ const ArtistProfile = ({artist_id}) => {
     }
     return (
         <>
-            <SecureArtistContent>
+            {/*<SecureArtistContent>*/}
                 {artist_id === profile_artist_id ?
                     <div>You claimed this artist</div>
                     :
-                    <SecureClaimedArtistButton artist_id={artist_id} users={users}>
+                    // <SecureClaimedArtistButton artist_id={artist_id} users={users}>
                         <button className={"btn btn-primary rounded-pill"}
                                 onClick={handleClaimArtist}>
                             Claim Page
                         </button>
-                    </SecureClaimedArtistButton>
+                    // </SecureClaimedArtistButton>
                 }
-            </SecureArtistContent>
+            {/*</SecureArtistContent>*/}
         </>
     )
 }
