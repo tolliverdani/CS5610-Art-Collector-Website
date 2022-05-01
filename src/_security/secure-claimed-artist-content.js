@@ -1,14 +1,11 @@
 import {useEffect, useState} from "react";
-import {profile} from "../_services/auth-service";
 
-const SecureClaimedArtistContent = ({children, artist_id}) => {
+const SecureClaimedArtistContent = ({children, profile, artist_id}) => {
     const [currentUser, setCurrentUser] = useState(false)
 
     const check = async () => {
         try {
-            const user = await profile()
-            console.log(user)
-            if (user.hasOwnProperty("is_artist") && (user.is_artist === true) && user.artist_id === artist_id) {
+            if (profile.hasOwnProperty("is_artist") && (profile.is_artist === true)) {
                 setCurrentUser(true)
             }
         } catch (e) {
@@ -17,8 +14,6 @@ const SecureClaimedArtistContent = ({children, artist_id}) => {
 
     // check when it loads
     useEffect(() => {
-        console.log("In secure-claimed-artist-content")
-
         check()
     }, [])
 
