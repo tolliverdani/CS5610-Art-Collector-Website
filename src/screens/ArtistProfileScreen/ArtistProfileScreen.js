@@ -13,19 +13,16 @@ import {findActiveListingsByArtistId} from "../../_actions/listings-actions";
 import ListingsGrid from "../../components/ListingsGrid";
 import {findArtistComments} from "../../_actions/comments-actions";
 import UpdatePosts from "../../components/UpdatePosts";
-import {findUserById} from "../../_actions/users-actions";
 import {getProfile} from "../../_actions/profile-actions";
 
 const ArtistProfileScreen = () => {
     const {artist_name, artist_id} = useParams();
-    console.log("In the artist profile screen with name " + artist_name + " and id " + artist_id)
     const dispatch = useDispatch();
 
     const artist = useSelector(state => state.artists);
     const paintings_data = useSelector(state => state.paintings);
     const posts = useSelector(state => state.comments)
     const listings = useSelector(state => state.listings)
-    const profile = useSelector(state => state.profile)
 
     useEffect(() => findArtistComments(dispatch, artist_id), [dispatch, artist_id])
     useEffect(() => findPaintingsByArtist(dispatch, artist_id), [dispatch, artist_id]);

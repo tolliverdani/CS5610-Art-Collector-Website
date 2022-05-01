@@ -1,22 +1,9 @@
 import React from "react";
 import ComponentHeader from "../../ComponentHeader";
 import ArtistNotFound from "../../Errors/ArtistNotFound";
+import RenderBio from "../../../_renders/render_bio";
 
 const ArtistStats = (params) => {
-
-    const render_bio = () => {
-        let rendered_bio = ''
-        if ( artist.biography !== undefined ) {
-            console.log(artist.biography)
-            rendered_bio = artist.biography
-        }
-        rendered_bio = rendered_bio.replace("[url", "<a")
-        rendered_bio = rendered_bio.replace("[/url]", "</a>")
-        rendered_bio = rendered_bio.replace("[i]", "<i>")
-        rendered_bio = rendered_bio.replace("[/i]", "</i>")
-        rendered_bio = rendered_bio.replace("]", ">")
-        return rendered_bio
-    }
 
     const artist = params.artist
 
@@ -46,7 +33,7 @@ const ArtistStats = (params) => {
                     </div>
                     <div className={"p-0"}>
                         <p className={"m-0"}><strong>Biography</strong></p>
-                        <p className={"m-0"}>{artist.biography}</p>
+                        <p className={"m-0"}>{<RenderBio bio={artist.biography}/>}</p>
                     </div>
                     <div className={`p-0`}>
                         <p className={"m-0"}><strong>Series</strong></p>
