@@ -31,7 +31,7 @@ export const login = async (email, password) => {
             return [];
         }
     } catch (e) {
-
+        alert("This user does not exist. Please check your credentials and try again.")
     }
 }
 
