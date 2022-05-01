@@ -10,7 +10,6 @@ export const DELETE_COMMENT = 'DELETE_COMMENT';
 export const createComment = async (dispatch, comment) => {
     try {
         const newComment = await service.createComment(comment);
-
         dispatch({
             type: CREATE_COMMENT,
             newComment
