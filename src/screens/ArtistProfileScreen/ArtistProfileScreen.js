@@ -52,7 +52,7 @@ const ArtistProfileScreen = () => {
                         <ListingsGrid type={"artist"} data={listings}/>
                         <PaintingsByArtist data={paintings} id={artist_id}/>
                         <UpdatePosts posts={posts}/>
-                        <CreatePostArtist artist_id={artist_id}/>
+                        <CreatePostArtist profile={profile} artist_id={artist_id}/>
                     </div>
                     <div className={'col-2 d-none d-lg-block'}>
                         <ArtistStats artist={artist}/>

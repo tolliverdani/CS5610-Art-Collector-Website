@@ -47,7 +47,7 @@ export const findArtistComments = async (dispatch, artist_id) => {
     try {
         const comments = await service.findArtistComments(artist_id);
         dispatch({
-            type: FIND_PAINTING_COMMENTS,
+            type: FIND_ARTIST_COMMENTS,
             comments
         })
     } catch (e) {

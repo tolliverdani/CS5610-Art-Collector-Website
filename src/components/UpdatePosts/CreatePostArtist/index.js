@@ -2,9 +2,8 @@ import React, {useState} from "react"
 import {useDispatch, useSelector} from "react-redux";
 import {createComment} from "../../../_actions/comments-actions";
 
-const CreatePostArtist = () => {
+const CreatePostArtist = ({profile, artist_id}) => {
     const dispatch = useDispatch();
-    const profile = useSelector(state => state.profile);
 
     const [newComment, setNewComment] = useState({post: ""});
 
@@ -13,11 +12,13 @@ const CreatePostArtist = () => {
         comment_to_add = {
             user_id: profile._id,
             username: profile.username,
-            artist_id: profile.artist_id,
+            painting_id: "",
+            artist_id: artist_id,
             comment_date: new Date(),
             type: "artist",
             comment: newComment
         }
+        console.log(JSON.stringify(comment_to_add, undefined,4))
         createComment(dispatch, comment_to_add)
     }
 
