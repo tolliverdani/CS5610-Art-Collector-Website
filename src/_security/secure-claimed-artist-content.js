@@ -1,13 +1,14 @@
 import {useEffect, useState} from "react";
 import {profile} from "../_services/auth-service";
 
-const SecureArtistContent = ({children}) => {
+const SecureClaimedArtistContent = ({children, artist_id}) => {
     const [currentUser, setCurrentUser] = useState(false)
 
     const check = async () => {
         try {
             const user = await profile()
-            if (user.hasOwnProperty("is_artist") && (user.is_artist === true)) {
+            console.log(user)
+            if (user.hasOwnProperty("is_artist") && (user.is_artist === true) && user.artist_id === artist_id) {
                 setCurrentUser(true)
             }
         } catch (e) {
@@ -25,4 +26,4 @@ const SecureArtistContent = ({children}) => {
     return null
 }
 
-export default SecureArtistContent
+export default SecureClaimedArtistContent

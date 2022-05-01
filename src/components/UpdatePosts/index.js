@@ -2,13 +2,11 @@ import React from "react";
 import CreatePost from "./CreatePost";
 import PostFeed from "./PostFeed";
 import EmptyPosts from "../Errors/EmptyPosts";
-import SecureContent from "../../_security/secure-content";
 import ComponentHeader from "../ComponentHeader";
-import SecureArtistContent from "../../_security/secure-artist-content";
 import LogInModal from "../Auth/LoginModalButton";
 import UnsecuredContent from "../../_security/unsecured-content";
 
-const Posts = ({painting_data, posts, is_artist}) => {
+const Posts = ({posts}) => {
 
     return (
         <div className={"mb-2"}>
@@ -27,15 +25,6 @@ const Posts = ({painting_data, posts, is_artist}) => {
                     </>
                 }
             </div>
-            {is_artist ?
-                <SecureArtistContent>
-                    <CreatePost is_artist={is_artist} painting_data={painting_data}/>
-                </SecureArtistContent>
-                :
-                <SecureContent>
-                    <CreatePost is_artist={is_artist} painting_data={painting_data}/>
-                </SecureContent>
-            }
         </div>
     )
 }

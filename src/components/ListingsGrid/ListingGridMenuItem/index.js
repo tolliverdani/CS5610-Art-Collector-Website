@@ -30,7 +30,7 @@ const ListingGridMenuItem = ({grid_item}) => {
                         size={"sm"}
                         align={"end"} title={""}>
             <SecureContent>
-                {profile && user && profile._id === user._id ?
+                {profile && user && profile._id === user._id && profile._id === grid_item.owner_id ?
                     <Dropdown.Item onClick={() => handleClick()}>
                         Remove Listing
                     </Dropdown.Item>

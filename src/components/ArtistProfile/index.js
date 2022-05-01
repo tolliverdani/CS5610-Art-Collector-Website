@@ -27,6 +27,7 @@ const ArtistProfile = ({artist_id}) => {
     }
     return (
         <>
+            {console.log(JSON.stringify(profile,undefined,4))}
             <SecureArtistContent>
                 {artist_id === profile_artist_id ?
                     <div>You claimed this artist</div>

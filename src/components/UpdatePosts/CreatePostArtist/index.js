@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import {useDispatch, useSelector} from "react-redux";
 import {createComment} from "../../../_actions/comments-actions";
 
-const CreatePost = ({painting_id}) => {
+const CreatePostArtist = ({artist_id}) => {
     const dispatch = useDispatch();
     const profile = useSelector(state => state.profile);
 
@@ -13,10 +13,9 @@ const CreatePost = ({painting_id}) => {
         comment_to_add = {
             user_id: profile._id,
             username: profile.username,
-            painting_id: painting_id,
-            artist_id: "",
+            artist_id: profile.artist_id,
             comment_date: new Date(),
-            type: "painting",
+            type: "artist",
             comment: newComment
         }
         createComment(dispatch, comment_to_add)
@@ -42,4 +41,4 @@ const CreatePost = ({painting_id}) => {
         </div>
     );
 }
-export default CreatePost;
+export default CreatePostArtist;

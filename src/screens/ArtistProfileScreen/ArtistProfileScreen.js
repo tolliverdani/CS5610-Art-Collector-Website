@@ -14,6 +14,9 @@ import ListingsGrid from "../../components/ListingsGrid";
 import {findArtistComments} from "../../_actions/comments-actions";
 import UpdatePosts from "../../components/UpdatePosts";
 import {getProfile} from "../../_actions/profile-actions";
+import CreatePostLogic from "../../components/UpdatePosts/CreatePostLogic";
+import CreatePostArtist from "../../components/UpdatePosts/CreatePostArtist";
+import SecureClaimedArtistContent from "../../_security/secure-claimed-artist-content";
 
 const ArtistProfileScreen = () => {
     const {artist_name, artist_id} = useParams();
@@ -45,7 +48,10 @@ const ArtistProfileScreen = () => {
                     <div className={'col-10 col-lg-8'}>
                         <ListingsGrid type={"artist"} data={listings}/>
                         <PaintingsByArtist data={paintings} id={artist_id}/>
-                        <UpdatePosts posts={posts} is_artist={true}/>
+                        <UpdatePosts posts={posts}/>
+                        <SecureClaimedArtistContent artist_id={artist_id}>
+                            <CreatePostArtist artist_id={artist_id}/>
+                        </SecureClaimedArtistContent>
                     </div>
                     <div className={'col-2 d-none d-lg-block'}>
                         <ArtistProfile artist_id={artist_id}/>

@@ -10,7 +10,6 @@ const ProfileStats = ({profile}) => {
     return (
         <>
             <div className={"p-2 mb-2 bg-light"}>
-                {console.log(JSON.stringify(profile, undefined, 4))}
                 <div className={"p-2"}>
                     {/* Pronouns */}
                     <div className={"p-0"}>

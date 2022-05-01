@@ -13,6 +13,7 @@ import ArtStats from "../../components/ArtDetails/ArtStats";
 import {findPaintingComments} from "../../_actions/comments-actions";
 import {findActiveListingsByPaintingId, findSalesPriceHistoryByPaintingId} from "../../_actions/listings-actions";
 import {findPriceHistoryAllOffersByPaintingId} from "../../_actions/offers-actions";
+import CreatePost from "../../components/UpdatePosts/CreatePost";
 
 // TODO delete this?
 
@@ -23,18 +24,15 @@ const ArtPieceScreen = () => {
         const dispatch = useDispatch();
 
         const data = useSelector(state => state.paintings)
-        useEffect(() => paintingDetails(dispatch, painting_id), [dispatch, painting_id])
-
         const posts = useSelector(state => state.comments)
-        useEffect(() => findPaintingComments(dispatch, painting_id), [dispatch, painting_id])
-
         const listings = useSelector(state => state.listings);
-        useEffect(() => findActiveListingsByPaintingId(dispatch, painting_id), [dispatch, painting_id])
-
         const offersHistory = useSelector(state => state.offersHistory);
-        useEffect(() => findPriceHistoryAllOffersByPaintingId(dispatch, painting_id), [dispatch, painting_id])
-
         const salesHistory = useSelector(state => state.salesHistory);
+
+        useEffect(() => paintingDetails(dispatch, painting_id), [dispatch, painting_id])
+        useEffect(() => findPaintingComments(dispatch, painting_id), [dispatch, painting_id])
+        useEffect(() => findActiveListingsByPaintingId(dispatch, painting_id), [dispatch, painting_id])
+        useEffect(() => findPriceHistoryAllOffersByPaintingId(dispatch, painting_id), [dispatch, painting_id])
         useEffect(() => findSalesPriceHistoryByPaintingId(dispatch, painting_id), [dispatch, painting_id])
 
         return (
@@ -49,7 +47,8 @@ const ArtPieceScreen = () => {
                     <div className={'col-10 col-lg-8'}>
                         <PriceHistory sales_history={salesHistory} offers_history={offersHistory}/>
                         <PaintingListings type={"painting"} data={listings}/>
-                        <UpdatePosts painting_data={data} posts={posts} is_artist={false}/>
+                        <UpdatePosts posts={posts}/>
+                        <CreatePost painting_id={painting_id}/>
                     </div>
                     <div className={'d-none d-lg-block col-2'}>
                         <ArtDetails data={data}/>
