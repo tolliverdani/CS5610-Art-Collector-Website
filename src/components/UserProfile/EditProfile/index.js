@@ -3,6 +3,7 @@ import {Modal, Button, Form} from 'react-bootstrap';
 import {useNavigate} from "react-router-dom";
 import {updateProfile} from "../../../_actions/users-actions";
 import {useDispatch, useSelector} from "react-redux";
+import {getProfile} from "../../../_actions/profile-actions";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 
@@ -35,6 +36,7 @@ const EditProfileModal = ({profile}) => {
 
             updateProfile(dispatch, updated_user).then(() => {
                 alert("You have updated your profile")
+                getProfile(dispatch)
                 setShow(false)
             })
             navigate('/profile')

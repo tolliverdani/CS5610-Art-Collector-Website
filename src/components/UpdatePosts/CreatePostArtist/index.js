@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import {useDispatch, useSelector} from "react-redux";
 import {createComment} from "../../../_actions/comments-actions";
 
-const CreatePostArtist = ({artist_id}) => {
+const CreatePostArtist = () => {
     const dispatch = useDispatch();
     const profile = useSelector(state => state.profile);
 
@@ -23,21 +23,25 @@ const CreatePostArtist = ({artist_id}) => {
 
     return (
         <div>
-            <form>
-                <div className="form-group">
+            {profile && profile.hasOwnProperty("is_artist") && profile.is_artist === true ?
+                <form>
+                    <div className="form-group">
                     <textarea className="form-control border-0 bg-light text-muted"
                               rows="2"
                               placeholder={"Leave a comment"}
                               onChange={(e) => (setNewComment(e.target.value))}/>
-                    <div className={'mt-2 p-0'}>
-                        <button className={"btn-sm btn-primary rounded-pill float-end"}
-                                type={"button"}
-                                onClick={handleCreateComment}>
-                            Post
-                        </button>
+                        <div className={'mt-2 p-0'}>
+                            <button className={"btn-sm btn-primary rounded-pill float-end"}
+                                    type={"button"}
+                                    onClick={handleCreateComment}>
+                                Post
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+                :
+                <></>
+            }
         </div>
     );
 }

@@ -11,6 +11,12 @@ const ProfileStats = ({profile}) => {
         <>
             <div className={"p-2 mb-2 bg-light"}>
                 <div className={"p-2"}>
+                    {/* Is Artist? */}
+                    <div className={"p-0"}>
+                        <i className="fa fa-paint-brush pe-2" aria-hidden="true"/>
+                        {profile.hasOwnProperty("is_artist") === false ? "No" : "Yes"}
+                    </div>
+
                     {/* Pronouns */}
                     <div className={"p-0"}>
                         <i className="fa fa-genderless pe-2" aria-hidden="true"/>
