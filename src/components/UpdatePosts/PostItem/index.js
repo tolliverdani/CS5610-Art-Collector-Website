@@ -1,6 +1,7 @@
 import React from "react";
 import {deleteComment} from "../../../_actions/comments-actions";
 import {useDispatch} from "react-redux";
+import SecureContent from "../../../_security/secure-content";
 
 const PostItem = ({post}) => {
 
@@ -40,7 +41,9 @@ const PostItem = ({post}) => {
                 </span>
                     <p>{post.comment}</p>
                 </div>
-                <i className={"fa fa-times text-muted"} onClick={handleDeleteComment}/>
+                <SecureContent>
+                    <i className={"fa fa-times text-muted"} onClick={handleDeleteComment}/>
+                </SecureContent>
             </div>
         </div>
     )
