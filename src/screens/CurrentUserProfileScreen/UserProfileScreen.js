@@ -25,10 +25,15 @@ const CurrentUserProfileScreen = () => {
     const listings = useSelector(state => state.listings);
     const offers = useSelector(state => state.offers);
 
-    useEffect(() => findUserById(dispatch, profile._id), [dispatch, profile._id])
-    useEffect(() => findUserCollection(dispatch, profile._id), [dispatch, profile._id]);
-    useEffect(() => findActiveListingsByOwnerId(dispatch, profile._id), [dispatch, profile._id])
-    useEffect(() => findActiveOffersBySellerId(dispatch, profile._id), [dispatch, profile._id])
+    let profile_id = null;
+    if ( profile ){
+        profile_id = profile._id
+    }
+
+    useEffect(() => findUserById(dispatch, profile_id), [dispatch, profile_id])
+    useEffect(() => findUserCollection(dispatch, profile_id), [dispatch, profile_id]);
+    useEffect(() => findActiveListingsByOwnerId(dispatch, profile_id), [dispatch, profile_id])
+    useEffect(() => findActiveOffersBySellerId(dispatch, profile_id), [dispatch, profile_id])
     useEffect(() => getProfile(dispatch), [dispatch])
 
     return (
