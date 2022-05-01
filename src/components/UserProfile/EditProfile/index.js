@@ -12,8 +12,6 @@ const EditProfileModal = ({profile}) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-
-
     const [email, changeEmail] = useState(profile.email)
     const [username, changeUsername] = useState(profile.username)
     const [pronoun, changePronoun] = useState(profile.pronoun)
@@ -98,6 +96,7 @@ const EditProfileModal = ({profile}) => {
                                         id="InputPronouns"
                                         value={pronoun}
                                         onChange={(e) => changePronoun(e.target.value)}>
+                                    <option> </option>
                                     <option>He/Him</option>
                                     <option>She/Her</option>
                                     <option>They/Them</option>

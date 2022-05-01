@@ -2,11 +2,15 @@ import {useEffect, useState} from "react";
 import {profile} from "../_services/auth-service";
 import {useParams} from "react-router-dom";
 
-const SecureProfileContent = ({children}) => {
+const SecureProfileContent = ({children, profile_id}) => {
 
     const [currentUser, setCurrentUser] = useState(false)
 
-    const {profileId} = useParams()
+    let {profileId} = useParams()
+
+    if (profileId === undefined || profileId === null || profileId === "") {
+        profileId = profile_id
+    }
 
     const check = async () => {
         try {

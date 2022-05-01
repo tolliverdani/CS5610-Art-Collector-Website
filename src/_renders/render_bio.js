@@ -3,7 +3,13 @@ import parse from 'html-react-parser';
 
 const RenderBio = ({bio = ""}) => {
 
-    let rendered_bio = bio.replace(new RegExp('\\[url', 'g'),'<a')
+    let rendered_bio = bio
+
+    if (bio === null ) {
+      rendered_bio = ""
+    }
+
+    rendered_bio = rendered_bio.replace(new RegExp('\\[url', 'g'),'<a')
     rendered_bio = rendered_bio.replace(new RegExp("\\[/url\\]", 'g'),'</a>')
     rendered_bio = rendered_bio.replace(new RegExp("\\[i\\]", 'g'),'<i>')
     rendered_bio = rendered_bio.replace(new RegExp("\\[\\/i\\]", 'g'),'</i>')
@@ -11,7 +17,7 @@ const RenderBio = ({bio = ""}) => {
 
     return (
         <>
-            {bio === " " || bio === "" ? '--' : parse(rendered_bio)}
+            {rendered_bio === " " || rendered_bio === "" ? '--' : parse(rendered_bio)}
         </>
     )
 }

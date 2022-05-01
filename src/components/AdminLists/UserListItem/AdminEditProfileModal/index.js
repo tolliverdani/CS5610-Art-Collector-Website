@@ -199,6 +199,7 @@ const AdminEditProfileModal = ({user}) => {
                                         id="InputPronouns"
                                         value={pronoun}
                                         onChange={(e) => changePronoun(e.target.value)}>
+                                    <option> </option>
                                     <option>He/Him</option>
                                     <option>She/Her</option>
                                     <option>They/Them</option>
