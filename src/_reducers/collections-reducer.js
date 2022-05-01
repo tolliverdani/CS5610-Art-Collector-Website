@@ -15,7 +15,7 @@ const collectionsReducer = (state = [], action) => {
         case ADD_TO_USER_COLLECTION:
             return [action.added_item, ...state];
         case REMOVE_FROM_COLLECTION:
-            return action.collection;
+            return state.filter(collection => collection.id !== action.item_id)
         default:
             return state;
     }

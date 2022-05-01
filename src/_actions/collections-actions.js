@@ -47,11 +47,11 @@ export const addToUserCollection = async (dispatch, user_id, item_id) => {
 
 export const removeFromUserCollection = async (dispatch, user_id, item_id) => {
     try {
-        const removed_item = await services.removeFromUserCollection(user_id, item_id);
-        if (removed_item) {
+        const status = await services.removeFromUserCollection(user_id, item_id);
+        if ( status === 200 ) {
             dispatch({
                 type: REMOVE_FROM_COLLECTION,
-                removed_item
+                item_id
             })
         }
     } catch (e) {

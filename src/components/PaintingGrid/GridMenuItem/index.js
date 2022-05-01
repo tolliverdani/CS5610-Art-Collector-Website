@@ -70,14 +70,12 @@ const CollectionGridMenuItem = (grid_item, profile, user, dispatch) => {
                     <>
                         <Dropdown.Item onClick={() => {
                             try {
-                                removeFromUserCollection(dispatch, profile._id, grid_item._id)
+                                removeFromUserCollection(dispatch, profile._id, grid_item.id)
                                 alert("Item removed from your collection")
                             } catch (e) {
                                 alert("Ut oh! Couldn't remove this item from your collection")
                             }
                         }}>
-                            <div>User Id: {user._id}</div>
-                            <div>Profile Id: {profile._id}</div>
                             Remove from Collection
                         </Dropdown.Item>
                         <Dropdown.Item>
@@ -119,7 +117,8 @@ const GridMenuItem = (params) => {
 
     const profile = useSelector(state => state.profile)
     const user = useSelector(state => state.singleUser)
-    const {dispatch} = useDispatch()
+    // TODO I've seen you put dispatch in {} before. Did you have to do that to get something to work? Because I had to remove it to get something to work.
+    const dispatch = useDispatch()
 
     switch (params.type) {
         case "artist":

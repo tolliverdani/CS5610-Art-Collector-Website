@@ -30,9 +30,9 @@ export const addToUserCollection = async (user_id, item_id) => {
 }
 
 export const removeFromUserCollection = async (user_id, item_id) => {
-    const request_url = `${COLLECTIONS_API}/remove/${user_id}`
-    const response = await axios.delete(request_url, item_id);
+    const request_url = `${COLLECTIONS_API}/remove/${user_id}/${item_id}`
+    const response = await axios.delete(request_url);
     if (response.status === 200) {
-        return response.data
+        return response.status
     }
 }
