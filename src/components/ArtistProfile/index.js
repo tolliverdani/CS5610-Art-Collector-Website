@@ -1,53 +1,40 @@
-import React, {useEffect} from "react";
+import React from "react";
 
-import SecureArtistContent from "../../_security/secure-artist-content";
-import {findAllUsers, updateProfile} from "../../_actions/users-actions";
-import {useDispatch, useSelector} from "react-redux";
-import {getProfile} from "../../_actions/profile-actions";
-import SecureClaimedArtistButton from "../../_security/secure-claimed-artist-button";
+import {updateProfile} from "../../_actions/users-actions";
+import {useDispatch} from "react-redux";
 
-const ArtistProfile = ({artist_id}) => {
+const ArtistProfile = ({artist_id, profile}) => {
     const dispatch = useDispatch()
-
-    const profile = useSelector(state => state.profile)
-    useEffect(() => getProfile(dispatch), [dispatch, profile])
-
-    const users = useSelector(state => state.users)
-    useEffect( () => findAllUsers(dispatch), [dispatch, users])
-
-    let profile_artist_id = null;
-    if ( profile ){
-        profile_artist_id = profile.artist_id;
-    }
-
 
     const handleClaimArtist = async () => {
         try {
-            const updated_profile = {...profile, "artist_id": artist_id}
+            const updated_user = {
+                ...profile,
+                "artist_id": artist_id
+            }
+            console.log("this is the updated user: " + JSON.stringify(updated_user,undefined,4))
+            // delete blank password field to that it isn't updated
+            delete updated_user["password"];
 
-            delete updated_profile["password"];
-
-            console.log("Here is the updated profile: " + JSON.stringify(updated_profile, undefined, 4))
-            updateProfile(dispatch, updated_profile).then( () => alert("You have added artist"))
+            updateProfile(dispatch, updated_user).then(() => {
+                alert("You have updated your profile")
+            })
 
         } catch (e) {
             alert("Ut oh! We were unable to claim this page")
         }
     }
+
     return (
         <>
-            {/*<SecureArtistContent>*/}
-                {artist_id === profile_artist_id ?
-                    <div>You claimed this artist</div>
-                    :
-                    // <SecureClaimedArtistButton artist_id={artist_id} users={users}>
-                        <button className={"btn btn-primary rounded-pill"}
-                                onClick={handleClaimArtist}>
-                            Claim Page
-                        </button>
-                    // </SecureClaimedArtistButton>
-                }
-            {/*</SecureArtistContent>*/}
+            {artist_id === profile.artist_id ?
+                <div>Artist claimed</div>
+                :
+                <button className={"btn btn-primary rounded-pill"}
+                        onClick={handleClaimArtist}>
+                    Claim Page
+                </button>
+            }
         </>
     )
 }
