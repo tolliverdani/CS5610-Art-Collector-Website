@@ -2,7 +2,10 @@ import React from "react";
 
 const ArtistNotFound = (params) => {
 
-    const artist = params.artist
+    let artist = null
+    if (params.artist) {
+        artist = params.artist
+    }
 
     return (
         <div className={"row"}>
