@@ -13,11 +13,9 @@ export const signup = async (email, username, password) => {
         const response = await api.post(request_url, {email, username, password})
         if (response.status === 200) {
             return response.data;
-        } else {
-            return [];
         }
     } catch (e) {
-        alert("We were unable to register this user, please try again.")
+        throw e;
     }
 }
 
@@ -27,11 +25,9 @@ export const login = async (email, password) => {
         const response = await api.post(request_url, {email, password})
         if (response.status === 200) {
             return response.data;
-        } else {
-            return [];
         }
     } catch (e) {
-        alert("This user does not exist. Please check your credentials and try again.")
+        throw e;
     }
 }
 
@@ -41,11 +37,9 @@ export const logout = async () => {
         const response = await api.post(request_url)
         if (response.status === 200) {
             return response.data;
-        } else {
-            return [];
         }
     } catch (e) {
-
+        throw e;
     }
 }
 
