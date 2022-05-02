@@ -4,7 +4,8 @@ const BASE_URL = "http://localhost:4000/api";
 const SECURITY_API = `${BASE_URL}/auth`;
 
 const api = axios.create({
-    withCredentials: true
+    withCredentials: true,
+    timeout: 1000
 });
 
 export const signup = async (email, username, password) => {

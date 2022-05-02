@@ -28,7 +28,9 @@ const LogInModal = ({text}) => {
     return (
         <>
         <Button className="btn btn-secondary rounded-pill border-0 m-1 d-none d-xxl-inline"
-                    onClick={() => setShow(true)}>
+                    onClick={() => setShow(true)}
+                type={"button"}
+        >
                 {text}
             </Button>
 
@@ -78,7 +80,8 @@ const LogInModal = ({text}) => {
                 <Modal.Footer className={`border-0`}>
                     <div className={'container text-center'}>
                         <button className={'btn btn-primary bg-primary rounded-pill border-0 mb-2'}
-                                onClick={() => handleLogin}>
+                                type={"button"}
+                                onClick={handleLogin}>
 
                             Login
                         </button>
