@@ -18,7 +18,6 @@ const CreatePostArtist = ({profile, artist_id}) => {
             type: "artist",
             comment: newComment
         }
-        console.log(JSON.stringify(comment_to_add, undefined,4))
         createComment(dispatch, comment_to_add)
     }
 

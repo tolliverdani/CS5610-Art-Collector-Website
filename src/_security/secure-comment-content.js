@@ -8,8 +8,6 @@ const SecureCommentContent = ({children, user_id}) => {
     const [currentUser, setCurrentUser] = useState(false)
 
     const check = async () => {
-        console.log("In secure-comment-content")
-
         try {
             const user = await profile()
             if (user && user._id === user_id) {

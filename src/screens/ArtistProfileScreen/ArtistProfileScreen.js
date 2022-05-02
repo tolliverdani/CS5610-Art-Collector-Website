@@ -48,7 +48,6 @@ const ArtistProfileScreen = () => {
                         <ListingsGrid type={"artist"} data={listings}/>
                         <PaintingsByArtist data={paintings} id={artist_id}/>
                         <UpdatePosts posts={posts}/>
-                        <div>{JSON.stringify(profile,undefined,4)}</div>
                         <SecureContent>
                             <CreatePostArtist profile={profile} artist_id={artist_id}/>
                         </SecureContent>

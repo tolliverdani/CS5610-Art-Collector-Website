@@ -12,7 +12,6 @@ const ArtistProfile = ({artist_id, profile}) => {
                 ...profile,
                 "artist_id": artist_id
             }
-            console.log("this is the updated user: " + JSON.stringify(updated_user,undefined,4))
             // delete blank password field to that it isn't updated
             delete updated_user["password"];
 
