@@ -10,10 +10,10 @@ const OffersListItem = ({offer}) => {
                     <h5 className={"m-0"}>
                         <strong>{offer.painting_name}</strong>
                     </h5>
-                    {offer.active_offer ?
+                    {offer.active_offer === true || offer.active_offer === "true" ?
                         <span className="badge bg-success me-1">Active</span> :
                         <span className="badge bg-secondary me-1">Inactive</span>}
-                    {offer.accepted ?
+                    {offer.accepted === true || offer.active_offer === "true" ?
                         <span className="badge bg-success me-1">Accepted</span> :
                         <span className="badge bg-danger me-1">Rejected</span>}
 

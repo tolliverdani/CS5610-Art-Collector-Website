@@ -11,10 +11,10 @@ const ListingsListItem = ({listing}) => {
                         <strong>{listing.painting_title}</strong>
                     </h5>
                     <p className={"m-0"}>{listing.artist_name}</p>
-                    {listing.active_listing ?
+                    {listing.active_listing === true || listing.active_listing === "true" ?
                         <span className="badge bg-success me-1">Active</span> :
                         <span className="badge bg-secondary me-1">Inactive</span>}
-                    {listing.sold ?
+                    {listing.sold === true || listing.sold === "true" ?
                         <span className="badge bg-success me-1">Sold</span> :
                         <span className="badge bg-danger me-1">Not Sold</span>}
 
