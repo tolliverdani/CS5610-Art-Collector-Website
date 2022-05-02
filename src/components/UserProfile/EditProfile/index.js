@@ -36,7 +36,6 @@ const EditProfileModal = ({profile}) => {
 
             updateProfile(dispatch, updated_user).then(() => {
                 alert("You have updated your profile")
-                getProfile(dispatch)
                 setShow(false)
             })
             navigate('/profile')
