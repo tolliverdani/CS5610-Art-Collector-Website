@@ -14,9 +14,7 @@ import {findPaintingComments} from "../../_actions/comments-actions";
 import {findActiveListingsByPaintingId, findSalesPriceHistoryByPaintingId} from "../../_actions/listings-actions";
 import {findPriceHistoryAllOffersByPaintingId} from "../../_actions/offers-actions";
 import CreatePost from "../../components/UpdatePosts/CreatePost";
-
-// TODO delete this?
-
+import SecureContent from "../../_security/secure-content";
 
 const ArtPieceScreen = () => {
 
@@ -48,7 +46,9 @@ const ArtPieceScreen = () => {
                         <PriceHistory sales_history={salesHistory} offers_history={offersHistory}/>
                         <PaintingListings type={"painting"} data={listings}/>
                         <UpdatePosts posts={posts}/>
-                        <CreatePost painting_id={painting_id}/>
+                        <SecureContent>
+                            <CreatePost painting_id={painting_id}/>
+                        </SecureContent>
                     </div>
                     <div className={'d-none d-lg-block col-2'}>
                         <ArtDetails data={data}/>

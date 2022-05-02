@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import NavigationSidebar from "../../components/NavigationSidebar";
-import ArtistProfile from "../../components/ArtistProfile";
 
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation, useParams} from "react-router-dom";
@@ -14,11 +13,8 @@ import ListingsGrid from "../../components/ListingsGrid";
 import {findArtistComments} from "../../_actions/comments-actions";
 import UpdatePosts from "../../components/UpdatePosts";
 import {getProfile} from "../../_actions/profile-actions";
-import CreatePostLogic from "../../components/UpdatePosts/CreatePostLogic";
 import CreatePostArtist from "../../components/UpdatePosts/CreatePostArtist";
-import SecureClaimedArtistContent from "../../_security/secure-claimed-artist-content";
 import SecureContent from "../../_security/secure-content";
-import SecureArtistContent from "../../_security/secure-artist-content";
 
 const ArtistProfileScreen = () => {
     const {artist_name, artist_id} = useParams();
@@ -52,7 +48,9 @@ const ArtistProfileScreen = () => {
                         <ListingsGrid type={"artist"} data={listings}/>
                         <PaintingsByArtist data={paintings} id={artist_id}/>
                         <UpdatePosts posts={posts}/>
-                        <CreatePostArtist profile={profile} artist_id={artist_id}/>
+                        <SecureContent>
+                            <CreatePostArtist profile={profile} artist_id={artist_id}/>
+                        </SecureContent>
                     </div>
                     <div className={'col-2 d-none d-lg-block'}>
                         <ArtistStats artist={artist}/>
