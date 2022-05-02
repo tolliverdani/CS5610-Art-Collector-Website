@@ -63,7 +63,6 @@ const PaintingGrid = (params) => {
                     <button className={`rounded-pill btn-sm btn-primary ${params.data.hasMore ? "" : "d-none"}`}>
                         Show More
                     </button>
-                    }
                 </>
             )
         case "collection":

@@ -24,7 +24,7 @@ const CreatePostArtist = ({profile, artist_id}) => {
 
     return (
         <div>
-            {profile && profile.hasOwnProperty("is_artist") && profile.is_artist === true ?
+            {profile && profile.hasOwnProperty("is_artist") && (profile.is_artist === true || profile.is_artist === "true") ?
                 <form>
                     <div className="form-group">
                     <textarea className="form-control border-0 bg-light text-muted"

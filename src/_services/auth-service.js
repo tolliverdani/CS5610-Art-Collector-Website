@@ -64,8 +64,6 @@ export const update = async (user) => {
         const response = await api.put(request_url, user)
         if (response.status === 200) {
             return response.data;
-        } else {
-            return [];
         }
     } catch (e) {
 

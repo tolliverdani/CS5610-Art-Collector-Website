@@ -1,4 +1,5 @@
 import * as service from "../_services/user-service"
+import * as security from "../_services/auth-service"
 
 export const FIND_USER_BY_ID = "FIND_USER_BY_ID"
 export const FIND_ALL_USERS = "FIND_ALL_USERS"
@@ -34,7 +35,7 @@ export const findUserById = async (dispatch, user_id) => {
 
 export const updateProfile = async (dispatch, user) => {
     try {
-        const updated_profile = await service.updateUser(user);
+        const updated_profile = await security.update(user);
         dispatch({
             type: UPDATE_PROFILE,
             user
