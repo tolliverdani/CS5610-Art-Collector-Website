@@ -21,8 +21,8 @@ const SecureAdminRoute = ({children}) => {
 
     // check when it loads
     useEffect(() => {
-        check()
         // eslint-disable-line react-hooks/exhaustive-deps
+        check()
     }, [])
 
     if (currentUser) {

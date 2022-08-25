@@ -17,8 +17,8 @@ const SecureCommentContent = ({children, user_id}) => {
 
     // check when it loads
     useEffect(() => {
-        check()
         // eslint-disable-line react-hooks/exhaustive-deps
+        check()
     }, [])
 
     if (currentUser) {
