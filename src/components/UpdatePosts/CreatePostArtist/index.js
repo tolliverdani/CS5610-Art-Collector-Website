@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {createComment} from "../../../_actions/comments-actions";
 
 const CreatePostArtist = ({profile, artist_id}) => {

@@ -21,6 +21,7 @@ const SecureAdminContent = ({children}) => {
     // check when it loads
     useEffect(() => {
         check()
+        // eslint-disable-line react-hooks/exhaustive-deps
     }, [])
 
     if (currentUser) {
