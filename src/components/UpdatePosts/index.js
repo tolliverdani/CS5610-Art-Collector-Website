@@ -1,5 +1,4 @@
 import React from "react";
-import CreatePost from "./CreatePost";
 import PostFeed from "./PostFeed";
 import EmptyPosts from "../Errors/EmptyPosts";
 import ComponentHeader from "../ComponentHeader";

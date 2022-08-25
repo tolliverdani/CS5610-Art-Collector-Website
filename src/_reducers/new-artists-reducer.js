@@ -1,5 +1,3 @@
-import * as service from "../_services/artist-service";
-
 export const UPDATED_ARTISTS = 'UPDATED_ARTISTS';
 
 const newArtistsReducer = (state =

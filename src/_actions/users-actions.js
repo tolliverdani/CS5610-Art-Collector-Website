@@ -35,7 +35,7 @@ export const findUserById = async (dispatch, user_id) => {
 
 export const updateProfile = async (dispatch, user) => {
     try {
-        const updated_profile = await security.update(user);
+        await security.update(user);
         dispatch({
             type: UPDATE_PROFILE,
             user

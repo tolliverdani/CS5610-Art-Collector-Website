@@ -1,11 +1,3 @@
-
-// list for offers
-// list for users
-// list for listings
-
-import ArtistListingItem from "../ListingsGrid/ArtistListingItem";
-import UserListingItem from "../ListingsGrid/UserListingItem";
-import PaintingListingItem from "../ListingsGrid/PaintingListingItem";
 import React from "react";
 import ComponentHeader from "../ComponentHeader";
 import EmptyListings from "../Errors/EmptyListings";

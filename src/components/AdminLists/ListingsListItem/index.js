@@ -1,5 +1,4 @@
 import React from "react";
-import AdminEditProfileModal from "../UserListItem/AdminEditProfileModal";
 import AdminEditListingModal from "./AdminEditListingModal";
 
 const ListingsListItem = ({listing}) => {

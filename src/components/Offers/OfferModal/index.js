@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Modal, Button} from 'react-bootstrap';
-import {approveOffer, createOffer, rejectOffer} from "../../../_actions/offers-actions";
+import {approveOffer, rejectOffer} from "../../../_actions/offers-actions";
 import {useDispatch} from "react-redux";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/

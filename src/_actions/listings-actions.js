@@ -13,8 +13,7 @@ export const DELETE_ACTIVE_LISTING = "DELETE_ACTIVE_LISTING"
 
 export const deleteActiveListing = async (dispatch, listing) => {
     try {
-        const status = await service.updateListing(listing);
-
+        await service.updateListing(listing);
         dispatch({
             type: DELETE_ACTIVE_LISTING,
             listing
@@ -40,7 +39,7 @@ export const deleteListing = async (dispatch, listing_id) => {
 
 export const updateListing = async (dispatch, listing) => {
     try {
-        const status = await service.updateListing(listing);
+        await service.updateListing(listing);
         dispatch({
             type: UPDATE_LISTING,
             listing

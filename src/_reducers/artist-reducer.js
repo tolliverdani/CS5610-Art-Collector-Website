@@ -1,6 +1,6 @@
 import {
-    ARTIST_GENERAL_SEARCH,
-    ARTIST_DETAILS, UPDATED_ARTISTS
+    ARTIST_DETAILS,
+    UPDATED_ARTISTS
 } from "../_actions/artpieces-actions";
 
 const artistReducer = (state = {"data":[]}, action) => {

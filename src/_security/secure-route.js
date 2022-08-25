@@ -1,8 +1,6 @@
 import {useEffect, useState} from "react";
-import {Navigate} from "react-router-dom";
-import {profile} from "../_services/auth-service";
 import {useDispatch} from "react-redux";
-import {checkLoggedIn, getProfile} from "../_actions/profile-actions";
+import {checkLoggedIn} from "../_actions/profile-actions";
 
 const SecureRoute = ({children}) => {
     const [currentUser, setCurrentUser] = useState()

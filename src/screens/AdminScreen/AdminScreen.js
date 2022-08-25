@@ -4,13 +4,11 @@ import {useLocation} from "react-router-dom";
 
 import {findAllOffers} from "../../_actions/offers-actions";
 
-import Offers from "../../components/Offers";
 import NavigationTopMenu from "../../components/NavigationTopMenu";
 import NavigationSidebar from "../../components/NavigationSidebar";
-import {findAllUsers, findUserById} from "../../_actions/users-actions";
+import {findAllUsers} from "../../_actions/users-actions";
 import {findAllListings} from "../../_actions/listings-actions";
 import AdminLists from "../../components/AdminLists";
-import {getProfile} from "../../_actions/profile-actions";
 
 const AdminScreen = () => {
 

@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {Provider, useDispatch, useSelector} from "react-redux";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {useLocation, useParams} from "react-router-dom";
 import {artistGeneralSearch, generalSearch} from "../../_actions/artpieces-actions";
 import NavigationTopMenu from "../../components/NavigationTopMenu";
@@ -8,7 +8,6 @@ import ArtistSearchGrid from "../../components/ArtistSearchGrid";
 import PaintingGrid from "../../components/PaintingGrid";
 import EmptySearch from "../../components/Errors/EmptySearch";
 import ComponentHeader from "../../components/ComponentHeader";
-import {findUserById} from "../../_actions/users-actions";
 
 const SearchScreen = () => {
     const {searchTerm} = useParams();

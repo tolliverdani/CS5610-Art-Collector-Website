@@ -5,12 +5,11 @@ const COLLECTIONS_API = API_BASE + "/collection"
 
 export const printCollection = async (user_id) => {
     const request_url = `${COLLECTIONS_API}/${user_id}`;
-    const response = axios.get(request_url);
+    await axios.get(request_url);
 }
 
 export const updateCollection = async (collection) => {
-    const response = axios.put(COLLECTIONS_API, collection);
-    return response;
+    return axios.put(COLLECTIONS_API, collection);
 }
 
 export const findUserCollection = async (user_id) => {

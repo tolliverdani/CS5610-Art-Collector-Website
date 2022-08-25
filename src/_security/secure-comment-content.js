@@ -1,7 +1,5 @@
 import {useEffect, useState} from "react";
 import {profile} from "../_services/auth-service";
-import {useParams} from "react-router-dom";
-import {useSelector} from "react-redux";
 
 const SecureCommentContent = ({children, user_id}) => {
 

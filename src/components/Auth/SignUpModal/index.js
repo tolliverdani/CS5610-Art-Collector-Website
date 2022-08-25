@@ -1,5 +1,5 @@
 import React, {useRef, useState} from "react";
-import {Modal, Button, Form} from 'react-bootstrap';
+import {Modal, Form} from 'react-bootstrap';
 import {useNavigate} from "react-router-dom";
 import {signup} from "../../../_services/auth-service";
 

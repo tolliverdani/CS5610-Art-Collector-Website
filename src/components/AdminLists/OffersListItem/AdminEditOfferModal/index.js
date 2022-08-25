@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useState} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
 
 import {useDispatch} from "react-redux";

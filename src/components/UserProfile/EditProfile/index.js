@@ -1,9 +1,8 @@
-import React, {useRef, useState} from "react";
+import React, {useState} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
 import {useNavigate} from "react-router-dom";
 import {updateProfile} from "../../../_actions/users-actions";
-import {useDispatch, useSelector} from "react-redux";
-import {getProfile} from "../../../_actions/profile-actions";
+import {useDispatch} from "react-redux";
 
 // Borrowed HEAVILY from here: https://react-bootstrap.github.io/components/modal/
 

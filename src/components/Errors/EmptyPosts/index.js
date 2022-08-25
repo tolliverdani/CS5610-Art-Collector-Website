@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom";
 import React from "react";
 import LogInModal from "../../Auth/LoginModalButton";
 import UnsecuredContent from "../../../_security/unsecured-content";
