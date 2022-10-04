@@ -11,4 +11,4 @@ For our final project, @nziegler87 and I worked together to create a website for
 
 # Final Submission
 
-COMING SOON
+![Art Bubble Homepage](https://user-images.githubusercontent.com/35873945/193837901-71928f20-6e0f-4d32-b2df-02dec3edaa39.jpg)
