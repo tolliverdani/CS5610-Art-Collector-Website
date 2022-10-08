@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = (process.env.REACT_APP_API_BASE || 'https://web-dev-art-server.herokuapp.com/');
+const API_BASE = (process.env.REACT_APP_API_BASE || 'http://localhost:4000/api');
 
 export const deleteOffer = async (offer_id) => {
     const request_url = `${API_BASE}/offers/${offer_id}`
