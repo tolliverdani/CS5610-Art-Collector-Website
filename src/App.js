@@ -88,7 +88,7 @@ function App() {
                                    }/>
                             <Route path="profile"
                                    element={
-                                       <SecureRoute>
+                                       <SecureRoute children={this}>
                                            <CurrentUserProfileScreen/>
                                        </SecureRoute>
                                    }/>
