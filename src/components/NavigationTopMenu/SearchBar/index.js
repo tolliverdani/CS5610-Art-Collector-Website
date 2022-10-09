@@ -14,9 +14,9 @@ const SearchBar = () => {
                            update_input(e.target.value);}}
                        onKeyPress={(e) => {
                             if (e.key === 'Enter') window.location.href = (`/search/${input_value}`)}}/>
-                <Link to={`/search/${input_value}`}>
+                <a href={`/search/${input_value}`}>
                     <i className={`fas fa-search text-muted`}/>
-                </Link>
+                </a>
             </div>
         </div>
     );
