@@ -26,7 +26,7 @@ const SecureProfileContent = ({children, profile_id}) => {
     useEffect(() => {
         // eslint-disable-line react-hooks/exhaustive-deps
         check()
-    })
+    },[])
 
     if (currentUser) {
         return children
