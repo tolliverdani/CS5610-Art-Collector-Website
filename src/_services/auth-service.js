@@ -11,7 +11,7 @@ const api = axios.create({
 export const signup = async (email, username, password) => {
     try {
         const request_url = `${SECURITY_API}/signup`
-        const response = await api.post(request_url, {email, username, password})
+        const response = await api.post(request_url, {email, username, password},{withCredentials:true})
         if (response.status === 200) {
             return response.data;
         }
@@ -23,7 +23,7 @@ export const signup = async (email, username, password) => {
 export const login = async (email, password) => {
     try {
         const request_url = `${SECURITY_API}/login`
-        const response = await api.post(request_url, {email, password})
+        const response = await api.post(request_url, {email, password},{withCredentials:true})
         if (response.status === 200) {
             return response.data;
         }
@@ -35,7 +35,7 @@ export const login = async (email, password) => {
 export const logout = async () => {
     try {
         const request_url = `${SECURITY_API}/logout`
-        const response = await api.post(request_url)
+        const response = await api.post(request_url,{withCredentials:true})
         if (response.status === 200) {
             return response.data;
         }
@@ -47,7 +47,7 @@ export const logout = async () => {
 export const profile = async () => {
     try {
         const request_url = `${SECURITY_API}/profile`
-        const response = await api.post(request_url)
+        const response = await api.post(request_url,{withCredentials:true})
         if (response.status === 200) {
             return response.data;
         } else {
@@ -61,7 +61,7 @@ export const profile = async () => {
 export const update = async (user) => {
     try {
         const request_url = `${SECURITY_API}/profile`
-        const response = await api.put(request_url, user)
+        const response = await api.put(request_url, user,{withCredentials:true})
         if (response.status === 200) {
             return response.data;
         }

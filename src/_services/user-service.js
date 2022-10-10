@@ -7,12 +7,12 @@ const api = axios.create({
 });
 
 export const deleteUser = async (user_id) => {
-    const response = await axios.delete(`${API_BASE}/users/${user_id}`);
+    const response = await axios.delete(`${API_BASE}/users/${user_id}`,{withCredentials:true});
     return response.status
 }
 
 export const updateUser = async (user) => {
-    const response = await api.put(`${API_BASE}/users`, user);
+    const response = await api.put(`${API_BASE}/users`, user,{withCredentials:true});
     if ( response.status === 200 ){
         return response.data;
     }
@@ -20,7 +20,7 @@ export const updateUser = async (user) => {
 
 export const findAllUsers = async () => {
     const request_url = `${API_BASE}/users`
-    const response = await axios.get(request_url)
+    const response = await axios.get(request_url,{withCredentials:true})
     if (response.status === 200 ) {
         return response.data
     } else {
@@ -30,7 +30,7 @@ export const findAllUsers = async () => {
 
 export const findUserById = async (user_id) => {
     const request_url = `${API_BASE}/users/${user_id}`
-    const response = await axios.get(request_url)
+    const response = await axios.get(request_url,{withCredentials:true})
     if (response.status === 200 ) {
         return response.data
     } else {
