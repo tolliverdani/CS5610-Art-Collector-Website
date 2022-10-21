@@ -23,7 +23,7 @@ const SecureRoute = ({children}) => {
     useEffect(() => {
         // eslint-disable-line react-hooks/exhaustive-deps
         check()
-    }, [])
+    },[])
 
     if (currentUser) {
         return children

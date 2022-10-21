@@ -4,7 +4,7 @@ const API_BASE = (process.env.REACT_APP_API_BASE || 'http://localhost:4000/api')
 
 export const deleteOffer = async (offer_id) => {
     const request_url = `${API_BASE}/offers/${offer_id}`
-    const response = await axios.delete(request_url);
+    const response = await axios.delete(request_url,{withCredentials:true});
     if ( response.status === 200 ){
         return 200
     }
@@ -12,7 +12,7 @@ export const deleteOffer = async (offer_id) => {
 
 export const findAllOffers = async () => {
     const request_url = `${API_BASE}/offers`
-    const response = await axios.get(request_url);
+    const response = await axios.get(request_url,{withCredentials:true});
     if ( response.status === 200 ) {
         return response.data
     } else {
@@ -22,7 +22,7 @@ export const findAllOffers = async () => {
 
 export const findOffersByPaintingId = async (painting_id) => {
     const request_url = `${API_BASE}/offers/byPaintingId/${painting_id}`
-    const response = await axios.get(request_url)
+    const response = await axios.get(request_url,{withCredentials:true})
     if ( response.status === 200 ){
         return response.data;
     } else {
@@ -32,7 +32,7 @@ export const findOffersByPaintingId = async (painting_id) => {
 
 export const findOffersByArtistId = async (artist_id) => {
     const request_url = `${API_BASE}/offers/byPaintingId/${artist_id}`
-    const response = await axios.get(request_url)
+    const response = await axios.get(request_url,{withCredentials:true})
     if ( response.status === 200 ){
         return response.data;
     } else {
@@ -42,7 +42,7 @@ export const findOffersByArtistId = async (artist_id) => {
 
 export const findOffersBySellerId = async (owner_id) => {
     const request_url = `${API_BASE}/offers/bySellerId/${owner_id}`
-    const response = await axios.get(request_url);
+    const response = await axios.get(request_url,{withCredentials:true});
     if ( response.status === 200 ){
         return response.data;
     } else {
@@ -52,7 +52,7 @@ export const findOffersBySellerId = async (owner_id) => {
 
 export const findOffersByBidderId = async (user_id) => {
     const request_url = `${API_BASE}/offers/byBidderId/${user_id}`
-    const response = await axios.get(request_url);
+    const response = await axios.get(request_url,{withCredentials:true});
     if ( response.status === 200 ){
         return response.data;
     } else {
@@ -63,7 +63,7 @@ export const findOffersByBidderId = async (user_id) => {
 export const createOffer = async (offer) => {
     // note that the date field is not provided here and will be set on the server for consistency
     const request_url = `${API_BASE}/offers`
-    const response = await axios.post(request_url, offer);
+    const response = await axios.post(request_url, offer,{withCredentials:true});
     if ( response.status === 200 ){
         return response.data;
     } else {
@@ -75,7 +75,7 @@ export const createOffer = async (offer) => {
 export const approveOffer = async (offer) => {
     // note that the date field is not provided here and will be set on the server for consistency
     const request_url = `${API_BASE}/offers/approve`
-    const response = await axios.put(request_url, offer);
+    const response = await axios.put(request_url, offer,{withCredentials:true});
     if ( response.status === 200 ){
         // this should be just a {transaction_id: string}
         return response.data;
@@ -88,7 +88,7 @@ export const approveOffer = async (offer) => {
 export const rejectOffer = async (offer) => {
     // note that the date field is not provided here and will be set on the server for consistency
     const request_url = `${API_BASE}/offers/reject`
-    const response = await axios.put(request_url, offer);
+    const response = await axios.put(request_url, offer,{withCredentials:true});
     if ( response.status === 200 ){
         return 200;
     } else {
@@ -98,7 +98,7 @@ export const rejectOffer = async (offer) => {
 
 export const updateOffer = async (offer) => {
     const request_url = `${API_BASE}/offers`
-    const response = await axios.put(request_url, offer);
+    const response = await axios.put(request_url, offer,{withCredentials:true});
     if ( response.status === 200 ){
         return 200;
     } else {

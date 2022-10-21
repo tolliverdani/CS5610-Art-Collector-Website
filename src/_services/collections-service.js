@@ -9,12 +9,12 @@ export const printCollection = async (user_id) => {
 }
 
 export const updateCollection = async (collection) => {
-    return axios.put(COLLECTIONS_API, collection);
+    return axios.put(COLLECTIONS_API, collection,{withCredentials:true});
 }
 
 export const findUserCollection = async (user_id) => {
     const request_url = `${COLLECTIONS_API}/${user_id}`
-    const response = await axios.get(request_url);
+    const response = await axios.get(request_url,{withCredentials:true});
     if (response.status === 200) {
         return response.data
     }
@@ -22,7 +22,7 @@ export const findUserCollection = async (user_id) => {
 
 export const addToUserCollection = async (user_id, item_id) => {
     const request_url = `${COLLECTIONS_API}/add/${user_id}`
-    const response = await axios.put(request_url, item_id);
+    const response = await axios.put(request_url, item_id,{withCredentials:true});
     if (response.status === 200) {
         return response.data
     }
@@ -30,7 +30,7 @@ export const addToUserCollection = async (user_id, item_id) => {
 
 export const removeFromUserCollection = async (user_id, item_id) => {
     const request_url = `${COLLECTIONS_API}/remove/${user_id}/${item_id}`
-    const response = await axios.delete(request_url);
+    const response = await axios.delete(request_url,{withCredentials:true});
     if (response.status === 200) {
         return response.status
     }

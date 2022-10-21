@@ -4,7 +4,7 @@ const UPDATED_ARTISTS = "/artists/updated"
 
 export const updatedArtists = async () => {
     const request_url = `${API_BASE}${UPDATED_ARTISTS}`
-    const response = await axios.get(request_url)
+    const response = await axios.get(request_url,{withCredentials:true})
     if (response.status === 200) {
         return response.data;
     } else {

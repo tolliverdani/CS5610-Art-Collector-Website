@@ -10,7 +10,7 @@ const UPDATED_ARTISTS = "/artists/updated"
 
 export const artistGeneralSearch = async(search_terms) => {
     const request_url = `${API_BASE}${PAINTING_GENERAL_SEARCH}/${search_terms}`;
-    const response = await axios.get(request_url);
+    const response = await axios.get(request_url,{withCredentials:true});
     if ( response.status === 200 ){
         return response.data;
     } else {
@@ -24,7 +24,7 @@ export const findPaintingsByArtist = async (artist_id, pagination_token = "") =>
     // If an optional pagination token has been added, append it to the url
     if ( pagination_token !== "" ) request_url = request_url + `/${pagination_token}`
 
-    const response = await axios.get(request_url)
+    const response = await axios.get(request_url,{withCredentials:true})
     if ( response.status === 200 ) {
         return response.data;
     } else {
@@ -34,7 +34,7 @@ export const findPaintingsByArtist = async (artist_id, pagination_token = "") =>
 
 export const generalSearch = async (search_terms) => {
     const request_url = `${API_BASE}${ARTIST_GENERAL_SEARCH}/${search_terms}`
-    const response = await axios.get(request_url)
+    const response = await axios.get(request_url,{withCredentials:true})
     if ( response.status === 200 ) {
         return response.data;
     } else {
@@ -45,7 +45,7 @@ export const generalSearch = async (search_terms) => {
 export const artistDetails = async (search_terms) => {
     const request_url = `${API_BASE}${ARTIST_DETAILS}/${search_terms}`
     try {
-        const response = await axios.get(request_url)
+        const response = await axios.get(request_url,{withCredentials:true})
         if ( response.status === 200 ) {
             return response.data;
         } else {
@@ -59,7 +59,7 @@ export const artistDetails = async (search_terms) => {
 
 export const paintingDetails = async (painting_id) => {
     const request_url = `${API_BASE}${PAINTING_DETAILS}/${painting_id}`
-    const response = await axios.get(request_url)
+    const response = await axios.get(request_url,{withCredentials:true})
     // The styles, media, and genre all come back as lists, so adding a ", " for visual effect
     const response_as_string = {...response.data, media: response.data.media.join(", "), genres: response.data.genres.join(", "), styles: response.data.styles.join(", ")}
     if ( response.status === 200 ) {
@@ -71,7 +71,7 @@ export const paintingDetails = async (painting_id) => {
 
 export const randomPaintings = async () => {
     const request_url = `${API_BASE}${RANDOM_PAINTINGS}`
-    const response = await axios.get(request_url)
+    const response = await axios.get(request_url,{withCredentials:true})
     if ( response.status === 200 ) {
         return response.data;
     } else {
@@ -81,7 +81,7 @@ export const randomPaintings = async () => {
 
 export const updatedArtists = async () => {
     const request_url = `${API_BASE}${UPDATED_ARTISTS}`
-    const response = await axios.get(request_url)
+    const response = await axios.get(request_url,{withCredentials:true})
     if (response.status === 200) {
         return response.data;
     } else {

@@ -82,15 +82,15 @@ function App() {
                                    element={<ArtistProfileScreen/>}/>
                             <Route path="art/:painting_id"
                                    element={<ArtPieceScreen/>}/>
+                            <Route path="profile"
+                                   element={
+                                       <SecureRoute children={this}>
+                                           <CurrentUserProfileScreen/>
+                                       </SecureRoute>
+                                   }/>
                             <Route path="profile/:profileId"
                                    element={
                                        <UserProfileScreen/>
-                                   }/>
-                            <Route path="profile"
-                                   element={
-                                       <SecureRoute>
-                                           <CurrentUserProfileScreen/>
-                                       </SecureRoute>
                                    }/>
                             <Route index
                                    element={

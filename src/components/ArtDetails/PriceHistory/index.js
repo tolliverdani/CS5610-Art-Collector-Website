@@ -13,23 +13,23 @@ const PriceHistory = ({sales_history, offers_history}) => {
         }]
     }
 
-    const noData:
-        Series[] = [
-        {
-            label: "Sale",
-            data: [{
-                date: new Date(),
-                price: 0,
-            }]
-        },
-        {
-            label: "Offer",
-            data: [{
-                date: new Date(),
-                price: 0,
-            }]
-        }
-    ]
+    // const noData:
+    //     Series[] = [
+    //     {
+    //         label: "Sale",
+    //         data: [{
+    //             date: new Date(),
+    //             price: 0,
+    //         }]
+    //     },
+    //     {
+    //         label: "Offer",
+    //         data: [{
+    //             date: new Date(),
+    //             price: 0,
+    //         }]
+    //     }
+    // ]
 
     const data:
         Series[] = [
